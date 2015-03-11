@@ -39,7 +39,7 @@ private:
 protected:
     // Pobiera Wspolrzedne widzianego zwierzeta
     Coordinates getCoordinates(const Animal*) const;
-    // Zwraca vector z widzianymi zwierzetami
+    // Zwraca liste z widzianymi zwierzetami
     std::list<const Animal*> getAnimalsInSight() const;
     
 public:
