@@ -8,13 +8,15 @@
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
-#include <vector>
+#include <list>
 
 /* Uwaga
  * Klasa C powinna dostarczyc interfejs do "zabicia"
  * Jednostki. CheckStatus moze np. zabic jednostke this,
- * albo zabic inna jednostke. Wtedy wysyla do Controllera wiadomosc
- * o tym, a Controller usuwa podane jednostki. 
+ * albo zabic inna jednostke. Wtedy wysyla do Modelu wiadomosc
+ * o tym, a Model usuwa podane jednostki. Nastepnie wywoluje metode
+ * Controllera, ktora ma go powiadomic o koniecznosci usuniecia jednostki
+ * z ekranu.
  */
 
 struct Coordinates{
@@ -38,12 +40,18 @@ protected:
     // Pobiera Wspolrzedne widzianego zwierzeta
     Coordinates getCoordinates(const Animal*) const;
     // Zwraca vector z widzianymi zwierzetami
-    std::vector<const Animal*> getAnimalsInSight() const;
+    std::list<const Animal*> getAnimalsInSight() const;
     
 public:
-    Animal();
-    Animal(const Animal& orig);
-    virtual ~Animal() = 0;
+    // Animal bedzie przyjmowalo okreslone wartosci srednie i odchylenia std
+    // Przy powolaniu do zycia. Nastepnie z nich wygeneruje
+    // Wartosci losowe zgodnie z rozkladem gaussa.
+//    Animal(...);
+    // Zadnego klonowania. To wbrew naturze, barbarzynco.
+    Animal(const Animal& orig) = delete; 
+    // Za bardzo nie ma czego usuwac, wiec pusty destruktor
+    // Usuwaniem z ekranu zajmuje sie Cotroller.
+    virtual ~Animal() { }
     // Aktualizuje status jednostki
     virtual void updatetatus() = 0;
     // Zwraca wspolrzedne(do wyswietlania przez V)
