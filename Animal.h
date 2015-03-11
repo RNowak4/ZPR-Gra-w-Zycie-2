@@ -48,6 +48,7 @@ public:
     // Wartosci losowe zgodnie z rozkladem gaussa.
 //    Animal(...);
     // Zadnego klonowania. To wbrew naturze, barbarzynco.
+    // W sumie klonowanie moze sie przydac przy kopiowaniu calego modelu
     Animal(const Animal& orig) = delete; 
     // Za bardzo nie ma czego usuwac, wiec pusty destruktor
     // Usuwaniem z ekranu zajmuje sie Cotroller.
