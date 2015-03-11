@@ -49,6 +49,8 @@ public:
     // Animal bedzie przyjmowalo okreslone wartosci srednie i odchylenia std
     // Przy powolaniu do zycia. Nastepnie z nich wygeneruje
     // Wartosci losowe zgodnie z rozkladem gaussa.
+    //!! Ogolnie mysle, ze takie wartosci ogolne powinny byc stale
+    // i dopiero atrybuty by je modyfikowaly
 //    Animal(...);
     // Zadnego klonowania. To wbrew naturze, barbarzynco.
     // W sumie klonowanie moze sie przydac przy kopiowaniu calego modelu
