@@ -8,7 +8,8 @@
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
-#include <list>
+#include <vector>
+#include "Attributes.h"
 
 /* Uwaga
  * Klasa C powinna dostarczyc interfejs do "zabicia"
@@ -19,8 +20,12 @@
  * z ekranu.
  */
 
+class Attributes;
+
 struct Coordinates{
     double x,y;
+    // Tymczasowo, zeby nie wywalalo errorow
+    Coordinates() { }
     Coordinates(double X, double Y) : x(X), y(Y) { }
 };
 
@@ -28,23 +33,19 @@ struct Coordinates{
  */
 class Animal {
 private:
-    double strength_;
-    double speed_;
-    double fertility_; // Plodnosc
-    double hunger_; // Glod?
-    double sightLen_; // Jak daleko jednostka widzi = wys trojkata
-    unsigned lifeLen_; // Dlugosc zycia wyrazona w ustalonych kwantach czasu
-    // Tak jak w ukladzie wspolrzednych kartezjanskich 2D.
-    unsigned sightRad_; 
+    Attributes attributes_;
+    std::vector<Attributes> ancestorAttributes;
     Coordinates coordinates_;
     
 protected:
     // Pobiera Wspolrzedne widzianego zwierzeta
     Coordinates getCoordinates(const Animal*) const;
     // Zwraca liste z widzianymi zwierzetami
-    std::list<const Animal*> getAnimalsInSight() const;
+    std::vector<const Animal*> getAnimalsInSight() const;
     
 public:
+    // Tymczasowo, zeby nie wywalalo errorow
+    Animal() { };
     // Animal bedzie przyjmowalo okreslone wartosci srednie i odchylenia std
     // Przy powolaniu do zycia. Nastepnie z nich wygeneruje
     // Wartosci losowe zgodnie z rozkladem gaussa.
@@ -58,7 +59,7 @@ public:
     // Aktualizuje status jednostki
     virtual void updatetatus() = 0;
     // Zwraca wspolrzedne(do wyswietlania przez V)
-    Coordinates returnCoodtinates() const { return coordinates_; }
+//    Coordinates returnCoodtinates() const { return coordinates_; }
 };
 
 #endif	/* ANIMAL_H */
