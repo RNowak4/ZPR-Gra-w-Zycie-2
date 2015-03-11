@@ -24,6 +24,8 @@ struct Coordinates{
     Coordinates(double X, double Y) : x(X), y(Y) { }
 };
 
+/* Zrobic klase atrybutow!
+ */
 class Animal {
 private:
     double strength_;
