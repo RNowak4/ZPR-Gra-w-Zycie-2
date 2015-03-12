@@ -29,25 +29,15 @@ private:
     // Atrybuty w danej chwili
     Attributes tmpAttributes_;
     std::vector<Attributes> ancestorsAttributes_;
+    // Cechy. W sensie bierne atrybuty
+    std::vector<const Trait*> traits_;
     Coordinates coordinates_;
     
 protected:
-    // Pobiera Wspolrzedne widzianego zwierzeta
-    Coordinates getCoordinates(const Animal*) const;
-    // Zwraca liste z widzianymi zwierzetami
-    std::vector<const Animal*> getAnimalsInSight() const;
     
 public:
     // Tymczasowo, zeby nie wywalalo errorow
     Animal() { };
-    // Animal bedzie przyjmowalo okreslone wartosci srednie i odchylenia std
-    // Przy powolaniu do zycia. Nastepnie z nich wygeneruje
-    // Wartosci losowe zgodnie z rozkladem gaussa.
-    //!! Ogolnie mysle, ze takie wartosci ogolne powinny byc stale
-    // i dopiero atrybuty by je modyfikowaly
-//    Animal(...);
-    // Zadnego klonowania. To wbrew naturze, barbarzynco.
-    // W sumie klonowanie moze sie przydac przy kopiowaniu calego modelu
     Animal(const Animal& orig) = delete; 
     // Za bardzo nie ma czego usuwac, wiec pusty destruktor
     // Usuwaniem z ekranu zajmuje sie Cotroller.
@@ -58,6 +48,8 @@ public:
     virtual void doMove() = 0;
     // Zwraca wspolrzedne(do wyswietlania przez V)
     Coordinates returnCoodtinates() const { return coordinates_; }
+    // Usuwa ceche, np potrzebe snu.
+    void deleteTrait(const Trait*);
 };
 
 #endif	/* ANIMAL_H */

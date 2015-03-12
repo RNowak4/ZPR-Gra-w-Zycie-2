@@ -10,22 +10,24 @@
 
 /* TODO:
  *-Kazda bierna cecha bedzie reprezentowana 
- * przez staly singleton. Pobierane beda jej atrybuty
- * i dodawane do atrybutow tymczasowych.
+ * przez stala strukture Trait.
  * 
- *-Dodac standardowe wartosci dla atrybutow w pliku *cpp.
+ *- Utworzyc nowa klase Trait dla cech. 
  */
 
+#include "Trait.h"
 #include <chrono>
 #include <random>
 #include <vector>
 
 class Attributes {
 private:
+    double anger_;
+    double needForSleep_;
     double strength_;
     double speed_;
     double fertility_; // Plodnosc
-    double hunger_; // Glod?
+    double hunger_; 
     double sightLen_; // Jak daleko jednostka widzi = wys trojkata
     unsigned lifeLen_; // Dlugosc zycia wyrazona w ustalonych kwantach czasu
     // Kat widzenia
@@ -36,14 +38,14 @@ private:
     
 public:
     Attributes();
-    Attributes(const Attributes& orig);
+    Attributes(const Attributes&);
     virtual ~Attributes();
     // Funkcja, ktora generuje atrybuty na podstawie przodkow
     void inheritAttributes(std::vector<Attributes>);
     // Przekopiowanie atrybutow
     Attributes& operator=(const Attributes&);
     //Dodanie atrybutow do istniejacych
-    Attributes& operator+(const Attributes&) const;
+    Attributes& operator+(const Trait&) const;
 };
 
 #endif	/* ATTRIBUTES_H */

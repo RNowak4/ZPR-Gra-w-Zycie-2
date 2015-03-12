@@ -32,11 +32,15 @@ public:
     Model(const Model& orig);
     ~Model();
     // Funkcja, ktora tworzy zwierze powstale w wyniku kopulacji
-    Animal* createAnimal(const Animal*, const Animal*);
+    void createAnimal(const Animal*, const Animal*);
     // Update'uje statusy wszystkich jednostek
     void updateAnimalsStatuses();
     // Pobiera vector zwierzat w obrebie trojkata
-    std::vector<const Animal*> getAnimalsInTriangle(double, double, double) const;
+    // Parametry to wysokosc i kat
+    std::vector<const Animal*> getAnimalsInTriangle(double, double) const;
+    // Pobiera Wspolrzedne widzianego zwierzeta
+    Coordinates getCoordinates(const Animal*) const;
+    
     
 private:
     // Funkcja, ktora tworzy zwierze o losowych
