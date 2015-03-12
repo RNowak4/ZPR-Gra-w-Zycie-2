@@ -24,6 +24,8 @@ struct Coordinates{
  */
 class Animal {
 private:
+    // Zmienna, ktora okresla, gdzie patrzy dana jednostka
+    double lookingRad_;
     Attributes attributes_;
     std::vector<Attributes> ancestorAttributes;
     Coordinates coordinates_;

@@ -20,7 +20,7 @@ private:
     double hunger_; // Glod?
     double sightLen_; // Jak daleko jednostka widzi = wys trojkata
     unsigned lifeLen_; // Dlugosc zycia wyrazona w ustalonych kwantach czasu
-    // Tak jak w ukladzie wspolrzednych kartezjanskich 2D.
+    // Kat widzenia
     unsigned sightRad_; 
     // Funkcja, ktora generuje atrybuty zupelnie losowo, bez przodkow
     // Wywolana, gdy vector atrybutow jest pusty
