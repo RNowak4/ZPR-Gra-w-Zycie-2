@@ -7,14 +7,13 @@ void View::drawCreature()
 {
 	
 }
+/*
 void View::getController(Controller*)
 {
 	
 }
-void View::getModel(Model*)
-{
-	
-}
+*/
+
 void View::drawCreatureInfo()
 {
 	

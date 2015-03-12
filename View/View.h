@@ -3,18 +3,18 @@
 * @brief Class that is responsible for drawing things on the screen.
 *
 * @author Damian Mazurkiewicz
-*
 */
-#ifndef VIEW
-#define VIEW
+#ifndef VIEW_H
+#define VIEW_H
 
+#include "SdlHelper.h"
 
 class View
 {
 public:
 	View() : mySdl_(), controller_(nullptr) {}
 	void drawCreature();
-	void getController(Controller*);
+	//void getController(Controller*); 
 	void drawCreatureInfo();
 	void drawBackground();
 	/**
@@ -23,9 +23,9 @@ public:
 	*/
 	void run();
 private:
-	SDLHelper mySDL_;	///< Class that manages the SLD library and provides an useful interface for it.
-	Controller* controller_;
+	SdlHelper mySDL_;	
+	//Controller* controller_;
 
 };
 
-#endif //VIEW
+#endif //VIEW_H
