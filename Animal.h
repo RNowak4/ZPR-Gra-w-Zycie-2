@@ -11,15 +11,6 @@
 #include <vector>
 #include "Attributes.h"
 
-/* Uwaga
- * Klasa C powinna dostarczyc interfejs do "zabicia"
- * Jednostki. CheckStatus moze np. zabic jednostke this,
- * albo zabic inna jednostke. Wtedy wysyla do Modelu wiadomosc
- * o tym, a Model usuwa podane jednostki. Nastepnie wywoluje metode
- * Controllera, ktora ma go powiadomic o koniecznosci usuniecia jednostki
- * z ekranu.
- */
-
 class Attributes;
 
 struct Coordinates{
@@ -61,7 +52,7 @@ public:
     // Aktualizuje status jednostki
     virtual void updatetatus() = 0;
     // Zwraca wspolrzedne(do wyswietlania przez V)
-//    Coordinates returnCoodtinates() const { return coordinates_; }
+    Coordinates returnCoodtinates() const { return coordinates_; }
 };
 
 #endif	/* ANIMAL_H */
