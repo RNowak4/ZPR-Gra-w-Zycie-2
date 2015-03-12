@@ -12,6 +12,10 @@
  * na jednostki, ktore znajduja sie w obrebie zadanego kwadratu lub okregu.
  */
 
+/* Do implementacji w Modelu:
+ * 
+ */
+
 int main(int argc, char** argv) {
     
     return 0;
