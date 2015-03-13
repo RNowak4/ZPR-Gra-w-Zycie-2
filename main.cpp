@@ -11,9 +11,9 @@
  */
 
 int main(int argc, char** argv) {
-	Model model();
-	Controller controller();
-	View view();
+	Model model;
+	Controller controller;
+	View view;
 	
 	system("PAUSE");
 	return 0;
