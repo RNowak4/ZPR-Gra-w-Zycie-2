@@ -9,10 +9,11 @@
 #define CONTROLLER_H
 
 class View;
+class Model;
 
 class Controller
 {
+	void getModel(Model*);
 	
-}
-
+};
 #endif  //CONTROLLER_H

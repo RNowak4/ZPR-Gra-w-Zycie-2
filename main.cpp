@@ -1,4 +1,6 @@
-#include "Model.h"
+#include "Model/Model.h"
+#include "Controller/Controller.h"
+#include "View/View.h"
 
 /* Do implementacji w Controllerze:
  * 
@@ -9,6 +11,10 @@
  */
 
 int main(int argc, char** argv) {
-    
-    return 0;
+	Model model();
+	Controller controller();
+	View view();
+	
+	system("PAUSE");
+	return 0;
 }
