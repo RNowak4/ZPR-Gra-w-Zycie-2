@@ -11,7 +11,7 @@
  */
 
 int main(int argc, char** argv) {
-	Model model;
+	//Model model; // Tego nie mogê bo Radek nie zdefiniowa³ konstruktora (Pozdro) xD
 	Controller controller;
 	View view;
 	

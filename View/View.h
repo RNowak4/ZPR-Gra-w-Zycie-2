@@ -8,6 +8,7 @@
 #define VIEW_H
 
 #include "SdlHelper.h"
+class Controller;
 
 class View
 {
