@@ -16,3 +16,7 @@ Attributes::Attributes(const Attributes& orig) {
 Attributes::~Attributes() {
 }
 
+void Attributes::inheritAttributes(const Attributes&, const Attributes&,
+              const std::vector<Attributes>&, const std::vector<Attributes>&) {
+    //TODO dziedziczenie
+}

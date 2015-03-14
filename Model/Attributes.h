@@ -20,7 +20,8 @@
 #include <random>
 #include <vector>
 
-class Attributes {
+/* Zwykle atrybuty jednostki. To beda te bazowe, jak i tmp*/
+class Attributes: public Trait {
 private:
     double anger_;
     double needForSleep_;
@@ -41,7 +42,8 @@ public:
     Attributes(const Attributes&);
     virtual ~Attributes();
     // Funkcja, ktora generuje atrybuty na podstawie przodkow
-    void inheritAttributes(std::vector<Attributes>);
+    void inheritAttributes(const Attributes&, const Attributes&,
+              const std::vector<Attributes>&, const std::vector<Attributes>&);
     // Przekopiowanie atrybutow
     Attributes& operator=(const Attributes&);
     //Dodanie atrybutow do istniejacych

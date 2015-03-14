@@ -6,3 +6,11 @@
  */
 
 #include "Animal.h"
+
+//TODO: Uzupelnic ten konstrktor
+Animal::Animal(const Animal* mother, const Animal* father) {
+    baseAttributes_.inheritAttributes(mother->getBaseAttributes(), 
+                                      father->getBaseAttributes(),
+                                      mother->getAncestorAttributes(),
+                                      father->getAncestorAttributes());    
+}

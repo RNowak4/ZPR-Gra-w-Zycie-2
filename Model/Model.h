@@ -9,6 +9,7 @@
 #define	MODEL_H
 
 #include "Animal.h"
+#include "Herbivore.h"
 #include <list>
 
 /* Model bedzie wysylal cale paczki danych
@@ -32,20 +33,24 @@ public:
     Model(const Model& orig);
     ~Model();
     // Funkcja, ktora tworzy zwierze powstale w wyniku kopulacji
-    void createAnimal(const Animal*, const Animal*);
+    void createHerbivore(const Animal*, const Animal*);
+    // Funkcja, ktora tworzy zwierze powstale w wyniku kopulacji
+    void createCarnivore(const Animal*, const Animal*);
     // Update'uje statusy wszystkich jednostek
     void updateAnimalsStatuses();
     // Pobiera vector zwierzat w obrebie trojkata
     // Parametry to wysokosc i kat
     std::vector<const Animal*> getAnimalsInTriangle(double, double) const;
     // Pobiera Wspolrzedne widzianego zwierzeta
-    Coordinates getCoordinates(const Animal*) const;
-    
+    Coordinates getCoordinates(const Animal*) const;    
     
 private:
-    // Funkcja, ktora tworzy zwierze o losowych
-    Animal* createAnimal();
+    // Tworzy herrbivore na podstawie dziecka
+    void createHerbivore(const Animal*);
+    // Tworzy carnivore na podstawie dziecka
+    void createCarnivore(const Animal*);
     std::list<Animal*> animalList_;
+    Attributes mixAttributes(const Animal*, const Animal*);
 };
 
 #endif	/* MODEL_H */

@@ -19,9 +19,11 @@ public:
     Carnivore();
     Carnivore(const Carnivore& orig);
     virtual ~Carnivore();
+    virtual void updatetatus();
+    virtual void doMove();
+    
 private:
 
 };
 
 #endif	/* CARNIVORE_H */
-

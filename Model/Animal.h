@@ -20,6 +20,11 @@ struct Coordinates{
     Coordinates(double X, double Y) : x(X), y(Y) { }
 };
 
+enum Sex {
+    FEMALE,
+    MALE
+};
+
 class Animal {
 private:
     // Zmienna, ktora okresla, gdzie patrzy dana jednostka
@@ -32,13 +37,15 @@ private:
     // Cechy. W sensie bierne atrybuty
     std::vector<const Trait*> traits_;
     Coordinates coordinates_;
+    const Sex sex_;
     
 protected:
     
 public:
     // Tymczasowo, zeby nie wywalalo errorow
-    Animal() { };
-    Animal(const Animal& orig) = delete; 
+    Animal(): sex_(MALE) { };
+    Animal(const Animal& orig); 
+    Animal(const Animal*, const Animal*);
     // Za bardzo nie ma czego usuwac, wiec pusty destruktor
     // Usuwaniem z ekranu zajmuje sie Cotroller.
     virtual ~Animal() { }
@@ -50,6 +57,8 @@ public:
     Coordinates returnCoodtinates() const { return coordinates_; }
     // Usuwa ceche, np potrzebe snu.
     void deleteTrait(const Trait*);
+    const Attributes& getBaseAttributes() const { return baseAttributes_; }
+    const std::vector<Attributes>& getAncestorAttributes() const { return ancestorsAttributes_; }
 };
 
 #endif	/* ANIMAL_H */

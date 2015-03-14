@@ -15,8 +15,11 @@ private:
     
 public:
     Herbivore();
+    Herbivore(const Animal*, const Animal*);
     Herbivore(const Herbivore& orig);
     virtual ~Herbivore();
+    virtual void updatetatus();
+    virtual void doMove();
 };
 
 #endif	/* HERBIVORE_H */
