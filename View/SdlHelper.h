@@ -18,7 +18,7 @@ public:
 	*@brief Initialize SDL, create window  and renderer
 	*@return true if succes, otherwise false
 	*/
-	bool init();
+	void init();
 	/**
 	*@function loadMedia
 	*@brief loads all textures  and fonts
@@ -27,10 +27,11 @@ public:
 	bool loadMedia();
 
 	void close();
-	
+	SDL_Renderer * renderer_;
+
 private:
 	SDL_Window * window_;
-	SDL_Renderer * renderer_;
+
 };
 
 #endif SDLHELPER_H

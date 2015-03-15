@@ -13,9 +13,9 @@ class Controller;
 class View
 {
 public:
-	View() : mySDL_(nullptr), controller_(nullptr) {}
+	View() : mySDL_(), controller_(nullptr), event_() {}
 	void drawCreature();
-	void getController(Controller*); 
+	void getController(Controller*);
 	void drawCreatureInfo();
 	void drawBackground();
 	/**
@@ -24,9 +24,9 @@ public:
 	*/
 	void run();
 private:
-	SdlHelper* mySDL_;	
+	SdlHelper mySDL_;
 	Controller* controller_;
-
+	SDL_Event event_;
 };
 
 #endif //VIEW_H

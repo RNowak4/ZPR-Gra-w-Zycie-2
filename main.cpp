@@ -15,6 +15,7 @@ int main(int argc, char** argv) {
         // Pozdro 600. Juz dziala
 	Controller controller;
 	View view;
+	view.run();
 	
 	system("PAUSE");
 	return 0;
