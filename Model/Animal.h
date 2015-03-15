@@ -36,7 +36,7 @@ private:
     Attributes tmpAttributes_;
     std::vector<Attributes> ancestorsAttributes_;
     // Cechy. W sensie bierne atrybuty
-    std::vector<const Trait*> traits_;
+    std::vector<const SituationTraits*> traits_;
     Coordinates coordinates_;
     const Sex sex_;
     

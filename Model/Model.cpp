@@ -18,13 +18,13 @@ Model::~Model() {
 //Model(const Model& orig) {
 //}
 
-Coordinates Model::getCoordinates(const Animal* animalToGet) const {
+Animal::Coordinates Model::getCoordinates(const Animal* animalToGet) const {
     for(auto animalPtr : animalList_) {
         if(animalPtr == animalToGet) 
             return animalPtr->returnCoodtinates();
         
     // Albo niech rzuca wyjatek.
-    return Coordinates(0.0, 0.0);
+    return Animal::Coordinates(0.0, 0.0);
     }
 }
 

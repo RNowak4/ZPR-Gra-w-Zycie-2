@@ -42,7 +42,7 @@ public:
     // Parametry to wysokosc i kat
     std::vector<const Animal*> getAnimalsInTriangle(double, double) const;
     // Pobiera Wspolrzedne widzianego zwierzeta
-    Coordinates getCoordinates(const Animal*) const;    
+    Animal::Coordinates getCoordinates(const Animal*) const;    
     
 private:
     // Tworzy herrbivore na podstawie dziecka
