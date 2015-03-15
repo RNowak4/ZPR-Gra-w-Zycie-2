@@ -16,7 +16,7 @@ Carnivore::Carnivore(const Carnivore& orig) {
 Carnivore::~Carnivore() {
 }
 
-void Carnivore::updatetatus() {
+void Carnivore::updateStatus() {
 }
 
 void Carnivore::doMove() {

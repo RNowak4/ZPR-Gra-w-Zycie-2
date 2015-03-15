@@ -19,7 +19,7 @@ public:
     Carnivore();
     Carnivore(const Carnivore& orig);
     virtual ~Carnivore();
-    virtual void updatetatus();
+    virtual void updateStatus();
     virtual void doMove();
     
 private:

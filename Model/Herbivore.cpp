@@ -20,7 +20,7 @@ Herbivore::Herbivore(const Herbivore& orig) {
 Herbivore::~Herbivore() {
 }
 
-void Herbivore::updatetatus() {
+void Herbivore::updateStatus() {
 }
 
 void Herbivore::doMove() {
