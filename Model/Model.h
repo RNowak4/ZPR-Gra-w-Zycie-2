@@ -14,8 +14,8 @@
 
 /* Model bedzie wysylal cale paczki danych
  * do Controllera. Pewnie w postaci listy.
- */
-/* Do implementacji w Modelu:
+ *
+ * Do implementacji w Modelu:
  *-Klasa Controllera powinna dostarczyc interfejs do "zabicia"
  * Jednostki. UpdateStatus moze np. zabic jednostke this,
  * albo zabic inna jednostke. Wtedy wysyla do Modelu wiadomosc

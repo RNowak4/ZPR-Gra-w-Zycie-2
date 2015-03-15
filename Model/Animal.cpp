@@ -12,5 +12,5 @@ Animal::Animal(const Animal* mother, const Animal* father) {
     baseAttributes_.inheritAttributes(mother->getBaseAttributes(), 
                                       father->getBaseAttributes(),
                                       mother->getAncestorAttributes(),
-                                      father->getAncestorAttributes());    
+                                      father->getAncestorAttributes());
 }

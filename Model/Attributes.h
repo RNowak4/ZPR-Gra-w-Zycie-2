@@ -46,8 +46,6 @@ public:
               const std::vector<Attributes>&, const std::vector<Attributes>&);
     // Przekopiowanie atrybutow
     Attributes& operator=(const Attributes&);
-    //Dodanie atrybutow do istniejacych
-    Attributes& operator+(const Trait&) const;
 };
 
 #endif	/* ATTRIBUTES_H */

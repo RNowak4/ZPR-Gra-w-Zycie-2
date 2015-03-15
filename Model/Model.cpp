@@ -30,7 +30,7 @@ Animal::Coordinates Model::getCoordinates(const Animal* animalToGet) const {
 
 void Model::updateAnimalsStatuses() {
     for(auto animalPtr : animalList_) {
-        animalPtr->updatetatus();
+        animalPtr->updateStatus();
     }
 }
 

@@ -38,20 +38,20 @@ private:
     // Cechy. W sensie bierne atrybuty
     std::vector<const SituationTraits*> traits_;
     Coordinates coordinates_;
-    const Sex sex_;
+    Sex sex_;
     
 protected:
     
 public:
     // Tymczasowo, zeby nie wywalalo errorow
-    Animal(): sex_(MALE) { };
+    Animal() { };
     Animal(const Animal& orig); 
     Animal(const Animal*, const Animal*);
     // Za bardzo nie ma czego usuwac, wiec pusty destruktor
     // Usuwaniem z ekranu zajmuje sie Cotroller.
     virtual ~Animal() { }
     // Aktualizuje status jednostki
-    virtual void updatetatus() = 0;
+    virtual void updateStatus() = 0;
     // Porusz sie
     virtual void doMove() = 0;
     // Zwraca wspolrzedne(do wyswietlania przez V)

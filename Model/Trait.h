@@ -12,7 +12,9 @@
  * TODO: funkcje zwracajace strukture;
  */
 
-struct Modifiers {
+class Trait {
+public:
+    struct Modifiers {
     double anger_;
     double needForSleep_;
     double strength_;
@@ -23,8 +25,7 @@ struct Modifiers {
     unsigned lifeLen_; 
     unsigned sightRad_;
 };
-
-class Trait {
+    
 protected:
     Modifiers modifiers_;
     
