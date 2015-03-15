@@ -13,6 +13,8 @@
 
 class Attributes;
 
+class Animal {
+public:
 struct Coordinates{
     double x,y;
     // Tymczasowo, zeby nie wywalalo errorow
@@ -24,8 +26,7 @@ enum Sex {
     FEMALE,
     MALE
 };
-
-class Animal {
+    
 private:
     // Zmienna, ktora okresla, gdzie patrzy dana jednostka
     double lookingRad_;
