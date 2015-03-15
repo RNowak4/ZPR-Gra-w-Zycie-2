@@ -13,7 +13,7 @@ Animal::Animal(const Animal* mother, const Animal* father) : sex_(MALE) {
 		father->getBaseAttributes(),
 		mother->getAncestorAttributes(),
 		father->getAncestorAttributes()
-		);
+            );
 
 
 }
