@@ -16,6 +16,7 @@
  */
 
 #include "Trait.h"
+#include "SituationTraits.h"
 #include <chrono>
 #include <random>
 #include <vector>

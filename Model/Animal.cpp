@@ -8,9 +8,14 @@
 #include "Animal.h"
 
 //TODO: Uzupelnic ten konstrktor
-Animal::Animal(const Animal* mother, const Animal* father) {
-    baseAttributes_.inheritAttributes(mother->getBaseAttributes(), 
-                                      father->getBaseAttributes(),
-                                      mother->getAncestorAttributes(),
-                                      father->getAncestorAttributes());
+//Damian tu doda³ trochê sexu by siê kompilowa³o! xd
+Animal::Animal(const Animal* mother, const Animal* father) : sex_(MALE) {
+	baseAttributes_.inheritAttributes(mother->getBaseAttributes(),
+		father->getBaseAttributes(),
+		mother->getAncestorAttributes(),
+		father->getAncestorAttributes()
+		);
+
+
 }
+

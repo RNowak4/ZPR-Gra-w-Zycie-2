@@ -47,6 +47,8 @@ void Model::createHerbivore(const Animal* father, const Animal* mother) {
     animalList_.push_back(newHerbivore);
 }
 
+/*
 std::vector<const Animal*> Model::getAnimalsInTriangle(double, double) const {
     //TODO: ...
 }
+*/
