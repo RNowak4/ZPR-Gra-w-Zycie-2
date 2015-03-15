@@ -7,8 +7,8 @@
 
 #include "Model.h"
 
-//Model::Model() {
-//}
+Model::Model() {
+}
 
 Model::~Model() {
     for(auto animalPtr : animalList_)

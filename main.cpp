@@ -11,7 +11,8 @@
  */
 
 int main(int argc, char** argv) {
-	//Model model; // Tego nie mogê bo Radek nie zdefiniowa³ konstruktora (Pozdro) xD
+	Model model; // Tego nie mogï¿½ bo Radek nie zdefiniowaï¿½ konstruktora (Pozdro) xD
+        // Pozdro 600. Juz dziala
 	Controller controller;
 	View view;
 	
