@@ -8,7 +8,14 @@
 #ifndef SDLHELPER_H
 #define SDLHELPER_H
 
+#ifdef _WIN32
 #include <SDL.h>
+#else
+//define it for a Unix machine
+#include <SDL2/SDL.h>
+#endif
+
+
 
 class SdlHelper
 {
