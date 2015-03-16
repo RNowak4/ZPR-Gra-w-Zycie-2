@@ -28,7 +28,7 @@ private:
 	Assets& operator=(const Assets&);
 	~Assets();
 
-	SDL_Texture* backround_;
+	SDL_Texture* grass_;
 	SDL_Texture* herbivore_;
 	SDL_Texture* carnivore_;
 	//TTF_Font* font_;
