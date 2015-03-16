@@ -11,10 +11,15 @@
  */
 
 int main(int argc, char** argv) {
-	Model model; // Tego nie mog� bo Radek nie zdefiniowa� konstruktora (Pozdro) xD
-        // Pozdro 600. Juz dziala
+	
+	Model model; 
 	Controller controller;
 	View view;
+
+	view.getController(&controller);
+	controller.getView(&view);
+	controller.getModel(&model);
+
 	view.run();
 	
 	system("PAUSE");

@@ -21,3 +21,12 @@ void SdlHelper::close()
 	window_ = NULL;
 	SDL_Quit();
 }
+
+void SdlHelper::clearScreen()
+{
+	SDL_RenderClear(renderer_);
+}
+void SdlHelper::renderScreen()
+{
+	SDL_RenderPresent(renderer_);
+}

@@ -3,6 +3,7 @@
 *@author Damian Mazurkiewicz
 */
 #include "View.h"
+#include "controller/Controller.h"
 
 void View::drawCreature()
 {
@@ -27,21 +28,22 @@ void View::drawBackground()
 void View::run()
 {
 	mySDL_.init();
-	bool quit = false;
+	quit_ = false;
 
-	while (!quit)
+	while (!quit_)
 	{
+		mySDL_.clearScreen(); //Clear screen.
 		while (SDL_PollEvent(&event_) != 0)
 		{
-			SDL_RenderClear(mySDL_.renderer_);
-			//User requests quit
-			if (event_.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-			SDL_RenderPresent(mySDL_.renderer_);
+			controller_->handleEvent(&event_);
 		}
+		mySDL_.renderScreen(); // Render screen.
 	}
 
 	mySDL_.close();
+}
+
+void View::quit()
+{
+	quit_ = true;
 }

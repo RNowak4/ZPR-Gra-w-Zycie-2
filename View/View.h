@@ -10,10 +10,15 @@
 #include "SdlHelper.h"
 class Controller;
 
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
+const int MAP_WIDTH = 1000;
+const int MAP_HEIGHT = 1000;
+
 class View
 {
 public:
-	View() : mySDL_(), controller_(nullptr), event_() {}
+	View() : mySDL_(), controller_(nullptr), event_(),quit_(false) {}
 	void drawCreature();
 	void getController(Controller*);
 	void drawCreatureInfo();
@@ -23,10 +28,12 @@ public:
 	*@return void
 	*/
 	void run();
+	void quit();
 private:
 	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;
+	bool quit_;
 };
 
 #endif //VIEW_H

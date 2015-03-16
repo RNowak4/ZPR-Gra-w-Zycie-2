@@ -15,8 +15,6 @@
 #include <SDL2/SDL.h>
 #endif
 
-
-
 class SdlHelper
 {
 public:
@@ -32,12 +30,14 @@ public:
 	*@return true if succes, otherwise false
 	*/
 	bool loadMedia();
-
 	void close();
-	SDL_Renderer * renderer_;
+
+	void clearScreen();
+	void renderScreen();
 
 private:
 	SDL_Window * window_;
+	SDL_Renderer * renderer_;
 
 };
 
