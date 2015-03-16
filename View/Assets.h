@@ -7,6 +7,9 @@
 
 #ifndef ASSETS_H
 #define ASSETS_H
+
+#include "SdlHelper.h"
+
 class Assets
 {
 public:
@@ -16,11 +19,19 @@ public:
 		return instance;
 	}
 
+	void loadAssets();
+	void disposeAssets();
+	
 private:
 	Assets();
 	Assets(const Assets&);
 	Assets& operator=(const Assets&);
 	~Assets();
+
+	SDL_Texture* backround_;
+	SDL_Texture* herbivore_;
+	SDL_Texture* carnivore_;
+	//TTF_Font* font_;
 };
 
 

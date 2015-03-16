@@ -23,7 +23,7 @@ void Controller::handleEvent(SDL_Event* e)
 
 void Controller::update(boost::timer& t)
 {
-	if (t.elapsed() > 1)
+	if (t.elapsed() >= 1)
 	{
 		std::cout << "ciekawostka : minela sekunda!" << std::endl;
 		t.restart();
