@@ -20,3 +20,12 @@ void Controller::handleEvent(SDL_Event* e)
 		std::cout << "no elo." << std::endl;
 	}
 }
+
+void Controller::update(boost::timer& t)
+{
+	if (t.elapsed() > 1)
+	{
+		std::cout << "ciekawostka : minela sekunda!" << std::endl;
+		t.restart();
+	}
+}

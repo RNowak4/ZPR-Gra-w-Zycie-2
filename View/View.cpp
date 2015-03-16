@@ -27,7 +27,12 @@ void View::drawBackground()
 
 void View::run()
 {
+	
 	mySDL_.init();
+	mySDL_.setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	mySDL_.setWindowTitle("Gra w Zycie.");
+	boost::timer timer; 
+
 	quit_ = false;
 
 	while (!quit_)
@@ -37,6 +42,8 @@ void View::run()
 		{
 			controller_->handleEvent(&event_);
 		}
+		controller_->update(timer);
+
 		mySDL_.renderScreen(); // Render screen.
 	}
 

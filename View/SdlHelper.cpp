@@ -8,9 +8,9 @@ void SdlHelper::init()
 	return;
 }
 
-bool SdlHelper::loadMedia()
+void SdlHelper::loadMedia()
 {
-	return true;
+	
 }
 
 void SdlHelper::close()
@@ -29,4 +29,12 @@ void SdlHelper::clearScreen()
 void SdlHelper::renderScreen()
 {
 	SDL_RenderPresent(renderer_);
+}
+void SdlHelper::setWindowSize(int width, int height)
+{
+	SDL_SetWindowSize(window_, width, height);
+}
+void SdlHelper::setWindowTitle(const std::string & title)
+{
+	SDL_SetWindowTitle(window_, title.c_str());
 }

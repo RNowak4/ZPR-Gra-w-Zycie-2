@@ -14,6 +14,8 @@
 //define it for a Unix machine
 #include <SDL2/SDL.h>
 #endif
+#include <iostream>
+#include <vector>
 
 class SdlHelper
 {
@@ -29,15 +31,18 @@ public:
 	*@brief loads all textures  and fonts
 	*@return true if succes, otherwise false
 	*/
-	bool loadMedia();
+	void loadMedia();
 	void close();
 
+	void setWindowSize(int width,int height);
+	void setWindowTitle(const std::string & title);
 	void clearScreen();
 	void renderScreen();
 
 private:
-	SDL_Window * window_;
-	SDL_Renderer * renderer_;
+	SDL_Window *window_;
+	SDL_Renderer *renderer_;
+	std::vector<SDL_Texture*> textures_;
 
 };
 

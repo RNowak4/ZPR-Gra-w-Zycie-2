@@ -8,6 +8,8 @@
 #define VIEW_H
 
 #include "SdlHelper.h"
+#include <boost/timer.hpp>
+
 class Controller;
 
 const int SCREEN_WIDTH = 640;

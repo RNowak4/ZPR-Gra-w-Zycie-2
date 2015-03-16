@@ -14,6 +14,7 @@
 //define it for a Unix machine
 #include <SDL2/SDL.h>
 #endif
+#include <boost/timer.hpp>
 
 class View;
 class Model;
@@ -28,6 +29,7 @@ public:
 	*This funtion takes SDL_Event captured by View, and takes proper action depending on the event.
 	*/
 	void handleEvent(SDL_Event*);
+	void update(boost::timer&);
 private:
 	Model* model_;
 	View* view_;
