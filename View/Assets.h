@@ -22,6 +22,7 @@ public:
 	void loadAssets(const SdlHelper&);
 	void disposeAssets();
 
+	//List of all necessary images and fonts
 	SDL_Texture* grass_;
 	SDL_Texture* herbivore_;
 	SDL_Texture* carnivore_;

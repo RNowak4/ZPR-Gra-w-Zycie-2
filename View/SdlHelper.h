@@ -47,8 +47,6 @@ public:
 private:
 	SDL_Window *window_;
 	SDL_Renderer *renderer_;
-	std::vector<SDL_Texture*> textures_;
-
 	friend class Assets;
 
 };

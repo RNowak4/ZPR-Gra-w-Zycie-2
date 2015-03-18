@@ -28,16 +28,29 @@ void View::drawCreatureInfo()
 }
 void View::drawBackground()
 {
-	mySDL_.draw(Assets::getInstance().grass_, 0, 0);
+	int backgrWidth; int backgrHeight;
+	SDL_QueryTexture(Assets::getInstance().grass_, nullptr, nullptr, &backgrWidth, &backgrHeight);
+
+	int xOffset = - (camera_.x%backgrWidth);
+	int yOffset = -(camera_.y%backgrHeight);
+
+	for (int i = xOffset; i < camera_.w; i += backgrWidth)
+	{
+		for (int j = yOffset; j < camera_.h; j += backgrHeight)
+		{
+			mySDL_.draw(Assets::getInstance().grass_, i, j);
+		}
+	}
 }
 
 void View::run()
 {
 	
-	mySDL_.init();
+	mySDL_.init();	///Initialize new SDL Screen with renderer
 	mySDL_.setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	mySDL_.setWindowTitle("Gra w Zycie.");
-	Assets::getInstance().loadAssets(mySDL_);
+
+	Assets::getInstance().loadAssets(mySDL_); ///Loading all neccesary files.
 
 	boost::timer timer; 
 
@@ -50,17 +63,26 @@ void View::run()
 		{
 			controller_->handleEvent(&event_);
 		}
-		controller_->update(timer);
+
 		drawBackground();
+		controller_->update(timer);
+		
+	
 
 		mySDL_.renderScreen(); // Render screen.
 	}
 
-	Assets::getInstance().disposeAssets();
+	Assets::getInstance().disposeAssets(); ///Disposing  all loaded files.
 	mySDL_.close();
 }
 
 void View::quit()
 {
 	quit_ = true;
+}
+
+void View::moveCamera(int x, int y)
+{
+	camera_.x += x;
+	camera_.y += y;
 }

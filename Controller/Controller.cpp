@@ -14,10 +14,30 @@ void Controller::getView(View* v)
 
 void Controller::handleEvent(SDL_Event* e)
 {
-	if (e->type == SDL_QUIT)
+	switch (e->type)
 	{
+	case SDL_QUIT:
 		view_->quit();
 		std::cout << "no elo." << std::endl;
+		break;
+	
+	case SDL_KEYDOWN:	
+		switch (e->key.keysym.sym)
+		{
+		case SDLK_LEFT:
+			view_->moveCamera(-10,0);
+			break;
+		case SDLK_RIGHT:
+			view_->moveCamera(10, 0);
+			break;
+		case SDLK_UP:
+			view_->moveCamera(0 ,-10);
+			break;
+		case SDLK_DOWN:
+			view_->moveCamera(0, 10);
+			break;
+		}
+		break;
 	}
 }
 

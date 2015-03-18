@@ -26,6 +26,7 @@ public:
 	void getController(Controller*);
 	void drawCreatureInfo();
 	void drawBackground();
+	void moveCamera(int x, int y);
 	/**
 	*This method executes the main program loop.
 	*@return void
