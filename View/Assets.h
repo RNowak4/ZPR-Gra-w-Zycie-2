@@ -19,8 +19,13 @@ public:
 		return instance;
 	}
 
-	void loadAssets();
+	void loadAssets(const SdlHelper&);
 	void disposeAssets();
+
+	SDL_Texture* grass_;
+	SDL_Texture* herbivore_;
+	SDL_Texture* carnivore_;
+
 	
 private:
 	Assets();
@@ -28,9 +33,9 @@ private:
 	Assets& operator=(const Assets&);
 	~Assets();
 
-	SDL_Texture* grass_;
-	SDL_Texture* herbivore_;
-	SDL_Texture* carnivore_;
+	SDL_Texture* loadTexture(const std::string &, const SdlHelper&);
+
+	
 	//TTF_Font* font_;
 };
 

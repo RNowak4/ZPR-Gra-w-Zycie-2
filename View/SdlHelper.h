@@ -10,13 +10,15 @@
 
 #ifdef _WIN32
 #include <SDL.h>
+#include <SDL_image.h>
 #else
 //define it for a Unix machine
 #include <SDL2/SDL.h>
+#include <SDL/SDL_image.h>
 #endif
 #include <iostream>
 #include <vector>
-
+class Assets;
 class SdlHelper
 {
 public:
@@ -36,6 +38,9 @@ public:
 
 	void setWindowSize(int width,int height);
 	void setWindowTitle(const std::string & title);
+	
+	void draw(SDL_Texture*, int x, int y);
+
 	void clearScreen();
 	void renderScreen();
 
@@ -43,6 +48,8 @@ private:
 	SDL_Window *window_;
 	SDL_Renderer *renderer_;
 	std::vector<SDL_Texture*> textures_;
+
+	friend class Assets;
 
 };
 

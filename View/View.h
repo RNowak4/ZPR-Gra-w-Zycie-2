@@ -8,6 +8,7 @@
 #define VIEW_H
 
 #include "SdlHelper.h"
+#include "Assets.h"
 #include <boost/timer.hpp>
 
 class Controller;
@@ -20,7 +21,7 @@ const int MAP_HEIGHT = 1000;
 class View
 {
 public:
-	View() : mySDL_(), controller_(nullptr), event_(),quit_(false) {}
+	View();
 	void drawCreature();
 	void getController(Controller*);
 	void drawCreatureInfo();
@@ -35,7 +36,9 @@ private:
 	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;
+	SDL_Rect camera_;
 	bool quit_;
+	
 };
 
 #endif //VIEW_H
