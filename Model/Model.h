@@ -11,6 +11,7 @@
 #include "Animal.h"
 #include "Herbivore.h"
 #include <list>
+#include <vector>
 
 /* Model bedzie wysylal cale paczki danych
  * do Controllera. Pewnie w postaci listy.
@@ -38,11 +39,15 @@ public:
     void createCarnivore(const Animal*, const Animal*);
     // Update'uje statusy wszystkich jednostek
     void updateAnimalsStatuses();
+    //Updatuje pozycje zwierzat na mapie.
+    void updateAnimalsPosition();
     // Pobiera vector zwierzat w obrebie trojkata
     // Parametry to wysokosc i kat
     std::vector<const Animal*> getAnimalsInTriangle(double, double) const;
     // Pobiera Wspolrzedne widzianego zwierzeta
     Animal::Coordinates getCoordinates(const Animal*) const;    
+    
+    std::vector<const Animal::LocationData*> getAnimalsLocationData();
     
 private:
     // Tworzy herrbivore na podstawie dziecka

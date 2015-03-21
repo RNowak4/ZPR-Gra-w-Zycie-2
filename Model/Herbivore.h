@@ -15,11 +15,13 @@ private:
     
 public:
     Herbivore();
+    Herbivore(double, double);
     Herbivore(const Animal*, const Animal*);
     Herbivore(const Herbivore& orig);
     virtual ~Herbivore();
     virtual void updateStatus();
     virtual void doMove();
+    virtual bool isDangerous() { return false; }
 };
 
 #endif	/* HERBIVORE_H */

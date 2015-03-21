@@ -17,10 +17,12 @@
 class Carnivore: public Animal {
 public:
     Carnivore();
+    Carnivore(double, double);
     Carnivore(const Carnivore& orig);
     virtual ~Carnivore();
     virtual void updateStatus();
     virtual void doMove();
+    virtual bool isDangerous() { return true; } //nie zawsze bedzie true
     
 private:
 

@@ -11,10 +11,14 @@
 Animal::Animal(const Animal* mother, const Animal* father) : sex_(MALE) {
 	baseAttributes_.inheritAttributes(mother->getBaseAttributes(),
 		father->getBaseAttributes(),
-		mother->getAncestorAttributes(),
-		father->getAncestorAttributes()
+		mother->getAncestorTraits(),
+		father->getAncestorTraits()
 		);
 
 
 }
 
+Animal::Animal(double x, double y) {
+    locationData_.coordinates_.x = x;
+    locationData_.coordinates_.y = y;
+}

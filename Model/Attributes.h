@@ -24,16 +24,6 @@
 /* Zwykle atrybuty jednostki. To beda te bazowe, jak i tmp*/
 class Attributes: public Trait {
 private:
-    double anger_;
-    double needForSleep_;
-    double strength_;
-    double speed_;
-    double fertility_; // Plodnosc
-    double hunger_; 
-    double sightLen_; // Jak daleko jednostka widzi = wys trojkata
-    unsigned lifeLen_; // Dlugosc zycia wyrazona w ustalonych kwantach czasu
-    // Kat widzenia
-    unsigned sightRad_; 
     // Funkcja, ktora generuje atrybuty zupelnie losowo, bez przodkow
     // Wywolana, gdy vector atrybutow jest pusty
     void generateAttributes();
@@ -41,12 +31,12 @@ private:
 public:
     Attributes();
     Attributes(const Attributes&);
-    virtual ~Attributes();
-    // Funkcja, ktora generuje atrybuty na podstawie przodkow
-    void inheritAttributes(const Attributes&, const Attributes&,
-              const std::vector<Attributes>&, const std::vector<Attributes>&);
     // Przekopiowanie atrybutow
     Attributes& operator=(const Attributes&);
+    virtual ~Attributes();
+    // Funkcja, ktora generuje atrybuty na podstawie przodkow
+    void inheritAttributes(const Trait&, const Trait&,
+              const std::vector<Trait>&, const std::vector<Trait>&);
 };
 
 #endif	/* ATTRIBUTES_H */

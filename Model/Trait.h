@@ -15,16 +15,16 @@
 class Trait {
 public:
     struct Modifiers {
-    double anger_;
-    double needForSleep_;
-    double strength_;
-    double speed_;
-    double fertility_; 
-    double hunger_; 
-    double sightLen_;
-    unsigned lifeLen_; 
-    unsigned sightRad_;
-};
+        double anger_;
+        double needForSleep_;
+        double strength_;
+        double speed_;
+        double fertility_; 
+        double hunger_; 
+        double sightLen_;
+        unsigned lifeLen_; 
+        unsigned sightRad_;
+    };
     
 protected:
     Modifiers modifiers_;
@@ -44,6 +44,7 @@ public:
         modifiers_.lifeLen_ = lifeLen;
         modifiers_.sightRad_ = sightRad;
     }
+    const Modifiers& returnModifiers() const { return modifiers_; }
 };
 
 #endif	/* TRAIT_H */

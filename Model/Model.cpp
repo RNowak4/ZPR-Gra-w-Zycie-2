@@ -34,17 +34,31 @@ void Model::updateAnimalsStatuses() {
     }
 }
 
+void Model::updateAnimalsPosition() {
+    for(auto animal : animalList_)
+        animal->doMove();
+}
+
 void Model::createHerbivore(const Animal* father, const Animal* mother) {
     if(father == nullptr && mother == nullptr) {
         // Tutaj nie tworzymy dziecka, a juz doroslego osobnika
-        animalList_.push_back(new Herbivore());
+//        animalList_.push_back(new Herbivore());
     }
     else if(father == nullptr || mother == nullptr) {
         // Rzucic wyjatkiem
     }
     
-    Animal* newHerbivore = new Herbivore(father, mother);
+    Animal* newHerbivore;
+//  newHerbivore = new Herbivore(father, mother);
     animalList_.push_back(newHerbivore);
+}
+
+std::vector<const Animal::LocationData*> Model::getAnimalsLocationData() {
+    std::vector<const Animal::LocationData*> vectorToReturn;
+    for(auto animal : animalList_) 
+        vectorToReturn.push_back(&animal->returnLocationData());
+    
+    return vectorToReturn;
 }
 
 /*

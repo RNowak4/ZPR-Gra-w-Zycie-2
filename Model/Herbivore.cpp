@@ -10,6 +10,10 @@
 Herbivore::Herbivore() {
 }
 
+Herbivore::Herbivore(double x, double y):Animal(x,y) {
+    
+}
+
 Herbivore::Herbivore(const Animal* father, const Animal* mother):
                         Animal(father,mother) {
 }
