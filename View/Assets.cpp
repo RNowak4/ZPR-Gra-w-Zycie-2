@@ -3,9 +3,11 @@
 void Assets::loadAssets(const SdlHelper& helper)
 {
 	grass_ = loadTexture("Assets/grass.png",helper);
+	carnivore_ = loadTexture("Assets/carnivore.png",helper);
 }
 void Assets::disposeAssets()
 {
+	SDL_DestroyTexture(carnivore_);
 	SDL_DestroyTexture(grass_);
 }
 

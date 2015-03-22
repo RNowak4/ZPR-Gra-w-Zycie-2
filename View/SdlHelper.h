@@ -39,7 +39,7 @@ public:
 	void setWindowSize(int width,int height);
 	void setWindowTitle(const std::string & title);
 	
-	void draw(SDL_Texture*, int x, int y);
+	void draw(SDL_Rect* camera, SDL_Texture* tex, int x, int y, bool centered = false, double angle = 0, Uint8 alpha = 255);
 
 	void clearScreen();
 	void renderScreen();

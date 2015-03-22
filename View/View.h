@@ -9,6 +9,7 @@
 
 #include "SdlHelper.h"
 #include "Assets.h"
+#include "Model/Model.h"
 #include <boost/timer.hpp>
 
 class Controller;
@@ -22,8 +23,9 @@ class View
 {
 public:
 	View();
-	void drawCreature();
+	void drawCreature(const Animal::LocationData &);
 	void getController(Controller*);
+	const SDL_Rect & getCamera();
 	void drawCreatureInfo();
 	void drawBackground();
 	void moveCamera(int x, int y);

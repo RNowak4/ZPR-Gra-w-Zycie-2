@@ -3,6 +3,7 @@
 *@author Damian Mazurkiewicz
 */
 #include "View.h"
+#include  "Model/Model.h"
 #include "controller/Controller.h"
 View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 {
@@ -11,9 +12,12 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 	camera_.w = SCREEN_WIDTH; 
 	camera_.h = SCREEN_HEIGHT;
 }
-void View::drawCreature()
+void View::drawCreature(const Animal::LocationData& data)
 {
-	
+	//Dla testów zrobione na szybko obracanie siê potworków.
+	static double angle = 0;
+	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, angle, 150);
+	angle += 0.01;
 }
 
 void View::getController(Controller* controller)
@@ -38,7 +42,7 @@ void View::drawBackground()
 	{
 		for (int j = yOffset; j < camera_.h; j += backgrHeight)
 		{
-			mySDL_.draw(Assets::getInstance().grass_, i, j);
+			mySDL_.draw(nullptr, Assets::getInstance().grass_, i, j);
 		}
 	}
 }
@@ -55,6 +59,8 @@ void View::run()
 	boost::timer timer; 
 
 	quit_ = false;
+
+	
 
 	while (!quit_)
 	{
@@ -85,4 +91,9 @@ void View::moveCamera(int x, int y)
 {
 	camera_.x += x;
 	camera_.y += y;
+}
+
+const SDL_Rect & View::getCamera()
+{
+	return camera_;
 }
