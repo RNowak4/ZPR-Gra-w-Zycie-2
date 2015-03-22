@@ -27,6 +27,11 @@ public:
         MALE
     };
     
+    enum AnimalType {
+        CARNIVORE,
+        HERBIVORE,
+    };
+    
     struct LocationData {
         Coordinates coordinates_;
         // Zmienna, ktora okresla, gdzie patrzy dana jednostka
@@ -35,9 +40,11 @@ public:
         double lookingRad_;
         // Zmienna, ktora okresla zasieg widzenia
         double sightLen_;
+        // Potrzebne do wyswietlenia
+        AnimalType animalType_;
     };
 
-private:
+protected:
     // Atrybuty bazowe dla jednostki(te beda dziedziczone)
     Attributes baseAttributes_;
     // Atrybuty w danej chwili

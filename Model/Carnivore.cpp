@@ -11,6 +11,7 @@ Carnivore::Carnivore() {
 }
 
 Carnivore::Carnivore(unsigned x, unsigned y): Animal(x,y) {
+    locationData_.animalType_ = CARNIVORE;
 }
 
 Carnivore::Carnivore(const Carnivore& orig) {

@@ -11,7 +11,7 @@ Herbivore::Herbivore() {
 }
 
 Herbivore::Herbivore(unsigned x, unsigned y): Animal(x,y) {
-    
+    locationData_.animalType_ = HERBIVORE;
 }
 
 Herbivore::Herbivore(const Animal* father, const Animal* mother):
