@@ -16,10 +16,10 @@ class Attributes;
 class Animal {
 public:
     struct Coordinates {
-        double x,y;
+        unsigned x,y;
         // Tymczasowo, zeby nie wywalalo errorow
         Coordinates() { }
-        Coordinates(double X, double Y) : x(X), y(Y) { }
+        Coordinates(unsigned X, unsigned Y) : x(X), y(Y) { }
     };
 
     enum Sex {
@@ -54,7 +54,7 @@ public:
     // Tymczasowo, zeby nie wywalalo errorow
     Animal() { };
     Animal(const Animal& orig); 
-    Animal(double, double);
+    Animal(unsigned, unsigned);
     Animal(const Animal*, const Animal*);
     // Za bardzo nie ma czego usuwac, wiec pusty destruktor
     // Usuwaniem z ekranu zajmuje sie Cotroller.

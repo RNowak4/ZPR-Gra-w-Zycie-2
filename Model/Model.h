@@ -37,6 +37,12 @@ public:
     void createHerbivore(const Animal*, const Animal*);
     // Funkcja, ktora tworzy zwierze powstale w wyniku kopulacji
     void createCarnivore(const Animal*, const Animal*);
+    
+    // Funkcje do szybkiego wyswietlania! Tylko w ramach testow!
+    void createCarnivore(unsigned, unsigned);
+    void createHerbivore(unsigned, unsigned);
+    //*********************************************************
+    
     // Update'uje statusy wszystkich jednostek
     void updateAnimalsStatuses();
     //Updatuje pozycje zwierzat na mapie.

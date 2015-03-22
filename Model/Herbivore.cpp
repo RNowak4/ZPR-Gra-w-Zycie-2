@@ -10,7 +10,7 @@
 Herbivore::Herbivore() {
 }
 
-Herbivore::Herbivore(double x, double y):Animal(x,y) {
+Herbivore::Herbivore(unsigned x, unsigned y): Animal(x,y) {
     
 }
 

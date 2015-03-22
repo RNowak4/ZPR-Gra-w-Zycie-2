@@ -18,7 +18,7 @@ Animal::Animal(const Animal* mother, const Animal* father) : sex_(MALE) {
 
 }
 
-Animal::Animal(double x, double y) {
+Animal::Animal(unsigned x, unsigned y) {
     locationData_.coordinates_.x = x;
     locationData_.coordinates_.y = y;
 }

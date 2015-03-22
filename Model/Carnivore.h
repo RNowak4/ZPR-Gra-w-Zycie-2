@@ -17,7 +17,7 @@
 class Carnivore: public Animal {
 public:
     Carnivore();
-    Carnivore(double, double);
+    Carnivore(unsigned, unsigned);
     Carnivore(const Carnivore& orig);
     virtual ~Carnivore();
     virtual void updateStatus();

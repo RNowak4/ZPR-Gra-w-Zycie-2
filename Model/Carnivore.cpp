@@ -10,7 +10,7 @@
 Carnivore::Carnivore() {
 }
 
-Carnivore::Carnivore(double x, double y):Animal(x,y) {
+Carnivore::Carnivore(unsigned x, unsigned y): Animal(x,y) {
 }
 
 Carnivore::Carnivore(const Carnivore& orig) {

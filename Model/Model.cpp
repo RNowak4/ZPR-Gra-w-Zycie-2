@@ -6,6 +6,7 @@
  */
 
 #include "Model.h"
+#include "Carnivore.h"
 
 Model::Model() {
 }
@@ -66,3 +67,15 @@ std::vector<const Animal*> Model::getAnimalsInTriangle(double, double) const {
     //TODO: ...
 }
 */
+
+
+// FUNKCJE DO TESTOW !!!
+void Model::createCarnivore(unsigned x, unsigned y) {
+    animalList_.push_back(new Carnivore(x,y));
+}
+
+void Model::createHerbivore(unsigned x, unsigned y) {   
+    animalList_.push_back(new Herbivore(x,y));
+}
+
+/*****************************************/

@@ -15,7 +15,7 @@ private:
     
 public:
     Herbivore();
-    Herbivore(double, double);
+    Herbivore(unsigned, unsigned);
     Herbivore(const Animal*, const Animal*);
     Herbivore(const Herbivore& orig);
     virtual ~Herbivore();
