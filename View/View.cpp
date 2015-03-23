@@ -17,7 +17,7 @@ void View::drawCreature(const Animal::LocationData& data)
 	//Dla testów zrobione na szybko obracanie siê potworków.
 	static double angle = 0;
 	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, angle, 150);
-	angle += 0.01;
+	angle += 0.1;
 }
 
 void View::getController(Controller* controller)
@@ -57,6 +57,8 @@ void View::run()
 	Assets::getInstance().loadAssets(mySDL_); ///Loading all neccesary files.
 
 	boost::timer timer; 
+	boost::timer frameTimer; //It counts how long it takes for program to render one frame. 
+	int fpsCounter = 0;
 
 	quit_ = false;
 
@@ -64,18 +66,33 @@ void View::run()
 
 	while (!quit_)
 	{
+		frameTimer.restart();
 		mySDL_.clearScreen(); //Clear screen.
+
+		//Sending input from user to conroller to handle it.
 		while (SDL_PollEvent(&event_) != 0)
 		{
 			controller_->handleEvent(&event_);
 		}
 
 		drawBackground();
+
+		//FPS counter only for testing purposes!
+		++fpsCounter;
+		if (timer.elapsed() >= 1)
+		{
+			std::cout << fpsCounter << " klatek na sekunde!" <<std::endl;
+			fpsCounter = 0;
+		}
+
+
 		controller_->update(timer);
 		
-	
-
 		mySDL_.renderScreen(); // Render screen.
+
+		//We keep the frames per second at relatively fixed amount. 
+		if (frameTimer.elapsed() < FRAME_TIME)
+			SDL_Delay((FRAME_TIME - frameTimer.elapsed()) * 1000);
 	}
 
 	Assets::getInstance().disposeAssets(); ///Disposing  all loaded files.
