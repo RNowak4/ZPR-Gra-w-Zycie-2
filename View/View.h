@@ -20,7 +20,7 @@ const int MAP_WIDTH = 1000;
 const int MAP_HEIGHT = 1000;
 const int FPS = 50;
 const double FRAME_TIME = 1/(double)FPS;
-const Uint32 FRAME_TICKS = (Uint32) (FRAME_TIME * 1000);
+
 
 class View
 {

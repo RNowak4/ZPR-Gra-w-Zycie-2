@@ -57,7 +57,7 @@ void View::run()
 	Assets::getInstance().loadAssets(mySDL_); ///Loading all neccesary files.
 
 	boost::timer timer; 
-	Uint32 startFrame = SDL_GetTicks();//It counts how long it takes for program to render one frame. 
+	boost::timer frameTimer; //It counts how long it takes for program to render one frame. 
 	int fpsCounter = 0;
 
 	quit_ = false;
@@ -66,7 +66,7 @@ void View::run()
 
 	while (!quit_)
 	{
-		startFrame = SDL_GetTicks();
+		frameTimer.restart();
 		mySDL_.clearScreen(); //Clear screen.
 
 		//Sending input from user to conroller to handle it.
@@ -91,8 +91,8 @@ void View::run()
 		mySDL_.renderScreen(); // Render screen.
 
 		//We keep the frames per second at relatively fixed amount. 
-		if (SDL_GetTicks() - startFrame < FRAME_TICKS)
-			SDL_Delay(FRAME_TICKS - SDL_GetTicks() + startFrame);
+		if (frameTimer.elapsed()< FRAME_TIME)
+			SDL_Delay((FRAME_TIME - frameTimer.elapsed())*1000);
 	}
 
 	Assets::getInstance().disposeAssets(); ///Disposing  all loaded files.
