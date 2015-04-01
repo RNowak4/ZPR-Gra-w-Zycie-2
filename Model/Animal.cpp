@@ -7,7 +7,7 @@
 
 #include "Animal.h"
 
-//test
+//33test
 
 //TODO: Uzupelnic ten konstrktor
 Animal::Animal(const Animal* mother, const Animal* father) : sex_(MALE) {
