@@ -7,6 +7,8 @@
 
 #include "Animal.h"
 
+//test
+
 //TODO: Uzupelnic ten konstrktor
 Animal::Animal(const Animal* mother, const Animal* father) : sex_(MALE) {
 	baseAttributes_.inheritAttributes(mother->getBaseAttributes(),
