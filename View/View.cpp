@@ -14,7 +14,7 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 }
 void View::drawCreature(const Animal::LocationData& data)
 {
-	//Dla testów zrobione na szybko obracanie siê potworków.
+	//This code makes no sense it is only for rotating pictures ( testing purposes).
 	static double angle = 0;
 	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, angle, 150);
 	angle += 0.1;
@@ -52,7 +52,7 @@ void View::run()
 	
 	mySDL_.init();	///Initialize new SDL Screen with renderer
 	mySDL_.setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	mySDL_.setWindowTitle("Gra w Zycie.");
+	mySDL_.setWindowTitle("Game of life.");
 
 	Assets::getInstance().loadAssets(mySDL_); ///Loading all neccesary files.
 
@@ -81,7 +81,7 @@ void View::run()
 		++fpsCounter;
 		if (timer.elapsed() >= 1)
 		{
-			std::cout << fpsCounter << " klatek na sekunde!" <<std::endl;
+			std::cout << fpsCounter << " FPS" <<std::endl;
 			fpsCounter = 0;
 		}
 

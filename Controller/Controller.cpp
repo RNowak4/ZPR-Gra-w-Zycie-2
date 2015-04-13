@@ -8,7 +8,7 @@ void Controller::getModel(Model* m)
 {
 	model_ = m;
 
-	//Linijki kodu s³u¿¹ce do testów  wyœwietlania potworków!
+	//Code for testing purposes (rendering creatures).
 	for (int i = 60; i < 640; i += 90)
 		for (int j = 60; j < 480; j += 90)
 			m->createCarnivore(i, j);
@@ -25,7 +25,7 @@ void Controller::handleEvent(SDL_Event* e)
 	{
 	case SDL_QUIT:
 		view_->quit();
-		std::cout << "no elo." << std::endl;
+		std::cout << "Koniec." << std::endl;
 		break;
 	
 	case SDL_KEYDOWN:	
@@ -55,7 +55,7 @@ void Controller::update(boost::timer& t)
 {
 	if (t.elapsed() >= 1)
 	{
-		std::cout << "ciekawostka : minela sekunda!" << std::endl;
+		std::cout << "A second has passed!" << std::endl;
 		t.restart();
 	}
 	model_->updateAnimalsPosition();
