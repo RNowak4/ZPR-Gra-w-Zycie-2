@@ -1,6 +1,6 @@
 #include "Controller.h"
-#include "View/View.h"
-#include "Model/Model.h"
+#include "../View/View.h"
+#include "../Model/Model.h"
 #include <iostream>
 
 
@@ -8,7 +8,7 @@ void Controller::getModel(Model* m)
 {
 	model_ = m;
 
-	//Linijki kodu s³u¿¹ce do testów  wyœwietlania potworków!
+	//Linijki kodu sÂ³uÂ¿Â¹ce do testÃ³w  wyÅ“wietlania potworkÃ³w!
 	for (int i = 60; i < 640; i += 90)
 		for (int j = 60; j < 480; j += 90)
 			m->createCarnivore(i, j);
