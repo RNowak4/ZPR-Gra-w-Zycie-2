@@ -12,7 +12,7 @@ Kompilacja:
 
 1) Linux
 
-Wymagane biblioteki boost_1_57, SDL 2.0.3, SDL_image 2.0
+Wymagane biblioteki SDL 2.0.3, SDL_image 2.0
 
 Kompilacja za pomocą pliku makefile, z głównego katalogu.
 
@@ -31,8 +31,6 @@ SDL_Image: https://www.libsdl.org/projects/SDL_image/ (plik S SDL2_image-devel-2
  
 Pliki dll z bibliotek SDL są już w folderze z projektem.
 
-Boost: 
--pobierz i rozpakuj http://www.boost.org, potem w terminalu  Visual Studio wpisz 'bootstrap', potem 'bjam.exe - build -type = complete' .
--'bjam.exe --build-type=complete install' (Kopiuje nagłówki i biblioteki do katalogu to C:/Boost)
+
 
 
