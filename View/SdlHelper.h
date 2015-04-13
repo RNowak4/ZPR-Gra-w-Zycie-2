@@ -51,4 +51,4 @@ private:
 
 };
 
-#endif SDLHELPER_H
+#endif //SDLHELPER_H
