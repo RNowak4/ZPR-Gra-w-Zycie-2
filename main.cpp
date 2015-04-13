@@ -22,6 +22,5 @@ int main(int argc, char** argv) {
 
 	view.run();
 	
-	system("PAUSE");
 	return 0;
 }
