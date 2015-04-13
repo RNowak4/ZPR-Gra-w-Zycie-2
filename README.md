@@ -16,6 +16,9 @@ Wymagane biblioteki SDL 2.0.3, SDL_image 2.0
 
 Kompilacja za pomocą pliku makefile, z głównego katalogu.
 
+Uwaga: Program zapisuje aktualna wartość FPSow do standardowego wyjścia, więc pod Linuksem, aby zobaczyć, ile FPSów jest
+       w danej chwili, należy program uruchomić z konsoli.
+
 2) Windows Visual C++
 
 Pliki projektu Visual Studio C++ znajdują się w katalogu Windows - Visual Studio.
