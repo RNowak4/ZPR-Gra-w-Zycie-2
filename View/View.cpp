@@ -25,11 +25,17 @@ void View::getController(Controller* controller)
 	controller_ = controller;
 }
 
-
+/**
+*This method will be drawing specific information about creature and its vision range on the screen.
+*/
 void View::drawCreatureInfo()
 {
 	
 }
+
+/**
+* Method for drawing grass relative to camera position.
+*/
 void View::drawBackground()
 {
 	int backgrWidth; int backgrHeight;
@@ -58,7 +64,8 @@ void View::run()
 
 	using namespace std::chrono;
 	
-	high_resolution_clock::time_point time = high_resolution_clock::now();
+	//Time points for time measuring
+	high_resolution_clock::time_point second = high_resolution_clock::now();
 	high_resolution_clock::time_point frame = high_resolution_clock::now();
 	duration<double> time_span;
 
@@ -67,7 +74,7 @@ void View::run()
 	quit_ = false;
 
 	
-
+	//Main loop of program
 	while (!quit_)
 	{
 		//Measuring time of new frame. 
@@ -84,12 +91,12 @@ void View::run()
 
 		//FPS counter only for testing purposes!
 		++fpsCounter;
-		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - time);
+		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - second);
 		if (time_span.count() >= 1)
 		{
 			std::cout << fpsCounter << " FPS" <<std::endl;
 			fpsCounter = 0;
-			time = high_resolution_clock::now();
+			second = high_resolution_clock::now();
 		}
 
 
