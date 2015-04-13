@@ -9,7 +9,7 @@
 
 #include "SdlHelper.h"
 #include "Assets.h"
-#include "Model/Model.h"
+#include "../Model/Model.h"
 #include <boost/timer.hpp>
 
 class Controller;
