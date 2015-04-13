@@ -6,7 +6,7 @@ Damian Mazurkiewicz, Radosław Nowak.
 
 Opis:
 Szkielet aplikacji zawiera podstawową strukturę klas. Wykorzystuje bibliotekę SDL 2.03. Pokazuje użycie tej biblioteki
-( wyświatlanie scenerii i obracających się stworzeń, można poruszać się po planszy używając strzałek ). Użyta jest także biblioteka boost, klasa boost::timer, do odliczania czasu gry.
+( wyświatlanie scenerii i obracających się stworzeń, można poruszać się po planszy używając strzałek ). 
 
 Kompilacja:
 
