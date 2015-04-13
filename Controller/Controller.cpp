@@ -51,13 +51,9 @@ void Controller::handleEvent(SDL_Event* e)
 	}
 }
 
-void Controller::update(boost::timer& t)
+void Controller::update()
 {
-	if (t.elapsed() >= 1)
-	{
-		std::cout << "A second has passed!" << std::endl;
-		t.restart();
-	}
+	
 	model_->updateAnimalsPosition();
 	std::vector<const Animal::LocationData*> locations = model_->getAnimalsLocationData();
 

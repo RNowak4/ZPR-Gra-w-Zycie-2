@@ -39,7 +39,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\..\;C:\Boost\include\boost-1_57;C:\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\;C:\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

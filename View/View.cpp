@@ -56,8 +56,12 @@ void View::run()
 
 	Assets::getInstance().loadAssets(mySDL_); ///Loading all neccesary files.
 
-	boost::timer timer; 
-	boost::timer frameTimer; //It counts how long it takes for program to render one frame. 
+	using namespace std::chrono;
+	
+	high_resolution_clock::time_point time = high_resolution_clock::now();
+	high_resolution_clock::time_point frame = high_resolution_clock::now();
+	duration<double> time_span;
+
 	int fpsCounter = 0;
 
 	quit_ = false;
@@ -66,7 +70,8 @@ void View::run()
 
 	while (!quit_)
 	{
-		frameTimer.restart();
+		//Measuring time of new frame. 
+		frame = high_resolution_clock::now();
 		mySDL_.clearScreen(); //Clear screen.
 
 		//Sending input from user to conroller to handle it.
@@ -79,20 +84,23 @@ void View::run()
 
 		//FPS counter only for testing purposes!
 		++fpsCounter;
-		if (timer.elapsed() >= 1)
+		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - time);
+		if (time_span.count() >= 1)
 		{
 			std::cout << fpsCounter << " FPS" <<std::endl;
 			fpsCounter = 0;
+			time = high_resolution_clock::now();
 		}
 
 
-		controller_->update(timer);
+		controller_->update();
 		
 		mySDL_.renderScreen(); // Render screen.
 
 		//We keep the frames per second at relatively fixed amount. 
-		if (frameTimer.elapsed()< FRAME_TIME)
-			SDL_Delay((FRAME_TIME - frameTimer.elapsed())*1000);
+		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - frame);
+		if (time_span.count()< FRAME_TIME)
+			SDL_Delay((FRAME_TIME - time_span.count()) * 1000);
 	}
 
 	Assets::getInstance().disposeAssets(); ///Disposing  all loaded files.
