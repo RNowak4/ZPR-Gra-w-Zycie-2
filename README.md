@@ -22,14 +22,17 @@ Pliki projektu Visual Studio C++ znajdują się w katalogu Windows - Visual Stud
 
 Potrzebna jest instalacja bibliotek:
 
-SDL 2.0.3 https://www.libsdl.org/download-2.0.php (plik SDL2-devel-2.0.3-VC.zip (Visual C++ 32/64-bit)) 
+SDL 2.0.3: https://www.libsdl.org/download-2.0.php (plik SDL2-devel-2.0.3-VC.zip (Visual C++ 32/64-bit)) 
 - rozpakować na dysku C.
 
-SDL_Image https://www.libsdl.org/projects/SDL_image/ (plik S SDL2_image-devel-2.0.0-VC.zip (Visual C++ 32/64-bit)) 
+SDL_Image: https://www.libsdl.org/projects/SDL_image/ (plik S SDL2_image-devel-2.0.0-VC.zip (Visual C++ 32/64-bit)) 
 - pliki .lib C:/SDL2-2.0.3/lib/x86
 - pliki nagłówkowe C:/SDL2-2.0.3/include
-- 
-Boost: pobierz i rozpakuj http://www.boost.org, potem w terminalu  Visual Studio wpisz 'bootstrap', potem 'bjam.exe - build -type = complete' .
-'bjam.exe --build-type=complete install' (Kopiuje nagłówki i biblioteki do katalogu to C:/Boost)
+ 
+Pliki dll z bibliotek SDL są już w folderze z projektem.
 
-Pliki dll są już w folderze z projektem.
+Boost: 
+-pobierz i rozpakuj http://www.boost.org, potem w terminalu  Visual Studio wpisz 'bootstrap', potem 'bjam.exe - build -type = complete' .
+-'bjam.exe --build-type=complete install' (Kopiuje nagłówki i biblioteki do katalogu to C:/Boost)
+
+
