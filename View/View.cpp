@@ -3,8 +3,8 @@
 *@author Damian Mazurkiewicz
 */
 #include "View.h"
-#include  "Model/Model.h"
-#include "controller/Controller.h"
+#include  "../Model/Model.h"
+#include "../Controller/Controller.h"
 View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 {
 	camera_.x = 0; 
@@ -14,7 +14,7 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 }
 void View::drawCreature(const Animal::LocationData& data)
 {
-	//Dla testów zrobione na szybko obracanie siê potworków.
+	//Dla testÃ³w zrobione na szybko obracanie siÃª potworkÃ³w.
 	static double angle = 0;
 	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, angle, 150);
 	angle += 0.1;
