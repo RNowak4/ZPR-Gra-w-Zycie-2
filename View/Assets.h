@@ -27,6 +27,8 @@ public:
 	SDL_Texture* herbivore_;
 	SDL_Texture* carnivore_;
 
+	TTF_Font* font_;
+
 	
 private:
 	Assets();

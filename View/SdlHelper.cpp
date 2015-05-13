@@ -6,6 +6,7 @@ void SdlHelper::init()
 	window_ = SDL_CreateWindow("Game of Life", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
 	renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
 	IMG_Init(IMG_INIT_PNG); ///Loading dynamic libraries to use  PNG format.
+	TTF_Init();
 
 	
 	return;
@@ -92,4 +93,17 @@ void SdlHelper::draw(SDL_Rect* camera, SDL_Texture* tex, int x, int y, bool cent
 	SDL_RenderCopyEx(renderer_, tex, NULL, &tmp, angle, nullptr, SDL_FLIP_NONE);
 
 	SDL_SetTextureAlphaMod(tex, 255);  //After drawing we bring texture back to normal state ( not transparent ).
+}
+
+void SdlHelper::renderText(SDL_Rect* camera, TTF_Font* font, const std::string message, int x, int y, SDL_Color color)
+{
+
+	SDL_Surface *surface = TTF_RenderText_Blended(font, message.c_str(), color);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer_, surface);
+	draw(camera, texture, x, y);
+
+	//Clean up the surface and font
+	SDL_DestroyTexture(texture);
+	SDL_FreeSurface(surface);
+
 }

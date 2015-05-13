@@ -4,9 +4,12 @@ void Assets::loadAssets(const SdlHelper& helper)
 {
 	grass_ = loadTexture("Assets/grass.png",helper);
 	carnivore_ = loadTexture("Assets/Carnivore.png",helper);
+	font_ = TTF_OpenFont("Assets/comicbd.ttf", 14);
+	
 }
 void Assets::disposeAssets()
 {
+	TTF_CloseFont(font_);
 	SDL_DestroyTexture(carnivore_);
 	SDL_DestroyTexture(grass_);
 }

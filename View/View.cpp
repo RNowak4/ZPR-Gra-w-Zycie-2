@@ -17,6 +17,7 @@ void View::drawCreature(const Animal::LocationData& data)
 	//This code makes no sense it is only for rotating pictures ( testing purposes).
 	static double angle = 0;
 	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, angle, 150);
+	mySDL_.renderText(&camera_, Assets::getInstance().font_, "Potworek", data.coordinates_.x, data.coordinates_.y, SDL_Color());
 	angle += 0.1;
 }
 
