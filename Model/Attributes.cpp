@@ -7,16 +7,14 @@
 
 #include "Attributes.h"
 
-Attributes::Attributes() {
-}
-
-Attributes::Attributes(const Attributes& orig) {
-}
-
-Attributes::~Attributes() {
-}
-
-void Attributes::inheritAttributes(const Trait&, const Trait&,
-              const std::vector<Trait>&, const std::vector<Trait>&) {
-    //TODO dziedziczenie
+// TODO  Generowanie poczatkowych atrybutow na podsatwie modyf.
+//		 Beda one potem modyfikowane przez Actions
+Attributes::Attributes(const Modifiers& modifiers) {
+	speed_ = 5.0;
+	sleepNeed_ = 5.0;
+	eatNeed_ = 5.0;
+	sexNeed_ = 5.0;
+	sightLength_ = 5.0;
+	sightAngle_ = 5.0;
+	naturalDeath_ = 5.0;
 }

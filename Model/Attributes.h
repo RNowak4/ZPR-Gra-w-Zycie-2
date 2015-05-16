@@ -8,35 +8,31 @@
 #ifndef ATTRIBUTES_H
 #define	ATTRIBUTES_H
 
-/* TODO:
- *-Kazda bierna cecha bedzie reprezentowana 
- * przez stala strukture Trait.
- * 
- *- Utworzyc nowa klase Trait dla cech. 
- */
+#include "Modifiers.h"
 
-#include "Trait.h"
-#include "SituationTraits.h"
-#include <chrono>
-#include <random>
-#include <vector>
-
-/* Zwykle atrybuty jednostki. To beda te bazowe, jak i tmp*/
-class Attributes: public Trait {
-private:
-    // Funkcja, ktora generuje atrybuty zupelnie losowo, bez przodkow
-    // Wywolana, gdy vector atrybutow jest pusty
-    void generateAttributes();
-    
+class Attributes {
 public:
-    Attributes();
-    Attributes(const Attributes&);
-    // Przekopiowanie atrybutow
-    Attributes& operator=(const Attributes&);
-    virtual ~Attributes();
-    // Funkcja, ktora generuje atrybuty na podstawie przodkow
-    void inheritAttributes(const Trait&, const Trait&,
-              const std::vector<Trait>&, const std::vector<Trait>&);
+	double speed_;
+	double sleepNeed_;
+	double eatNeed_;
+	double sexNeed_;
+	double sightLength_;
+	double sightAngle_;
+	double naturalDeath_;
+
+public:
+	Attributes(const Modifiers& modifiers);
+
+	//TODO temporary
+	Attributes() {
+		speed_ = 5.0;
+		sleepNeed_ = 5.0;
+		eatNeed_ = 5.0;
+		sexNeed_ = 5.0;
+		sightLength_ = 5.0;
+		sightAngle_ = 5.0;
+		naturalDeath_ = 5.0;
+	}
 };
 
 #endif	/* ATTRIBUTES_H */

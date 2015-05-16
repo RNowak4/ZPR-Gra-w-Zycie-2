@@ -9,74 +9,64 @@
 #define	ANIMAL_H
 
 #include <vector>
+#include <memory>
 #include "Attributes.h"
+#include "AnimalViewParameters.h"
+#include "AnimalData.h"
+#include "States/State.h"
 
+class AnimalViewParameters;
 class Attributes;
 
 class Animal {
-public:
-    struct Coordinates {
-        unsigned x,y;
-        // Tymczasowo, zeby nie wywalalo errorow
-        Coordinates() { }
-        Coordinates(unsigned X, unsigned Y) : x(X), y(Y) { }
-    };
+private:
+	unsigned width_, height_;
 
-    enum Sex {
-        FEMALE,
-        MALE
-    };
-    
-    enum AnimalType {
-        CARNIVORE,
-        HERBIVORE,
-    };
-    
-    struct LocationData {
-        Coordinates coordinates_;
-        // Zmienna, ktora okresla, gdzie patrzy dana jednostka
-        double whareLooking_;
-        // Zmienna, ktora okresla kat widzenia
-        double lookingRad_;
-        // Zmienna, ktora okresla zasieg widzenia
-        double sightLen_;
-        // Potrzebne do wyswietlenia
-        AnimalType animalType_;
-    };
+public:
+	enum Sex {
+		FEMALE, MALE
+	};
 
 protected:
-    // Atrybuty bazowe dla jednostki(te beda dziedziczone)
-    Attributes baseAttributes_;
-    // Atrybuty w danej chwili
-    Attributes tmpAttributes_;
-    std::vector<Trait> ancestorsTraits_;
-    // Cechy. W sensie bierne atrybuty
-//   std::vector<const SituationTraits*> traits_;
-    Sex sex_;
-    LocationData locationData_;
-    
-protected:
-    
+	Modifiers animalModifiers;
+	Attributes actualAttributes_;
+	vector<State*> statesVector;
+
+	Sex sex_;
+	AnimalViewParameters animalViewParameters;
+	Coordinates coordinates_;
+	LocationData locationData_;
+
 public:
-    // Tymczasowo, zeby nie wywalalo errorow
-    Animal() { };
-    Animal(const Animal& orig); 
-    Animal(unsigned, unsigned);
-    Animal(const Animal*, const Animal*);
-    // Za bardzo nie ma czego usuwac, wiec pusty destruktor
-    // Usuwaniem z ekranu zajmuje sie Cotroller.
-    virtual ~Animal() { }
-    // Aktualizuje status jednostki
-    virtual void updateStatus() = 0;
-    // Porusz sie
-    virtual void doMove() = 0;
-    // Zwraca wspolrzedne(do wyswietlania przez V)
-    Coordinates returnCoodtinates() const { return locationData_.coordinates_; }
-    const Attributes& getBaseAttributes() const { return baseAttributes_; }
-    const std::vector<Trait>& getAncestorTraits() const { return ancestorsTraits_; }
-    const LocationData& returnLocationData() const { return locationData_; }
-    //Funkcja sprawdza, czy zwierze jest niebezpieczne
-    virtual bool isDangerous() = 0;
+	// Tymczasowo, zeby nie wywalalo errorow
+	Animal() :
+			animalModifiers(), actualAttributes_(animalModifiers) {
+
+	}
+	Animal(const Animal& orig);
+	Animal(unsigned, unsigned, AnimalType);
+	Animal(unsigned, unsigned);
+
+	virtual ~Animal() {
+	}
+
+	virtual void updateStatus() = 0;
+
+	virtual void doMove() = 0;
+
+	Coordinates returnCoodtinates() const {
+		return coordinates_;
+		//return animalViewParameters.returnCoordinates();
+	}
+
+	const LocationData& returnLocationData() const {
+		//return animalViewParameters.returnLocationData();
+		return locationData_;
+	}
+
+	virtual bool isDangerous() = 0;
+	bool isThatMe(int, int);
+	shared_ptr<AnimalData> getAnimalData();
 };
 
 #endif	/* ANIMAL_H */
