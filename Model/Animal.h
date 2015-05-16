@@ -14,6 +14,7 @@
 #include "AnimalViewParameters.h"
 #include "AnimalData.h"
 #include "States/State.h"
+#include "Actions/Action.h"
 
 class AnimalViewParameters;
 class Attributes;
@@ -21,6 +22,8 @@ class Attributes;
 class Animal {
 private:
 	unsigned width_, height_;
+	Action* currentAction;
+	Action* nextAction;
 
 public:
 	enum Sex {
