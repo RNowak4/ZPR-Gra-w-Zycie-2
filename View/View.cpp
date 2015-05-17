@@ -1,5 +1,6 @@
 /**
 *@file View.cpp
+* POZDROWIENIA DLA RADKA
 *@author Damian Mazurkiewicz
 */
 #include "View.h"
