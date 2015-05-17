@@ -40,6 +40,7 @@ public:
 	void run();
 	void quit();
 private:
+	void viewEyeshot(int x, int y, int angle, int radius, int length);
 	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;

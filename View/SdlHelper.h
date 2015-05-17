@@ -63,17 +63,25 @@ public:
 	void renderText(SDL_Rect* camera, TTF_Font* font, const std::string message, int x, int y, SDL_Color color);
 
 	/**
-	*Draw rectangle on the screen.
+	*Draw frame in shape of rectangle on the screen filled with given texture.  
 	*@param camera		- when is not null, rectangle will be in position relative to thic camera position.
-	*@param rectangle	- rectangle we want to draw.
-	*@param color		- it determines color and alpha of rectamgle.
+	*@param rectangle	- rectangle meaning area we want to cover with frame.
+	*@param filling		- texture.
 	*/
 	void drawFrame(SDL_Rect* camera, SDL_Rect* rectangle, SDL_Texture* filling);
+
+	/**
+	*Draw line on the screen from point (x1,y1) to point (x2,y2). 
+	*/
+	void drawLine(SDL_Rect* camera, int x1, int y1, int x2, int y2, const SDL_Color & color);
 
 	void clearScreen();
 	void renderScreen();
 
 private:
+	/**
+	*Checks if one of the rectangles overlaps another.
+	*/
 	bool overlap(const SDL_Rect& r1,const SDL_Rect& r2);
 	SDL_Window *window_;
 	SDL_Renderer *renderer_;

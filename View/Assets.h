@@ -24,6 +24,10 @@ public:
 		DEFAULT_FONT
 	};
 
+	/**
+	*Assets class is a singleton. It is because creating more objects of this class 
+	*has no practical use and it can only waste memory.
+	*/
 	static Assets& getInstance()
 	{
 		static Assets instance;
@@ -45,10 +49,5 @@ private:
 
 	std::map<enum TextureID, std::shared_ptr<SDL_Texture> > textures_;
 	std::map<enum FontID, std::shared_ptr<TTF_Font> > fonts_;
-	
-	
 };
-
-
-
 #endif //ASSETS_H

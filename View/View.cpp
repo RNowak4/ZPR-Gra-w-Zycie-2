@@ -30,32 +30,38 @@ void View::getController(Controller* controller)
 */
 void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
-	int fontHeight = 25;
+	int fontHeight = 20;
 	int margin = 10;
-	int x =  data.first->coordinates_.x; 
+
+	int x = data.first->coordinates_.x; 
 	int y = data.first->coordinates_.y;
+
 	std::shared_ptr<TTF_Font> font = Assets::getInstance().get(Assets::DEFAULT_FONT);
 
 	auto vec1 = &data.second->returnPairVector();
 	auto vec2 = &data.second->returnStringVector();
-	SDL_Rect frame; frame.x = x; frame.y = y; 
-	frame.w = 200; frame.h = 2 * margin + (vec1->size() + vec2->size())*fontHeight;
+
+	SDL_Rect frame;
+	frame.x = x;
+	frame.y = y; 
+	frame.w = 150;
+	frame.h = 2*margin + (vec1->size() + vec2->size())*fontHeight;
 	mySDL_.drawFrame(&camera_, &frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND).get());
-	SDL_Color col; col.a = col.b = col.g = col.r = 0x00;
+	SDL_Color col;
+	col.a = col.b = col.g = col.r = 0x00;
 	
-	int c = 0;
+	int lineCount = 0;
 	std::stringstream ss;
 	
-	for (auto i = vec1->begin(); i != vec1->end(); ++i,++c)
+	for (auto i = vec1->begin(); i != vec1->end(); ++i, ++lineCount)
 	{
-		ss <<(*i).first << " " << (*i).second;
-		mySDL_.renderText(&camera_, font.get(), ss.str(), x + margin, y + margin + c*fontHeight, col);
+		ss <<(*i).first << " : " << (*i).second;
+		mySDL_.renderText(&camera_, font.get(), ss.str(), x + margin, y + margin + lineCount*fontHeight, col);
 		ss.str("");
 	}
-	for (auto i = vec2->begin(); i != vec2->end(); ++i)
+	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
 	{
-		mySDL_.renderText(&camera_, font.get(), (*i), x + margin, y + margin + c*fontHeight, col);
-		c++;
+		mySDL_.renderText(&camera_, font.get(), (*i), x + margin, y + margin + lineCount*fontHeight, col);
 	}
 }
 

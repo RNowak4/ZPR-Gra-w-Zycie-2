@@ -128,3 +128,16 @@ bool SdlHelper::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
 		}
 	return true;
 }
+
+void SdlHelper::drawLine(SDL_Rect* camera, int x1, int y1, int x2, int y2, const SDL_Color & color)
+{
+	if (camera != nullptr)
+	{
+		x1 -= camera->x; 
+		x2 -= camera->x;
+		y1 -= camera->y;
+		y2 -= camera->y;
+	}
+	SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);
+	SDL_RenderDrawLine(renderer_, x1, y1, x2, y2);
+}
