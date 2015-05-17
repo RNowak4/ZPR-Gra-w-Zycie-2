@@ -4,7 +4,7 @@
  *
  * Created on 9 marca 2015, 21:29
  */
-//test
+
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
@@ -62,14 +62,14 @@ public:
 		//return animalViewParameters.returnCoordinates();
 	}
 
-	const LocationData& returnLocationData() const {
+	const LocationData* returnLocationData() {
 		//return animalViewParameters.returnLocationData();
-		return locationData_;
+		return &locationData_;
 	}
 
 	virtual bool isDangerous() = 0;
 	bool isThatMe(int, int);
-	shared_ptr<AnimalData> getAnimalData();
+	AnimalData* getAnimalData();
 };
 
 #endif	/* ANIMAL_H */

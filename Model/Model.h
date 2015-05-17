@@ -39,7 +39,9 @@ public:
 	Coordinates getCoordinates(const Animal*) const;
 
 	std::vector<const LocationData*> getAnimalsLocationData();
-	shared_ptr<AnimalData> getAnimalData(int, int);
+	std::vector<pair<const LocationData*, const AnimalData*> >& getAnimalsData();
+	bool registerAnimal(unsigned, unsigned);
+	bool deregisterAnimal(unsigned, unsigned);
 
 private:
 	// Tworzy herrbivore na podstawie dziecka
@@ -47,7 +49,11 @@ private:
 	// Tworzy carnivore na podstawie dziecka
 	void createCarnivore(const Animal*);
 	std::list<Animal*> animalList_;
+	std::list<Animal*> registeredAnimalList_;
 	Attributes mixAttributes(const Animal*, const Animal*);
+	Animal* findAnimal(unsigned, unsigned);
+	bool deregisterAnimal(Animal*);
+	bool isRegistered(Animal*) const;
 };
 
 #endif	/* MODEL_H */

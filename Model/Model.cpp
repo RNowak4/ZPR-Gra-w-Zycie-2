@@ -56,7 +56,7 @@ void Model::createHerbivore(const Animal* father, const Animal* mother) {
 std::vector<const LocationData*> Model::getAnimalsLocationData() {
 	std::vector<const LocationData*> vectorToReturn;
 	for (auto animal : animalList_)
-		vectorToReturn.push_back(&animal->returnLocationData());
+		vectorToReturn.push_back(animal->returnLocationData());
 
 	return vectorToReturn;
 }
@@ -70,24 +70,71 @@ void Model::createHerbivore(unsigned x, unsigned y) {
 	animalList_.push_back(new Herbivore(x, y));
 }
 
-shared_ptr<AnimalData> Model::getAnimalData(int x, int y) {
-	Animal *animalPtr = nullptr;
+bool Model::registerAnimal(unsigned x, unsigned y) {
+	Animal* animalPtr = findAnimal(x, y);
+	if (animalPtr == nullptr)
+		return false;
 
-	// TODO nie ustalilismy jeszcze tego jakie rozmiary maja zwierzaki
-	//		wiec zwracany bedzie pierwszy, lepszy zwierzak do testu wyswietlania
-	for (auto animal : animalList_) {
-		/*if (animal->isThatMe(x, y)) {
-			animalPtr = animal;
-			break;
-		}*/
-		animalPtr = animal; //chujkisad
+	registeredAnimalList_.push_back(animalPtr);
+	return true;
+}
+
+bool Model::deregisterAnimal(unsigned x, unsigned y) {
+	Animal* animalPtr = findAnimal(x, y);
+	if (animalPtr == nullptr)
+		return false;
+
+	return deregisterAnimal(animalPtr);
+}
+
+bool Model::deregisterAnimal(Animal* animalToErase) {
+	for (auto it = registeredAnimalList_.begin();
+			it != registeredAnimalList_.end(); ++it) {
+		if (*it == animalToErase) {
+			registeredAnimalList_.erase(it);
+			return true;
+		}
 	}
 
-	// Nie znaleziono
-	if (animalPtr == nullptr)
-		return nullptr;
+	return false;
+}
 
-	return animalPtr->getAnimalData();
+Animal* Model::findAnimal(unsigned x, unsigned y) {
+	for (auto animal : animalList_) {
+		/*if (animal->isThatMe(x, y)) {
+		 animalPtr = animal;
+		 break;
+		 }*/
+		return animal;
+	}
+	return nullptr;
+}
+
+bool Model::isRegistered(Animal* animalPtr) const {
+	for (auto it = registeredAnimalList_.begin();
+			it != registeredAnimalList_.end(); ++it) {
+		if (*it == animalPtr) {
+			return true;
+		}
+	}
+
+	return false;
+}
+std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsData() {
+	std::vector<pair<const LocationData*, const AnimalData*> > vectorToReturn;
+	for (auto animal : animalList_) {
+		if (isRegistered(animal))
+			vectorToReturn.push_back(
+					pair<const LocationData*, const AnimalData*>(
+							animal->returnLocationData(),
+							animal->getAnimalData()));
+		else
+			vectorToReturn.push_back(
+					pair<const LocationData*, const AnimalData*>(
+							animal->returnLocationData(), nullptr));
+	}
+
+	return vectorToReturn;
 }
 
 /*****************************************/

@@ -22,8 +22,8 @@ bool Animal::isThatMe(int x, int y) {
 	return true;
 }
 
-shared_ptr<AnimalData> Animal::getAnimalData() {
-	shared_ptr<AnimalData> dataToReturn(new AnimalData());
+AnimalData* Animal::getAnimalData() {
+	AnimalData* dataToReturn = new AnimalData();
 
 	for (auto state : statesVector)
 		dataToReturn->pushString(state->toString());
