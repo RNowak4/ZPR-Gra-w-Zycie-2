@@ -28,15 +28,18 @@ void View::getController(Controller* controller)
 /**
 *This method will be drawing specific information about creature and its vision range on the screen.
 */
-void View::drawCreatureInfo(int x, int y, const AnimalData* data)
+void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
 	int fontHeight = 25;
 	int margin = 10;
+	int x =  data.first->coordinates_.x; 
+	int y = data.first->coordinates_.y;
 	std::shared_ptr<TTF_Font> font = Assets::getInstance().get(Assets::DEFAULT_FONT);
 
-	auto vec1 = &data->returnPairVector();
-	auto vec2 = &data->returnStringVector();
-	SDL_Rect frame; frame.x = x; frame.y = y; frame.w = 200; frame.h = 2 * margin + (vec1->size() + vec2->size())*fontHeight;
+	auto vec1 = &data.second->returnPairVector();
+	auto vec2 = &data.second->returnStringVector();
+	SDL_Rect frame; frame.x = x; frame.y = y; 
+	frame.w = 200; frame.h = 2 * margin + (vec1->size() + vec2->size())*fontHeight;
 	mySDL_.drawFrame(&camera_, &frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND).get());
 	SDL_Color col; col.a = col.b = col.g = col.r = 0x00;
 	

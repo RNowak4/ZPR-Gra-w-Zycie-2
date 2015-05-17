@@ -30,7 +30,7 @@ public:
 	void drawCreature(const LocationData &);
 	void getController(Controller*);
 	const SDL_Rect & getCamera();
-	void drawCreatureInfo(int x, int y, const AnimalData* data);
+	void drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*>&);
 	void drawBackground();
 	void moveCamera(int x, int y);
 	/**
