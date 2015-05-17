@@ -146,25 +146,6 @@ std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsDat
 	return *vectorToReturn;
 }
 
-/*shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > Model::getAnimalsData() const {
-	shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > vectorToReturn(
-			new std::vector<pair<const LocationData*, const AnimalData*> >());
-
-	for (auto animal : animalList_) {
-		if (isRegistered(animal))
-			vectorToReturn->push_back(
-					pair<const LocationData*, const AnimalData*>(
-							animal->returnLocationData(),
-							animal->getAnimalData()));
-		else
-			vectorToReturn->push_back(
-					pair<const LocationData*, const AnimalData*>(
-							animal->returnLocationData(), nullptr));
-	}
-
-	return vectorToReturn;
-}*/
-
 bool Model::switchAnimalRegister(unsigned x, unsigned y) {
 	Animal* animalPtr = findAnimal(x, y);
 	if (animalPtr == nullptr)
