@@ -27,7 +27,7 @@ void View::getController(Controller* controller)
 /**
 *This method will be drawing specific information about creature and its vision range on the screen.
 */
-void View::drawCreatureInfo(int x, int y, std::shared_ptr<AnimalData> data)
+void View::drawCreatureInfo(int x, int y, const AnimalData* data)
 {
 	int fontHeight = 25;
 	int margin = 10;
