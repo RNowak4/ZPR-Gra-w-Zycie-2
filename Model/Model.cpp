@@ -79,6 +79,12 @@ bool Model::registerAnimal(unsigned x, unsigned y) {
 	return true;
 }
 
+bool Model::registerAnimal(Animal* animalPtr) {
+	registeredAnimalList_.push_back(animalPtr);
+
+	return false;
+}
+
 bool Model::deregisterAnimal(unsigned x, unsigned y) {
 	Animal* animalPtr = findAnimal(x, y);
 	if (animalPtr == nullptr)
@@ -136,6 +142,19 @@ std::vector<pair<const LocationData*, const AnimalData*> > Model::getAnimalsData
 	}
 
 	return vectorToReturn;
+}
+
+bool Model::switchAnimalRegister(unsigned x, unsigned y) {
+	Animal* animalPtr = findAnimal(x, y);
+	if (animalPtr == nullptr)
+		return false;
+
+	if (isRegistered(animalPtr))
+		deregisterAnimal(animalPtr);
+	else
+		registerAnimal(animalPtr);
+
+	return true;
 }
 
 /*****************************************/

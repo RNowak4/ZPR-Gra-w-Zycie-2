@@ -40,8 +40,7 @@ public:
 
 	std::vector<const LocationData*> getAnimalsLocationData();
 	std::vector<pair<const LocationData*, const AnimalData*> > getAnimalsData();
-	bool registerAnimal(unsigned, unsigned);
-	bool deregisterAnimal(unsigned, unsigned);
+	bool switchAnimalRegister(unsigned, unsigned);
 
 private:
 	// Tworzy herrbivore na podstawie dziecka
@@ -54,6 +53,9 @@ private:
 	Animal* findAnimal(unsigned, unsigned);
 	bool deregisterAnimal(Animal*);
 	bool isRegistered(Animal*) const;
+	bool registerAnimal(unsigned, unsigned);
+	bool registerAnimal(Animal*);
+	bool deregisterAnimal(unsigned, unsigned);
 };
 
 #endif	/* MODEL_H */
