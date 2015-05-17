@@ -121,7 +121,7 @@ bool Model::isRegistered(Animal* animalPtr) const {
 	return false;
 }
 
-std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsData() {
+std::vector<pair<const LocationData*, const AnimalData*> > Model::getAnimalsData() {
 	std::vector<pair<const LocationData*, const AnimalData*> > vectorToReturn;
 	for (auto animal : animalList_) {
 		if (isRegistered(animal))
