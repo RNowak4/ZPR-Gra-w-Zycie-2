@@ -127,21 +127,23 @@ bool Model::isRegistered(Animal* animalPtr) const {
 	return false;
 }
 
-std::vector<pair<const LocationData*, const AnimalData*> > Model::getAnimalsData() {
-	std::vector<pair<const LocationData*, const AnimalData*> > vectorToReturn;
+std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsData() const {
+	std::vector<pair<const LocationData*, const AnimalData*> >* vectorToReturn =
+			new std::vector<pair<const LocationData*, const AnimalData*> >();
+
 	for (auto animal : animalList_) {
 		if (isRegistered(animal))
-			vectorToReturn.push_back(
+			vectorToReturn->push_back(
 					pair<const LocationData*, const AnimalData*>(
 							animal->returnLocationData(),
 							animal->getAnimalData()));
 		else
-			vectorToReturn.push_back(
+			vectorToReturn->push_back(
 					pair<const LocationData*, const AnimalData*>(
 							animal->returnLocationData(), nullptr));
 	}
 
-	return vectorToReturn;
+	return *vectorToReturn;
 }
 
 bool Model::switchAnimalRegister(unsigned x, unsigned y) {

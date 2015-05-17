@@ -39,7 +39,7 @@ public:
 	Coordinates getCoordinates(const Animal*) const;
 
 	std::vector<const LocationData*> getAnimalsLocationData();
-	std::vector<pair<const LocationData*, const AnimalData*> > getAnimalsData();
+	std::vector<pair<const LocationData*, const AnimalData*> >& getAnimalsData() const;
 	bool switchAnimalRegister(unsigned, unsigned);
 
 private:
