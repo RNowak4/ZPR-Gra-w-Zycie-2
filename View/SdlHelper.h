@@ -62,11 +62,19 @@ public:
 	*/
 	void renderText(SDL_Rect* camera, TTF_Font* font, const std::string message, int x, int y, SDL_Color color);
 
+	/**
+	*Draw rectangle on the screen.
+	*@param camera		- when is not null, rectangle will be in position relative to thic camera position.
+	*@param rectangle	- rectangle we want to draw.
+	*@param color		- it determines color and alpha of rectamgle.
+	*/
+	void drawFrame(SDL_Rect* camera, SDL_Rect* rectangle, SDL_Texture* filling);
 
 	void clearScreen();
 	void renderScreen();
 
 private:
+	bool overlap(const SDL_Rect& r1,const SDL_Rect& r2);
 	SDL_Window *window_;
 	SDL_Renderer *renderer_;
 	friend class Assets;

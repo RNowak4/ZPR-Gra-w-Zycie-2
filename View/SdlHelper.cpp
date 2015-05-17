@@ -1,4 +1,5 @@
 #include "SdlHelper.h"
+#include "Assets.h"
 
 void SdlHelper::init()
 {
@@ -66,22 +67,7 @@ void SdlHelper::draw(SDL_Rect* camera, SDL_Texture* tex, int x, int y, bool cent
 	*/
 	if (camera!=nullptr)
 	{
-		if (tmp.y  >= camera->y+camera->h)
-		{
-			return;
-		}
-
-		if (tmp.y + tmp.h <= camera->y)
-		{
-			return;
-		}
-
-		if (tmp.x + tmp.w <= camera->x)
-		{
-			return;
-		}
-
-		if (tmp.x >= camera->x+camera->w)
+		if (!overlap(tmp, *camera))
 		{
 			return;
 		}
@@ -106,4 +92,37 @@ void SdlHelper::renderText(SDL_Rect* camera, TTF_Font* font, const std::string m
 	SDL_DestroyTexture(texture);
 	SDL_FreeSurface(surface);
 
+}
+
+void SdlHelper::drawFrame(SDL_Rect* camera, SDL_Rect* rectangle, SDL_Texture* filling)
+{
+	if (camera != nullptr)
+	{
+		if (!overlap(*rectangle, *camera))
+		{
+			return;
+		}
+		rectangle->x -= camera->x;
+		rectangle->y -= camera->y;
+	}
+	SDL_SetTextureAlphaMod(filling, 0xa0); //Setting alpha for texture.
+	SDL_RenderCopy(renderer_,filling, NULL, rectangle);
+	SDL_SetTextureAlphaMod(filling, 0xff);  //After drawing we bring texture back to normal state ( not transparent ).
+	SDL_SetRenderDrawColor(renderer_, 0x0, 0x0, 0x0, 0xFF);
+	SDL_RenderDrawRect(renderer_, rectangle);
+
+	
+
+}
+
+bool SdlHelper::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
+{
+	if (r1.y >= r2.y + r2.h ||
+		r1.y + r1.h <= r2.y ||
+		r1.x + r1.w <= r2.x ||
+		r1.x >= r2.x + r2.w )
+		{
+		return false;
+		}
+	return true;
 }

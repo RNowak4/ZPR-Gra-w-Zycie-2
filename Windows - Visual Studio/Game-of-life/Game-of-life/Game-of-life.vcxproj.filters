@@ -13,29 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{adacd6b2-1f4a-4d70-a07b-c2b198f60c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\States">
+      <UniqueIdentifier>{787afc7a-68a7-4b03-ba92-615a80a2e894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Actions">
+      <UniqueIdentifier>{d673661a-6709-457a-9c47-db1a9d276c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{27c25038-2d5b-461a-9973-a0656f5cb1e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\Actions">
+      <UniqueIdentifier>{2bf0f0da-6e73-4df1-91b7-1119822082a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\States">
+      <UniqueIdentifier>{23defb14-e447-4e0e-af62-0f04aabbdfb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Model\Animal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\Attributes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\Carnivore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\Herbivore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\SituationTraits.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\Trait.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\View\Assets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,30 +45,57 @@
     <ClInclude Include="..\..\..\Controller\Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\States\Childhood.h">
+      <Filter>Header Files\Model\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\States\Illness.h">
+      <Filter>Header Files\Model\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\States\State.h">
+      <Filter>Header Files\Model\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Action.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\CarnivoreAction.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\HerbivoreAction.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\ViewStructs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Animal.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\AnimalData.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\AnimalViewParameters.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Attributes.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Carnivore.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Herbivore.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Modifiers.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Model.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Controller\Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Model\Animal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Attributes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Carnivore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Herbivore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Model\Model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\SituationTraits.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Trait.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\View\Assets.cpp">
@@ -85,6 +109,45 @@
     </ClCompile>
     <ClCompile Include="..\..\..\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\States\Illness.cpp">
+      <Filter>Source Files\Model\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\States\State.cpp">
+      <Filter>Source Files\Model\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Action.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\CarnivoreAction.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\HerbivoreAction.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\States\Childhood.cpp">
+      <Filter>Source Files\Model\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Animal.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\AnimalData.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\AnimalViewParameters.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Attributes.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Carnivore.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Herbivore.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Modifiers.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

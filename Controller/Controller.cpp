@@ -55,10 +55,13 @@ void Controller::update()
 {
 	
 	model_->updateAnimalsPosition();
-	std::vector<const Animal::LocationData*> locations = model_->getAnimalsLocationData();
+	std::vector<const LocationData*> locations = model_->getAnimalsLocationData();
 
 	for (auto i : locations)
 	{
 		view_->drawCreature(*i);
 	}
+	auto ptr = model_->getAnimalData(0, 0);
+	if (ptr != nullptr)
+		view_->drawCreatureInfo(134, 134,ptr);
 }

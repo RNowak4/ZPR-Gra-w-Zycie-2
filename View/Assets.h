@@ -9,10 +9,15 @@
 #define ASSETS_H
 
 #include "SdlHelper.h"
+#include <map>
 
 class Assets
 {
 public:
+	enum TextureID
+	{
+		GRASS, HERBIVORE, CARNIVORE, FRAME_BACKGROUND
+	};
 	static Assets& getInstance()
 	{
 		static Assets instance;
@@ -26,6 +31,9 @@ public:
 	SDL_Texture* grass_;
 	SDL_Texture* herbivore_;
 	SDL_Texture* carnivore_;
+	SDL_Texture* frameBackground_;
+
+//	std::map<std::string, std::shared_ptr<SDL_Texture>> textures_;
 
 	TTF_Font* font_;
 

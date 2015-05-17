@@ -70,13 +70,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Controller\Controller.h" />
+    <ClInclude Include="..\..\..\Model\Actions\Action.h" />
+    <ClInclude Include="..\..\..\Model\Actions\CarnivoreAction.h" />
+    <ClInclude Include="..\..\..\Model\Actions\HerbivoreAction.h" />
     <ClInclude Include="..\..\..\Model\Animal.h" />
+    <ClInclude Include="..\..\..\Model\AnimalData.h" />
+    <ClInclude Include="..\..\..\Model\AnimalViewParameters.h" />
     <ClInclude Include="..\..\..\Model\Attributes.h" />
     <ClInclude Include="..\..\..\Model\Carnivore.h" />
     <ClInclude Include="..\..\..\Model\Herbivore.h" />
     <ClInclude Include="..\..\..\Model\Model.h" />
-    <ClInclude Include="..\..\..\Model\SituationTraits.h" />
-    <ClInclude Include="..\..\..\Model\Trait.h" />
+    <ClInclude Include="..\..\..\Model\Modifiers.h" />
+    <ClInclude Include="..\..\..\Model\States\Childhood.h" />
+    <ClInclude Include="..\..\..\Model\States\Illness.h" />
+    <ClInclude Include="..\..\..\Model\States\State.h" />
+    <ClInclude Include="..\..\..\Model\ViewStructs.h" />
     <ClInclude Include="..\..\..\View\Assets.h" />
     <ClInclude Include="..\..\..\View\SdlHelper.h" />
     <ClInclude Include="..\..\..\View\View.h" />
@@ -84,13 +92,20 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\Controller\Controller.cpp" />
     <ClCompile Include="..\..\..\main.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\Action.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\CarnivoreAction.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\HerbivoreAction.cpp" />
     <ClCompile Include="..\..\..\Model\Animal.cpp" />
+    <ClCompile Include="..\..\..\Model\AnimalData.cpp" />
+    <ClCompile Include="..\..\..\Model\AnimalViewParameters.cpp" />
     <ClCompile Include="..\..\..\Model\Attributes.cpp" />
     <ClCompile Include="..\..\..\Model\Carnivore.cpp" />
     <ClCompile Include="..\..\..\Model\Herbivore.cpp" />
     <ClCompile Include="..\..\..\Model\Model.cpp" />
-    <ClCompile Include="..\..\..\Model\SituationTraits.cpp" />
-    <ClCompile Include="..\..\..\Model\Trait.cpp" />
+    <ClCompile Include="..\..\..\Model\Modifiers.cpp" />
+    <ClCompile Include="..\..\..\Model\States\Childhood.cpp" />
+    <ClCompile Include="..\..\..\Model\States\Illness.cpp" />
+    <ClCompile Include="..\..\..\Model\States\State.cpp" />
     <ClCompile Include="..\..\..\View\Assets.cpp" />
     <ClCompile Include="..\..\..\View\SdlHelper.cpp" />
     <ClCompile Include="..\..\..\View\View.cpp" />

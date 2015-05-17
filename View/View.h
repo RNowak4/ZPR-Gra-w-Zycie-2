@@ -20,16 +20,17 @@ const int MAP_WIDTH = 1000;
 const int MAP_HEIGHT = 1000;
 const int FPS = 50;
 const double FRAME_TIME = 1/(double)FPS;
+const int FONT_HEIGHT = 10;
 
 
 class View
 {
 public:
 	View();
-	void drawCreature(const Animal::LocationData &);
+	void drawCreature(const LocationData &);
 	void getController(Controller*);
 	const SDL_Rect & getCamera();
-	void drawCreatureInfo();
+	void drawCreatureInfo(int x, int y, std::shared_ptr<AnimalData> data);
 	void drawBackground();
 	void moveCamera(int x, int y);
 	/**

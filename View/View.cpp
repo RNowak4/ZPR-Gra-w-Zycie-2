@@ -5,6 +5,7 @@
 #include "View.h"
 #include  "../Model/Model.h"
 #include "../Controller/Controller.h"
+#include <sstream>
 View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 {
 	camera_.x = 0; 
@@ -12,13 +13,10 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 	camera_.w = SCREEN_WIDTH; 
 	camera_.h = SCREEN_HEIGHT;
 }
-void View::drawCreature(const Animal::LocationData& data)
+
+void View::drawCreature(const LocationData& data)
 {
-	//This code makes no sense it is only for rotating pictures ( testing purposes).
-	static double angle = 0;
-	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, angle, 150);
-	mySDL_.renderText(&camera_, Assets::getInstance().font_, "Potworek", data.coordinates_.x, data.coordinates_.y, SDL_Color());
-	angle += 0.1;
+	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle, 150);
 }
 
 void View::getController(Controller* controller)
@@ -29,9 +27,31 @@ void View::getController(Controller* controller)
 /**
 *This method will be drawing specific information about creature and its vision range on the screen.
 */
-void View::drawCreatureInfo()
+void View::drawCreatureInfo(int x, int y, std::shared_ptr<AnimalData> data)
 {
+	int fontHeight = 25;
+	int margin = 10;
+
+	auto vec1 = &data->returnPairVector();
+	auto vec2 = &data->returnStringVector();
+	SDL_Rect frame; frame.x = x; frame.y = y; frame.w = 200; frame.h = 2 * margin + (vec1->size() + vec2->size())*fontHeight;
+	mySDL_.drawFrame(&camera_, &frame, Assets::getInstance().frameBackground_);
+	SDL_Color col; col.a = col.b = col.g = col.r = 0x00;
 	
+	int c = 0;
+	std::stringstream ss;
+	
+	for (auto i = vec1->begin(); i != vec1->end(); ++i,++c)
+	{
+		ss <<(*i).first << " " << (*i).second;
+		mySDL_.renderText(&camera_, Assets::getInstance().font_, ss.str(), x + margin, y + margin + c*fontHeight, col);
+		ss.str("");
+	}
+	for (auto i = vec2->begin(); i != vec2->end(); ++i)
+	{
+		mySDL_.renderText(&camera_, Assets::getInstance().font_, (*i), x + margin, y + margin + c*fontHeight, col);
+		c++;
+	}
 }
 
 /**
@@ -124,6 +144,7 @@ void View::moveCamera(int x, int y)
 {
 	camera_.x += x;
 	camera_.y += y;
+
 }
 
 const SDL_Rect & View::getCamera()
