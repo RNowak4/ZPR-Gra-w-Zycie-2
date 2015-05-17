@@ -21,6 +21,9 @@ int main(int argc, char** argv) {
 	controller.getModel(&model);
 
 	view.run();
+	#ifdef _WIN32
+	system("PAUSE");
+	#endif
 	
 	return 0;
 }

@@ -1,21 +1,19 @@
 #include "Assets.h"
 
+
 void Assets::loadAssets(const SdlHelper& helper)
 {
-	grass_ = loadTexture("Assets/grass.png",helper);
-	carnivore_ = loadTexture("Assets/Carnivore.png",helper);
-	frameBackground_ = loadTexture("Assets/frameBackground.png", helper);
+	textures_[GRASS] = std::shared_ptr<SDL_Texture>(loadTexture("Assets/grass.png", helper), SDL_DestroyTexture);
+	textures_[CARNIVORE] = std::shared_ptr<SDL_Texture>(loadTexture("Assets/Carnivore.png", helper), SDL_DestroyTexture);
+	textures_[FRAME_BACKGROUND] = std::shared_ptr<SDL_Texture>(loadTexture("Assets/frameBackground.png", helper), SDL_DestroyTexture);
 
-	font_ = TTF_OpenFont("Assets/comicbd.ttf", 14);
+	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/comicbd.ttf", 14), TTF_CloseFont);
 	
 }
 void Assets::disposeAssets()
 {
-	TTF_CloseFont(font_);
-	SDL_DestroyTexture(frameBackground_);
-	SDL_DestroyTexture(carnivore_);
-	SDL_DestroyTexture(grass_);
-
+	fonts_.clear();
+	textures_.clear();
 }
 
 Assets::Assets()
@@ -41,4 +39,14 @@ SDL_Texture* Assets::loadTexture(const std::string& name, const SdlHelper& helpe
 	SDL_Texture* newTexture = SDL_CreateTextureFromSurface(helper.renderer_, tempSurface);
 	SDL_FreeSurface(tempSurface);
 	return newTexture;
+}
+
+std::shared_ptr<SDL_Texture> Assets::get(enum TextureID id)
+{
+	return textures_[id];
+}
+
+std::shared_ptr<TTF_Font> Assets::get(enum FontID id)
+{
+	return fonts_[id];
 }

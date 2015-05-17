@@ -10,6 +10,7 @@
 
 #include "SdlHelper.h"
 #include <map>
+#include <memory>
 
 class Assets
 {
@@ -18,6 +19,11 @@ public:
 	{
 		GRASS, HERBIVORE, CARNIVORE, FRAME_BACKGROUND
 	};
+	enum FontID
+	{
+		DEFAULT_FONT
+	};
+
 	static Assets& getInstance()
 	{
 		static Assets instance;
@@ -25,19 +31,10 @@ public:
 	}
 
 	void loadAssets(const SdlHelper&);
+	std::shared_ptr<SDL_Texture> get(enum TextureID id);
+	std::shared_ptr<TTF_Font> get(enum FontID id);
 	void disposeAssets();
 
-	//List of all necessary images and fonts
-	SDL_Texture* grass_;
-	SDL_Texture* herbivore_;
-	SDL_Texture* carnivore_;
-	SDL_Texture* frameBackground_;
-
-//	std::map<std::string, std::shared_ptr<SDL_Texture>> textures_;
-
-	TTF_Font* font_;
-
-	
 private:
 	Assets();
 	Assets(const Assets&);
@@ -46,8 +43,10 @@ private:
 
 	SDL_Texture* loadTexture(const std::string &, const SdlHelper&);
 
+	std::map<enum TextureID, std::shared_ptr<SDL_Texture> > textures_;
+	std::map<enum FontID, std::shared_ptr<TTF_Font> > fonts_;
 	
-	//TTF_Font* font_;
+	
 };
 
 

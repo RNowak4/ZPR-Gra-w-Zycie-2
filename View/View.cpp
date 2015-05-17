@@ -16,7 +16,7 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 
 void View::drawCreature(const LocationData& data)
 {
-	mySDL_.draw(&camera_, Assets::getInstance().carnivore_, data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle, 150);
+	mySDL_.draw(&camera_, Assets::getInstance().get(Assets::CARNIVORE).get(), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle, 150);
 }
 
 void View::getController(Controller* controller)
@@ -31,11 +31,12 @@ void View::drawCreatureInfo(int x, int y, std::shared_ptr<AnimalData> data)
 {
 	int fontHeight = 25;
 	int margin = 10;
+	std::shared_ptr<TTF_Font> font = Assets::getInstance().get(Assets::DEFAULT_FONT);
 
 	auto vec1 = &data->returnPairVector();
 	auto vec2 = &data->returnStringVector();
 	SDL_Rect frame; frame.x = x; frame.y = y; frame.w = 200; frame.h = 2 * margin + (vec1->size() + vec2->size())*fontHeight;
-	mySDL_.drawFrame(&camera_, &frame, Assets::getInstance().frameBackground_);
+	mySDL_.drawFrame(&camera_, &frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND).get());
 	SDL_Color col; col.a = col.b = col.g = col.r = 0x00;
 	
 	int c = 0;
@@ -44,12 +45,12 @@ void View::drawCreatureInfo(int x, int y, std::shared_ptr<AnimalData> data)
 	for (auto i = vec1->begin(); i != vec1->end(); ++i,++c)
 	{
 		ss <<(*i).first << " " << (*i).second;
-		mySDL_.renderText(&camera_, Assets::getInstance().font_, ss.str(), x + margin, y + margin + c*fontHeight, col);
+		mySDL_.renderText(&camera_, font.get(), ss.str(), x + margin, y + margin + c*fontHeight, col);
 		ss.str("");
 	}
 	for (auto i = vec2->begin(); i != vec2->end(); ++i)
 	{
-		mySDL_.renderText(&camera_, Assets::getInstance().font_, (*i), x + margin, y + margin + c*fontHeight, col);
+		mySDL_.renderText(&camera_, font.get(), (*i), x + margin, y + margin + c*fontHeight, col);
 		c++;
 	}
 }
@@ -60,7 +61,9 @@ void View::drawCreatureInfo(int x, int y, std::shared_ptr<AnimalData> data)
 void View::drawBackground()
 {
 	int backgrWidth; int backgrHeight;
-	SDL_QueryTexture(Assets::getInstance().grass_, nullptr, nullptr, &backgrWidth, &backgrHeight);
+	shared_ptr<SDL_Texture> tex = Assets::getInstance().get(Assets::GRASS);
+
+	SDL_QueryTexture(tex.get(), nullptr, nullptr, &backgrWidth, &backgrHeight);
 
 	int xOffset = - (camera_.x%backgrWidth);
 	int yOffset = -(camera_.y%backgrHeight);
@@ -69,7 +72,7 @@ void View::drawBackground()
 	{
 		for (int j = yOffset; j < camera_.h; j += backgrHeight)
 		{
-			mySDL_.draw(nullptr, Assets::getInstance().grass_, i, j);
+			mySDL_.draw(nullptr, tex.get(), i, j);
 		}
 	}
 }
