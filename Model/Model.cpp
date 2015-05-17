@@ -80,7 +80,7 @@ shared_ptr<AnimalData> Model::getAnimalData(int x, int y) {
 			animalPtr = animal;
 			break;
 		}*/
-		animalPtr = animal; //chujki
+		animalPtr = animal; //chujkisad
 	}
 
 	// Nie znaleziono
