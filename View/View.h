@@ -11,6 +11,7 @@
 #include "Assets.h"
 #include "../Model/Model.h"
 #include <chrono>
+#include <cmath>
 
 class Controller;
 
@@ -40,7 +41,7 @@ public:
 	void run();
 	void quit();
 private:
-	void viewEyeshot(int x, int y, int angle, int radius, int length);
+	void drawEyeshot(const LocationData &);
 	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;

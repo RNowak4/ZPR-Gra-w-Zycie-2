@@ -9,8 +9,8 @@ void Controller::getModel(Model* m)
 	model_ = m;
 
 	//Code for testing purposes (rendering creatures).
-	for (int i = 60; i < 640; i += 90)
-		for (int j = 60; j < 480; j += 90)
+	for (int i = 140; i < 640; i += 90)
+		for (int j = 140; j < 480; j += 90)
 			m->createCarnivore(i, j);
 }
 void Controller::getView(View* v)
@@ -58,9 +58,9 @@ void Controller::update()
 {
 	
 	model_->updateAnimalsPosition();
-	std::vector<pair<const LocationData*, const AnimalData*> >&  creatures = model_->getAnimalsData();
-
-	for (auto i : creatures)
+	//std::vector<pair<const LocationData*, const AnimalData*> >&  creatures = model_->getAnimalsData();
+	auto creatures = model_->getAnimalsData();
+	for (auto i : *creatures)
 	{
 		view_->drawCreature( * i.first );
 		if (i.second != nullptr)

@@ -30,6 +30,15 @@ void View::getController(Controller* controller)
 */
 void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
+	drawEyeshot(*data.first);
+
+	/*LocationData dat;
+	dat.coordinates_.x = dat.coordinates_.y = 300;
+	dat.lookingAngle = 90;
+	dat.lookingRad = 90;
+	dat.sightLen_ = 100;
+	drawEyeshot(dat);*/
+
 	int fontHeight = 20;
 	int margin = 10;
 
@@ -41,14 +50,16 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	auto vec1 = &data.second->returnPairVector();
 	auto vec2 = &data.second->returnStringVector();
 
-	SDL_Rect frame;
-	frame.x = x;
-	frame.y = y; 
-	frame.w = 150;
-	frame.h = 2*margin + (vec1->size() + vec2->size())*fontHeight;
+	SDL_Rect frame	{ 
+					  x,
+					  y,
+					  150,
+					  2 * margin + (vec1->size() + vec2->size())*fontHeight 
+					};
+
 	mySDL_.drawFrame(&camera_, &frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND).get());
-	SDL_Color col;
-	col.a = col.b = col.g = col.r = 0x00;
+	SDL_Color col{ 0, 0, 0, 0 };
+	
 	
 	int lineCount = 0;
 	std::stringstream ss;
@@ -163,4 +174,26 @@ void View::moveCamera(int x, int y)
 const SDL_Rect & View::getCamera()
 {
 	return camera_;
+}
+
+void View::drawEyeshot(const LocationData & dat)
+{
+	double toRadians = 0.01745329;
+
+	int x1 = dat.coordinates_.x;
+	int y1 = dat.coordinates_.y;
+
+	int x2 = x1 + dat.sightLen_*std::cos((dat.lookingAngle + (dat.lookingRad / 2))*toRadians);
+	int y2 = y1 + dat.sightLen_*std::sin((dat.lookingAngle + (dat.lookingRad / 2))*toRadians);
+
+	int x3 = x1 + dat.sightLen_*std::cos((dat.lookingAngle - (dat.lookingRad / 2))*toRadians);
+	int y3 = y1 + dat.sightLen_*std::sin((dat.lookingAngle - (dat.lookingRad / 2))*toRadians);
+	 
+	SDL_Color col{ 0xff, 0, 0, 0 };
+
+	mySDL_.drawLine(&camera_, x1, y1, x2, y2, col);
+	mySDL_.drawLine(&camera_, x1, y1, x3, y3, col);
+	mySDL_.drawLine(&camera_, x3, y3, x2, y2, col);
+
+
 }
