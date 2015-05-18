@@ -39,8 +39,8 @@ public:
 	Coordinates getCoordinates(const Animal*) const;
 
 	std::vector<const LocationData*> getAnimalsLocationData();
-	std::vector<pair<const LocationData*, const AnimalData*> >& getAnimalsData() const;
-	//shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > getAnimalsData() const;
+	//std::vector<pair<const LocationData*, const AnimalData*> >& getAnimalsData() const;
+	shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > getAnimalsData() const;
 	bool switchAnimalRegister(unsigned, unsigned);
 
 private:

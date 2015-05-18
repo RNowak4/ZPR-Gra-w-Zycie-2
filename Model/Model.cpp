@@ -126,7 +126,7 @@ bool Model::isRegistered(Animal* animalPtr) const {
 
 	return false;
 }
-
+/*
 std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsData() const {
 	std::vector<pair<const LocationData*, const AnimalData*> >* vectorToReturn =
 			new std::vector<pair<const LocationData*, const AnimalData*> >();
@@ -144,9 +144,9 @@ std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsDat
 	}
 
 	return *vectorToReturn;
-}
+}*/
 
-/*shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > Model::getAnimalsData() const {
+shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > Model::getAnimalsData() const {
 	shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > vectorToReturn(
 			new std::vector<pair<const LocationData*, const AnimalData*> >());
 
@@ -163,7 +163,7 @@ std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsDat
 	}
 
 	return vectorToReturn;
-}*/
+}
 
 bool Model::switchAnimalRegister(unsigned x, unsigned y) {
 	Animal* animalPtr = findAnimal(x, y);
