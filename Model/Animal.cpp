@@ -12,7 +12,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 				0, 0, x, y, animalType) {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
-	locationData_.lookingAngle = 90;
+	locationData_.lookingAngle = 45;
 }
 
 Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
@@ -23,8 +23,10 @@ Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
 bool Animal::isThatMe(unsigned x, unsigned y) {
 	static const double PI = 3.1415;
 	double tmpX, tmpY;
-	tmpX = x * sin((double) locationData_.lookingAngle / (double) 180 * PI);
-	tmpY = y * sin((double) locationData_.lookingAngle / (double) 180 * PI);
+	//tmpX = x * sin((double) locationData_.lookingAngle / (double) 180 * PI);
+	//tmpY = y * sin((double) locationData_.lookingAngle / (double) 180 * PI);
+	tmpX = x;
+	tmpY = y;
 
 	unsigned width, height;
 	if (hasState("Childhood")) {
