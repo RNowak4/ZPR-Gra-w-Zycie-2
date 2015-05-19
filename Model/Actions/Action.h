@@ -18,10 +18,14 @@ typedef shared_ptr<Animal> AnimalPtr;
 
 class Action {
 private:
-	AnimalPtr animalPtr;
+	const AnimalPtr animalPtr;
 
 public:
 	Action();
+	Action(AnimalPtr animalPtr_) :
+			animalPtr(animalPtr_) {
+
+	}
 	virtual ~Action();
 	virtual void performAction() = 0;
 	virtual shared_ptr<Action> chooseNextAction() = 0;
