@@ -134,7 +134,7 @@ public:
 	 *@param stateName	- name of an state
 	 *@return	bool falue
 	 */
-	bool hasState(string stateName);
+	bool hasState(const string& stateName);
 
 	/**
 	 *@function setPosition

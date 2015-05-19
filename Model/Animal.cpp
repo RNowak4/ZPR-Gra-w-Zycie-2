@@ -56,7 +56,7 @@ AnimalData* Animal::getAnimalData() {
 	return dataToReturn;
 }
 
-bool Animal::hasState(string stateName) {
+bool Animal::hasState(const string& stateName) {
 	for (auto state : statesVector) {
 		if (state->isThatMe(stateName))
 			return true;
