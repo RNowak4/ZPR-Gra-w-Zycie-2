@@ -22,7 +22,7 @@ Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
 
 // TODO zmienic stale w Constants na bardziej normalne. Niech Damian je ustawia.
 bool Animal::isThatMe(unsigned x, unsigned y) {
-	static double PI = 3.1415;
+	static const double PI = 3.1415;
 	unsigned tmpX, tmpY;
 	tmpX = x * sin((double) locationData_.lookingAngle / (double) 180 * PI);
 	tmpY = y * cos((double) locationData_.lookingAngle / (double) 180 * PI);
