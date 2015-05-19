@@ -166,6 +166,15 @@ public:
 	 *@return	Pointer to AnimalData class
 	 */
 	AnimalData* getAnimalData();
+
+	/**
+	 *@function setNextAction
+	 *@brief 	Sets next action for an animal.
+	 *@param actionPtr	- Pointer to new action
+	 */
+	void setNextAction(ActionPtr actionPtr) {
+		nextAction = actionPtr;
+	}
 };
 
 #endif	/* ANIMAL_H */

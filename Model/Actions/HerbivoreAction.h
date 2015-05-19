@@ -15,7 +15,7 @@ public:
 	HerbivoreAction();
 	virtual ~HerbivoreAction();
 	virtual void performAction() = 0;
-	virtual Action* chooseNextAction() = 0;
+	virtual shared_ptr<Action> chooseNextAction() = 0;
 };
 
 #endif /* HERBIVOREACTION_H_ */
