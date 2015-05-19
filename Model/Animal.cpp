@@ -20,12 +20,11 @@ Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
 		Animal(x, y) {
 }
 
-// TODO zmienic stale w Constants na bardziej normalne. Niech Damian je ustawia.
 bool Animal::isThatMe(unsigned x, unsigned y) {
 	static const double PI = 3.1415;
-	unsigned tmpX, tmpY;
+	double tmpX, tmpY;
 	tmpX = x * sin((double) locationData_.lookingAngle / (double) 180 * PI);
-	tmpY = y * cos((double) locationData_.lookingAngle / (double) 180 * PI);
+	tmpY = y * sin((double) locationData_.lookingAngle / (double) 180 * PI);
 
 	unsigned width, height;
 	if (hasState("Childhood")) {
@@ -38,8 +37,8 @@ bool Animal::isThatMe(unsigned x, unsigned y) {
 
 	if (tmpX >= (locationData_.coordinates_.x - width / 2)
 			&& tmpX <= (locationData_.coordinates_.x + width / 2)
-			&& tmpX >= (locationData_.coordinates_.y - height / 2)
-			&& tmpX <= (locationData_.coordinates_.y + height / 2))
+			&& tmpY >= (locationData_.coordinates_.y - height / 2)
+			&& tmpY <= (locationData_.coordinates_.y + height / 2))
 		return true;
 
 	return false;
