@@ -57,11 +57,6 @@ protected:
 	Velocity velocity_;
 
 public:
-	// TODO Tymczasowo, zeby nie wywalalo errorow
-	Animal() :
-			animalModifiers(), actualAttributes_(animalModifiers) {
-	}
-
 	/**
 	 *@function Animal
 	 *@brief 	Copy Constructor.

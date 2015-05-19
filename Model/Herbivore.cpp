@@ -7,16 +7,13 @@
 
 #include "Herbivore.h"
 
-Herbivore::Herbivore() {
-}
-
 Herbivore::Herbivore(unsigned x, unsigned y) :
 		Animal(x, y) {
 	locationData_.animalType_ = HERBIVORE;
 }
-
-Herbivore::Herbivore(const Herbivore& orig) {
-}
+/*
+ Herbivore::Herbivore(const Herbivore& orig) {
+ }*/
 
 Herbivore::~Herbivore() {
 }

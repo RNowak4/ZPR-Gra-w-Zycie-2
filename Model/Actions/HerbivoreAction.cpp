@@ -8,11 +8,7 @@
 #include "HerbivoreAction.h"
 
 HerbivoreAction::HerbivoreAction() {
-	// TODO Auto-generated constructor stub
-
 }
 
 HerbivoreAction::~HerbivoreAction() {
-	// TODO Auto-generated destructor stub
 }
-
