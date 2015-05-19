@@ -15,7 +15,9 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	locationData_.lookingAngle = 90;
 }
 
-Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers, AnimalType animalType): Animal(x,y) {
+Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
+		AnimalType animalType) :
+		Animal(x, y) {
 }
 
 // TODO zmienic stale w Constants na bardziej normalne. Niech Damian je ustawia.
