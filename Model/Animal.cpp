@@ -68,7 +68,7 @@ bool Animal::hasState(const string& stateName) {
 
 void Animal::updateStatus() {
 	currentAction->performAction();
-	if(nextAction != currentAction) {
+	if (nextAction != currentAction) {
 		nextAction = currentAction;
 	}
 }
