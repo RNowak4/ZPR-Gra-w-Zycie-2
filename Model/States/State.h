@@ -20,6 +20,7 @@ private:
 public:
 	State();
 	virtual string toString() = 0;
+	virtual bool isThatMe(string stateName) = 0;
 };
 
 #endif /* STATE_H_ */

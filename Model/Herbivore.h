@@ -16,12 +16,10 @@ private:
 public:
     Herbivore();
     Herbivore(unsigned, unsigned);
-    Herbivore(const Animal*, const Animal*);
+    Herbivore(unsigned, unsigned, const Modifiers&);
     Herbivore(const Herbivore& orig);
     virtual ~Herbivore();
-    virtual void updateStatus();
-    virtual void doMove();
-    virtual bool isDangerous() { return false; }
+    virtual bool isDangerous(Animal* another) { return false; }
 };
 
 #endif	/* HERBIVORE_H */

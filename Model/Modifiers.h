@@ -1,8 +1,8 @@
-/*
- * Modifiers.h
+/**
+ * @file Modifiers.h
+ * @brief Structure that represents modifiers of an animals.
  *
- *  Created on: 16-05-2015
- *      Author: radek
+ * @author Radoslaw Nowak
  */
 
 #ifndef MODIFIERS_H_
@@ -15,7 +15,17 @@ struct Modifiers {
 	double sightLength_;
 	double naturalDeath_;
 	double sightAngle_;
+
+	/**
+	 *@function generateModifiers
+	 *@brief generate random modifiers.
+	 */
 	void generateModifiers();
+
+	/**
+	 *@function Modifiers
+	 *@brief default constructor of the class.
+	 */
 	Modifiers() {
 		generateModifiers();
 	}

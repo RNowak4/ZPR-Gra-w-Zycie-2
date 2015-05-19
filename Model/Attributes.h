@@ -1,8 +1,8 @@
-/* 
- * File:   Attributes.h
- * Author: Radek
+/**
+ * @file Attributes.h
+ * @brief Class that represents Animal attributes.
  *
- * Created on 12 marca 2015, 00:37
+ * @author Radoslaw Nowak
  */
 
 #ifndef ATTRIBUTES_H

@@ -15,6 +15,11 @@ public:
 	Childhood();
 	virtual ~Childhood();
 	string toString();
+	bool isThatMe(string stateName) {
+		if (stateName == "Childhood")
+			return true;
+		return false;
+	}
 };
 
 #endif /* CHILDHOOD_H_ */

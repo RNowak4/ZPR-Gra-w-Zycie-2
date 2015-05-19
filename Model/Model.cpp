@@ -37,20 +37,8 @@ void Model::updateAnimalsStatuses() {
 
 void Model::updateAnimalsPosition() {
 	for (auto animal : animalList_)
-		animal->doMove();
-}
-
-void Model::createHerbivore(const Animal* father, const Animal* mother) {
-	if (father == nullptr && mother == nullptr) {
-		// Tutaj nie tworzymy dziecka, a juz doroslego osobnika
-//        animalList_.push_back(new Herbivore());
-	} else if (father == nullptr || mother == nullptr) {
-		// Rzucic wyjatkiem
-	}
-
-	Animal* newHerbivore;
-//  newHerbivore = new Herbivore(father, mother);
-	animalList_.push_back(newHerbivore);
+		;
+	//animal->doMove();
 }
 
 std::vector<const LocationData*> Model::getAnimalsLocationData() {
@@ -61,7 +49,6 @@ std::vector<const LocationData*> Model::getAnimalsLocationData() {
 	return vectorToReturn;
 }
 
-// FUNKCJE DO TESTOW !!!
 void Model::createCarnivore(unsigned x, unsigned y) {
 	animalList_.push_back(new Carnivore(x, y));
 }
@@ -107,11 +94,10 @@ bool Model::deregisterAnimal(Animal* animalToErase) {
 
 Animal* Model::findAnimal(unsigned x, unsigned y) {
 	for (auto animal : animalList_) {
-		/*if (animal->isThatMe(x, y)) {
-		 animalPtr = animal;
-		 break;
-		 }*/
-		return animal;
+		if (animal->isThatMe(x, y)) {
+			return animal;
+		}
+		//return animal;
 	}
 	return nullptr;
 }
@@ -126,27 +112,8 @@ bool Model::isRegistered(Animal* animalPtr) const {
 
 	return false;
 }
-/*
-std::vector<pair<const LocationData*, const AnimalData*> >& Model::getAnimalsData() const {
-	std::vector<pair<const LocationData*, const AnimalData*> >* vectorToReturn =
-			new std::vector<pair<const LocationData*, const AnimalData*> >();
 
-	for (auto animal : animalList_) {
-		if (isRegistered(animal))
-			vectorToReturn->push_back(
-					pair<const LocationData*, const AnimalData*>(
-							animal->returnLocationData(),
-							animal->getAnimalData()));
-		else
-			vectorToReturn->push_back(
-					pair<const LocationData*, const AnimalData*>(
-							animal->returnLocationData(), nullptr));
-	}
-
-	return *vectorToReturn;
-}*/
-
-shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > Model::getAnimalsData() const {
+pairVectorPtr Model::getAnimalsData() const {
 	shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > vectorToReturn(
 			new std::vector<pair<const LocationData*, const AnimalData*> >());
 
@@ -178,4 +145,56 @@ bool Model::switchAnimalRegister(unsigned x, unsigned y) {
 	return true;
 }
 
-/*****************************************/
+void Model::setModelParameters(unsigned adultWidth, unsigned adultHeigth,
+		unsigned youngWidth, unsigned youngHeigth, unsigned mapWidth,
+		unsigned mapHeight) {
+	Constants::setParameters(adultWidth, adultHeigth, youngWidth, youngHeigth,
+			mapWidth, mapHeight);
+}
+
+static const double PI = 3.1415;
+
+double countDistance(Coordinates first, Coordinates second) {
+	double LenX = first.x - second.x;
+	double LenY = first.y - second.y;
+
+	return (sqrt(LenX * LenX + LenY * LenY));
+}
+
+unsigned countAngle(Coordinates first, Coordinates second) {
+	double LenX = first.x - second.x;
+	double LenY = first.y - second.y;
+	double przeciwProstokatna = countDistance(first, second);
+	unsigned angle = asin(LenX / przeciwProstokatna) * 180.0 / PI;
+
+	if (LenX >= 0 && LenY < 0)
+		return angle;
+	else if (LenX < 0 && LenY < 0)
+		return angle + 90;
+	else if (LenX < 0 && LenY >= 0)
+		return angle + 180;
+	else if (LenX >= 0 && LenY >= 0)
+		return angle + 270;
+}
+
+std::vector<AnimalPtr> Model::getAnimalsInSight(Coordinates coordinates,
+		unsigned sightLen, unsigned sightAngle, unsigned lookingAngle) const {
+	std::vector<AnimalPtr> vectorToReturn;
+	Coordinates tempCoords;
+	unsigned angle;
+
+	for (auto animal : animalList_) {
+		tempCoords = animal->returnLocationData()->coordinates_;
+		if (tempCoords == coordinates)
+			continue;
+		else if (countDistance(coordinates, tempCoords) <= sightLen) {
+			angle = countAngle(coordinates, tempCoords);
+			if ((sightAngle + lookingAngle / 2) <= angle
+					&& (sightAngle - lookingAngle / 2) >= angle) {
+				vectorToReturn.push_back(AnimalPtr(animal));
+			}
+		}
+	}
+
+	return vectorToReturn;
+}

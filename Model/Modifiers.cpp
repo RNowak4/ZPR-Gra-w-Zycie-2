@@ -1,9 +1,9 @@
-/*
- * Modifiers.cpp
- *
- *  Created on: 16-05-2015
- *      Author: radek
- */
+/**
+* @file Modifiers.cpp
+* @brief Implementation of the Modifiers class.
+*
+* @author Radoslaw Nowak
+*/
 
 #include "Modifiers.h"
 

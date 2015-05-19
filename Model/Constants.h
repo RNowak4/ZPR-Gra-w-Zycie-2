@@ -1,22 +1,27 @@
-/*
- * Constants.h
+/**
+ * @file Constants.h
+ * @brief Class which represents a constant values of the Model parameters
  *
- *  Created on: 16-05-2015
- *      Author: radek
+ * @author Radoslaw Nowak
  */
 
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_
 
 class Constants {
+private:
+	Constants() {
+	}
+
 public:
-	Constants(unsigned, unsigned, unsigned, unsigned, unsigned, unsigned);
-	const unsigned adultWidth;
-	const unsigned adultHeight;
-	const unsigned youngWidth;
-	const unsigned youngHeight;
-	const unsigned mapWidth;
-	const unsigned mapHeight;
+	static void setParameters(unsigned, unsigned, unsigned, unsigned, unsigned,
+			unsigned);
+	unsigned static adultWidth;
+	unsigned static adultHeigth;
+	unsigned static youngWidth;
+	unsigned static youngHeigth;
+	unsigned static mapWidth;
+	unsigned static mapHeight;
 };
 
 #endif /* CONSTANTS_H_ */

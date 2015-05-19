@@ -10,14 +10,10 @@
 Herbivore::Herbivore() {
 }
 
-Herbivore::Herbivore(unsigned x, unsigned y): Animal(x,y) {
-    locationData_.animalType_ = HERBIVORE;
+Herbivore::Herbivore(unsigned x, unsigned y) :
+		Animal(x, y) {
+	locationData_.animalType_ = HERBIVORE;
 }
-
-/*
-Herbivore::Herbivore(const Animal* father, const Animal* mother):
-                        Animal(father,mother) {
-}*/
 
 Herbivore::Herbivore(const Herbivore& orig) {
 }
@@ -25,8 +21,6 @@ Herbivore::Herbivore(const Herbivore& orig) {
 Herbivore::~Herbivore() {
 }
 
-void Herbivore::updateStatus() {
-}
-
-void Herbivore::doMove() {
+Herbivore::Herbivore(unsigned x, unsigned y, const Modifiers& modifiers) :
+		Animal(x, y, modifiers, CARNIVORE) {
 }

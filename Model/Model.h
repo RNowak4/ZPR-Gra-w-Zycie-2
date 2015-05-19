@@ -1,56 +1,45 @@
-/* 
- * File:   Model.h
- * Author: Radek
- *
- * Created on 9 marca 2015, 21:29
- */
+/**
+* @file Model.h
+* @brief Class that represents Model.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_H
 #define	MODEL_H
 
 #include "Animal.h"
 #include "Herbivore.h"
+#include "Constants.h"
 #include <list>
 #include <vector>
+
+typedef shared_ptr<Animal> AnimalPtr;
+typedef shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > pairVectorPtr;
 
 class Model {
 public:
 	Model();
 	Model(const Model& orig);
 	~Model();
-	// Funkcja, ktora tworzy zwierze powstale w wyniku kopulacji
-	void createHerbivore(const Animal*, const Animal*);
-	// Funkcja, ktora tworzy zwierze powstale w wyniku kopulacji
-	void createCarnivore(const Animal*, const Animal*);
-
-	// Funkcje do szybkiego wyswietlania! Tylko w ramach testow!
 	void createCarnivore(unsigned, unsigned);
 	void createHerbivore(unsigned, unsigned);
-	//*********************************************************
-
-	// Update'uje statusy wszystkich jednostek
+	void createCarnivore(unsigned, unsigned, const Modifiers&);
+	void createHerbivore(unsigned, unsigned, const Modifiers&);
 	void updateAnimalsStatuses();
-	//Updatuje pozycje zwierzat na mapie.
 	void updateAnimalsPosition();
-	// Pobiera vector zwierzat w obrebie trojkata
-	// Parametry to wysokosc i kat
-	std::vector<const Animal*> getAnimalsInTriangle(double, double) const;
-	// Pobiera Wspolrzedne widzianego zwierzeta
+	std::vector<AnimalPtr> getAnimalsInSight(Coordinates, unsigned, unsigned,
+			unsigned) const;
 	Coordinates getCoordinates(const Animal*) const;
-
 	std::vector<const LocationData*> getAnimalsLocationData();
-	//std::vector<pair<const LocationData*, const AnimalData*> >& getAnimalsData() const;
-	shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > getAnimalsData() const;
+	pairVectorPtr getAnimalsData() const;
 	bool switchAnimalRegister(unsigned, unsigned);
+	void setModelParameters(unsigned, unsigned, unsigned, unsigned, unsigned,
+			unsigned);
 
 private:
-	// Tworzy herrbivore na podstawie dziecka
-	void createHerbivore(const Animal*);
-	// Tworzy carnivore na podstawie dziecka
-	void createCarnivore(const Animal*);
 	std::list<Animal*> animalList_;
 	std::list<Animal*> registeredAnimalList_;
-	Attributes mixAttributes(const Animal*, const Animal*);
 	Animal* findAnimal(unsigned, unsigned);
 	bool deregisterAnimal(Animal*);
 	bool isRegistered(Animal*) const;

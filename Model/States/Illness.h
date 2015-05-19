@@ -14,6 +14,10 @@ class Illness: public State {
 public:
 	Illness();
 	string toString();
+	bool isThatMe(string stateName) {
+		if(stateName == "Illness") return true;
+		return false;
+	}
 };
 
 #endif /* ILLNESS_H_ */

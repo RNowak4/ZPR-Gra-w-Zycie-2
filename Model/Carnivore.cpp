@@ -10,8 +10,8 @@
 Carnivore::Carnivore() {
 }
 
-Carnivore::Carnivore(unsigned x, unsigned y): Animal(x,y) {
-    locationData_.animalType_ = CARNIVORE;
+Carnivore::Carnivore(unsigned x, unsigned y) :
+		Animal(x, y, CARNIVORE) {
 }
 
 Carnivore::Carnivore(const Carnivore& orig) {
@@ -20,8 +20,6 @@ Carnivore::Carnivore(const Carnivore& orig) {
 Carnivore::~Carnivore() {
 }
 
-void Carnivore::updateStatus() {
-}
-
-void Carnivore::doMove() {
+Carnivore::Carnivore(unsigned x, unsigned y, const Modifiers& modifiers) :
+		Animal(x, y, modifiers, CARNIVORE) {
 }

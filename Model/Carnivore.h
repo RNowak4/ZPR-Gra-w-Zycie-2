@@ -18,11 +18,10 @@ class Carnivore: public Animal {
 public:
     Carnivore();
     Carnivore(unsigned, unsigned);
+    Carnivore(unsigned, unsigned, const Modifiers&);
     Carnivore(const Carnivore& orig);
     virtual ~Carnivore();
-    virtual void updateStatus();
-    virtual void doMove();
-    virtual bool isDangerous() { return true; } //nie zawsze bedzie true
+    virtual bool isDangerous(Animal* another) { return true; } //nie zawsze bedzie true
     
 private:
 
