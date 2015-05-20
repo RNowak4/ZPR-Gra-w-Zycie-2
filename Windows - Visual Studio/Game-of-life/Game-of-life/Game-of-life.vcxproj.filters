@@ -90,6 +90,12 @@
     <ClInclude Include="..\..\..\Model\Model.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\TestAction.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Controller\Controller.cpp">
@@ -148,6 +154,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Modifiers.cpp">
       <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Constants.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

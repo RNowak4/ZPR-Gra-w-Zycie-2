@@ -17,7 +17,7 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 
 void View::drawCreature(const LocationData& data)
 {
-	mySDL_.draw(&camera_, Assets::getInstance().get(Assets::CARNIVORE).get(), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle, 150);
+	mySDL_.draw(&camera_, Assets::getInstance().get(Assets::CARNIVORE).get(), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
 }
 
 void View::getController(Controller* controller)
@@ -31,13 +31,6 @@ void View::getController(Controller* controller)
 void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
 	drawEyeshot(*data.first);
-
-	/*LocationData dat;
-	dat.coordinates_.x = dat.coordinates_.y = 300;
-	dat.lookingAngle = 90;
-	dat.lookingRad = 90;
-	dat.sightLen_ = 100;
-	drawEyeshot(dat);*/
 
 	int fontHeight = 20;
 	int margin = 10;

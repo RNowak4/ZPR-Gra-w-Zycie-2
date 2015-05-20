@@ -2,16 +2,15 @@
 #include "../View/View.h"
 #include "../Model/Model.h"
 #include <iostream>
+#include "../Model/Constants.h"
 
 
 void Controller::getModel(Model* m)
 {
 	model_ = m;
 
-	//Code for testing purposes (rendering creatures).
-	for (int i = 140; i < 640; i += 90)
-		for (int j = 140; j < 480; j += 90)
-			m->createCarnivore(i, j);
+	loadSettings("settings.txt");
+	
 }
 void Controller::getView(View* v)
 {
@@ -37,14 +36,16 @@ void Controller::handleEvent(SDL_Event* e)
 				view_->moveCamera(-step, 0);
 			break;
 		case SDLK_RIGHT:
-			view_->moveCamera(step, 0);
+			if (camera.x + camera.w + step <= Constants::mapWidth)
+				view_->moveCamera(step, 0);
 			break;
 		case SDLK_UP:
 			if (camera.y - step >= 0)
 				view_->moveCamera(0, -step);
 			break;
 		case SDLK_DOWN:
-			view_->moveCamera(0, step);
+			if (camera.y + camera.h + step <= Constants::mapHeight)
+				view_->moveCamera(0, step);
 			break;
 		}
 		break;
@@ -58,7 +59,7 @@ void Controller::update()
 {
 	
 	model_->updateAnimalsPosition();
-	//std::vector<pair<const LocationData*, const AnimalData*> >&  creatures = model_->getAnimalsData();
+
 	auto creatures = model_->getAnimalsData();
 	for (auto i : *creatures)
 	{
@@ -68,6 +69,48 @@ void Controller::update()
 			view_->drawCreatureInfo(i);
 		}
 	}
-	
-		
+}
+
+void Controller::loadSettings(const std::string& path )
+{
+	std::ifstream file;
+	file.open(path);
+	if (!file.good())
+		return;
+	std::stringstream ss;
+	std::string command;
+
+	while (std::getline(file, command))
+	{
+		processCommand(command);
+	}
+}
+
+void Controller::processCommand(const std::string & command)
+{
+	std::stringstream ss(command);
+	std::string what;
+	ss >> what;
+
+	if (what == "MAP_WIDTH")
+	{
+		ss >> Constants::mapWidth;
+	}
+	else if (what == "MAP_HEIGHT")
+	{
+		ss >> Constants::mapHeight;
+	}
+	else if (what == "CARNIVORE")
+	{
+		int x, y;
+		ss >> x >> y;
+		model_->createCarnivore(x,y);
+	}
+	else if (what == "HERBIVORE")
+	{
+		int x, y;
+		ss >> x >> y;
+		model_->createHerbivore(x, y);
+	}
+
 }

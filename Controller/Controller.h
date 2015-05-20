@@ -15,6 +15,8 @@
 #include <SDL2/SDL.h>
 #endif
 
+#include <fstream>
+#include <sstream>
 
 class View;
 class Model;
@@ -31,6 +33,8 @@ public:
 	void handleEvent(SDL_Event*);
 	void update();
 private:
+	void loadSettings(const std::string&);
+	void processCommand(const std::string&);
 	Model* model_;
 	View* view_;
 	
