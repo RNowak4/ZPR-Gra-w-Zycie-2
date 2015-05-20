@@ -9,6 +9,7 @@
 #define STATE_H_
 
 #include <string>
+
 #include "../Attributes.h"
 
 using namespace std;

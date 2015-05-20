@@ -8,6 +8,7 @@
 #ifndef ACTION_H_
 #define ACTION_H_
 
+#include "../Animal.h"
 #include <memory>
 
 class Animal;

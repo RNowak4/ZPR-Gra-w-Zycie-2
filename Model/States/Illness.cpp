@@ -7,6 +7,8 @@
 
 #include "Illness.h"
 
+#include <string>
+
 Illness::Illness() {
 }
 

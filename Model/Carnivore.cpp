@@ -7,6 +7,8 @@
 
 #include "Carnivore.h"
 
+#include "ViewStructs.h"
+
 Carnivore::Carnivore(unsigned x, unsigned y) :
 		Animal(x, y, CARNIVORE) {
 }

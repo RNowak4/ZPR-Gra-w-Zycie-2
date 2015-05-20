@@ -9,7 +9,8 @@
 
 AnimalViewParameters::AnimalViewParameters(unsigned width_, unsigned height_,
 		unsigned positionX_, unsigned positionY_, AnimalType animalType_) :
-		height(height_), width(width_), positionX(positionX_), positionY(positionY_), animalType(animalType_) {
+		height(height_), width(width_), positionX(positionX_), positionY(
+				positionY_), animalType(animalType_) {
 	lookingAngle = 0;
 	lookingRad = 0;
 }

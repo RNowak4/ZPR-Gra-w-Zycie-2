@@ -6,7 +6,12 @@
  */
 
 #include "Model.h"
+
+#include <cmath>
+
 #include "Carnivore.h"
+#include "Constants.h"
+#include "Herbivore.h"
 
 Model::Model() {
 }

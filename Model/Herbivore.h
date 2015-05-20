@@ -23,4 +23,3 @@ public:
 };
 
 #endif	/* HERBIVORE_H */
-

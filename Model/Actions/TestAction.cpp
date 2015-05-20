@@ -7,7 +7,6 @@
 
 #include "TestAction.h"
 
-#include "../Animal.h"
 
 TestAction::TestAction() {
 }
@@ -20,7 +19,7 @@ TestAction::~TestAction() {
 }
 
 void TestAction::performAction() {
-	animalPtr->setPosition(10,10);
+	// do nothing
 }
 
 shared_ptr<Action> TestAction::chooseNextAction() {

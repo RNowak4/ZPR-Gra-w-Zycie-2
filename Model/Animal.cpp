@@ -7,10 +7,10 @@
 
 #include "Animal.h"
 
-#include <string>
+#include <cmath>
 
 #include "Actions/TestAction.h"
-#include "ViewStructs.h"
+#include "Constants.h"
 
 static const double PI = 3.1415;
 

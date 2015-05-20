@@ -8,6 +8,8 @@
 #ifndef CHILDHOOD_H_
 #define CHILDHOOD_H_
 
+#include <string>
+
 #include "State.h"
 
 class Childhood: public State {

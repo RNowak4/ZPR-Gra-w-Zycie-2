@@ -8,14 +8,17 @@
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
-#include <vector>
 #include <memory>
-#include <cmath>
-#include "Attributes.h"
-#include "AnimalViewParameters.h"
+#include <string>
+#include <vector>
+
+#include "Actions/Action.h"
 #include "AnimalData.h"
+#include "AnimalViewParameters.h"
+#include "Attributes.h"
+#include "Modifiers.h"
 #include "States/State.h"
-#include "Constants.h"
+#include "ViewStructs.h"
 
 class Action;
 class TestAction;

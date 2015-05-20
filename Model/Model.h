@@ -8,11 +8,13 @@
 #ifndef MODEL_H
 #define	MODEL_H
 
-#include "Animal.h"
-#include "Herbivore.h"
-#include "Constants.h"
 #include <list>
+#include <utility>
 #include <vector>
+
+#include "Animal.h"
+#include "AnimalData.h"
+#include "ViewStructs.h"
 
 typedef shared_ptr<Animal> AnimalPtr;
 typedef shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > pairVectorPtr;

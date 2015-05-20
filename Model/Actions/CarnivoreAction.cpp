@@ -14,4 +14,3 @@ CarnivoreAction::CarnivoreAction() {
 CarnivoreAction::~CarnivoreAction() {
 
 }
-

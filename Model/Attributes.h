@@ -8,7 +8,7 @@
 #ifndef ATTRIBUTES_H
 #define	ATTRIBUTES_H
 
-#include "Modifiers.h"
+struct Modifiers;
 
 class Attributes {
 public:

@@ -7,6 +7,8 @@
 
 #include "Childhood.h"
 
+#include <string>
+
 Childhood::Childhood() {
 
 }

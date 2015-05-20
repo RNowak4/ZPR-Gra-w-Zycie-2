@@ -23,7 +23,8 @@ private:
 	AnimalType animalType;
 
 public:
-	AnimalViewParameters() { }
+	AnimalViewParameters() {
+	}
 	AnimalViewParameters(unsigned, unsigned, unsigned, unsigned, AnimalType);
 	LocationData& returnLocationData() const;
 	Coordinates returnCoordinates() const;
