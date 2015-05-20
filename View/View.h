@@ -15,8 +15,8 @@
 
 class Controller;
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int MAP_WIDTH = 1000;
 const int MAP_HEIGHT = 1000;
 const int FPS = 50;

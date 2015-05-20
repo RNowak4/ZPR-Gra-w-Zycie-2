@@ -8,8 +8,12 @@
 void Controller::getModel(Model* m)
 {
 	model_ = m;
-
 	loadSettings("settings.txt");
+
+
+	Constants::adultWidth = 80; //Chwilowo
+	Constants::adultHeigth = 40; //Chwilowo
+
 	
 }
 void Controller::getView(View* v)

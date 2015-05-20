@@ -17,7 +17,13 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 
 void View::drawCreature(const LocationData& data)
 {
-	mySDL_.draw(&camera_, Assets::getInstance().get(Assets::CARNIVORE).get(), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
+	Assets::TextureID texId;
+	if (data.animalType_ == HERBIVORE)
+		texId = Assets::HERBIVORE;
+	else
+		texId = Assets::CARNIVORE;
+	mySDL_.draw(&camera_, Assets::getInstance().get(texId).get(), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
+	
 }
 
 void View::getController(Controller* controller)
