@@ -58,7 +58,9 @@ protected:
 	LocationData locationData_;
 	//Velocity velocity_;
 	double velocity;
+	double acceleration;
 	double angleVelocity;
+	double angleAcceleration;
 
 public:
 	/**
