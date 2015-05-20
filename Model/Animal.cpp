@@ -7,12 +7,22 @@
 
 #include "Animal.h"
 
+#include <string>
+
+#include "Actions/TestAction.h"
+#include "ViewStructs.h"
+
+static const double PI = 3.1415;
+
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 		animalModifiers(), actualAttributes_(animalModifiers), animalViewParameters(
 				0, 0, x, y, animalType) {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
 	locationData_.lookingAngle = 45;
+	currentAction = shared_ptr<Action>(new TestAction(this));
+	nextAction = currentAction;
+	velocity = 1.0;
 }
 
 Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
@@ -21,7 +31,6 @@ Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
 }
 
 bool Animal::isThatMe(unsigned x, unsigned y) {
-	static const double PI = 3.1415;
 	double tmpX, tmpY;
 	//tmpX = x * sin((double) locationData_.lookingAngle / (double) 180 * PI);
 	//tmpY = y * sin((double) locationData_.lookingAngle / (double) 180 * PI);
@@ -54,6 +63,7 @@ AnimalData* Animal::getAnimalData() {
 
 	dataToReturn->pushPair(string("Speed"), actualAttributes_.speed_);
 	dataToReturn->pushPair(string("Sex need"), actualAttributes_.sexNeed_);
+	dataToReturn->pushPair(string("Pozdrawiam Damiana z Modelu"), -997.0);
 	//TODO reszta
 
 	return dataToReturn;
@@ -70,9 +80,9 @@ bool Animal::hasState(const string& stateName) {
 
 void Animal::updateStatus() {
 	currentAction->performAction();
-	if (nextAction != currentAction) {
+	/*if (nextAction != currentAction) {
 		nextAction = currentAction;
-	}
+	}*/
 }
 
 void Animal::setPosition(unsigned x, unsigned y) {
@@ -82,4 +92,11 @@ void Animal::setPosition(unsigned x, unsigned y) {
 
 void Animal::setPosition(Coordinates coodrinates) {
 	this->locationData_.coordinates_ = coodrinates;
+}
+
+void Animal::doMove() {
+	/*locationData_.coordinates_.x += velocity_.VX / 50.0;
+	locationData_.coordinates_.y += velocity_.VY / 50.0;*/
+	locationData_.coordinates_.x += velocity * cos((double)locationData_.lookingAngle * PI / 180.0) / 1.0;
+	locationData_.coordinates_.y += velocity * sin((double)locationData_.lookingAngle * PI / 180.0) / 1.0;
 }

@@ -13,6 +13,7 @@
 class TestAction: public Action {
 public:
 	TestAction();
+	TestAction(Animal*);
 	virtual ~TestAction();
 	void performAction();
 	shared_ptr<Action> chooseNextAction();

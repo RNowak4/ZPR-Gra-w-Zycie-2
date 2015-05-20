@@ -10,6 +10,8 @@
 
 #include <memory>
 
+class Animal;
+
 using namespace std;
 
 class Animal;
@@ -17,12 +19,12 @@ class Animal;
 typedef shared_ptr<Animal> AnimalPtr;
 
 class Action {
-private:
-	const AnimalPtr animalPtr;
+protected:
+	Animal* animalPtr;
 
 public:
 	Action();
-	Action(AnimalPtr animalPtr_) :
+	Action(Animal* animalPtr_) :
 			animalPtr(animalPtr_) {
 
 	}

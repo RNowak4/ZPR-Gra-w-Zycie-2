@@ -37,8 +37,7 @@ void Model::updateAnimalsStatuses() {
 
 void Model::updateAnimalsPosition() {
 	for (auto animal : animalList_)
-		;
-	//animal->doMove();
+		animal->doMove();
 }
 
 std::vector<const LocationData*> Model::getAnimalsLocationData() {

@@ -1,9 +1,12 @@
+#ifndef VIEWSTRUCTS_H
+#define VIEWSTRUCTS_H
+
 enum AnimalType {
 	CARNIVORE, HERBIVORE,
 };
 
 struct Coordinates {
-	unsigned x, y;
+	double x, y;
 	Coordinates() {
 		x = 0;
 		y = 0;
@@ -26,3 +29,4 @@ struct LocationData {
 	AnimalType animalType_;
 };
 
+#endif

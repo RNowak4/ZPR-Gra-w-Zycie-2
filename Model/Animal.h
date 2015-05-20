@@ -15,8 +15,10 @@
 #include "AnimalViewParameters.h"
 #include "AnimalData.h"
 #include "States/State.h"
-#include "Actions/Action.h"
 #include "Constants.h"
+
+class Action;
+class TestAction;
 
 typedef shared_ptr<Action> ActionPtr;
 typedef shared_ptr<AnimalData> AnimalDataPtr;
@@ -32,10 +34,10 @@ public:
 		FEMALE, MALE
 	};
 
-	struct Velocity {
+	/*struct Velocity {
 		double VX, VY;
 		Velocity() :
-				VX(0.0), VY(0.0) {
+				VX(0.1), VY(0.1) {
 		}
 		Velocity(double VX_, double VY_) :
 				VX(VX_), VY(VY_) {
@@ -43,7 +45,7 @@ public:
 		double returnVelocityValue() {
 			return sqrt(VX * VX + VY * VY);
 		}
-	};
+	};*/
 
 protected:
 	Modifiers animalModifiers;
@@ -54,7 +56,8 @@ protected:
 	AnimalViewParameters animalViewParameters;
 	Coordinates coordinates_;
 	LocationData locationData_;
-	Velocity velocity_;
+	//Velocity velocity_;
+	double velocity;
 
 public:
 	/**
@@ -170,6 +173,12 @@ public:
 	void setNextAction(ActionPtr actionPtr) {
 		nextAction = actionPtr;
 	}
+
+	/**
+	 *@function doMove
+	 *@brief 	Moves an animal
+	 */
+	void doMove();
 };
 
 #endif	/* ANIMAL_H */
