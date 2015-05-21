@@ -19,6 +19,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 				0, 0, x, y, animalType) {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
+	locationData_.sightLen_ = 300;
 	locationData_.lookingAngle = 45;
 	locationData_.lookingRad = 45;
 	currentAction = shared_ptr < Action > (new TestAction(this));
