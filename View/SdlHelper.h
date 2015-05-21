@@ -75,6 +75,8 @@ public:
 	*/
 	void drawLine(SDL_Rect* camera, int x1, int y1, int x2, int y2, const SDL_Color & color);
 
+	void drawPoint(SDL_Rect* camera, int x, int y, const SDL_Color & color);
+
 	void clearScreen();
 	void renderScreen();
 

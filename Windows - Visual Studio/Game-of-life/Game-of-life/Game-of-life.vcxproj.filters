@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Model\States">
       <UniqueIdentifier>{23defb14-e447-4e0e-af62-0f04aabbdfb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Exception">
+      <UniqueIdentifier>{0140b079-fe31-4e06-ab8b-47b7e342c53a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\View\Assets.h">
@@ -95,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Model\Actions\TestAction.h">
       <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Exception\GameOfLifeException.h">
+      <Filter>Header Files\Exception</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

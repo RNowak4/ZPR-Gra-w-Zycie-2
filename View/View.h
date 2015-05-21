@@ -42,6 +42,7 @@ public:
 	void quit();
 private:
 	void drawEyeshot(const LocationData &);
+	void drawEyeshotCone(const LocationData &);
 	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;
