@@ -1,18 +1,14 @@
-/* 
- * File:   Carnivore.h
- * Author: Radek
+/**
+ * @file Carnivore.h
+ * @brief Class that represents a Carnivore
  *
- * Created on 9 marca 2015, 21:32
+ * @author Radoslaw Nowak
  */
 
 #ifndef CARNIVORE_H
 #define	CARNIVORE_H
 
 #include "Animal.h"
-
-/*-Podczas poscigu zwierze powinno moc zmienic cel
- * na slabszy, jesli taki napotka na swojej drodze.
- */
 
 class Carnivore: public Animal {
 public:

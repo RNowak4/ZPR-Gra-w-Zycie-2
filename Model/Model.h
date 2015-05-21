@@ -1,9 +1,9 @@
 /**
-* @file Model.h
-* @brief Class that represents Model.
-*
-* @author Radoslaw Nowak
-*/
+ * @file Model.h
+ * @brief Class that represents Model.
+ *
+ * @author Radoslaw Nowak
+ */
 
 #ifndef MODEL_H
 #define	MODEL_H

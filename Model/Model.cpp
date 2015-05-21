@@ -1,8 +1,8 @@
-/* 
- * File:   Model.cpp
- * Author: Radek
- * 
- * Created on 9 marca 2015, 21:29
+/**
+ * @file Model.cpp
+ * @brief Implementation of the Model
+ *
+ * @author Radoslaw Nowak
  */
 
 #include "Model.h"
@@ -101,7 +101,6 @@ Animal* Model::findAnimal(unsigned x, unsigned y) {
 		if (animal->isThatMe(x, y)) {
 			return animal;
 		}
-		//return animal;
 	}
 	return nullptr;
 }
@@ -181,6 +180,7 @@ unsigned countAngle(Coordinates first, Coordinates second) {
 		return angle + 270;
 }
 
+// TODO nazwy argumentow mi sie jebnely cos
 std::vector<AnimalPtr> Model::getAnimalsInSight(Coordinates coordinates,
 		unsigned sightLen, unsigned sightAngle, unsigned lookingAngle) const {
 	std::vector<AnimalPtr> vectorToReturn;

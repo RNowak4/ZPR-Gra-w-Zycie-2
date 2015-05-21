@@ -1,8 +1,15 @@
+/**
+ * @file ViewStructs.cpp
+ * @brief Some basic structures/enums
+ *
+ * @author Radoslaw Nowak
+ */
+
 #ifndef VIEWSTRUCTS_H
 #define VIEWSTRUCTS_H
 
 enum AnimalType {
-	CARNIVORE, HERBIVORE,
+	CARNIVORE, HERBIVORE, CARNIVORE_CHILD, HERBIVORE_CHILD
 };
 
 struct Coordinates {

@@ -1,8 +1,8 @@
-/* 
- * File:   Herbivore.cpp
- * Author: Radek
- * 
- * Created on 9 marca 2015, 21:30
+/**
+ * @file Herbivore.cpp
+ * @brief Implementation of the Herbivore class
+ *
+ * @author Radoslaw Nowak
  */
 
 #include "Herbivore.h"

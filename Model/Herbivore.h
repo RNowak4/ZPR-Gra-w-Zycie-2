@@ -1,8 +1,8 @@
-/* 
- * File:   Herbivore.h
- * Author: Radek
+/**
+ * @file Herbivore.cpp
+ * @brief A class that represents a Herbivore
  *
- * Created on 9 marca 2015, 21:30
+ * @author Radoslaw Nowak
  */
 
 #ifndef HERBIVORE_H

@@ -37,19 +37,6 @@ public:
 		FEMALE, MALE
 	};
 
-	/*struct Velocity {
-		double VX, VY;
-		Velocity() :
-				VX(0.1), VY(0.1) {
-		}
-		Velocity(double VX_, double VY_) :
-				VX(VX_), VY(VY_) {
-		}
-		double returnVelocityValue() {
-			return sqrt(VX * VX + VY * VY);
-		}
-	};*/
-
 protected:
 	Modifiers animalModifiers;
 	Attributes actualAttributes_;
@@ -59,11 +46,9 @@ protected:
 	AnimalViewParameters animalViewParameters;
 	Coordinates coordinates_;
 	LocationData locationData_;
-	//Velocity velocity_;
 	double velocity;
 	double acceleration;
 	double angleVelocity;
-	double angleAcceleration;
 
 public:
 	/**
@@ -185,6 +170,30 @@ public:
 	 *@brief 	Moves an animal
 	 */
 	void doMove();
+
+	/**
+	 *@function turnRight
+	 *@brief 	Turns an animal right
+	 */
+	void turnRight() {
+		angleVelocity = 1.0;
+	}
+
+	/**
+	 *@function turnLeft
+	 *@brief 	Turns an animal left
+	 */
+	void turnLeft() {
+		angleVelocity = -1.0;
+	}
+
+	/**
+	 *@function stopTurning
+	 *@brief 	Stops animal's turning
+	 */
+	void stopTurning() {
+		angleVelocity = 0.0;
+	}
 };
 
 #endif	/* ANIMAL_H */
