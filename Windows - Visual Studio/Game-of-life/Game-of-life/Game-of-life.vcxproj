@@ -47,6 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -73,7 +74,9 @@
     <ClInclude Include="..\..\..\Exception\GameOfLifeException.h" />
     <ClInclude Include="..\..\..\Model\Actions\Action.h" />
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreAction.h" />
+    <ClInclude Include="..\..\..\Model\Actions\Follow.h" />
     <ClInclude Include="..\..\..\Model\Actions\HerbivoreAction.h" />
+    <ClInclude Include="..\..\..\Model\Actions\RandomWalking.h" />
     <ClInclude Include="..\..\..\Model\Actions\TestAction.h" />
     <ClInclude Include="..\..\..\Model\Animal.h" />
     <ClInclude Include="..\..\..\Model\AnimalData.h" />
@@ -97,7 +100,9 @@
     <ClCompile Include="..\..\..\main.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Action.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreAction.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\Follow.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\HerbivoreAction.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\RandomWalking.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp" />
     <ClCompile Include="..\..\..\Model\Animal.cpp" />
     <ClCompile Include="..\..\..\Model\AnimalData.cpp" />

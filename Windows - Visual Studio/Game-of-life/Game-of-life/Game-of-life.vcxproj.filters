@@ -102,6 +102,12 @@
     <ClInclude Include="..\..\..\Exception\GameOfLifeException.h">
       <Filter>Header Files\Exception</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Follow.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\RandomWalking.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Controller\Controller.cpp">
@@ -165,6 +171,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Follow.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\RandomWalking.cpp">
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
   </ItemGroup>
