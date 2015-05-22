@@ -36,7 +36,7 @@ void View::getController(Controller* controller)
 */
 void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
-	drawEyeshot(*data.first);
+	drawEyeshotCone(*data.first);
 
 	int fontHeight = 20;
 	int margin = 10;
@@ -193,6 +193,38 @@ void View::drawEyeshot(const LocationData & dat)
 	mySDL_.drawLine(&camera_, x1, y1, x2, y2, col);
 	mySDL_.drawLine(&camera_, x1, y1, x3, y3, col);
 	mySDL_.drawLine(&camera_, x3, y3, x2, y2, col);
+}
+
+void View::drawEyeshotCone(const LocationData & dat)
+{
+	double toRadians = M_PI/180;
+	
+	int x1 = dat.coordinates_.x;
+	int y1 = dat.coordinates_.y;
+
+	double angleA = (dat.lookingAngle - (dat.lookingRad / 2))*toRadians;
+	double angleB = (dat.lookingAngle + (dat.lookingRad / 2))*toRadians;
+
+	int x2 = x1 + dat.sightLen_*std::cos(angleA);
+	int y2 = y1 + dat.sightLen_*std::sin(angleA);
+
+	int x3 = x1 + dat.sightLen_*std::cos(angleB);
+	int y3 = y1 + dat.sightLen_*std::sin(angleB);
+
+	
+
+	SDL_Color col{ 0xff, 0, 0, 0 };
+
+	for (double angle = angleA; angle <= angleB; angle+=(toRadians/2))
+	{
+		mySDL_.drawPoint(&camera_,
+			x1 + dat.sightLen_*std::cos(angle),
+			y1 + dat.sightLen_*std::sin(angle),
+			col);
+	}
+
+	mySDL_.drawLine(&camera_, x1, y1, x2, y2, col);
+	mySDL_.drawLine(&camera_, x1, y1, x3, y3, col);
 
 
 }

@@ -141,3 +141,14 @@ void SdlHelper::drawLine(SDL_Rect* camera, int x1, int y1, int x2, int y2, const
 	SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawLine(renderer_, x1, y1, x2, y2);
 }
+
+void SdlHelper::drawPoint(SDL_Rect* camera, int x, int y, const SDL_Color & color)
+{
+	if (camera != nullptr)
+	{
+		x -= camera->x;
+		y -= camera->y;
+	}
+	SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);
+	SDL_RenderDrawPoint(renderer_, x, y);
+}

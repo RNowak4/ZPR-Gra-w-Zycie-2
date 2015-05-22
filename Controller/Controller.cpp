@@ -3,6 +3,7 @@
 #include "../Model/Model.h"
 #include <iostream>
 #include "../Model/Constants.h"
+#include "../Exception/GameOfLifeException.h"
 
 
 void Controller::getModel(Model* m)

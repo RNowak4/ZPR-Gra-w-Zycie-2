@@ -1,5 +1,5 @@
 #include "Assets.h"
-
+#include "../Exception/GameOfLifeException.h"
 
 void Assets::loadAssets(const SdlHelper& helper)
 {
@@ -9,6 +9,14 @@ void Assets::loadAssets(const SdlHelper& helper)
 	textures_[FRAME_BACKGROUND] = std::shared_ptr<SDL_Texture>(loadTexture("Assets/frameBackground.png", helper), SDL_DestroyTexture);
 
 	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/comicbd.ttf", 14), TTF_CloseFont);
+
+	for (auto i : textures_)
+	{
+		if (!i.second)
+		{
+			throw LoadingAssetsException();
+		}
+	}
 	
 }
 void Assets::disposeAssets()

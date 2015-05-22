@@ -70,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Controller\Controller.h" />
+    <ClInclude Include="..\..\..\Exception\GameOfLifeException.h" />
     <ClInclude Include="..\..\..\Model\Actions\Action.h" />
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreAction.h" />
     <ClInclude Include="..\..\..\Model\Actions\HerbivoreAction.h" />
