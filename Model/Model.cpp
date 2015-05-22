@@ -179,16 +179,16 @@ unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	double LenX = first.x - second.x;
 	double LenY = second.y - first.y;
 	double przeciwProstokatna = countDistance(first, second);
-	unsigned angle = asin(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI;
+	unsigned angle = asin(LenX / przeciwProstokatna) * 180.0 / M_PI;
 // TODO naprawic to
 	if (LenX >= 0.0 && LenY <= 0.0)
-		angle += 90.0;
+		angle += 180.0;
 	else if (LenX < 0.0 && LenY <= 0.0)
-		angle += 0.0;
+		angle += 180.0;
 	else if (LenX < 0.0 && LenY > 0.0)
 		angle += 0.0;
 	else
-		angle += 90.0;
+		angle += 0.0;
 
 	return angle;
 }
