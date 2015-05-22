@@ -30,14 +30,15 @@ public:
 	void createHerbivore(unsigned, unsigned, const Modifiers&);
 	void updateAnimalsStatuses();
 	void updateAnimalsPosition();
-	std::vector<AnimalPtr> getAnimalsInSight(Coordinates, unsigned, unsigned,
-			unsigned) const;
+	std::vector<Animal*> getAnimalsInSight(Coordinates, unsigned, unsigned,
+			unsigned);
 	Coordinates getCoordinates(const Animal*) const;
 	std::vector<const LocationData*> getAnimalsLocationData();
 	pairVectorPtr getAnimalsData() const;
 	bool switchAnimalRegister(unsigned, unsigned);
 	void setModelParameters(unsigned, unsigned, unsigned, unsigned, unsigned,
 			unsigned);
+	unsigned countAngle(Coordinates, Coordinates);
 
 private:
 	std::list<Animal*> animalList_;

@@ -9,11 +9,15 @@
 
 #include <cmath>
 
+#include "Actions/Action.h"
+#include "Actions/RandomWalking.h"
+#include "Actions/TestAction.h"
 #include "Carnivore.h"
 #include "Constants.h"
 #include "Herbivore.h"
 
 Model::Model() {
+	Action::setDefaultModel(this);
 }
 
 Model::~Model() {
@@ -36,13 +40,16 @@ Coordinates Model::getCoordinates(const Animal* animalToGet) const {
 
 void Model::updateAnimalsStatuses() {
 	for (auto animalPtr : animalList_) {
+		animalPtr->doMove();
 		animalPtr->updateStatus();
 	}
 }
 
 void Model::updateAnimalsPosition() {
-	for (auto animal : animalList_)
+	for (auto animal : animalList_) {
 		animal->doMove();
+		animal->updateStatus();
+	}
 }
 
 std::vector<const LocationData*> Model::getAnimalsLocationData() {
@@ -54,11 +61,17 @@ std::vector<const LocationData*> Model::getAnimalsLocationData() {
 }
 
 void Model::createCarnivore(unsigned x, unsigned y) {
-	animalList_.push_back(new Carnivore(x, y));
+	Animal* carnivorePtr = new Carnivore(x, y);
+	animalList_.push_back(carnivorePtr);
+	carnivorePtr->setAction(
+			shared_ptr < Action > (new RandomWalking(carnivorePtr)));
 }
 
 void Model::createHerbivore(unsigned x, unsigned y) {
-	animalList_.push_back(new Herbivore(x, y));
+	Animal* herbivorePtr = new Herbivore(x, y);
+	animalList_.push_back(herbivorePtr);
+	herbivorePtr->setAction(
+			shared_ptr < Action > (new TestAction(herbivorePtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
@@ -155,8 +168,6 @@ void Model::setModelParameters(unsigned adultWidth, unsigned adultHeigth,
 			mapWidth, mapHeight);
 }
 
-static const double PI = 3.1415;
-
 double countDistance(Coordinates first, Coordinates second) {
 	double LenX = first.x - second.x;
 	double LenY = first.y - second.y;
@@ -164,26 +175,28 @@ double countDistance(Coordinates first, Coordinates second) {
 	return (sqrt(LenX * LenX + LenY * LenY));
 }
 
-unsigned countAngle(Coordinates first, Coordinates second) {
+unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	double LenX = first.x - second.x;
-	double LenY = first.y - second.y;
+	double LenY = second.y - first.y;
 	double przeciwProstokatna = countDistance(first, second);
-	unsigned angle = asin(LenX / przeciwProstokatna) * 180.0 / PI;
+	unsigned angle = asin(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI;
+// TODO naprawic to
+	if (LenX >= 0.0 && LenY <= 0.0)
+		angle += 90.0;
+	else if (LenX < 0.0 && LenY <= 0.0)
+		angle += 0.0;
+	else if (LenX < 0.0 && LenY > 0.0)
+		angle += 0.0;
+	else
+		angle += 90.0;
 
-	if (LenX >= 0 && LenY < 0)
-		return angle;
-	else if (LenX < 0 && LenY < 0)
-		return angle + 90;
-	else if (LenX < 0 && LenY >= 0)
-		return angle + 180;
-	else if (LenX >= 0 && LenY >= 0)
-		return angle + 270;
+	return angle;
 }
 
 // TODO nazwy argumentow mi sie jebnely cos
-std::vector<AnimalPtr> Model::getAnimalsInSight(Coordinates coordinates,
-		unsigned sightLen, unsigned sightAngle, unsigned lookingAngle) const {
-	std::vector<AnimalPtr> vectorToReturn;
+std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
+		unsigned sightLen, unsigned lookingAngle, unsigned lookingRad) {
+	std::vector<Animal*> vectorToReturn;
 	Coordinates tempCoords;
 	unsigned angle;
 
@@ -192,10 +205,10 @@ std::vector<AnimalPtr> Model::getAnimalsInSight(Coordinates coordinates,
 		if (tempCoords == coordinates)
 			continue;
 		else if (countDistance(coordinates, tempCoords) <= sightLen) {
-			angle = countAngle(coordinates, tempCoords);
-			if ((sightAngle + lookingAngle / 2) <= angle
-					&& (sightAngle - lookingAngle / 2) >= angle) {
-				vectorToReturn.push_back(AnimalPtr(animal));
+			angle = countAngle(coordinates, tempCoords) + 90;
+			if ((lookingAngle + lookingRad / 2) >= angle
+					&& (lookingAngle - lookingRad / 2) <= angle) {
+				vectorToReturn.push_back(animal);
 			}
 		}
 	}

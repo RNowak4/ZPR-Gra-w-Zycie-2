@@ -7,12 +7,17 @@
 
 #include "TestAction.h"
 
+#include "../Animal.h"
+
 
 TestAction::TestAction() {
 }
 
 TestAction::TestAction(Animal* animalPtr_) :
 		Action(animalPtr_) {
+	animalPtr->setLookingAngle(20);
+	animalPtr->setVelocity(1.0);
+	animalPtr->turnRight();
 }
 
 TestAction::~TestAction() {
@@ -22,6 +27,6 @@ void TestAction::performAction() {
 	// do nothing
 }
 
-shared_ptr<Action> TestAction::chooseNextAction() {
-	return shared_ptr < Action > (this);
+Action* TestAction::chooseNextAction() {
+	return this;
 }

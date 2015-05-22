@@ -14,3 +14,4 @@ Action::Action() {
 Action::~Action() {
 }
 
+Model* Action::defaultModelPtr;

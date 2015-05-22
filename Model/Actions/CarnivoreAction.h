@@ -12,10 +12,10 @@
 
 class CarnivoreAction: public Action {
 public:
-	CarnivoreAction();
+	CarnivoreAction(Animal* animalPtr_);
 	virtual ~CarnivoreAction();
 	virtual void performAction() = 0;
-	virtual shared_ptr<Action> chooseNextAction() = 0;
+	virtual Action* chooseNextAction() = 0;
 };
 
 #endif /* CARNIVOREACTION_H_ */

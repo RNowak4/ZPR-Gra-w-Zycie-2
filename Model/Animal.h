@@ -23,6 +23,8 @@
 class Action;
 class TestAction;
 
+//TODO Watki: jesli zwierze ma sie przez jakis czas obracac - uruchomic watek i w np w killAnimal zrobic join()
+
 typedef shared_ptr<Action> ActionPtr;
 typedef shared_ptr<AnimalData> AnimalDataPtr;
 typedef shared_ptr<State> StatePtr;
@@ -88,7 +90,7 @@ public:
 	 *@return 	animal's coordinates
 	 */
 	Coordinates returnCoodtinates() const {
-		return coordinates_;
+		return locationData_.coordinates_;
 	}
 
 	/**
@@ -165,6 +167,10 @@ public:
 		nextAction = actionPtr;
 	}
 
+	void setAction(ActionPtr actionPtr) {
+		currentAction = actionPtr;
+	}
+
 	/**
 	 *@function doMove
 	 *@brief 	Moves an animal
@@ -193,6 +199,19 @@ public:
 	 */
 	void stopTurning() {
 		angleVelocity = 0.0;
+	}
+
+	bool isHerbivore() {
+		return locationData_.animalType_ == HERBIVORE
+				|| locationData_.animalType_ == HERBIVORE_CHILD;
+	}
+
+	void setLookingAngle(unsigned valueToSet) {
+		locationData_.lookingAngle = valueToSet;
+	}
+
+	void setVelocity(double valueToSet) {
+		velocity = valueToSet;
 	}
 };
 

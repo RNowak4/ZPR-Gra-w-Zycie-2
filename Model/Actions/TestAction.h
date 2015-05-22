@@ -14,9 +14,10 @@ class TestAction: public Action {
 public:
 	TestAction();
 	TestAction(Animal*);
+	TestAction(Animal*, Model*);
 	virtual ~TestAction();
 	void performAction();
-	shared_ptr<Action> chooseNextAction();
+	Action*chooseNextAction();
 };
 
 #endif /* MODEL_ACTIONS_TESTACTION_H_ */

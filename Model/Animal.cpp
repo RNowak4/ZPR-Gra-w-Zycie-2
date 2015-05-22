@@ -12,21 +12,17 @@
 #include "Actions/TestAction.h"
 #include "Constants.h"
 
-static const double PI = 3.1415;
-
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 		animalModifiers(), actualAttributes_(animalModifiers), animalViewParameters(
 				0, 0, x, y, animalType) {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
 	locationData_.sightLen_ = 300;
-	locationData_.lookingAngle = 45;
-	locationData_.lookingRad = 45;
-	currentAction = shared_ptr < Action > (new TestAction(this));
-	nextAction = currentAction;
-	velocity = 1.0;
+	locationData_.lookingAngle = 0;
+	locationData_.lookingRad = 90;
+	velocity = 0.0;
 	acceleration = 0.0;
-	angleVelocity = 1.0;
+	angleVelocity = 0.0;
 }
 
 Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
@@ -84,9 +80,10 @@ bool Animal::hasState(const string& stateName) {
 
 void Animal::updateStatus() {
 	currentAction->performAction();
-	/*if (nextAction != currentAction) {
-	 nextAction = currentAction;
-	 }*/
+	Action* chosenAction = currentAction->chooseNextAction();
+	if(currentAction.get() != chosenAction) {
+		currentAction = shared_ptr<Action>(chosenAction);
+	}
 }
 
 void Animal::setPosition(unsigned x, unsigned y) {
@@ -100,9 +97,9 @@ void Animal::setPosition(Coordinates coodrinates) {
 
 void Animal::doMove() {
 	locationData_.coordinates_.x += velocity
-			* cos((double) locationData_.lookingAngle * PI / 180.0) / 1.0;
+			* cos((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
 	locationData_.coordinates_.y += velocity
-			* sin((double) locationData_.lookingAngle * PI / 180.0) / 1.0;
+			* sin((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
 	locationData_.lookingAngle += angleVelocity / 1.0;
 	/*if (locationData_.lookingAngle < 0.0) {
 	 locationData_.lookingAngle = -locationData_.lookingAngle;
