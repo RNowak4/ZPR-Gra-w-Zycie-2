@@ -12,7 +12,7 @@
 
 Follow::Follow(Animal* animalPtr_, Animal* animalPtr) :
 		Action(animalPtr_), animalToFollowPtr(animalPtr) {
-	this->animalPtr->setVelocity(1.0);
+	this->animalPtr->setVelocity(0.7);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(
 			defaultModelPtr->countAngle(animalPtr->returnCoodtinates(),
@@ -23,11 +23,11 @@ Follow::~Follow() {
 }
 
 void Follow::performAction() {
-	animalPtr->setLookingAngle(
-			90.0
-					+ defaultModelPtr->countAngle(
-							animalPtr->returnCoodtinates(),
-							animalToFollowPtr->returnCoodtinates()));
+	auto lookingAngle = defaultModelPtr->countAngle(
+			animalPtr->returnCoodtinates(),
+			animalToFollowPtr->returnCoodtinates());
+
+	animalPtr->setLookingAngle(lookingAngle + 90.0);
 }
 
 Action* Follow::chooseNextAction() {
