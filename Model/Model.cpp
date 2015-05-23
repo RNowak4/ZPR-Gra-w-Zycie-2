@@ -183,7 +183,7 @@ unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	if (LenX >= 0 && LenY < 0)
 		angle += 90.0;
 	else if (LenX < 0 && LenY < 0)
-		angle += 0.0;
+		angle += 90.0;
 	else if (LenX < 0 && LenY >= 0)
 		angle += 270.0;
 	else
