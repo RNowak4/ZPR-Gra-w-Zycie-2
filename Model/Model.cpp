@@ -223,11 +223,10 @@ void Model::killAnimal(Animal* animalPtr) {
 		if (*it == animalPtr) {
 			tmpPtr = *it;
 			animalList_.erase(it);
+			delete tmpPtr;
 			break;
 		}
 	}
-
-	delete tmpPtr;
 }
 
 void Model::addAction(Action* actionPtr) {
