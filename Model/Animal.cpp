@@ -9,7 +9,6 @@
 
 #include <cmath>
 
-#include "Actions/TestAction.h"
 #include "Constants.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
@@ -63,7 +62,6 @@ AnimalData* Animal::getAnimalData() {
 
 	dataToReturn->pushPair(string("Speed"), actualAttributes_.speed_);
 	dataToReturn->pushPair(string("Sex need"), actualAttributes_.sexNeed_);
-	dataToReturn->pushPair(string("Pozdrawiam Damiana z Modelu"), -997.0);
 	//TODO reszta
 
 	return dataToReturn;
@@ -81,8 +79,8 @@ bool Animal::hasState(const string& stateName) {
 void Animal::updateStatus() {
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();
-	if(currentAction.get() != chosenAction) {
-		currentAction = shared_ptr<Action>(chosenAction);
+	if (currentAction.get() != chosenAction) {
+		currentAction = shared_ptr < Action > (chosenAction);
 	}
 }
 
@@ -109,5 +107,10 @@ void Animal::doMove() {
 	if (velocity >= this->actualAttributes_.speed_) {
 		velocity = this->actualAttributes_.speed_;
 		acceleration = 0.0;
+	}
+
+	if (locationData_.coordinates_.x <= 0
+			|| locationData_.coordinates_.y <= 0) {
+		locationData_.lookingAngle += 180.0;
 	}
 }

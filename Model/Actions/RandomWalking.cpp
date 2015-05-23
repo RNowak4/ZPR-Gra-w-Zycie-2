@@ -20,10 +20,12 @@ RandomWalking::RandomWalking(Animal* animalPtr_) :
 }
 
 RandomWalking::~RandomWalking() {
+	modelPtr->deleteAction(this);
 }
 
 void RandomWalking::performAction() {
-	//do nothing
+	animalPtr->setVelocity(1.0);
+	animalPtr->turnRight();
 }
 
 Action* RandomWalking::chooseNextAction() {

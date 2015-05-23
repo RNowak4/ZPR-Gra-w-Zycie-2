@@ -32,16 +32,15 @@ Coordinates Model::getCoordinates(const Animal* animalToGet) const {
 	for (auto animalPtr : animalList_) {
 		if (animalPtr == animalToGet)
 			return animalPtr->returnCoodtinates();
-
-		// Albo niech rzuca wyjatek.
-		return Coordinates(0, 0);
 	}
+
+	return Coordinates(0, 0);
 }
 
 void Model::updateAnimalsStatuses() {
 	for (auto animalPtr : animalList_) {
-		animalPtr->doMove();
-		animalPtr->updateStatus();
+		/*animalPtr->doMove();
+		 animalPtr->updateStatus();*/
 	}
 }
 
@@ -168,7 +167,7 @@ void Model::setModelParameters(unsigned adultWidth, unsigned adultHeigth,
 			mapWidth, mapHeight);
 }
 
-double countDistance(Coordinates first, Coordinates second) {
+double Model::countDistance(Coordinates first, Coordinates second) {
 	double LenX = first.x - second.x;
 	double LenY = first.y - second.y;
 
@@ -220,8 +219,8 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 void Model::killAnimal(Animal* animalPtr) {
 	Animal* tmpPtr;
 
-	for(auto it = animalList_.begin(); it != animalList_.end(); ++it) {
-		if(*it == animalPtr) {
+	for (auto it = animalList_.begin(); it != animalList_.end(); ++it) {
+		if (*it == animalPtr) {
 			tmpPtr = *it;
 			animalList_.erase(it);
 			break;
@@ -229,4 +228,17 @@ void Model::killAnimal(Animal* animalPtr) {
 	}
 
 	delete tmpPtr;
+}
+
+void Model::addAction(Action* actionPtr) {
+	actionsList_.push_back(actionPtr);
+}
+
+void Model::deleteAction(Action* actionPtr) {
+	for (auto it = actionsList_.begin(); it != actionsList_.end(); ++it) {
+		if (*it == actionPtr) {
+			actionsList_.erase(it);
+			break;
+		}
+	}
 }

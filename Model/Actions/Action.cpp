@@ -7,11 +7,15 @@
 
 #include "Action.h"
 
-Action::Action() {
+#include "../Model.h"
 
+Model* Action::defaultModelPtr;
+
+Action::Action(Animal* animalPtr_) :
+		animalPtr(animalPtr_), modelPtr(defaultModelPtr) {
+	modelPtr->addAction(this);
 }
 
 Action::~Action() {
+	modelPtr->deleteAction(this);
 }
-
-Model* Action::defaultModelPtr;

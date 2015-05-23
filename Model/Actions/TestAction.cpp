@@ -8,10 +8,7 @@
 #include "TestAction.h"
 
 #include "../Animal.h"
-
-
-TestAction::TestAction() {
-}
+#include "../Model.h"
 
 TestAction::TestAction(Animal* animalPtr_) :
 		Action(animalPtr_) {
@@ -21,10 +18,10 @@ TestAction::TestAction(Animal* animalPtr_) :
 }
 
 TestAction::~TestAction() {
+	modelPtr->deleteAction(this);
 }
 
 void TestAction::performAction() {
-	// do nothing
 }
 
 Action* TestAction::chooseNextAction() {

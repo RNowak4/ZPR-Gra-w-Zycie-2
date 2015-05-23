@@ -12,10 +12,12 @@
 
 class TestAction: public Action {
 public:
-	TestAction();
 	TestAction(Animal*);
 	TestAction(Animal*, Model*);
 	virtual ~TestAction();
+	void deleteAnimal(const Animal*) {
+		//do nothing about that
+	}
 	void performAction();
 	Action*chooseNextAction();
 };

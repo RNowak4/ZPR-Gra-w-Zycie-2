@@ -19,6 +19,7 @@ public:
 	virtual ~Follow();
 	virtual void performAction();
 	virtual Action* chooseNextAction();
+	virtual void deleteAnimal(const Animal*);
 };
 
 #endif /* MODEL_ACTIONS_FOLLOW_H_ */

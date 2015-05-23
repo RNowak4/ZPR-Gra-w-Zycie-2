@@ -30,7 +30,7 @@ typedef shared_ptr<State> StatePtr;
 class Animal {
 private:
 	ActionPtr currentAction;
-	ActionPtr nextAction;
+	//ActionPtr nextAction;
 
 public:
 	enum Sex {
@@ -161,9 +161,9 @@ public:
 	 *@brief 	Sets next action for an animal.
 	 *@param actionPtr	- Pointer to new action
 	 */
-	void setNextAction(ActionPtr actionPtr) {
+	/*void setNextAction(ActionPtr actionPtr) {
 		nextAction = actionPtr;
-	}
+	}*/
 
 	void setAction(ActionPtr actionPtr) {
 		currentAction = actionPtr;

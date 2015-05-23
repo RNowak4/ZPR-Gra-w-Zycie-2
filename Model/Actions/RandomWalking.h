@@ -16,6 +16,9 @@ public:
 	virtual ~RandomWalking();
 	void performAction();
 	Action* chooseNextAction();
+	void deleteAnimal(const Animal*) {
+		//do nothing about that
+	}
 };
 
 #endif /* MODEL_ACTIONS_RANDOMWALKING_H_ */

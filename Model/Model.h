@@ -39,11 +39,15 @@ public:
 	void setModelParameters(unsigned, unsigned, unsigned, unsigned, unsigned,
 			unsigned);
 	static unsigned countAngle(Coordinates, Coordinates);
+	static double countDistance(Coordinates, Coordinates);
 	void killAnimal(Animal* animalPtr);
+	void addAction(Action*);
+	void deleteAction(Action*);
 
 private:
 	std::list<Animal*> animalList_;
 	std::list<Animal*> registeredAnimalList_;
+	std::list<Action*> actionsList_;
 	Animal* findAnimal(unsigned, unsigned);
 	bool deregisterAnimal(Animal*);
 	bool isRegistered(Animal*) const;

@@ -16,6 +16,7 @@ public:
 	virtual ~HerbivoreAction();
 	virtual void performAction() = 0;
 	virtual Action* chooseNextAction() = 0;
+	virtual void deleteAnimal(const Animal*) = 0;
 };
 
 #endif /* HERBIVOREACTION_H_ */

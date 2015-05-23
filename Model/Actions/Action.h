@@ -23,11 +23,7 @@ protected:
 	static Model* defaultModelPtr;
 
 public:
-	Action();
-	Action(Animal* animalPtr_) :
-			animalPtr(animalPtr_), modelPtr(defaultModelPtr) {
-
-	}
+	Action(Animal* animalPtr_);
 	Action(Animal* animalPtr_, Model* modelPtr_) :
 			animalPtr(animalPtr_), modelPtr(modelPtr_) {
 
@@ -35,6 +31,7 @@ public:
 	virtual ~Action();
 	virtual void performAction() = 0;
 	virtual Action* chooseNextAction() = 0;
+	virtual void deleteAnimal(const Animal*) = 0;
 	static void setDefaultModel(Model* modelPtr) {
 		defaultModelPtr = modelPtr;
 	}
