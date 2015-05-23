@@ -27,6 +27,8 @@ void RandomWalking::performAction() {
 }
 
 Action* RandomWalking::chooseNextAction() {
+	if (animalPtr->getAttributes().eatNeed_ < 5.0) return this;
+
 	auto animalVector = modelPtr->getAnimalsInSight(
 			animalPtr->returnCoodtinates(),
 			animalPtr->returnLocationData()->sightLen_,

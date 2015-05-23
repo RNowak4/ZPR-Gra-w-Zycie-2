@@ -15,7 +15,7 @@ using namespace std;
 
 Follow::Follow(Animal* animalPtr_, Animal* animalPtr) :
 		Action(animalPtr_), animalToFollowPtr(animalPtr) {
-	/*this->animalPtr->setVelocity(2.0);*/
+	this->animalPtr->setVelocity(2.0);
 	this->animalPtr->setAcceleration(0.1);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(
@@ -37,6 +37,7 @@ void Follow::performAction() {
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates()) < 40) {
 			modelPtr->killAnimal(animalToFollowPtr);
+			animalPtr->getAttributes().eatNeed_ -= 4.0;
 		}
 	}
 }

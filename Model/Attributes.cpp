@@ -12,7 +12,7 @@
 Attributes::Attributes(const Modifiers& modifiers) {
 	speed_ = 5.0;
 	sleepNeed_ = 5.0;
-	eatNeed_ = 5.0;
+	eatNeed_ = 4.0;
 	sexNeed_ = 5.0;
 	sightLength_ = 5.0;
 	sightAngle_ = 5.0;

@@ -61,7 +61,7 @@ AnimalData* Animal::getAnimalData() {
 		dataToReturn->pushString(state->toString());
 
 	dataToReturn->pushPair(string("Speed"), actualAttributes_.speed_);
-	dataToReturn->pushPair(string("Sex need"), actualAttributes_.sexNeed_);
+	dataToReturn->pushPair(string("eat need"), actualAttributes_.eatNeed_);
 	//TODO reszta
 
 	return dataToReturn;
@@ -82,6 +82,8 @@ void Animal::updateStatus() {
 	if (currentAction.get() != chosenAction) {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
+
+	actualAttributes_.eatNeed_ += 0.005;
 }
 
 void Animal::setPosition(unsigned x, unsigned y) {
@@ -113,4 +115,10 @@ void Animal::doMove() {
 			|| locationData_.coordinates_.y <= 0) {
 		locationData_.lookingAngle += 180.0;
 	}
+}
+
+Animal* Animal::shouldDie() {
+	if(actualAttributes_.eatNeed_ >= 10.0) return this;
+
+	return nullptr;
 }

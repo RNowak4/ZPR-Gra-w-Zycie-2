@@ -8,7 +8,6 @@
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
-#include <memory>
 #include <string>
 #include <vector>
 
@@ -30,7 +29,6 @@ typedef shared_ptr<State> StatePtr;
 class Animal {
 private:
 	ActionPtr currentAction;
-	//ActionPtr nextAction;
 
 public:
 	enum Sex {
@@ -156,15 +154,6 @@ public:
 	 */
 	AnimalData* getAnimalData();
 
-	/**
-	 *@function setNextAction
-	 *@brief 	Sets next action for an animal.
-	 *@param actionPtr	- Pointer to new action
-	 */
-	/*void setNextAction(ActionPtr actionPtr) {
-	 nextAction = actionPtr;
-	 }*/
-
 	void setAction(ActionPtr actionPtr) {
 		currentAction = actionPtr;
 	}
@@ -235,6 +224,17 @@ public:
 	void setAcceleration(double valueToSet) {
 		acceleration = valueToSet;
 	}
+
+	/**
+	 *@function getAttributes
+	 *@brief 	returns actual attribues of an animal
+	 *@return	reference to the structure
+	 */
+	Attributes& getAttributes() {
+		return actualAttributes_;
+	}
+
+	Animal* shouldDie();
 };
 
 #endif	/* ANIMAL_H */

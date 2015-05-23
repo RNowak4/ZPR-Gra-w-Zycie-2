@@ -12,6 +12,7 @@
 #include <utility>
 #include <vector>
 
+#include "Actions/Action.h"
 #include "Animal.h"
 #include "AnimalData.h"
 #include "ViewStructs.h"
@@ -22,12 +23,12 @@ typedef shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > 
 class Model {
 public:
 	Model();
-	Model(const Model& orig);
+	//Model(const Model& orig);
 	~Model();
-	void createCarnivore(unsigned, unsigned);
-	void createHerbivore(unsigned, unsigned);
-	void createCarnivore(unsigned, unsigned, const Modifiers&);
-	void createHerbivore(unsigned, unsigned, const Modifiers&);
+	void createCarnivore(unsigned x, unsigned y);
+	void createHerbivore(unsigned x, unsigned y);
+	void createCarnivore(unsigned x, unsigned y, const Modifiers& modifiers);
+	void createHerbivore(unsigned x, unsigned y, const Modifiers& modifiers);
 	void updateAnimalsStatuses();
 	void updateAnimalsPosition();
 	std::vector<Animal*> getAnimalsInSight(Coordinates, unsigned, unsigned,
@@ -48,6 +49,7 @@ private:
 	std::list<Animal*> animalList_;
 	std::list<Animal*> registeredAnimalList_;
 	std::list<Action*> actionsList_;
+
 	Animal* findAnimal(unsigned, unsigned);
 	bool deregisterAnimal(Animal*);
 	bool isRegistered(Animal*) const;

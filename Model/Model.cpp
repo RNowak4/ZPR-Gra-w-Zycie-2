@@ -9,7 +9,6 @@
 
 #include <cmath>
 
-#include "Actions/Action.h"
 #include "Actions/RandomWalking.h"
 #include "Actions/TestAction.h"
 #include "Carnivore.h"
@@ -44,10 +43,19 @@ void Model::updateAnimalsStatuses() {
 	}
 }
 
+//TODO wiekszosc przerzucic do update status
 void Model::updateAnimalsPosition() {
+	list<Animal*> animalToDieList;
+
 	for (auto animal : animalList_) {
 		animal->doMove();
 		animal->updateStatus();
+		if (animal->shouldDie() != nullptr)
+			animalToDieList.push_back(animal);
+	}
+
+	for (auto animal : animalToDieList) {
+		killAnimal(animal);
 	}
 }
 
