@@ -8,6 +8,7 @@
 #include "Model.h"
 
 #include <cmath>
+#include <iostream>
 
 #include "Actions/RandomWalking.h"
 #include "Actions/TestAction.h"
@@ -188,14 +189,16 @@ unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	double przeciwProstokatna = countDistance(first, second);
 	unsigned angle = asin(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI;
 
-	if (LenX >= 0 && LenY < 0)
-		angle += 90.0;
-	else if (LenX < 0 && LenY < 0)
-		angle += 0.0;
-	else if (LenX < 0 && LenY >= 0)
-		angle += 270.0;
-	else
-		angle += 180.0;
+	if (LenX >= 0 && LenY < 0) {
+		angle += 90;
+	} else if (LenX < 0 && LenY < 0) {
+		angle += 0;
+	} else if (LenX < 0 && LenY >= 0) {
+		angle += 270;
+	} else {
+		angle += 180;
+
+	}
 
 	return angle;
 }

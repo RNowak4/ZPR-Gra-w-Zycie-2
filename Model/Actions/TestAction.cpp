@@ -12,7 +12,7 @@
 
 TestAction::TestAction(Animal* animalPtr_) :
 		Action(animalPtr_) {
-	animalPtr->setLookingAngle(90);
+	animalPtr->setLookingAngle(0);
 	animalPtr->setVelocity(1.0);
 	animalPtr->turnRight();
 }
@@ -22,6 +22,7 @@ TestAction::~TestAction() {
 }
 
 void TestAction::performAction() {
+	// nothing
 }
 
 Action* TestAction::chooseNextAction() {

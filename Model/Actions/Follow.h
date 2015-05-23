@@ -10,6 +10,8 @@
 
 #include "Action.h"
 
+struct Coordinates;
+
 class Follow: public Action {
 private:
 	Animal* animalToFollowPtr;
@@ -20,6 +22,7 @@ public:
 	virtual void performAction();
 	virtual Action* chooseNextAction();
 	virtual void deleteAnimal(const Animal*);
+	static unsigned countToFollowAngle(Coordinates first, Coordinates second);
 };
 
 #endif /* MODEL_ACTIONS_FOLLOW_H_ */
