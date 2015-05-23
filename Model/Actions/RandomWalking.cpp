@@ -24,8 +24,6 @@ RandomWalking::~RandomWalking() {
 }
 
 void RandomWalking::performAction() {
-	animalPtr->setVelocity(1.0);
-	animalPtr->turnRight();
 }
 
 Action* RandomWalking::chooseNextAction() {

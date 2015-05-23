@@ -183,7 +183,7 @@ unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	if (LenX >= 0 && LenY < 0)
 		angle += 90.0;
 	else if (LenX < 0 && LenY < 0)
-		angle += 90.0;
+		angle += 0.0;
 	else if (LenX < 0 && LenY >= 0)
 		angle += 270.0;
 	else
@@ -218,6 +218,10 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 
 void Model::killAnimal(Animal* animalPtr) {
 	Animal* tmpPtr;
+
+	for (auto action : actionsList_) {
+		action->deleteAnimal(animalPtr);
+	}
 
 	for (auto it = animalList_.begin(); it != animalList_.end(); ++it) {
 		if (*it == animalPtr) {

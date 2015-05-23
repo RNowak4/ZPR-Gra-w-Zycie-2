@@ -27,15 +27,16 @@ Follow::~Follow() {
 }
 
 void Follow::performAction() {
-	if (animalPtr != nullptr) {
+	if (animalToFollowPtr != nullptr) {
 		auto lookingAngle = Model::countAngle(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates());
 
 		animalPtr->setLookingAngle(lookingAngle);
 
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates()) < 40)
+				animalToFollowPtr->returnCoodtinates()) < 40) {
 			modelPtr->killAnimal(animalToFollowPtr);
+		}
 	}
 }
 
