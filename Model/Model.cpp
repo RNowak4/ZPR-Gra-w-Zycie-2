@@ -186,17 +186,17 @@ double Model::countDistance(Coordinates first, Coordinates second) {
 unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	double LenX = first.x - second.x;
 	double LenY = first.y - second.y;
-	double przeciwProstokatna = Model::countDistance(first, second);
+	double distance = Model::countDistance(first, second);
 	unsigned angle;
 
 	if (LenX >= 0 && LenY < 0)
-		angle = asin(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI + 90;
+		angle = asin(abs(LenX) / distance) * 180.0 / M_PI + 90;
 	else if (LenX < 0 && LenY < 0)
-		angle = acos(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI;
+		angle = acos(abs(LenX) / distance) * 180.0 / M_PI;
 	else if (LenX < 0 && LenY >= 0)
-		angle = asin(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI + 270;
+		angle = asin(abs(LenX) / distance) * 180.0 / M_PI + 270;
 	else
-		angle = acos(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI + 180;
+		angle = acos(abs(LenX) / distance) * 180.0 / M_PI + 180;
 
 	return angle;
 }
