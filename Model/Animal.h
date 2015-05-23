@@ -23,8 +23,6 @@
 class Action;
 class TestAction;
 
-//TODO Watki: jesli zwierze ma sie przez jakis czas obracac - uruchomic watek i w np w killAnimal zrobic join()
-
 typedef shared_ptr<Action> ActionPtr;
 typedef shared_ptr<AnimalData> AnimalDataPtr;
 typedef shared_ptr<State> StatePtr;
@@ -201,15 +199,30 @@ public:
 		angleVelocity = 0.0;
 	}
 
+	/**
+	 *@function isHerbivore
+	 *@brief 	Function returns true, if an animal is herbivore
+	 *@return	bool value
+	 */
 	bool isHerbivore() {
 		return locationData_.animalType_ == HERBIVORE
 				|| locationData_.animalType_ == HERBIVORE_CHILD;
 	}
 
+	/**
+	 *@function setLookingAngle
+	 *@brief 	Sets looking angle of an animal
+	 *@argument velutToSet	- value which will be set
+	 */
 	void setLookingAngle(unsigned valueToSet) {
 		locationData_.lookingAngle = valueToSet;
 	}
 
+	/**
+	 *@function setVelocity
+	 *@brief 	Sets velocity of an animal
+	 *@argument velutToSet	- value which will be set
+	 */
 	void setVelocity(double valueToSet) {
 		velocity = valueToSet;
 	}

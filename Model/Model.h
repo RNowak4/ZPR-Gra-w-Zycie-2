@@ -38,7 +38,8 @@ public:
 	bool switchAnimalRegister(unsigned, unsigned);
 	void setModelParameters(unsigned, unsigned, unsigned, unsigned, unsigned,
 			unsigned);
-	unsigned countAngle(Coordinates, Coordinates);
+	static unsigned countAngle(Coordinates, Coordinates);
+	void killAnimal(Animal* animalPtr);
 
 private:
 	std::list<Animal*> animalList_;

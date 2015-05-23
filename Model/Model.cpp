@@ -177,23 +177,24 @@ double countDistance(Coordinates first, Coordinates second) {
 
 unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	double LenX = first.x - second.x;
-	double LenY = second.y - first.y;
+	double LenY = first.y - second.y;
 	double przeciwProstokatna = countDistance(first, second);
-	unsigned angle = asin(LenX / przeciwProstokatna) * 180.0 / M_PI;
-// TODO naprawic to
-	if (LenX >= 0.0 && LenY <= 0.0)
-		angle += 180.0;
-	else if (LenX < 0.0 && LenY <= 0.0)
-		angle += 180.0;
-	else if (LenX < 0.0 && LenY > 0.0)
+	unsigned angle = asin(abs(LenX) / przeciwProstokatna) * 180.0 / M_PI;
+
+	if (LenX >= 0 && LenY < 0)
+		angle += 90.0;
+	else if (LenX < 0 && LenY < 0)
 		angle += 0.0;
+	else if (LenX < 0 && LenY >= 0)
+		angle += 270.0;
 	else
-		angle += 0.0;
+		angle += 180.0;
 
 	return angle;
 }
 
 // TODO nazwy argumentow mi sie jebnely cos
+// Ale dziala, to nie ruszam...
 std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 		unsigned sightLen, unsigned lookingAngle, unsigned lookingRad) {
 	std::vector<Animal*> vectorToReturn;
@@ -205,7 +206,7 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 		if (tempCoords == coordinates)
 			continue;
 		else if (countDistance(coordinates, tempCoords) <= sightLen) {
-			angle = countAngle(coordinates, tempCoords) + 90;
+			angle = countAngle(coordinates, tempCoords);
 			if ((lookingAngle + lookingRad / 2) >= angle
 					&& (lookingAngle - lookingRad / 2) <= angle) {
 				vectorToReturn.push_back(animal);
@@ -214,4 +215,18 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 	}
 
 	return vectorToReturn;
+}
+
+void Model::killAnimal(Animal* animalPtr) {
+	Animal* tmpPtr;
+
+	for(auto it = animalList_.begin(); it != animalList_.end(); ++it) {
+		if(*it == animalPtr) {
+			tmpPtr = *it;
+			animalList_.erase(it);
+			break;
+		}
+	}
+
+	delete tmpPtr;
 }

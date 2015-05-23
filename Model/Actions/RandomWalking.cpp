@@ -32,6 +32,7 @@ Action* RandomWalking::chooseNextAction() {
 			animalPtr->returnLocationData()->sightLen_,
 			animalPtr->returnLocationData()->lookingAngle,
 			animalPtr->returnLocationData()->lookingRad);
+
 	for (auto animal : animalVector) {
 		if (animal->isHerbivore()) {
 			return new Follow(animalPtr, animal);
