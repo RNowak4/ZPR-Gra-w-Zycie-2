@@ -162,8 +162,8 @@ public:
 	 *@param actionPtr	- Pointer to new action
 	 */
 	/*void setNextAction(ActionPtr actionPtr) {
-		nextAction = actionPtr;
-	}*/
+	 nextAction = actionPtr;
+	 }*/
 
 	void setAction(ActionPtr actionPtr) {
 		currentAction = actionPtr;
@@ -225,6 +225,15 @@ public:
 	 */
 	void setVelocity(double valueToSet) {
 		velocity = valueToSet;
+	}
+
+	/**
+	 *@function setAcceleration
+	 *@brief 	Sets acceleration of an animal
+	 *@argument velutToSet	- value which will be set
+	 */
+	void setAcceleration(double valueToSet) {
+		acceleration = valueToSet;
 	}
 };
 

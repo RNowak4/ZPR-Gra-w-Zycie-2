@@ -25,7 +25,7 @@ public:
 
 	//TODO temporary
 	Attributes() {
-		speed_ = 5.0;
+		speed_ = 2.0;
 		sleepNeed_ = 5.0;
 		eatNeed_ = 5.0;
 		sexNeed_ = 5.0;
