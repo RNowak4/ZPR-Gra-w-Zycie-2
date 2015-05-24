@@ -12,8 +12,6 @@
 
 class Animal;
 
-//TODO TO MA BYC AKCJA  A NIE STATE
-
 class Eating: public Action {
 private:
 	static const unsigned decreaseValue = 150;
