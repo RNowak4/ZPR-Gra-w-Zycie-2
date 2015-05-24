@@ -8,7 +8,6 @@
 #include "Model.h"
 
 #include <cmath>
-#include <iostream>
 
 #include "Actions/RandomWalking.h"
 #include "Actions/TestAction.h"

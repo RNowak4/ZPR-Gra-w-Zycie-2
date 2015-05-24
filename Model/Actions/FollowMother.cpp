@@ -1,34 +1,30 @@
 /*
- * Follow.cpp
+ * FollowMother.cpp
  *
- *  Created on: 22 maj 2015
+ *  Created on: 24 maj 2015
  *      Author: radek
  */
 
-#include "Follow.h"
+#include "FollowMother.h"
 
-#include "../Animal.h"
-#include "../Attributes.h"
 #include "../Model.h"
+#include "Follow.h"
 #include "RandomWalking.h"
 
-using namespace std;
-
-Follow::Follow(Animal* animalPtr_, Animal* animalPtr) :
+FollowMother::FollowMother(Animal* animalPtr_, Animal* animalPtr) :
 		Action(animalPtr_), animalToFollowPtr(animalPtr) {
-	this->animalPtr->setVelocity(2.0);
-	this->animalPtr->setAcceleration(0.1);
+	this->animalPtr->setVelocity(0.7);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(
 			Model::countAngle(this->animalPtr->returnCoodtinates(),
 					animalToFollowPtr->returnCoodtinates()));
 }
 
-Follow::~Follow() {
+FollowMother::~FollowMother() {
 	modelPtr->deleteAction(this);
 }
 
-void Follow::performAction() {
+void FollowMother::performAction() {
 	if (animalToFollowPtr != nullptr) {
 		auto lookingAngle = Model::countAngle(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates());
@@ -36,16 +32,14 @@ void Follow::performAction() {
 		animalPtr->setLookingAngle(lookingAngle);
 
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates()) < 40) {
-			modelPtr->killAnimal(animalToFollowPtr);
-			animalPtr->getAttributes().eatNeed_ -= 4.0;
-			if (animalPtr->getAttributes().eatNeed_ < 0.0)
-				animalPtr->getAttributes().eatNeed_ = 0.0;
-		}
+				animalToFollowPtr->returnCoodtinates()) < 80)
+			animalPtr->setVelocity(0.0);
+		else
+			animalPtr->setVelocity(0.7);
 	}
 }
 
-Action* Follow::chooseNextAction() {
+Action* FollowMother::chooseNextAction() {
 	if (animalToFollowPtr == nullptr) {
 		return new RandomWalking(this->animalPtr);
 	}
@@ -53,7 +47,7 @@ Action* Follow::chooseNextAction() {
 	return this;
 }
 
-void Follow::deleteAnimal(const Animal* animalPtr) {
+void FollowMother::deleteAnimal(const Animal* animalPtr) {
 	if (this->animalToFollowPtr == animalPtr) {
 		animalToFollowPtr = nullptr;
 	}
