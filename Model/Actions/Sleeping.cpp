@@ -33,6 +33,7 @@ void Sleeping::performAction() {
 
 Action* Sleeping::chooseNextAction() {
 	//TODO dodac, ze jak sie wyspi to cos tam
+	return this;
 }
 
 void Sleeping::deleteAnimal(const Animal*) {

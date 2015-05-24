@@ -29,6 +29,7 @@ void Eating::performAction() {
 
 Action* Eating::chooseNextAction() {
 	//TODO dodac, ze jak sie wyspi to cos tam
+	return this;
 }
 
 void Eating::deleteAnimal(const Animal*) {
