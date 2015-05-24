@@ -21,6 +21,7 @@ public:
 	~Eating();
 	bool isThatMe(string stateName);
 	string toString();
+	void deleteAnimal(const Animal*);
 };
 
 #endif /* MODEL_STATES_EATING_H_ */
