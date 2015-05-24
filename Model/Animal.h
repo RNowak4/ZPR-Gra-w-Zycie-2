@@ -234,6 +234,11 @@ public:
 		return actualAttributes_;
 	}
 
+	/**
+	 *@function shouldDie
+	 *@brief 	Returns this if animal should die or nullptr.
+	 *@return	Pointer to animal class
+	 */
 	Animal* shouldDie();
 };
 
