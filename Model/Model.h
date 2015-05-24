@@ -173,7 +173,15 @@ private:
 	std::list<Animal*> registeredAnimalList_;
 	std::list<Action*> actionsList_;
 
-	Animal* findAnimal(unsigned, unsigned);
+	/**
+	 *@function findAnimal
+	 *@brief 	Function finds an animal using specified coordinates. If there's no such animal, function returns nullptr.
+	 *@argument x -	position on x axis
+	 *@argument y - position on y axis
+	 *@return	Pointer to the animal class.
+	 */
+	Animal* findAnimal(unsigned x, unsigned y);
+
 	bool deregisterAnimal(Animal*);
 	bool isRegistered(Animal*) const;
 	bool registerAnimal(unsigned, unsigned);
