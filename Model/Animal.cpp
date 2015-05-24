@@ -61,7 +61,7 @@ AnimalData* Animal::getAnimalData() {
 		dataToReturn->pushString(state->toString());
 
 	dataToReturn->pushPair(string("Speed"), actualAttributes_.speed_);
-	dataToReturn->pushPair(string("eat need"), actualAttributes_.eatNeed_);
+	dataToReturn->pushPair(string("eat need"), floor(actualAttributes_.eatNeed_ * 10)/10);
 	//TODO reszta
 
 	return dataToReturn;
