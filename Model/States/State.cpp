@@ -7,6 +7,9 @@
 
 #include "State.h"
 
-State::State() {
+State::State(): animalPtr(nullptr) {
+}
+
+State::State(Animal* animalPtr_): animalPtr(animalPtr_) {
 }
 

@@ -10,16 +10,18 @@
 
 #include <string>
 
-#include "../Attributes.h"
+class Animal;
 
 using namespace std;
 
 class State {
-private:
-	Attributes attributes_;
+protected:
+	Animal* animalPtr;
 
 public:
 	State();
+	State(Animal*);
+	virtual ~State() { }
 	virtual string toString() = 0;
 	virtual bool isThatMe(string stateName) = 0;
 };

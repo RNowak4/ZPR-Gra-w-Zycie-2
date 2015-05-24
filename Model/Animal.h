@@ -94,7 +94,7 @@ public:
 	 *@brief	gets current location data of an animal.
 	 *@return	current location data of an animal
 	 */
-	const LocationData* returnLocationData() {
+	LocationData* returnLocationData() {
 		return &locationData_;
 	}
 
