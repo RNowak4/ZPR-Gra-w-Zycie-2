@@ -16,6 +16,7 @@ class Animal;
 Sleeping::Sleeping(Animal* animalPtr_) :
 		Action(animalPtr_) {
 	animalPtr->setVelocity(0.0);
+	animalPtr->setLookingAngle(90);
 	animalPtr->returnLocationData()->sightLen_ -= decreaseValue;
 }
 

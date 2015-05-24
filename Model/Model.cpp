@@ -10,7 +10,7 @@
 #include <cmath>
 
 #include "Actions/RandomWalking.h"
-#include "Actions/TestAction.h"
+#include "Actions/Sleeping.h"
 #include "Carnivore.h"
 #include "Constants.h"
 #include "Herbivore.h"
@@ -78,7 +78,7 @@ void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivorePtr = new Herbivore(x, y);
 	animalList_.push_back(herbivorePtr);
 	herbivorePtr->setAction(
-			shared_ptr < Action > (new TestAction(herbivorePtr)));
+			shared_ptr < Action > (new Sleeping(herbivorePtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
