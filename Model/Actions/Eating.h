@@ -8,19 +8,21 @@
 #ifndef MODEL_STATES_EATING_H_
 #define MODEL_STATES_EATING_H_
 
-#include <string>
+#include "Action.h"
 
-#include "State.h"
+class Animal;
 
-class Eating: public State {
+//TODO TO MA BYC AKCJA  A NIE STATE
+
+class Eating: public Action {
 private:
-	static const unsigned decreaseValue = 200;
+	static const unsigned decreaseValue = 150;
 
 public:
 	Eating(Animal* animalPtr);
 	~Eating();
-	bool isThatMe(string stateName);
-	string toString();
+	void performAction();
+	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
 };
 
