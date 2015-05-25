@@ -19,7 +19,7 @@ public:
     Herbivore(unsigned, unsigned, const Modifiers&);
     Herbivore(const Herbivore& orig);
     virtual ~Herbivore();
-    virtual bool isDangerous(Animal* another) { return false; }
+    bool isDangerous(Animal* another) { return true; }
 };
 
 #endif	/* HERBIVORE_H */
