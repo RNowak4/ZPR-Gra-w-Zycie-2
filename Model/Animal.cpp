@@ -19,6 +19,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	locationData_.sightLen_ = 300;
 	locationData_.lookingAngle = 0;
 	locationData_.lookingRad = 90;
+	sex_ = FEMALE;
 	velocity = 0.0;
 	acceleration = 0.0;
 	angleVelocity = 0.0;
@@ -31,8 +32,6 @@ Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
 
 bool Animal::isThatMe(unsigned x, unsigned y) {
 	double tmpX, tmpY;
-	//tmpX = x * sin((double) locationData_.lookingAngle / (double) 180 * PI);
-	//tmpY = y * sin((double) locationData_.lookingAngle / (double) 180 * PI);
 	tmpX = x;
 	tmpY = y;
 
@@ -61,7 +60,8 @@ AnimalData* Animal::getAnimalData() {
 		dataToReturn->pushString(state->toString());
 
 	dataToReturn->pushPair(string("Speed"), actualAttributes_.speed_);
-	dataToReturn->pushPair(string("eat need"), floor(actualAttributes_.eatNeed_ * 10)/10);
+	dataToReturn->pushPair(string("eat need"),
+			floor(actualAttributes_.eatNeed_ * 10) / 10);
 	//TODO reszta
 
 	return dataToReturn;
@@ -101,24 +101,22 @@ void Animal::doMove() {
 	locationData_.coordinates_.y += velocity
 			* sin((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
 	locationData_.lookingAngle += angleVelocity / 1.0;
-	/*if (locationData_.lookingAngle < 0.0) {
-	 locationData_.lookingAngle = -locationData_.lookingAngle;
-	 locationData_.lookingAngle = 360.0 - locationData_.lookingAngle;
-	 }*/
 	velocity += acceleration;
 	if (velocity >= this->actualAttributes_.speed_) {
 		velocity = this->actualAttributes_.speed_;
 		acceleration = 0.0;
 	}
 
-	if (locationData_.coordinates_.x <= 0
-			|| locationData_.coordinates_.y <= 0) {
+	if (locationData_.coordinates_.x <= 0 || locationData_.coordinates_.y <= 0
+			|| locationData_.coordinates_.x >= Constants::mapWidth
+			|| locationData_.coordinates_.x >= Constants::mapHeight) {
 		locationData_.lookingAngle += 180.0;
 	}
 }
 
 Animal* Animal::shouldDie() {
-	if(actualAttributes_.eatNeed_ >= 10.0) return this;
+	if (actualAttributes_.eatNeed_ >= 10.0)
+		return this;
 
 	return nullptr;
 }
