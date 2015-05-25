@@ -30,6 +30,23 @@ Follow::~Follow() {
 
 void Follow::performAction() {
 	if (animalToFollowPtr != nullptr) {
+		auto locationData = animalPtr->returnLocationData();
+		auto animalVector = modelPtr->getAnimalsInSight(
+				locationData->coordinates_, locationData->sightLen_,
+				locationData->lookingAngle, locationData->lookingRad);
+
+		unsigned distance = Model::countDistance(locationData->coordinates_,
+				animalToFollowPtr->returnLocationData()->coordinates_);
+		for (auto animal : animalVector) {
+			if (animal != animalToFollowPtr && animal->isHerbivore()) {
+				if (Model::countDistance(locationData->coordinates_,
+						animal->returnLocationData()->coordinates_)
+						< distance) {
+					animalToFollowPtr = animal;
+				}
+			}
+		}
+
 		auto lookingAngle = Model::countAngle(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates());
 
