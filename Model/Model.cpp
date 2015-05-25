@@ -77,8 +77,7 @@ void Model::createCarnivore(unsigned x, unsigned y) {
 void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivorePtr = new Herbivore(x, y);
 	animalList_.push_back(herbivorePtr);
-	herbivorePtr->setAction(
-			shared_ptr < Action > (new Sleeping(herbivorePtr)));
+	herbivorePtr->setAction(shared_ptr < Action > (new Sleeping(herbivorePtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
@@ -218,6 +217,23 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 					&& (lookingAngle - lookingRad / 2) <= angle) {
 				vectorToReturn.push_back(animal);
 			}
+		}
+	}
+
+	return vectorToReturn;
+}
+
+std::vector<Animal*> Model::getNearlyAnimals(Coordinates coordinates,
+		unsigned range) {
+	std::vector<Animal*> vectorToReturn;
+	Coordinates tempCoords;
+
+	for (auto animal : animalList_) {
+		tempCoords = animal->returnLocationData()->coordinates_;
+		if (tempCoords == coordinates)
+			continue;
+		else if (countDistance(coordinates, tempCoords) <= range) {
+			vectorToReturn.push_back(animal);
 		}
 	}
 

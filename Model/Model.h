@@ -85,6 +85,16 @@ public:
 			unsigned sightLen, unsigned lookingAngle, unsigned lookingRad);
 
 	/**
+	 *@function getNearlyAnimals
+	 *@brief 	Returns collection of animals in specified range.
+	 *@argument coordinates -  position of the animal.
+	 *@argument range -	   sight length of the animal.
+	 *@return	vector of pointer to animals being in range of animal specified by coordinates
+	 */
+	std::vector<Animal*> getNearlyAnimals(Coordinates coordinates,
+			unsigned range);
+
+	/**
 	 *@function getCoordinates
 	 *@brief 	Function simply returns coordinates of specified animal
 	 *@argument animalPtr -	Pointer to Animal which coordinates we want to get
