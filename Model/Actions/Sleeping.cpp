@@ -10,6 +10,7 @@
 #include "../Animal.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
+#include "Fleeing.h"
 
 class Animal;
 
@@ -32,7 +33,16 @@ void Sleeping::performAction() {
 }
 
 Action* Sleeping::chooseNextAction() {
-	//TODO dodac, ze jak sie wyspi to cos tam
+	auto animalsVector = modelPtr->getNearlyAnimals(
+			animalPtr->returnLocationData()->coordinates_,
+			animalPtr->returnLocationData()->sightLen_);
+
+	for (auto animal : animalsVector) {
+		if (animalPtr->isDangerous(animal)) {
+			return new Fleeing(animalPtr, animal);
+		}
+	}
+
 	return this;
 }
 

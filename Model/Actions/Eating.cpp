@@ -5,11 +5,16 @@
  *      Author: radek
  */
 
+#include <memory>
+
 #include "Eating.h"
 
 #include "../Animal.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
+#include "Fleeing.h"
+
+using namespace std;
 
 Eating::Eating(Animal* animalPtr_) :
 		Action(animalPtr_) {
@@ -24,11 +29,19 @@ Eating::~Eating() {
 
 void Eating::performAction() {
 	//TODO zwiekszanie wyspania
-	// Jesli zobaczy atakujacego carnivore, to spierdala
 }
 
 Action* Eating::chooseNextAction() {
-	//TODO dodac, ze jak sie wyspi to cos tam
+	auto animalsVector = modelPtr->getNearlyAnimals(
+			animalPtr->returnLocationData()->coordinates_,
+			animalPtr->returnLocationData()->sightLen_);
+
+	for (auto animal : animalsVector) {
+		if (animalPtr->isDangerous(animal)) {
+			return new Fleeing(animalPtr, animal);
+		}
+	}
+
 	return this;
 }
 
