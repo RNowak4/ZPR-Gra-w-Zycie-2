@@ -45,7 +45,7 @@ Assets::~Assets()
 SDL_Texture* Assets::loadTexture(const std::string& name, const SdlHelper& helper )
 {
 	SDL_Surface* tempSurface = IMG_Load(name.c_str());
-	SDL_Texture* newTexture = SDL_CreateTextureFromSurface(helper.renderer_, tempSurface);
+	SDL_Texture* newTexture = SDL_CreateTextureFromSurface(helper.renderer_.get(), tempSurface);
 	SDL_FreeSurface(tempSurface);
 	return newTexture;
 }

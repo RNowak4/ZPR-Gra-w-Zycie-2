@@ -99,8 +99,16 @@ void View::drawBackground()
 
 void View::run()
 {
-	
-	mySDL_.init();	///Initialize new SDL Screen with renderer
+	try
+	{
+		mySDL_.init();	///Initialize new SDL Screen with renderer
+	}
+	catch (InitializingSdlHelperException & e)
+	{
+		mySDL_.close();
+		return;
+	}
+
 	mySDL_.setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	mySDL_.setWindowTitle("Game of life.");
 

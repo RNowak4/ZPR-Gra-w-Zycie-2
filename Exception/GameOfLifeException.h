@@ -15,4 +15,8 @@ class LoadingSettingsExcepion : public GameOfLifeException
 {
 };
 
+class InitializingSdlHelperException : public GameOfLifeException
+{
+};
+
 #endif //GAME_OF_LIFE_EXCEPTION

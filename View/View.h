@@ -28,21 +28,40 @@ class View
 {
 public:
 	View();
+
+	/**
+	*Draw creature on the screen.
+	*@param LocationData informations about creature location, looking angle, looking radius
+	*		and type of creature.
+	*/
 	void drawCreature(const LocationData &);
-	void getController(Controller*);
+	/**
+	*Get controller for view.
+	*@param controller pointer to the Controller module of the program.
+	*/
+	void getController(Controller* controller);
 	const SDL_Rect & getCamera();
 	void drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*>&);
 	void drawBackground();
+	/**
+	*Move the visible region of the map.
+	*@param x how many pixels camera has to move horizontally (right if positive, left if negative).
+	*@param y how many pixels camera has to move vertically (down if positive, up if negative).
+	*/
 	void moveCamera(int x, int y);
 	/**
 	*This method executes the main program loop.
 	*@return void
 	*/
 	void run();
+	/**
+	*End main program loop..
+	*/
 	void quit();
 private:
 	void drawEyeshot(const LocationData &);
 	void drawEyeshotCone(const LocationData &);
+
 	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;

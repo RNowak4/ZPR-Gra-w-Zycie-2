@@ -108,6 +108,21 @@
     <ClInclude Include="..\..\..\Model\Actions\RandomWalking.h">
       <Filter>Header Files\Model\Actions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\FeedChildren.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Fleeing.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\FollowMother.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Eating.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Sleeping.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Controller\Controller.cpp">
@@ -177,6 +192,21 @@
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\RandomWalking.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\FeedChildren.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Fleeing.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\FollowMother.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Eating.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Sleeping.cpp">
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,28 +3,29 @@
 
 void SdlHelper::init()
 {
-	SDL_Init(SDL_INIT_VIDEO);
-	window_ = SDL_CreateWindow("Game of Life", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
-	renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
-	IMG_Init(IMG_INIT_PNG); ///Loading dynamic libraries to use  PNG format.
-	TTF_Init();
+	if (SDL_Init(SDL_INIT_VIDEO)!=0)
+	{
+		throw InitializingSdlHelperException();
+	}
 
-	
-	return;
+	if (IMG_Init(IMG_INIT_PNG) == 0) ///Loading dynamic libraries to use  PNG format.
+	{
+		throw InitializingSdlHelperException();
+	}
+	if (TTF_Init() != 0)
+	{
+		throw InitializingSdlHelperException();
+	}
+
+
+	window_ = std::shared_ptr<SDL_Window>(SDL_CreateWindow("Game of Life", 30, 30, 640, 480, SDL_WINDOW_SHOWN),SDL_DestroyWindow);
+	renderer_ = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window_.get(), -1, SDL_RENDERER_ACCELERATED),SDL_DestroyRenderer);
 }
 
-void SdlHelper::loadMedia()
-{
-	
-}
+
 
 void SdlHelper::close()
 {
-	SDL_DestroyRenderer(renderer_);
-	SDL_DestroyWindow(window_);
-	renderer_ = NULL;
-	window_ = NULL;
-
 	IMG_Quit();
 	SDL_Quit();
 	TTF_Quit();
@@ -33,19 +34,19 @@ void SdlHelper::close()
 
 void SdlHelper::clearScreen()
 {
-	SDL_RenderClear(renderer_);
+	SDL_RenderClear(renderer_.get());
 }
 void SdlHelper::renderScreen()
 {
-	SDL_RenderPresent(renderer_);
+	SDL_RenderPresent(renderer_.get());
 }
 void SdlHelper::setWindowSize(int width, int height)
 {
-	SDL_SetWindowSize(window_, width, height);
+	SDL_SetWindowSize(window_.get(), width, height);
 }
 void SdlHelper::setWindowTitle(const std::string & title)
 {
-	SDL_SetWindowTitle(window_, title.c_str());
+	SDL_SetWindowTitle(window_.get(), title.c_str());
 }
 
 void SdlHelper::draw(SDL_Rect* camera, SDL_Texture* tex, int x, int y, bool centered, double angle, Uint8 alpha)
@@ -78,16 +79,16 @@ void SdlHelper::draw(SDL_Rect* camera, SDL_Texture* tex, int x, int y, bool cent
 	}
 	SDL_SetTextureAlphaMod(tex,alpha); //Setting alpha for texture.
 
-	SDL_RenderCopyEx(renderer_, tex, NULL, &tmp, angle, nullptr, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(renderer_.get(), tex, NULL, &tmp, angle, nullptr, SDL_FLIP_NONE);
 
 	SDL_SetTextureAlphaMod(tex, 255);  //After drawing we bring texture back to normal state ( not transparent ).
 }
 
-void SdlHelper::renderText(SDL_Rect* camera, TTF_Font* font, const std::string message, int x, int y, SDL_Color color)
+void SdlHelper::renderText(SDL_Rect* camera, TTF_Font* font, const std::string& message, int x, int y, const SDL_Color & color)
 {
 
 	SDL_Surface *surface = TTF_RenderText_Blended(font, message.c_str(), color);
-	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer_, surface);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer_.get(), surface);
 	draw(camera, texture, x, y);
 
 	//Clean up the surface and font
@@ -108,10 +109,10 @@ void SdlHelper::drawFrame(SDL_Rect* camera, SDL_Rect* rectangle, SDL_Texture* fi
 		rectangle->y -= camera->y;
 	}
 	SDL_SetTextureAlphaMod(filling, 0xa0); //Setting alpha for texture.
-	SDL_RenderCopy(renderer_,filling, NULL, rectangle);
+	SDL_RenderCopy(renderer_.get(), filling, NULL, rectangle);
 	SDL_SetTextureAlphaMod(filling, 0xff);  //After drawing we bring texture back to normal state ( not transparent ).
-	SDL_SetRenderDrawColor(renderer_, 0x0, 0x0, 0x0, 0xFF);
-	SDL_RenderDrawRect(renderer_, rectangle);
+	SDL_SetRenderDrawColor(renderer_.get(), 0x0, 0x0, 0x0, 0xFF);
+	SDL_RenderDrawRect(renderer_.get(), rectangle);
 
 	
 
@@ -138,8 +139,8 @@ void SdlHelper::drawLine(SDL_Rect* camera, int x1, int y1, int x2, int y2, const
 		y1 -= camera->y;
 		y2 -= camera->y;
 	}
-	SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);
-	SDL_RenderDrawLine(renderer_, x1, y1, x2, y2);
+	SDL_SetRenderDrawColor(renderer_.get(), color.r, color.g, color.b, color.a);
+	SDL_RenderDrawLine(renderer_.get(), x1, y1, x2, y2);
 }
 
 void SdlHelper::drawPoint(SDL_Rect* camera, int x, int y, const SDL_Color & color)
@@ -149,6 +150,6 @@ void SdlHelper::drawPoint(SDL_Rect* camera, int x, int y, const SDL_Color & colo
 		x -= camera->x;
 		y -= camera->y;
 	}
-	SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);
-	SDL_RenderDrawPoint(renderer_, x, y);
+	SDL_SetRenderDrawColor(renderer_.get(), color.r, color.g, color.b, color.a);
+	SDL_RenderDrawPoint(renderer_.get(), x, y);
 }
