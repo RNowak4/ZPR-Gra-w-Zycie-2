@@ -56,7 +56,7 @@ public:
 	*@param alpha		 transparency of image, if 255, the image is not transparent at all. 
 	*					 Lesser  is the  value, the more transparent is image.
 	*/
-	void draw(SDL_Rect* camera, SDL_Texture* tex, int x, int y, bool centered = false, double angle = 0, Uint8 alpha = 255);
+	void draw(const SDL_Rect& camera, std::shared_ptr<SDL_Texture> tex, int x, int y, bool centered = false, double angle = 0, Uint8 alpha = 255);
 
 	/**
 	*Draw text on the screen.
@@ -67,7 +67,7 @@ public:
 	*@param y			 vertical position on the screen.
 	*@param color		 color of the font.
 	*/
-	void renderText(SDL_Rect* camera, TTF_Font* font, const std::string & message, int x, int y, const SDL_Color & color);
+	void renderText(const SDL_Rect& camera, std::shared_ptr<TTF_Font> font, const std::string& message, int x, int y, const SDL_Color& color);
 
 	/**
 	*Draw frame in shape of rectangle on the screen filled with given texture.  
@@ -75,7 +75,7 @@ public:
 	*@param rectangle    rectangle meaning area we want to cover with frame.
 	*@param filling		 texture, which is intender to cover the area of the frame.
 	*/
-	void drawFrame(SDL_Rect* camera, SDL_Rect* rectangle, SDL_Texture* filling);
+	void drawFrame(const SDL_Rect& camera, SDL_Rect rectangle, std::shared_ptr<SDL_Texture> filling);
 
 	/**
 	*Draw line on the screen. 
@@ -86,7 +86,7 @@ public:
 	*@param y2 vertical position of ending of the line on the screen.
 	*@param color color of the line.
 	*/
-	void drawLine(SDL_Rect* camera, int x1, int y1, int x2, int y2, const SDL_Color & color);
+	void drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, const SDL_Color& color);
 
 	/**
 	*Draw point on the screen.
@@ -95,7 +95,7 @@ public:
 	*@param y			vertical position of point on the screen.
 	*@param color		color of the point.
 	*/
-	void drawPoint(SDL_Rect* camera, int x, int y, const SDL_Color & color);
+	void drawPoint(const SDL_Rect& camera, int x, int y, const SDL_Color& color);
 
 	/**
 	*Clean the screen, remove anything drawn on it .
