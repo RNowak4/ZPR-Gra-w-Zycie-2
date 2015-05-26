@@ -8,7 +8,7 @@ void Assets::loadAssets(const SdlHelper& helper)
 	textures_[HERBIVORE] = std::shared_ptr<SDL_Texture>(loadTexture("Assets/herbivore.png", helper), SDL_DestroyTexture);
 	textures_[FRAME_BACKGROUND] = std::shared_ptr<SDL_Texture>(loadTexture("Assets/frameBackground.png", helper), SDL_DestroyTexture);
 
-	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/comicbd.ttf", 14), TTF_CloseFont);
+	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", 14), TTF_CloseFont);
 
 	for (auto i : textures_)
 	{

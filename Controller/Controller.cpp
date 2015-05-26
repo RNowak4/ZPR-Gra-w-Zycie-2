@@ -12,7 +12,7 @@ void Controller::getModel(Model* m)
 	loadSettings("settings.txt");
 
 
-	Constants::adultWidth = 80; //Chwilowo
+	Constants::adultWidth  = 40; //Chwilowo
 	Constants::adultHeigth = 40; //Chwilowo
 
 	
@@ -69,6 +69,9 @@ void Controller::update()
 	for (auto i : *creatures)
 	{
 		view_->drawCreature( * i.first );
+	}
+	for (auto i : *creatures)
+	{
 		if (i.second != nullptr)
 		{
 			view_->drawCreatureInfo(i);

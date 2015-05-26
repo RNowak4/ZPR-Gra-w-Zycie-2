@@ -108,7 +108,7 @@ void SdlHelper::drawFrame(SDL_Rect* camera, SDL_Rect* rectangle, SDL_Texture* fi
 		rectangle->x -= camera->x;
 		rectangle->y -= camera->y;
 	}
-	SDL_SetTextureAlphaMod(filling, 0xa0); //Setting alpha for texture.
+	SDL_SetTextureAlphaMod(filling, 0x80); //Setting alpha for texture.
 	SDL_RenderCopy(renderer_.get(), filling, NULL, rectangle);
 	SDL_SetTextureAlphaMod(filling, 0xff);  //After drawing we bring texture back to normal state ( not transparent ).
 	SDL_SetRenderDrawColor(renderer_.get(), 0x0, 0x0, 0x0, 0xFF);

@@ -7,6 +7,8 @@
 #include  "../Model/Model.h"
 #include "../Controller/Controller.h"
 #include <sstream>
+#include "../Model/Constants.h"
+
 View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 {
 	camera_.x = 0; 
@@ -50,8 +52,8 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	auto vec2 = &data.second->returnStringVector();
 
 	SDL_Rect frame	{ 
-					  x,
-					  y,
+					  x ,
+					  y ,
 					  150,
 					  2 * margin + (vec1->size() + vec2->size())*fontHeight 
 					};
@@ -71,14 +73,14 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	}
 	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
 	{
-		mySDL_.renderText(&camera_, font.get(), (*i), x + margin, y + margin + lineCount*fontHeight, col);
+		mySDL_.renderText(&camera_, font.get(), (*i), x + margin , y + margin + lineCount*fontHeight, col);
 	}
 }
 
 /**
 * Method for drawing grass relative to camera position.
 */
-void View::drawBackground()
+void View::drawBackground() 
 {
 	int backgrWidth; int backgrHeight;
 	shared_ptr<SDL_Texture> tex = Assets::getInstance().get(Assets::GRASS);
