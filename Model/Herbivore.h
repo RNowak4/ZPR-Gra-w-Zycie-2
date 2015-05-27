@@ -12,14 +12,35 @@
 
 class Herbivore: public Animal {
 private:
-    
+
 public:
-    Herbivore();
-    Herbivore(unsigned, unsigned);
-    Herbivore(unsigned, unsigned, const Modifiers&);
-    Herbivore(const Herbivore& orig);
-    virtual ~Herbivore();
-    bool isDangerous(Animal* another) { return true; }
+	/**
+	 *@function Herbivore
+	 *@brief 	Constructs single herbivore at specified coordinates
+	 *@argument x -	position on x axis
+	 *@argument y -	position on y axis
+	 */
+	Herbivore(unsigned x, unsigned y);
+
+	/**
+	 *@function Herbivore
+	 *@brief 	Constructs single herbivore at specified coordinates and modifiers
+	 *@argument x -	position on x axis
+	 *@argument y -	position on y axis
+	 *@argument modifiers - modifiers that will be copied
+	 */
+	Herbivore(unsigned, unsigned, const Modifiers& modifiers);
+
+	/**
+	 *@function isDangerous
+	 *@brief 	Checks if an animal is dangerous for another one
+	 *@argument another -	another animal
+	 */
+	bool isDangerous(Animal* another) {
+		return true;
+	}
+
+	void updateStatus();
 };
 
 #endif	/* HERBIVORE_H */

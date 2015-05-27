@@ -10,7 +10,7 @@
 // TODO  Generowanie poczatkowych atrybutow na podsatwie modyf.
 //		 Beda one potem modyfikowane przez Actions
 Attributes::Attributes(const Modifiers& modifiers) {
-	speed_ = 5.0;
+	maximalSpeed_ = 5.0;
 	sleepNeed_ = 5.0;
 	eatNeed_ = 4.0;
 	sexNeed_ = 5.0;

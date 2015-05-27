@@ -10,15 +10,14 @@
 #include <cmath>
 
 #include "Constants.h"
+#include "Parameters.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 		animalModifiers(), actualAttributes_(animalModifiers), animalViewParameters(
 				0, 0, x, y, animalType) {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
-	locationData_.sightLen_ = 300;
 	locationData_.lookingAngle = 0;
-	locationData_.lookingRad = 90;
 	sex_ = FEMALE;
 	velocity = 0.0;
 	acceleration = 0.0;
@@ -37,11 +36,11 @@ bool Animal::isThatMe(unsigned x, unsigned y) {
 
 	unsigned width, height;
 	if (hasState("Childhood")) {
-		width = Constants::youngWidth;
-		height = Constants::youngHeigth;
+		width = Parameters::youngWidth;
+		height = Parameters::youngHeigth;
 	} else {
-		width = Constants::adultWidth;
-		height = Constants::adultHeigth;
+		width = Parameters::adultWidth;
+		height = Parameters::adultHeigth;
 	}
 
 	if (tmpX >= (locationData_.coordinates_.x - width / 2)
@@ -59,9 +58,11 @@ AnimalData* Animal::getAnimalData() {
 	for (auto state : statesVector)
 		dataToReturn->pushString(state->toString());
 
-	dataToReturn->pushPair(string("Speed"), actualAttributes_.speed_);
+	dataToReturn->pushPair(string("Speed"), actualAttributes_.maximalSpeed_);
 	dataToReturn->pushPair(string("eat need"),
 			floor(actualAttributes_.eatNeed_ * 10) / 10);
+	dataToReturn->pushPair(string("sleep need"),
+			floor(actualAttributes_.sleepNeed_ * 10) / 10);
 	//TODO reszta
 
 	return dataToReturn;
@@ -74,16 +75,6 @@ bool Animal::hasState(const string& stateName) {
 	}
 
 	return false;
-}
-
-void Animal::updateStatus() {
-	currentAction->performAction();
-	Action* chosenAction = currentAction->chooseNextAction();
-	if (currentAction.get() != chosenAction) {
-		currentAction = shared_ptr < Action > (chosenAction);
-	}
-
-	actualAttributes_.eatNeed_ += 0.005;
 }
 
 void Animal::setPosition(unsigned x, unsigned y) {
@@ -101,15 +92,16 @@ void Animal::doMove() {
 	locationData_.coordinates_.y += velocity
 			* sin((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
 	locationData_.lookingAngle += angleVelocity / 1.0;
+	locationData_.lookingAngle %= 360;
 	velocity += acceleration;
-	if (velocity >= this->actualAttributes_.speed_) {
-		velocity = this->actualAttributes_.speed_;
+	if (velocity >= this->actualAttributes_.maximalSpeed_) {
+		velocity = this->actualAttributes_.maximalSpeed_;
 		acceleration = 0.0;
 	}
 
 	if (locationData_.coordinates_.x <= 0 || locationData_.coordinates_.y <= 0
-			|| locationData_.coordinates_.x >= Constants::mapWidth
-			|| locationData_.coordinates_.x >= Constants::mapHeight) {
+			|| locationData_.coordinates_.x >= Parameters::mapWidth
+			|| locationData_.coordinates_.x >= Parameters::mapHeight) {
 		locationData_.lookingAngle += 180.0;
 	}
 }

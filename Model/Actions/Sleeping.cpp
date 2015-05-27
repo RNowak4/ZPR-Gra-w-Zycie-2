@@ -8,16 +8,20 @@
 #include "Sleeping.h"
 
 #include "../Animal.h"
+#include "../Attributes.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
+#include "Eating.h"
 #include "Fleeing.h"
+#include "TestAction.h"
 
 class Animal;
 
 Sleeping::Sleeping(Animal* animalPtr_) :
 		Action(animalPtr_) {
 	animalPtr->setVelocity(0.0);
-	animalPtr->setLookingAngle(90);
+	animalPtr->stopTurning();
+	animalPtr->setAcceleration(0.0);
 	animalPtr->returnLocationData()->sightLen_ -= decreaseValue;
 }
 
@@ -27,9 +31,7 @@ Sleeping::~Sleeping() {
 }
 
 void Sleeping::performAction() {
-	//TODO zwiekszanie wyspania
-	// Jesli "zobaczy"(wiem ze spi ale to uproszczenie)
-	// atakujacego carnivore, to spierdala
+	animalPtr->getAttributes().sleepNeed_ -= 0.05;
 }
 
 Action* Sleeping::chooseNextAction() {
@@ -41,6 +43,14 @@ Action* Sleeping::chooseNextAction() {
 		if (animalPtr->isDangerous(animal)) {
 			return new Fleeing(animalPtr, animal);
 		}
+	}
+
+	if (animalPtr->getAttributes().eatNeed_ > 6.0) {
+		return new Eating(animalPtr);
+	}
+
+	if (animalPtr->getAttributes().sleepNeed_ < 1.5) {
+		return new TestAction(animalPtr);
 	}
 
 	return this;

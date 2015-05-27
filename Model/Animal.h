@@ -8,8 +8,9 @@
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
+#include <list>
+#include <memory>
 #include <string>
-#include <vector>
 
 #include "Actions/Action.h"
 #include "AnimalData.h"
@@ -28,25 +29,20 @@ typedef shared_ptr<State> StatePtr;
 
 class Animal {
 private:
-	ActionPtr currentAction;
-
-public:
-	enum Sex {
-		FEMALE, MALE
-	};
-
-protected:
+	list<Animal*> childrenList;
 	Modifiers animalModifiers;
-	Attributes actualAttributes_;
-	vector<StatePtr> statesVector;
-
+	list<StatePtr> statesVector;
 	Sex sex_;
 	AnimalViewParameters animalViewParameters;
 	Coordinates coordinates_;
-	LocationData locationData_;
 	double velocity;
 	double acceleration;
 	double angleVelocity;
+
+protected:
+	ActionPtr currentAction;
+	LocationData locationData_;
+	Attributes actualAttributes_;
 
 public:
 	/**
@@ -78,7 +74,7 @@ public:
 	 *@function updateStatus
 	 *@brief 	Updates status of an animal.
 	 */
-	void updateStatus();
+	virtual void updateStatus() = 0;
 
 	/**
 	 *@function returnCoodtinates
@@ -240,6 +236,15 @@ public:
 	 *@return	Pointer to animal class
 	 */
 	Animal* shouldDie();
+
+	/**
+	 *@function isMother
+	 *@brief 	Returns true if an animal is mother
+	 *@return	boolean value
+	 */
+	bool isMother() {
+		return this->hasState("Mother");
+	}
 };
 
 #endif	/* ANIMAL_H */

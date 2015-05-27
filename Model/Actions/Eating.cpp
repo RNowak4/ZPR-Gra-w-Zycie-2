@@ -5,20 +5,22 @@
  *      Author: radek
  */
 
-#include <memory>
-
 #include "Eating.h"
 
 #include "../Animal.h"
+#include "../Attributes.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
 #include "Fleeing.h"
+#include "TestAction.h"
 
 using namespace std;
 
 Eating::Eating(Animal* animalPtr_) :
 		Action(animalPtr_) {
 	animalPtr->setVelocity(0.0);
+	animalPtr->setAcceleration(0.0);
+	animalPtr->stopTurning();
 	animalPtr->returnLocationData()->sightLen_ -= decreaseValue;
 }
 
@@ -28,7 +30,7 @@ Eating::~Eating() {
 }
 
 void Eating::performAction() {
-	//TODO zwiekszanie wyspania
+	animalPtr->getAttributes().eatNeed_ -= 0.07;
 }
 
 Action* Eating::chooseNextAction() {
@@ -40,6 +42,10 @@ Action* Eating::chooseNextAction() {
 		if (animalPtr->isDangerous(animal)) {
 			return new Fleeing(animalPtr, animal);
 		}
+	}
+
+	if (animalPtr->getAttributes().eatNeed_ < 2.5) {
+		return new TestAction(animalPtr);
 	}
 
 	return this;

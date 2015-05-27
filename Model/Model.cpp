@@ -9,11 +9,11 @@
 
 #include <cmath>
 
-#include "Actions/RandomWalking.h"
-#include "Actions/Sleeping.h"
+#include "Actions/CarnivoreRandomWalking.h"
+#include "Actions/TestAction.h"
 #include "Carnivore.h"
-#include "Constants.h"
 #include "Herbivore.h"
+#include "Parameters.h"
 
 Model::Model() {
 	Action::setDefaultModel(this);
@@ -71,13 +71,13 @@ void Model::createCarnivore(unsigned x, unsigned y) {
 	Animal* carnivorePtr = new Carnivore(x, y);
 	animalList_.push_back(carnivorePtr);
 	carnivorePtr->setAction(
-			shared_ptr < Action > (new RandomWalking(carnivorePtr)));
+			shared_ptr < Action > (new CarnivoreRandomWalking(carnivorePtr)));
 }
 
 void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivorePtr = new Herbivore(x, y);
 	animalList_.push_back(herbivorePtr);
-	herbivorePtr->setAction(shared_ptr < Action > (new Sleeping(herbivorePtr)));
+	herbivorePtr->setAction(shared_ptr < Action > (new TestAction(herbivorePtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
@@ -170,7 +170,7 @@ bool Model::switchAnimalRegister(unsigned x, unsigned y) {
 void Model::setModelParameters(unsigned adultWidth, unsigned adultHeigth,
 		unsigned youngWidth, unsigned youngHeigth, unsigned mapWidth,
 		unsigned mapHeight) {
-	Constants::setParameters(adultWidth, adultHeigth, youngWidth, youngHeigth,
+	Parameters::setParameters(adultWidth, adultHeigth, youngWidth, youngHeigth,
 			mapWidth, mapHeight);
 }
 
@@ -199,8 +199,6 @@ unsigned Model::countAngle(Coordinates first, Coordinates second) {
 	return angle;
 }
 
-// TODO nazwy argumentow mi sie jebnely cos
-// Ale dziala, to nie ruszam...
 std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 		unsigned sightLen, unsigned lookingAngle, unsigned lookingRad) {
 	std::vector<Animal*> vectorToReturn;
@@ -214,7 +212,7 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 		else if (countDistance(coordinates, tempCoords) <= sightLen) {
 			angle = countAngle(coordinates, tempCoords);
 			if ((lookingAngle + lookingRad / 2) >= angle
-					&& (lookingAngle - lookingRad / 2) <= angle) {
+					&& (lookingAngle - lookingRad / 2 + 360) <= angle + 360) {
 				vectorToReturn.push_back(animal);
 			}
 		}

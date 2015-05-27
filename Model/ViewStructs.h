@@ -12,6 +12,10 @@ enum AnimalType {
 	CARNIVORE, HERBIVORE, CARNIVORE_CHILD, HERBIVORE_CHILD
 };
 
+enum Sex {
+	FEMALE, MALE
+};
+
 struct Coordinates {
 	double x, y;
 	Coordinates() {
@@ -30,10 +34,11 @@ struct Coordinates {
 
 struct LocationData {
 	Coordinates coordinates_;
-	unsigned lookingAngle;
+	int lookingAngle;
 	unsigned lookingRad;
 	double sightLen_;
 	AnimalType animalType_;
+	Sex animalSex_;
 };
 
 #endif

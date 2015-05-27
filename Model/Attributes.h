@@ -12,7 +12,7 @@ struct Modifiers;
 
 class Attributes {
 public:
-	double speed_;
+	double maximalSpeed_;
 	double sleepNeed_;
 	double eatNeed_;
 	double sexNeed_;
@@ -25,7 +25,7 @@ public:
 
 	//TODO temporary
 	Attributes() {
-		speed_ = 2.0;
+		maximalSpeed_  = 2.0;
 		sleepNeed_ = 5.0;
 		eatNeed_ = 5.0;
 		sexNeed_ = 5.0;

@@ -1,11 +1,11 @@
 /*
- * RandomWalking.cpp
+ * CarnivoreRandomWalking.cpp
  *
- *  Created on: 21 maj 2015
+ *  Created on: 27 maj 2015
  *      Author: radek
  */
 
-#include "RandomWalking.h"
+#include "CarnivoreRandomWalking.h"
 
 #include "../Animal.h"
 #include "../Attributes.h"
@@ -14,7 +14,7 @@
 #include "CarnivoreSleeping.h"
 #include "Hunting.h"
 
-RandomWalking::RandomWalking(Animal* animalPtr_) :
+CarnivoreRandomWalking::CarnivoreRandomWalking(Animal* animalPtr_) :
 		CarnivoreAction(animalPtr_) {
 	animalPtr->setLookingAngle(0);
 	animalPtr->setVelocity(0.7);
@@ -22,15 +22,15 @@ RandomWalking::RandomWalking(Animal* animalPtr_) :
 	animalPtr->turnRight();
 }
 
-RandomWalking::~RandomWalking() {
+CarnivoreRandomWalking::~CarnivoreRandomWalking() {
 	modelPtr->deleteAction(this);
 }
 
-void RandomWalking::performAction() {
+void CarnivoreRandomWalking::performAction() {
 	// nothing to do
 }
 
-Action* RandomWalking::chooseNextAction() {
+Action* CarnivoreRandomWalking::chooseNextAction() {
 	auto animalVector = modelPtr->getAnimalsInSight(
 			animalPtr->returnCoodtinates(),
 			animalPtr->returnLocationData()->sightLen_,
@@ -38,15 +38,13 @@ Action* RandomWalking::chooseNextAction() {
 			animalPtr->returnLocationData()->lookingRad);
 
 	for (auto animal : animalVector) {
-		if (animalPtr->getAttributes().eatNeed_ <= 7.0)
-			break;
-		if (animal->isHerbivore()) {
+		if (animal->getAttributes().eatNeed_ <= 9.0) {
+			if (animal->isHerbivore()) {
+				return new Hunting(animalPtr, animal);
+			}
+		} else
 			return new Hunting(animalPtr, animal);
-		}
 	}
-
-	if (animalPtr->getAttributes().sleepNeed_ > 8.0)
-		return new CarnivoreSleeping(animalPtr);
 
 	return this;
 }

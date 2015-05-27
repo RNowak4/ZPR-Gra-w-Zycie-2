@@ -7,30 +7,29 @@
 
 #include "Constants.h"
 
-/**
- *@function setParameters
- *@brief sets constant parameters of the Model
- */
-void Constants::setParameters(unsigned adultWidth_, unsigned adultHeigth_,
-		unsigned youngWidth_, unsigned youngHeigth_, unsigned mapWidth_,
-		unsigned mapHeight_) {
-	if (adultWidth_ != 0)
-		adultWidth = adultWidth_;
-	if (adultHeigth_ != 0)
-		adultHeigth = adultHeigth_;
-	if (youngWidth_ != 0)
-		youngWidth = youngWidth_;
-	if (youngHeigth_ != 0)
-		youngHeigth = youngHeigth_;
-	if (mapWidth_ != 0)
-		mapWidth = mapWidth_;
-	if (mapHeight_ != 0)
-		mapHeight = mapHeight_;
-}
+const double Constants::DEFAULT_MAXIMAL_VALUE = 10.0;
 
-unsigned Constants::adultWidth = 20;
-unsigned Constants::adultHeigth = 30;
-unsigned Constants::youngWidth = 10;
-unsigned Constants::youngHeigth = 15;
-unsigned Constants::mapWidth = 5000;
-unsigned Constants::mapHeight = 5000;
+const unsigned Constants::DEFAULT_HERBIVORE_SIGHT_LEN = 300;
+const unsigned Constants::DEFAULT_HERBIVORE_SIGHT_RAD = 90;
+const unsigned Constants::DEFAULT_HERBIVORE_LIFE_LEN = 7.0;
+const unsigned Constants::DEFAULT_HERBIVORE_HEARING_DISTANCE = 80;
+const double Constants::DEFAULT_HERBIVORE_MAX_SPEED = 2.5;
+const double Constants::DEFAULT_HERBIVORE_ACCELERATION = 0.075;
+const double Constants::DEFAULT_HERBIVORE_CONSUMPTION = 0.01;
+const double Constants::DEFAULT_HERBIVORE_EXAUSTING = 0.01;
+
+const unsigned Constants::DEFAULT_CARNIVORE_SIGHT_LEN = 300;
+const unsigned Constants::DEFAULT_CARNIVORE_SIGHT_RAD = 90;
+const unsigned Constants::DEFAULT_CARNIVORE_LIFE_LEN = 6.0;
+const unsigned Constants::DEFAULT_CARNIVORE_HEARING_DISTANCE = 80;
+const double Constants::DEFAULT_CARNIVORE_MAX_SPEED = 3.0;
+const double Constants::DEFAULT_CARNIVORE_ACCELERATION = 0.08;
+const double Constants::DEFAULT_CARNIVORE_CONSUMPTION = 0.005;
+const double Constants::DEFAULT_CARNIVORE_EXAUSTING = 0.01;
+
+unsigned Constants::adultWidth = 50;
+unsigned Constants::adultHeigth = 70;
+unsigned Constants::youngWidth = 30;
+unsigned Constants::youngHeigth = 50;
+unsigned Constants::mapWidth = 20000;
+unsigned Constants::mapHeight = 20000;
