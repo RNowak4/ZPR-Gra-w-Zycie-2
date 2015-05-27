@@ -1,5 +1,6 @@
 #include "SdlHelper.h"
 #include "Assets.h"
+#include <cstdlib>
 
 void SdlHelper::init()
 {
@@ -104,7 +105,7 @@ bool SdlHelper::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
 void SdlHelper::drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, const SDL_Color & color)
 {
 	/*Check if line is within camera bounds.*/
-	SDL_Rect area{ x1, y1, x2, y2 };
+	SDL_Rect area{ x1, y1, std::abs(x2-x1),  std::abs(y2-y1) };
 	if (!overlap(area, camera))
 	{
 		return;

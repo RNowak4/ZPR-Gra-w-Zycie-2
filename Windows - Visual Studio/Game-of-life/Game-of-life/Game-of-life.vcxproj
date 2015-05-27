@@ -74,12 +74,15 @@
     <ClInclude Include="..\..\..\Exception\GameOfLifeException.h" />
     <ClInclude Include="..\..\..\Model\Actions\Action.h" />
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreAction.h" />
+    <ClInclude Include="..\..\..\Model\Actions\CarnivoreRandomWalking.h" />
+    <ClInclude Include="..\..\..\Model\Actions\CarnivoreSleeping.h" />
     <ClInclude Include="..\..\..\Model\Actions\Eating.h" />
     <ClInclude Include="..\..\..\Model\Actions\FeedChildren.h" />
     <ClInclude Include="..\..\..\Model\Actions\Fleeing.h" />
     <ClInclude Include="..\..\..\Model\Actions\Follow.h" />
     <ClInclude Include="..\..\..\Model\Actions\FollowMother.h" />
     <ClInclude Include="..\..\..\Model\Actions\HerbivoreAction.h" />
+    <ClInclude Include="..\..\..\Model\Actions\Hunting.h" />
     <ClInclude Include="..\..\..\Model\Actions\RandomWalking.h" />
     <ClInclude Include="..\..\..\Model\Actions\Sleeping.h" />
     <ClInclude Include="..\..\..\Model\Actions\TestAction.h" />
@@ -92,6 +95,7 @@
     <ClInclude Include="..\..\..\Model\Herbivore.h" />
     <ClInclude Include="..\..\..\Model\Model.h" />
     <ClInclude Include="..\..\..\Model\Modifiers.h" />
+    <ClInclude Include="..\..\..\Model\Parameters.h" />
     <ClInclude Include="..\..\..\Model\States\Childhood.h" />
     <ClInclude Include="..\..\..\Model\States\Illness.h" />
     <ClInclude Include="..\..\..\Model\States\State.h" />
@@ -105,12 +109,15 @@
     <ClCompile Include="..\..\..\main.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Action.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreAction.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\CarnivoreRandomWalking.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\CarnivoreSleeping.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Eating.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\FeedChildren.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Fleeing.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Follow.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\FollowMother.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\HerbivoreAction.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\Hunting.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\RandomWalking.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Sleeping.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp" />
@@ -123,6 +130,7 @@
     <ClCompile Include="..\..\..\Model\Herbivore.cpp" />
     <ClCompile Include="..\..\..\Model\Model.cpp" />
     <ClCompile Include="..\..\..\Model\Modifiers.cpp" />
+    <ClCompile Include="..\..\..\Model\Parameters.cpp" />
     <ClCompile Include="..\..\..\Model\States\Childhood.cpp" />
     <ClCompile Include="..\..\..\Model\States\Illness.cpp" />
     <ClCompile Include="..\..\..\Model\States\State.cpp" />

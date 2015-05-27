@@ -8,6 +8,7 @@
 #include "../Controller/Controller.h"
 #include <sstream>
 #include "../Model/Constants.h"
+#include "../Model/Parameters.h"
 
 View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 {
@@ -41,8 +42,8 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 {
 	drawEyeshotCone(*data.first);
 
-	int fontHeight = 20;
-	int margin = 10;
+	int fontHeight = 15;
+	int margin = 5;
 
 	int x = data.first->coordinates_.x; 
 	int y = data.first->coordinates_.y;
@@ -53,8 +54,8 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	auto vec2 = &data.second->returnStringVector();
 
 	SDL_Rect frame	{ 
-					  x + Constants::adultWidth/2,
-					  y + Constants::adultHeigth/2,
+					  x + Parameters::adultWidth / 2,
+					  y - Parameters::adultHeigth / 2,
 					  150,
 					  2 * margin + (vec1->size() + vec2->size())*fontHeight 
 					};
@@ -202,16 +203,14 @@ void View::drawEyeshotCone(const LocationData & dat)
 	int x1 = dat.coordinates_.x;
 	int y1 = dat.coordinates_.y;
 
-	double angleA = (dat.lookingAngle - (dat.lookingRad / 2))*toRadians;
-	double angleB = (dat.lookingAngle + (dat.lookingRad / 2))*toRadians;
+	double angleA = (dat.lookingAngle - (int)(dat.lookingRad / 2))*toRadians; 
+	double angleB = (dat.lookingAngle + (dat.lookingRad / 2))*toRadians;;
 
 	int x2 = x1 + dat.sightLen_*std::cos(angleA);
 	int y2 = y1 + dat.sightLen_*std::sin(angleA);
 
 	int x3 = x1 + dat.sightLen_*std::cos(angleB);
 	int y3 = y1 + dat.sightLen_*std::sin(angleB);
-
-	
 
 	SDL_Color col{ 0xff, 0, 0, 0 };
 

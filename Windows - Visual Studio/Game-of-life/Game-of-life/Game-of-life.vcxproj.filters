@@ -123,6 +123,18 @@
     <ClInclude Include="..\..\..\Model\Actions\Sleeping.h">
       <Filter>Header Files\Model\Actions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\Parameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\CarnivoreRandomWalking.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Hunting.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\CarnivoreSleeping.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Controller\Controller.cpp">
@@ -207,6 +219,18 @@
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\Sleeping.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Parameters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\CarnivoreRandomWalking.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Hunting.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\CarnivoreSleeping.cpp">
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
   </ItemGroup>

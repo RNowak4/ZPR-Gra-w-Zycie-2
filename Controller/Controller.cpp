@@ -3,6 +3,7 @@
 #include "../Model/Model.h"
 #include <iostream>
 #include "../Model/Constants.h"
+#include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
 
 
@@ -11,9 +12,12 @@ void Controller::getModel(Model* m)
 	model_ = m;
 	loadSettings("settings.txt");
 
+	Parameters::adultWidth = 40;
+	Parameters::adultHeigth = 40;
 
-	Constants::adultWidth  = 40; //Chwilowo
-	Constants::adultHeigth = 40; //Chwilowo
+	//Constants::adultWidth  = 40; //Chwilowo
+	//Constants::adultHeigth = 40; //Chwilowo
+	
 
 	
 }
@@ -102,11 +106,11 @@ void Controller::processCommand(const std::string & command)
 
 	if (what == "MAP_WIDTH")
 	{
-		ss >> Constants::mapWidth;
+		ss >> Parameters::mapWidth;
 	}
 	else if (what == "MAP_HEIGHT")
 	{
-		ss >> Constants::mapHeight;
+		ss >> Parameters::mapHeight;
 	}
 	else if (what == "CARNIVORE")
 	{
