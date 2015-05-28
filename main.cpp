@@ -1,6 +1,8 @@
 #include "Model/Model.h"
 #include "Controller/Controller.h"
 #include "View/View.h"
+#include "View\Graphics.h"
+#include "Exception\GameOfLifeException.h"
 
 /* Do implementacji w Controllerze:
  * 
@@ -12,15 +14,23 @@
 
 int main(int argc, char** argv) {
 	
-	Model model; 
-	Controller controller;
-	View view;
+	try{
+		Model model;
+		Controller controller;
+		View view;
 
-	view.getController(&controller);
-	controller.getView(&view);
-	controller.getModel(&model);
+		view.getController(&controller);
+		controller.getView(&view);
+		controller.getModel(&model);
 
-	view.run();
+		view.run();
+	}
+	catch (InitializingSDLException& e)
+	{
+		Graphics::dispose(Graphics::getInstance());
+	}
+
+	
 	#ifdef _WIN32
 	system("PAUSE");
 	#endif

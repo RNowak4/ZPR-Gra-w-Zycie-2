@@ -7,15 +7,15 @@ Graphics::Graphics()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0 || IMG_Init(IMG_INIT_PNG) == 0 || TTF_Init() != 0)
 	{
-		throw InitializingGraphicsException();
+		throw InitializingSDLException();
 	}
 	//TODO Exception throwing!
 	window_ = std::shared_ptr<SDL_Window>(SDL_CreateWindow("Game of Life", 30, 30, 640, 480, SDL_WINDOW_SHOWN), [](SDL_Window* w){SDL_DestroyWindow(w); std::cout << "w"; });
 	renderer_ = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window_.get(), -1, SDL_RENDERER_ACCELERATED), SDL_DestroyRenderer);
 
 	textures_[GRASS] = loadTexture("Assets/grass.png"), SDL_DestroyTexture;
-	textures_[CARNIVORE] = loadTexture("Assets/carnivore.png"), SDL_DestroyTexture;
-	textures_[HERBIVORE] = loadTexture("Assets/herbivore.png"), SDL_DestroyTexture;
+	textures_[CARNIVORE_MALE] = loadTexture("Assets/carnivore.png"), SDL_DestroyTexture;
+	textures_[HERBIVORE_MALE] = loadTexture("Assets/herbivore.png"), SDL_DestroyTexture;
 	textures_[FRAME_BACKGROUND] = loadTexture("Assets/frameBackground.png"), SDL_DestroyTexture;
 
 	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", DEFAULT_FONT_SIZE), TTF_CloseFont);

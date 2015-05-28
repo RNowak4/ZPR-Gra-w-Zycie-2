@@ -5,7 +5,7 @@
 #include "../Model/Constants.h"
 #include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
-#include "../View/Assets.h"
+
 
 Controller::Controller()
 {
@@ -130,13 +130,20 @@ void Controller::processCommand(const std::string & command)
 	std::string what;
 	ss >> what;
 
+	if (!ss.good())
+		return;
+
 	if (what == "MAP_WIDTH")
 	{
 		ss >> Parameters::mapWidth;
+		if (Parameters::mapWidth < 0)
+			throw LoadingSettingsExcepion();
 	}
 	else if (what == "MAP_HEIGHT")
 	{
 		ss >> Parameters::mapHeight;
+		if (Parameters::mapHeight < 0)
+			throw LoadingSettingsExcepion();
 	}
 	else if (what == "CARNIVORE")
 	{
@@ -150,5 +157,6 @@ void Controller::processCommand(const std::string & command)
 		ss >> x >> y;
 		model_->createHerbivore(x, y);
 	}
+	
 
 }

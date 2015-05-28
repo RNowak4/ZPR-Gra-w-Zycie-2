@@ -19,7 +19,7 @@ class InitializingSdlHelperException : public GameOfLifeException
 {
 };
 
-class InitializingGraphicsException : public GameOfLifeException
+class InitializingSDLException : public GameOfLifeException
 {
 };
 

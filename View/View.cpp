@@ -38,9 +38,9 @@ void View::drawCreature(const LocationData& data)
 {
 	Graphics::TextureID texId;
 	if (data.animalType_ == HERBIVORE)
-		texId = Graphics::HERBIVORE;
+		texId = Graphics::HERBIVORE_MALE;
 	else
-		texId = Graphics::CARNIVORE;
+		texId = Graphics::CARNIVORE_MALE;
 
 	getGraphics().draw(camera_, getGraphics().get(texId), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
 	
