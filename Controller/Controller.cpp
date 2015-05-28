@@ -39,7 +39,6 @@ void Controller::handleEvent(const SDL_Event & e)
 	{
 	case SDL_QUIT:
 		view_->quit();
-		std::cout << "Koniec." << std::endl;
 		break;
 
 	case SDL_KEYDOWN:
@@ -65,12 +64,10 @@ void Controller::handleEvent(const SDL_Event & e)
 			gamePaused_ = !gamePaused_;
 			break;
 		case SDLK_h:
-			gamePaused_ = !gamePaused_;
 			drawHelp_ = !drawHelp_;
 			break;
 		case SDLK_ESCAPE:
 			view_->quit();
-			std::cout << "Koniec." << std::endl;
 			break;
 		}
 		break;

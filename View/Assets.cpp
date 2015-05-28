@@ -17,8 +17,8 @@ void Assets::loadAssets(const SdlHelper& helper)
 			throw LoadingAssetsException();
 		}
 	}
-	
 }
+
 void Assets::disposeAssets()
 {
 	fonts_.clear();

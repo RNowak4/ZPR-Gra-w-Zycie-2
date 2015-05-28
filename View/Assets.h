@@ -21,7 +21,7 @@ public:
 	};
 	enum FontID
 	{
-		DEFAULT_FONT
+		DEFAULT_FONT,
 	};
 
 	/**

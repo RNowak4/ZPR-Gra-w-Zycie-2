@@ -17,7 +17,7 @@ const int SCREEN_HEIGHT = 600;
 const int FPS = 50;
 const double FRAME_TIME = 1.0 / FPS;
 const int FRAMES_COUNT_TO_UPDATE = 10;
-const std::vector<std::string> HELP{ "Game of life",
+const std::vector<std::string> HELP{"\"Game of Life\" help:",
 									 "Click on the creature to see its view range and parameters.",
 									 "Press UP,DOWN,LEFT,RIGHT to move camera on the map.",
 									 "Press P to pause simulation",
@@ -53,7 +53,7 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 {
 	drawEyeshot(*data.first);
 
-	int fontHeight = 15;
+	int fontHeight = 14;
 	int margin = 5;
 
 	int x = data.first->coordinates_.x; 
@@ -168,12 +168,9 @@ void View::run()
 		{
 			controller_->handleEvent(TimeEvent());
 		}
-		
-		
-
 
 		controller_->update();
-		mySDL_.renderText(camera_, Assets::getInstance().get(Assets::DEFAULT_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0xff, 0 });
+		mySDL_.renderText(camera_, Assets::getInstance().get(Assets::DEFAULT_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0, 0 });
 		
 		mySDL_.renderScreen(); // Render screen.
 
@@ -241,8 +238,8 @@ void View::drawEyeshot(const LocationData & dat)
 void View::drawHelp()
 {
 	int margin = 5;
-	int fontHeight = 15;
-	SDL_Rect frame{ camera_.x, camera_.y + 30, SCREEN_WIDTH/2, fontHeight*HELP.size() + 2 * margin };
+	int fontHeight = 14;
+	SDL_Rect frame{ camera_.x + SCREEN_WIDTH/4, camera_.y + 30, SCREEN_WIDTH/2, fontHeight*HELP.size() + 2 * margin };
 	mySDL_.drawFrame(camera_, frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND));
 	for (int i = 0; i < HELP.size(); ++i)
 	{
