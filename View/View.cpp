@@ -11,6 +11,7 @@
 #include "../Model/Parameters.h"
 #include "TimeEvent.h"
 #include "../Controller/Controller.h"
+#include "Graphics.h"
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -23,8 +24,9 @@ const std::vector<std::string> HELP{"\"Game of Life\" help:",
 									 "Press P to pause simulation",
 									 "Press H to exit help menu.",
 									 "Press Esc to end simulation"};
+auto getGraphics = Graphics::getInstance;
 
-View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
+View::View() : controller_(nullptr), event_(), quit_(false)
 {
 	camera_.x = 0; 
 	camera_.y = 0; 
@@ -34,13 +36,13 @@ View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 
 void View::drawCreature(const LocationData& data)
 {
-	Assets::TextureID texId;
+	Graphics::TextureID texId;
 	if (data.animalType_ == HERBIVORE)
-		texId = Assets::HERBIVORE;
+		texId = Graphics::HERBIVORE;
 	else
-		texId = Assets::CARNIVORE;
+		texId = Graphics::CARNIVORE;
 
-	mySDL_.draw(camera_, Assets::getInstance().get(texId), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
+	getGraphics().draw(camera_, getGraphics().get(texId), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
 	
 }
 
@@ -59,7 +61,7 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	int x = data.first->coordinates_.x; 
 	int y = data.first->coordinates_.y;
 
-	std::shared_ptr<TTF_Font> font = Assets::getInstance().get(Assets::DEFAULT_FONT);
+	std::shared_ptr<TTF_Font> font = getGraphics().get(Graphics::DEFAULT_FONT);
 
 	auto vec1 = &data.second->returnPairVector();
 	auto vec2 = &data.second->returnStringVector();
@@ -71,7 +73,7 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 					  2 * margin + (vec1->size() + vec2->size())*fontHeight 
 					};
 
-	mySDL_.drawFrame(camera_, frame,Assets::getInstance().get(Assets::FRAME_BACKGROUND));
+	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
 	SDL_Color col{ 0, 0, 0, 0 };
 	
 	
@@ -81,12 +83,12 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	for (auto i = vec1->begin(); i != vec1->end(); ++i, ++lineCount)
 	{
 		ss <<(*i).first << " : " << (*i).second;
-		mySDL_.renderText(camera_, font, ss.str(), frame.x + margin, frame.y + margin + lineCount*fontHeight, col);
+		getGraphics().renderText(camera_, font, ss.str(), frame.x + margin, frame.y + margin + lineCount*fontHeight, col);
 		ss.str("");
 	}
 	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
 	{
-		mySDL_.renderText(camera_, font, (*i), frame.x + margin , frame.y + margin + lineCount*fontHeight, col);
+		getGraphics().renderText(camera_, font, (*i), frame.x + margin, frame.y + margin + lineCount*fontHeight, col);
 	}
 }
 
@@ -95,7 +97,7 @@ void View::drawBackground()
 	int backgrWidth; 
 	int backgrHeight;
 	SDL_Rect camera{ 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-	shared_ptr<SDL_Texture> tex = Assets::getInstance().get(Assets::GRASS);
+	shared_ptr<SDL_Texture> tex = getGraphics().get(Graphics::GRASS);
 
 	SDL_QueryTexture(tex.get(), nullptr, nullptr, &backgrWidth, &backgrHeight);
 
@@ -106,34 +108,13 @@ void View::drawBackground()
 	{
 		for (int j = yOffset; j < camera_.h; j += backgrHeight)
 		{
-			mySDL_.draw(camera, tex, i, j);
+			getGraphics().draw(camera, tex, i, j);
 		}
 	}
 }
 
 void View::run()
 {
-	try
-	{
-		mySDL_.init();	///Initialize new SDL Screen with renderer
-	}
-	catch (InitializingSdlHelperException& e)
-	{
-		mySDL_.close();
-		return;
-	}
-
-	mySDL_.setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	mySDL_.setWindowTitle("Game of life");
-
-	try
-	{
-		Assets::getInstance().loadAssets(mySDL_); ///Loading all neccesary files.
-	}
-	catch (LoadingAssetsException& e)
-	{
-		return;
-	}
 
 	using namespace std::chrono;
 	
@@ -145,6 +126,7 @@ void View::run()
 	int fpsCounter = 0;
 
 	quit_ = false;
+	getGraphics().setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	
 	//Main loop of program
@@ -152,7 +134,7 @@ void View::run()
 	{
 		//Measuring time of new frame. 
 		frame = high_resolution_clock::now();
-		mySDL_.clearScreen(); //Clear screen.
+		getGraphics().clearScreen(); //Clear screen.
 
 		//Sending input from user to conroller to handle it.
 		while (SDL_PollEvent(&event_) != 0)
@@ -170,9 +152,9 @@ void View::run()
 		}
 
 		controller_->update();
-		mySDL_.renderText(camera_, Assets::getInstance().get(Assets::DEFAULT_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0, 0 });
+		getGraphics().renderText(camera_, getGraphics().get(Graphics::DEFAULT_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0, 0 });
 		
-		mySDL_.renderScreen(); // Render screen.
+		getGraphics().renderScreen(); // Render screen.
 
 		//We keep the frames per second at relatively fixed amount. 
 		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - frame);
@@ -180,8 +162,7 @@ void View::run()
 			SDL_Delay((FRAME_TIME - time_span.count()) * 1000);
 	}
 
-	Assets::getInstance().disposeAssets(); ///Disposing  all loaded files.
-	mySDL_.close();
+	Graphics::dispose(getGraphics());
 }
 
 void View::quit()
@@ -221,18 +202,18 @@ void View::drawEyeshot(const LocationData & dat)
 
 	for (double angle = angleA; angle <= angleB; angle+=(toRadians/2))
 	{
-		mySDL_.drawPoint(camera_,
+		getGraphics().drawPoint(camera_,
 			x1 + dat.sightLen_*std::cos(angle),
 			y1 + dat.sightLen_*std::sin(angle),
 			col);
-		mySDL_.drawPoint(camera_,
+		getGraphics().drawPoint(camera_,
 			x1 + 1 + dat.sightLen_*std::cos(angle),
 			y1 + 1 + dat.sightLen_*std::sin(angle),
 			col);
 	}
 
-	mySDL_.drawLine(camera_, x1, y1, x2, y2, col);
-	mySDL_.drawLine(camera_, x1, y1, x3, y3, col);
+	getGraphics().drawLine(camera_, x1, y1, x2, y2, col);
+	getGraphics().drawLine(camera_, x1, y1, x3, y3, col);
 }
 
 void View::drawHelp()
@@ -240,10 +221,10 @@ void View::drawHelp()
 	int margin = 5;
 	int fontHeight = 14;
 	SDL_Rect frame{ camera_.x + SCREEN_WIDTH/4, camera_.y + 30, SCREEN_WIDTH/2, fontHeight*HELP.size() + 2 * margin };
-	mySDL_.drawFrame(camera_, frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND));
+	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
 	for (int i = 0; i < HELP.size(); ++i)
 	{
-		mySDL_.renderText(camera_, Assets::getInstance().get(Assets::DEFAULT_FONT), HELP[i]
+		getGraphics().renderText(camera_, getGraphics().get(Graphics::DEFAULT_FONT), HELP[i]
 			, frame.x + margin, frame.y + margin + i*fontHeight, SDL_Color{ 0, 0, 0, 0 });
 	}
 }

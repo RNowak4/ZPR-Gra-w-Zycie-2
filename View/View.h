@@ -77,7 +77,6 @@ private:
 	
 	void drawEyeshot(const LocationData &);
 
-	SdlHelper mySDL_;
 	Controller* controller_;
 	SDL_Event event_;
 	SDL_Rect camera_;

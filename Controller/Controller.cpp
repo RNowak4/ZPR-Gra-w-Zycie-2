@@ -5,7 +5,7 @@
 #include "../Model/Constants.h"
 #include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
-
+#include "../View/Assets.h"
 
 Controller::Controller()
 {

@@ -1,4 +1,5 @@
 /**
+THIS CLASS IS DEPRECATED.
 *@file Assets.h
 *@brief Class that holds all the media required by the program.
 *

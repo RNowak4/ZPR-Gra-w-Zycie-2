@@ -1,7 +1,5 @@
 /**
-* @file Controller.h
-* @brief Controller class, handles input from user and tells View what to draw.
-*
+File contains Controller class.
 * @author Damian Mazurkiewicz
 */
 
@@ -22,7 +20,11 @@
 class View;
 class Model;
 
-
+/**
+Class takes input from View module. Does proper action depending on it. 
+It can update Model basing on events from View. It "tells" View what to
+draw.
+*/
 class Controller
 {
 public:
@@ -42,11 +44,22 @@ public:
 
 	/**Update Model and refresh View.*/
 	void update();
+
 private:
-	bool gamePaused_;
-	bool drawHelp_;
-	void loadSettings(const std::string&);
+	bool gamePaused_; ///<When game is paused, model is not updated.
+	bool drawHelp_;	///<When true, frame with help information is shown on the screen.
+
+	/**
+	Load settings and simulation details from file.
+
+	@param path path to the file with settings.
+	*/
+	void loadSettings(const std::string& path);	
+
+	/**Process one line from settings file, set configuration of Controller basing on it. */
 	void processCommand(const std::string&);
+
+
 	Model* model_;
 	View* view_;
 };

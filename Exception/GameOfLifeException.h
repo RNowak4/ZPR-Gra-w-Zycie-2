@@ -19,4 +19,8 @@ class InitializingSdlHelperException : public GameOfLifeException
 {
 };
 
+class InitializingGraphicsException : public GameOfLifeException
+{
+};
+
 #endif //GAME_OF_LIFE_EXCEPTION

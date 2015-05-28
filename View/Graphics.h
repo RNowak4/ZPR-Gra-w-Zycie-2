@@ -1,13 +1,5 @@
-/**
-THIS CLASS IS DEPRECATED.
-* @file SdlHelper.h
-* @brief Class that manages the SLD library and provides an useful interface for it.
-*
-* @author Damian Mazurkiewicz
-*/
-
-#ifndef SDLHELPER_H
-#define SDLHELPER_H
+#ifndef GOF_GRAPHICS
+#define GOF_GRAPHICS
 
 #ifdef _WIN32
 #include <SDL.h>
@@ -19,33 +11,38 @@ THIS CLASS IS DEPRECATED.
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #endif
-#include <iostream>
-#include <vector>
+
+#include <map>
+#include <string>
 #include <memory>
-#include "../Exception/GameOfLifeException.h"
-class Assets;
-class SdlHelper
+
+class Graphics
 {
 public:
-	/**
-	*Initialize SDL, create window  and renderer.
-	*@return true if succes, otherwise false
-	*/
-	void init();
+	enum TextureID
+	{
+		GRASS, HERBIVORE, CARNIVORE, FRAME_BACKGROUND
+	};
+	enum FontID
+	{
+		DEFAULT_FONT,
+	};
 
-	/**
-	*Unload libraries, clean up all initialized subsystems.
-	*/
-	void close();
+
+	static Graphics& getInstance();
+	static void dispose(Graphics& g);
+
+	std::shared_ptr<SDL_Texture> get(enum TextureID id);
+	std::shared_ptr<TTF_Font> get(enum FontID id);
 
 	/**
 	*Set size of the simulation screen.
 	*@param width how wide will window be in pixels.
 	*@param height height of window in pixels.
 	*/
-	void setWindowSize(int width,int height);
+	void setWindowSize(int width, int height);
 	void setWindowTitle(const std::string & title);
-	
+
 	/**
 	*Draw image on the screen.
 	*@param camera		 SDL_Rect object which is enclosing area of the screen.
@@ -54,7 +51,7 @@ public:
 	*@param y			 vertical position on the screen.
 	*@param centered	 if true, the x and y cordinates are in the center of the image.
 	*@param angle		 the angle of image
-	*@param alpha		 transparency of image, if 255, the image is not transparent at all. 
+	*@param alpha		 transparency of image, if 255, the image is not transparent at all.
 	*					 Lesser  is the  value, the more transparent is image.
 	*/
 	void draw(const SDL_Rect& camera, std::shared_ptr<SDL_Texture> tex, int x, int y, bool centered = false, double angle = 0, Uint8 alpha = 255);
@@ -71,7 +68,7 @@ public:
 	void renderText(const SDL_Rect& camera, std::shared_ptr<TTF_Font> font, const std::string& message, int x, int y, const SDL_Color& color);
 
 	/**
-	*Draw frame in shape of rectangle on the screen filled with given texture.  
+	*Draw frame in shape of rectangle on the screen filled with given texture.
 	*@param camera		 when is not null, rectangle will be in position relative to thic camera position.
 	*@param rectangle    rectangle meaning area we want to cover with frame.
 	*@param filling		 texture, which is intender to cover the area of the frame.
@@ -79,7 +76,7 @@ public:
 	void drawFrame(const SDL_Rect& camera, SDL_Rect rectangle, std::shared_ptr<SDL_Texture> filling);
 
 	/**
-	*Draw line on the screen. 
+	*Draw line on the screen.
 	*@param camera SDL_Rect object which is enclosing area of the screen.
 	*@param x1 horizontal position of beginning of the line on the screen.
 	*@param y1 vertical position of beginning of the line on the screen.
@@ -107,19 +104,30 @@ public:
 	*Show everything drawed by renderer on the screen.
 	*/
 	void renderScreen();
+	
+
+	
 
 private:
+	Graphics();
+	Graphics(const Graphics&);
+	Graphics& operator=(const Graphics&);
+	~Graphics();
+
+
 	/**
 	*Checks if one of the rectangles overlaps another.
 	*@param r1 reference to first rectangle.
 	*@param r2 reference to second rectangle.
 	*/
-	bool overlap(const SDL_Rect& r1,const SDL_Rect& r2);
+	bool overlap(const SDL_Rect& r1, const SDL_Rect& r2);
 
+	std::shared_ptr<SDL_Texture> loadTexture(const std::string &);
+
+	std::map<enum TextureID, std::shared_ptr<SDL_Texture> > textures_;
+	std::map<enum FontID, std::shared_ptr<TTF_Font> > fonts_;
 
 	std::shared_ptr<SDL_Window> window_;
 	std::shared_ptr<SDL_Renderer> renderer_;
-	friend class Assets;
 };
-
-#endif //SDLHELPER_H
+#endif //GOF_GRAPHICS
