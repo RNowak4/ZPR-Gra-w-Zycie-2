@@ -25,12 +25,16 @@ public:
 	};
 	enum FontID
 	{
-		DEFAULT_FONT,
+		DEFAULT_FONT
+	};
+	enum FontSizes
+	{
+		DEFAULT_FONT_SIZE = 12
 	};
 
 
 	static Graphics& getInstance();
-	static void dispose(Graphics& g);
+	static void dispose(Graphics& instance);
 
 	std::shared_ptr<SDL_Texture> get(enum TextureID id);
 	std::shared_ptr<TTF_Font> get(enum FontID id);

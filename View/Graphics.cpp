@@ -1,6 +1,7 @@
 #include "Graphics.h"
 #include "../Exception/GameOfLifeException.h"
 #include <iostream>
+#include <cstdlib>
 
 Graphics::Graphics()
 {
@@ -17,7 +18,7 @@ Graphics::Graphics()
 	textures_[HERBIVORE] = loadTexture("Assets/herbivore.png"), SDL_DestroyTexture;
 	textures_[FRAME_BACKGROUND] = loadTexture("Assets/frameBackground.png"), SDL_DestroyTexture;
 
-	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", 12), TTF_CloseFont);
+	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", DEFAULT_FONT_SIZE), TTF_CloseFont);
 
 	for (auto i : textures_)
 	{
@@ -41,14 +42,16 @@ void Graphics::dispose(Graphics& graphics)
 	graphics.renderer_.reset();
 	graphics.window_.reset();
 
+	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
-	TTF_Quit();
 }
+
 Graphics::~Graphics()
 {
 	dispose(*this);
 }
+
 std::shared_ptr<SDL_Texture> Graphics::loadTexture(const std::string& path)
 {
 	std::shared_ptr<SDL_Surface> tempSurface(IMG_Load(path.c_str()),SDL_FreeSurface);
