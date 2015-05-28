@@ -6,29 +6,25 @@
 #include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
 
+
 Controller::Controller()
 {
 	gamePaused_ = false;
 	drawHelp_ = false;
 }
 
-void Controller::getModel(Model* m)
+void Controller::getModel(Model* model)
 {
-	model_ = m;
+	model_ = model;
 	loadSettings("settings.txt");
 
 	Parameters::adultWidth = 40;
 	Parameters::adultHeigth = 40;
 
-	//Constants::adultWidth  = 40; //Chwilowo
-	//Constants::adultHeigth = 40; //Chwilowo
-	
-
-	
 }
-void Controller::getView(View* v)
+void Controller::getView(View* view)
 {
-	view_ = v;
+	view_ = view;
 }
 
 void Controller::handleEvent(const SDL_Event & e)

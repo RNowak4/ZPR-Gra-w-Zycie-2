@@ -17,22 +17,30 @@
 #include "../View/TimeEvent.h"
 #include <fstream>
 #include <sstream>
+#include <memory>
 
 class View;
 class Model;
 
+
 class Controller
 {
 public:
-	void getModel(Model*);
-	void getView(View *);
+	void getModel(Model* model);
+	void getView(View* view);
 	Controller();
-
 	/**
-	*This funtion takes SDL_Event captured by View, and takes proper action depending on the event.
+	This funtion takes SDL_Event captured by View, and takes proper action depending on the event.
 	*/
 	void handleEvent(const SDL_Event&);
+
+	/**
+	This function takes TimeEvent, which notifies Controller about passing the required time to update
+	creatures parameters.
+	*/
 	void handleEvent(const TimeEvent&);
+
+	/**Update Model and refresh View.*/
 	void update();
 private:
 	bool gamePaused_;
@@ -41,6 +49,5 @@ private:
 	void processCommand(const std::string&);
 	Model* model_;
 	View* view_;
-	
 };
 #endif  //CONTROLLER_H
