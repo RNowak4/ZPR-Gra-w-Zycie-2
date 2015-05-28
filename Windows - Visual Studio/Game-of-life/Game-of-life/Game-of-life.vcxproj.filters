@@ -34,20 +34,20 @@
     <Filter Include="Header Files\Exception">
       <UniqueIdentifier>{0140b079-fe31-4e06-ab8b-47b7e342c53a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{e47bb9c9-65c6-4a6b-b671-3e39b17c5bec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{0bcd48d9-2d56-4ee5-a313-ebc21c050bd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{252bf6c9-8a32-4c3b-aa79-c51062de9dca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{23607b95-b92d-425b-909f-d511728a88e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\View\Assets.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\View\SdlHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\View\View.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Controller\Controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Model\States\Childhood.h">
       <Filter>Header Files\Model\States</Filter>
     </ClInclude>
@@ -65,9 +65,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Model\Actions\HerbivoreAction.h">
       <Filter>Header Files\Model\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\ViewStructs.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Model\Animal.h">
       <Filter>Header Files\Model</Filter>
@@ -92,9 +89,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Model\Model.h">
       <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Model\Constants.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Model\Actions\TestAction.h">
       <Filter>Header Files\Model\Actions</Filter>
@@ -123,9 +117,6 @@
     <ClInclude Include="..\..\..\Model\Actions\Sleeping.h">
       <Filter>Header Files\Model\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Model\Parameters.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreRandomWalking.h">
       <Filter>Header Files\Model\Actions</Filter>
     </ClInclude>
@@ -135,23 +126,32 @@
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreSleeping.h">
       <Filter>Header Files\Model\Actions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\View\View.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\ViewStructs.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\View\TimeEvent.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Constants.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\View\Assets.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Model\Parameters.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\View\SdlHelper.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Controller\Controller.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Controller\Controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\View\Assets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\View\SdlHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\View\View.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -194,9 +194,6 @@
     <ClCompile Include="..\..\..\Model\Modifiers.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Model\Constants.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp">
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
@@ -221,9 +218,6 @@
     <ClCompile Include="..\..\..\Model\Actions\Sleeping.cpp">
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Model\Parameters.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreRandomWalking.cpp">
       <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
@@ -232,6 +226,27 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreSleeping.cpp">
       <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\View\View.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Model.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Parameters.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\View\SdlHelper.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Constants.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Controller\Controller.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\View\Assets.cpp">
+      <Filter>Source Files\View</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

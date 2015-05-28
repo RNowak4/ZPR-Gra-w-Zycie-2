@@ -6,6 +6,11 @@
 #include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
 
+Controller::Controller()
+{
+	gamePaused_ = false;
+	drawHelp_ = false;
+}
 
 void Controller::getModel(Model* m)
 {
@@ -26,11 +31,11 @@ void Controller::getView(View* v)
 	view_ = v;
 }
 
-void Controller::handleEvent(SDL_Event* e)
+void Controller::handleEvent(const SDL_Event & e)
 {
 	int step = 15;
 	SDL_Rect camera = view_->getCamera();
-	switch (e->type)
+	switch (e.type)
 	{
 	case SDL_QUIT:
 		view_->quit();
@@ -38,7 +43,7 @@ void Controller::handleEvent(SDL_Event* e)
 		break;
 
 	case SDL_KEYDOWN:
-		switch (e->key.keysym.sym)
+		switch (e.key.keysym.sym)
 		{
 		case SDLK_LEFT:
 			if (camera.x - step >= 0)
@@ -56,18 +61,41 @@ void Controller::handleEvent(SDL_Event* e)
 			if (camera.y + camera.h + step <= Constants::mapHeight)
 				view_->moveCamera(0, step);
 			break;
+		case SDLK_p:
+			gamePaused_ = !gamePaused_;
+			break;
+		case SDLK_h:
+			gamePaused_ = !gamePaused_;
+			drawHelp_ = !drawHelp_;
+			break;
+		case SDLK_ESCAPE:
+			view_->quit();
+			std::cout << "Koniec." << std::endl;
+			break;
 		}
 		break;
 	case SDL_MOUSEBUTTONDOWN :
-		model_->switchAnimalRegister(e->button.x + camera.x, e->button.y + camera.y);
+		model_->switchAnimalRegister(e.button.x + camera.x, e.button.y + camera.y);
 		break;
+	}
+}
+
+void Controller::handleEvent(const TimeEvent&)
+{
+	if (gamePaused_ == false)
+	{
+		model_->updateAnimalsStatuses();
 	}
 }
 
 void Controller::update()
 {
+	if (gamePaused_ == false)
+	{
+		model_->updateAnimalsPosition();
+	}
+
 	
-	model_->updateAnimalsPosition();
 
 	auto creatures = model_->getAnimalsData();
 	for (auto i : *creatures)
@@ -80,6 +108,11 @@ void Controller::update()
 		{
 			view_->drawCreatureInfo(i);
 		}
+	}
+
+	if (drawHelp_ == true)
+	{
+		view_->drawHelp();
 	}
 }
 

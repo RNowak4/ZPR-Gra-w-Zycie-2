@@ -34,7 +34,11 @@ public:
 		return instance;
 	}
 
-	void loadAssets(const SdlHelper&);
+	/**
+	*Load necessary files to memory.
+	*@param 
+	*/
+	void loadAssets(const SdlHelper&  sdl);
 	std::shared_ptr<SDL_Texture> get(enum TextureID id);
 	std::shared_ptr<TTF_Font> get(enum FontID id);
 	void disposeAssets();

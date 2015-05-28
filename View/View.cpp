@@ -3,12 +3,26 @@
 * POZDROWIENIA DLA RADKA
 *@author Damian Mazurkiewicz
 */
+
+#include <sstream>
 #include "View.h"
 #include  "../Model/Model.h"
-#include "../Controller/Controller.h"
-#include <sstream>
 #include "../Model/Constants.h"
 #include "../Model/Parameters.h"
+#include "TimeEvent.h"
+#include "../Controller/Controller.h"
+
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
+const int FPS = 50;
+const double FRAME_TIME = 1.0 / FPS;
+const int FRAMES_COUNT_TO_UPDATE = 10;
+const std::vector<std::string> HELP{ "Game of life",
+									 "Click on the creature to see its view range and parameters.",
+									 "Press UP,DOWN,LEFT,RIGHT to move camera on the map.",
+									 "Press P to pause simulation",
+									 "Press H to exit help menu.",
+									 "Press Esc to end simulation"};
 
 View::View() : mySDL_(), controller_(nullptr), event_(), quit_(false)
 {
@@ -35,12 +49,9 @@ void View::getController(Controller* controller)
 	controller_ = controller;
 }
 
-/**
-*This method will be drawing specific information about creature and its vision range on the screen.
-*/
 void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
-	drawEyeshotCone(*data.first);
+	drawEyeshot(*data.first);
 
 	int fontHeight = 15;
 	int margin = 5;
@@ -79,9 +90,6 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	}
 }
 
-/**
-* Method for drawing grass relative to camera position.
-*/
 void View::drawBackground() 
 {
 	int backgrWidth; 
@@ -116,7 +124,7 @@ void View::run()
 	}
 
 	mySDL_.setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	mySDL_.setWindowTitle("Game of life.");
+	mySDL_.setWindowTitle("Game of life");
 
 	try
 	{
@@ -149,23 +157,23 @@ void View::run()
 		//Sending input from user to conroller to handle it.
 		while (SDL_PollEvent(&event_) != 0)
 		{
-			controller_->handleEvent(&event_);
+			controller_->handleEvent(event_);
 		}
 
 		drawBackground();
 
-		//FPS counter only for testing purposes!
+		
 		++fpsCounter;
-		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - second);
-		if (time_span.count() >= 1)
+		if (fpsCounter = FRAMES_COUNT_TO_UPDATE)
 		{
-			std::cout << fpsCounter << " FPS" <<std::endl;
-			fpsCounter = 0;
-			second = high_resolution_clock::now();
+			controller_->handleEvent(TimeEvent());
 		}
+		
+		
 
 
 		controller_->update();
+		mySDL_.renderText(camera_, Assets::getInstance().get(Assets::DEFAULT_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0xff, 0 });
 		
 		mySDL_.renderScreen(); // Render screen.
 
@@ -196,7 +204,7 @@ const SDL_Rect & View::getCamera()
 	return camera_;
 }
 
-void View::drawEyeshotCone(const LocationData & dat)
+void View::drawEyeshot(const LocationData & dat)
 {
 	double toRadians = M_PI/180;
 	
@@ -228,6 +236,17 @@ void View::drawEyeshotCone(const LocationData & dat)
 
 	mySDL_.drawLine(camera_, x1, y1, x2, y2, col);
 	mySDL_.drawLine(camera_, x1, y1, x3, y3, col);
+}
 
-
+void View::drawHelp()
+{
+	int margin = 5;
+	int fontHeight = 15;
+	SDL_Rect frame{ camera_.x, camera_.y + 30, SCREEN_WIDTH/2, fontHeight*HELP.size() + 2 * margin };
+	mySDL_.drawFrame(camera_, frame, Assets::getInstance().get(Assets::FRAME_BACKGROUND));
+	for (int i = 0; i < HELP.size(); ++i)
+	{
+		mySDL_.renderText(camera_, Assets::getInstance().get(Assets::DEFAULT_FONT), HELP[i]
+			, frame.x + margin, frame.y + margin + i*fontHeight, SDL_Color{ 0, 0, 0, 0 });
+	}
 }
