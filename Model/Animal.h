@@ -165,7 +165,7 @@ public:
 	 *@brief 	Turns an animal right
 	 */
 	void turnRight() {
-		angleVelocity = 0.5;
+		angleVelocity = 1.0;
 	}
 
 	/**

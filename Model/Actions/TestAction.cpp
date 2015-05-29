@@ -23,7 +23,7 @@ TestAction::TestAction(Animal* animalPtr_) :
 	animalPtr->turnRight();
 	lastChangeTime = time(0);
 	distribution1 = std::uniform_int_distribution<int>(0, 2);
-	distribution2 = std::uniform_int_distribution<int>(0, 1);
+	distribution2 = std::uniform_int_distribution<int>(0, 4);
 }
 
 TestAction::~TestAction() {
@@ -33,11 +33,16 @@ TestAction::~TestAction() {
 void TestAction::performAction() {
 	if (time(0) - lastChangeTime > Constants::DEFAULT_ACTION_TIME_CHANGE) {
 		switch (distribution2(generator)) {
-		case 0:
+		case 4:
+			animalPtr->setVelocity(0.0);
+			animalPtr->stopTurning();
+			break;
+
+		default:
 			animalPtr->setVelocity(0.7);
 			switch (distribution1(generator)) {
 			case 0:
-				//animalPtr->turnLeft();
+				animalPtr->turnRight();
 				break;
 
 			case 1:
@@ -51,11 +56,6 @@ void TestAction::performAction() {
 			default:
 				break;
 			}
-			break;
-
-		case 1:
-			animalPtr->setVelocity(0.0);
-			animalPtr->stopTurning();
 			break;
 		}
 
