@@ -12,6 +12,7 @@
 #include "TimeEvent.h"
 #include "../Controller/Controller.h"
 #include "Graphics.h"
+#include <algorithm>
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -188,8 +189,10 @@ void View::drawEyeshot(const LocationData & dat)
 	int x1 = dat.coordinates_.x;
 	int y1 = dat.coordinates_.y;
 
-	double angleA = (dat.lookingAngle - (int)(dat.lookingRad / 2))*toRadians; 
-	double angleB = (dat.lookingAngle + (dat.lookingRad / 2))*toRadians;;
+	int range = dat.lookingRad / 2;
+
+	double angleA = (dat.lookingAngle - range)*toRadians; 
+	double angleB = (dat.lookingAngle + range)*toRadians;;
 
 	int x2 = x1 + dat.sightLen_*std::cos(angleA);
 	int y2 = y1 + dat.sightLen_*std::sin(angleA);
@@ -198,6 +201,7 @@ void View::drawEyeshot(const LocationData & dat)
 	int y3 = y1 + dat.sightLen_*std::sin(angleB);
 
 	SDL_Color col{ 0xff, 0, 0, 0 };
+	
 
 	for (double angle = angleA; angle <= angleB; angle+=(toRadians/2))
 	{

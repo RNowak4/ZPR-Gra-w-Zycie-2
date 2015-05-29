@@ -1,7 +1,9 @@
 #include "Graphics.h"
 #include "../Exception/GameOfLifeException.h"
 #include <iostream>
+#include <algorithm>
 #include <cstdlib>
+
 
 Graphics::Graphics()
 {
@@ -150,8 +152,16 @@ bool Graphics::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
 
 void Graphics::drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, const SDL_Color & color)
 {
-	/*Check if line is within camera bounds.*/
-	SDL_Rect area{ x1, y1, std::abs(x2 - x1), std::abs(y2 - y1) };
+	SDL_Rect area { x1, y1, std::abs(x2 - x1), std::abs(y2 - y1) };;
+	if (x1 > x2)
+	{
+		area.x = x2;
+	}
+
+	if (y1 > y2)
+	{
+		area.y = y2;
+	}
 	if (!overlap(area, camera))
 	{
 		return;
