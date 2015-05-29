@@ -120,7 +120,19 @@ void Controller::loadSettings(const std::string& path )
 
 	while (std::getline(file, command))
 	{
-		processCommand(command);
+		try
+		{
+			processCommand(command);
+		}
+		catch (invalid_argument& e)
+		{
+			throw LoadingSettingsExcepion();
+		}
+		catch (out_of_range& e)
+		{
+			throw LoadingSettingsExcepion();
+		}
+
 	}
 }
 
@@ -128,6 +140,7 @@ void Controller::processCommand(const std::string & command)
 {
 	std::stringstream ss(command);
 	std::string what;
+	std::string arg;
 	ss >> what;
 
 	if (!ss.good())
@@ -135,26 +148,22 @@ void Controller::processCommand(const std::string & command)
 
 	if (what == "MAP_WIDTH")
 	{
-		ss >> Parameters::mapWidth;
-		if (Parameters::mapWidth < 0)
-			throw LoadingSettingsExcepion();
+		ss >> arg; Parameters::mapWidth = std::stoi(arg);
 	}
 	else if (what == "MAP_HEIGHT")
 	{
-		ss >> Parameters::mapHeight;
-		if (Parameters::mapHeight < 0)
-			throw LoadingSettingsExcepion();
+		ss >> arg; Parameters::mapHeight = std::stoi(arg);
 	}
 	else if (what == "CARNIVORE")
 	{
-		int x, y;
-		ss >> x >> y;
+		ss >> arg; int x = std::stoi(arg);
+		ss >> arg; int y = std::stoi(arg);
 		model_->createCarnivore(x,y);
 	}
 	else if (what == "HERBIVORE")
 	{
-		int x, y;
-		ss >> x >> y;
+		ss >> arg; int x = std::stoi(arg);
+		ss >> arg; int y = std::stoi(arg);
 		model_->createHerbivore(x, y);
 	}
 	

@@ -7,20 +7,18 @@ class GameOfLifeException : public std::exception
 {
 };
 
-class LoadingAssetsException : public GameOfLifeException
+class InitializingSdlSystemsException : public GameOfLifeException
 {
+};
+
+class LoadingMediaException : public GameOfLifeException
+{
+
 };
 
 class LoadingSettingsExcepion : public GameOfLifeException
 {
 };
 
-class InitializingSdlHelperException : public GameOfLifeException
-{
-};
-
-class InitializingSDLException : public GameOfLifeException
-{
-};
 
 #endif //GAME_OF_LIFE_EXCEPTION

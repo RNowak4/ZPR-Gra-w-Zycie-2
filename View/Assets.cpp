@@ -14,7 +14,7 @@ void Assets::loadAssets(const SdlHelper& helper)
 	{
 		if (!i.second)
 		{
-			throw LoadingAssetsException();
+//			throw LoadingAssetsException();
 		}
 	}
 }

@@ -25,9 +25,19 @@ int main(int argc, char** argv) {
 
 		view.run();
 	}
-	catch (InitializingSDLException& e)
+	catch (InitializingSdlSystemsException& e)
 	{
-		Graphics::dispose(Graphics::getInstance());
+		Graphics::unloadLibraries();
+		std::cerr << "Unabled to initialize SDL systems." << std::endl;
+	}
+	catch (LoadingMediaException& e)
+	{
+		Graphics::unloadLibraries();
+		std::cerr << "Unabled to load all files." << std::endl;
+	}
+	catch (LoadingSettingsExcepion& e)
+	{
+		std::cerr << "Incorrect settings.txt file." << std::endl;
 	}
 
 	

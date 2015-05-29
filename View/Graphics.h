@@ -28,11 +28,7 @@ public:
 	};
 	enum FontID
 	{
-		DEFAULT_FONT
-	};
-	enum FontSizes
-	{
-		DEFAULT_FONT_SIZE = 12
+		DEFAULT_FONT, HELP_FONT
 	};
 
 	/**
@@ -44,6 +40,8 @@ public:
 	Dispose instance of Graphics, destroy all textures and fonts, unload all SDL subsystems.
 	*/
 	static void dispose(Graphics& instance);
+
+	static void unloadLibraries();
 
 	std::shared_ptr<SDL_Texture> get(enum TextureID id);
 	std::shared_ptr<TTF_Font> get(enum FontID id);

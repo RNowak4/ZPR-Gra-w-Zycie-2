@@ -57,6 +57,7 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	drawEyeshot(*data.first);
 
 	int margin = 5;
+	int lineHeight = 13;
 
 	int x = data.first->coordinates_.x; 
 	int y = data.first->coordinates_.y;
@@ -70,7 +71,7 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 					  x + Parameters::adultWidth / 2,
 					  y - Parameters::adultHeigth / 2,
 					  150,
-					  2 * margin + (vec1->size() + vec2->size())* Graphics::DEFAULT_FONT_SIZE
+					  2 * margin + (vec1->size() + vec2->size())* lineHeight
 					};
 
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
@@ -83,12 +84,12 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	for (auto i = vec1->begin(); i != vec1->end(); ++i, ++lineCount)
 	{
 		ss <<(*i).first << " : " << (*i).second;
-		getGraphics().renderText(camera_, font, ss.str(), frame.x + margin, frame.y + margin + lineCount* Graphics::DEFAULT_FONT_SIZE, col);
+		getGraphics().renderText(camera_, font, ss.str(), frame.x + margin, frame.y + margin + lineCount* lineHeight, col);
 		ss.str("");
 	}
 	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
 	{
-		getGraphics().renderText(camera_, font, (*i), frame.x + margin, frame.y + margin + lineCount* Graphics::DEFAULT_FONT_SIZE, col);
+		getGraphics().renderText(camera_, font, (*i), frame.x + margin, frame.y + margin + lineCount*lineHeight, col);
 	}
 }
 
@@ -126,7 +127,9 @@ void View::run()
 	int fpsCounter = 0;
 
 	quit_ = false;
+
 	getGraphics().setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
 
 	
 	//Main loop of program
@@ -152,7 +155,7 @@ void View::run()
 		}
 
 		controller_->update();
-		getGraphics().renderText(camera_, getGraphics().get(Graphics::DEFAULT_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0, 0 });
+		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0, 0 });
 		
 		getGraphics().renderScreen(); // Render screen.
 
@@ -222,11 +225,13 @@ void View::drawEyeshot(const LocationData & dat)
 void View::drawHelp()
 {
 	int margin = 5;
-	SDL_Rect frame{ camera_.x + SCREEN_WIDTH/4, camera_.y + 30, SCREEN_WIDTH/2, Graphics::DEFAULT_FONT_SIZE*HELP.size() + 2 * margin };
+	int lineHeight = 20;
+	int frameWidth = 500;
+	SDL_Rect frame{ camera_.x + (SCREEN_WIDTH - frameWidth)/2, camera_.y + 30, frameWidth, lineHeight*HELP.size() + 2 * margin };
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
 	for (int i = 0; i < HELP.size(); ++i)
 	{
-		getGraphics().renderText(camera_, getGraphics().get(Graphics::DEFAULT_FONT), HELP[i]
-			, frame.x + margin, frame.y + margin + i* Graphics::DEFAULT_FONT_SIZE, SDL_Color{ 0, 0, 0, 0 });
+		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i]
+			, frame.x + margin, frame.y + margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
 	}
 }

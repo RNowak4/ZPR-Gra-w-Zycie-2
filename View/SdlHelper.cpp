@@ -6,7 +6,7 @@ void SdlHelper::init()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0 || IMG_Init(IMG_INIT_PNG) == 0 || TTF_Init() != 0)
 	{
-		throw InitializingSdlHelperException();
+	//	throw InitializingSdlHelperException();
 	}
 	//TODO Exception throwing!
 	window_ = std::shared_ptr<SDL_Window>(SDL_CreateWindow("Game of Life", 30, 30, 640, 480, SDL_WINDOW_SHOWN),SDL_DestroyWindow);
