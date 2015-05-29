@@ -13,6 +13,7 @@
 #include "../Controller/Controller.h"
 #include "Graphics.h"
 #include <algorithm>
+#include <memory>
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -20,11 +21,11 @@ const int FPS = 50;
 const double FRAME_TIME = 1.0 / FPS;
 const int FRAMES_COUNT_TO_UPDATE = 10;
 const std::vector<std::string> HELP{"\"Game of Life\" help:",
-									 "Click on the creature to see its view range and parameters.",
-									 "Press UP,DOWN,LEFT,RIGHT to move camera on the map.",
-									 "Press P to pause simulation",
-									 "Press H to exit help menu.",
-									 "Press Esc to end simulation"};
+									 "*Click on the creature to see its view range and parameters.",
+									 "*Press UP,DOWN,LEFT,RIGHT to move camera on the map.",
+									 "*Press P to pause simulation",
+									 "*Press H to exit help menu.",
+									 "*Press Esc to end simulation"};
 auto getGraphics = Graphics::getInstance;
 
 View::View() : controller_(nullptr), event_(), quit_(false)
@@ -43,7 +44,8 @@ void View::drawCreature(const LocationData& data)
 	else
 		texId = Graphics::CARNIVORE_MALE;
 
-	getGraphics().draw(camera_, getGraphics().get(texId), data.coordinates_.x, data.coordinates_.y, true, data.lookingAngle);
+	getGraphics().draw(camera_, getGraphics().get(texId), 
+					   static_cast<int>(data.coordinates_.x),static_cast<int>(data.coordinates_.y),true, data.lookingAngle);
 	
 }
 
@@ -59,8 +61,8 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	int margin = 5;
 	int lineHeight = 13;
 
-	int x = data.first->coordinates_.x; 
-	int y = data.first->coordinates_.y;
+	int x = static_cast<int>(data.first->coordinates_.x); 
+	int y = static_cast<int>(data.first->coordinates_.y);
 
 	std::shared_ptr<TTF_Font> font = getGraphics().get(Graphics::DEFAULT_FONT);
 
@@ -162,7 +164,7 @@ void View::run()
 		//We keep the frames per second at relatively fixed amount. 
 		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - frame);
 		if (time_span.count()< FRAME_TIME)
-			SDL_Delay((FRAME_TIME - time_span.count()) * 1000);
+			SDL_Delay(static_cast<Uint32>((FRAME_TIME - time_span.count()) * 1000));
 	}
 
 	Graphics::dispose(getGraphics());
@@ -189,19 +191,19 @@ void View::drawEyeshot(const LocationData & dat)
 {
 	double toRadians = M_PI/180;
 	
-	int x1 = dat.coordinates_.x;
-	int y1 = dat.coordinates_.y;
+	int x1 = static_cast<int>(dat.coordinates_.x);
+	int y1 = static_cast<int>(dat.coordinates_.y);
 
-	int range = dat.lookingRad / 2;
+	int range = static_cast<int>(dat.lookingRad / 2);
 
 	double angleA = (dat.lookingAngle - range)*toRadians; 
 	double angleB = (dat.lookingAngle + range)*toRadians;;
 
-	int x2 = x1 + dat.sightLen_*std::cos(angleA);
-	int y2 = y1 + dat.sightLen_*std::sin(angleA);
+	int x2 = static_cast<int> (x1 + dat.sightLen_*std::cos(angleA));
+	int y2 = static_cast<int>(y1 + dat.sightLen_*std::sin(angleA));
 
-	int x3 = x1 + dat.sightLen_*std::cos(angleB);
-	int y3 = y1 + dat.sightLen_*std::sin(angleB);
+	int x3 = static_cast<int>(x1 + dat.sightLen_*std::cos(angleB));
+	int y3 = static_cast<int>(y1 + dat.sightLen_*std::sin(angleB));
 
 	SDL_Color col{ 0xff, 0, 0, 0 };
 	
@@ -209,12 +211,12 @@ void View::drawEyeshot(const LocationData & dat)
 	for (double angle = angleA; angle <= angleB; angle+=(toRadians/2))
 	{
 		getGraphics().drawPoint(camera_,
-			x1 + dat.sightLen_*std::cos(angle),
-			y1 + dat.sightLen_*std::sin(angle),
+			static_cast<int>(x1 + dat.sightLen_*std::cos(angle)),
+			static_cast<int>(y1 + dat.sightLen_*std::sin(angle)),
 			col);
 		getGraphics().drawPoint(camera_,
-			x1 + 1 + dat.sightLen_*std::cos(angle),
-			y1 + 1 + dat.sightLen_*std::sin(angle),
+			static_cast<int>(x1 + 1 + dat.sightLen_*std::cos(angle)),
+			static_cast<int>(y1 + 1 + dat.sightLen_*std::sin(angle)),
 			col);
 	}
 
@@ -229,7 +231,7 @@ void View::drawHelp()
 	int frameWidth = 500;
 	SDL_Rect frame{ camera_.x + (SCREEN_WIDTH - frameWidth)/2, camera_.y + 30, frameWidth, lineHeight*HELP.size() + 2 * margin };
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
-	for (int i = 0; i < HELP.size(); ++i)
+	for (unsigned i = 0; i < HELP.size(); ++i)
 	{
 		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i]
 			, frame.x + margin, frame.y + margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });

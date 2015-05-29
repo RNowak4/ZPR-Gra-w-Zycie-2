@@ -11,6 +11,7 @@ Controller::Controller()
 {
 	gamePaused_ = false;
 	drawHelp_ = false;
+	vericalCameraMovement_=horizontalCameraMovement_=0;
 }
 
 void Controller::getModel(Model* model)
@@ -29,7 +30,7 @@ void Controller::getView(View* view)
 
 void Controller::handleEvent(const SDL_Event & e)
 {
-	int step = 15;
+	int step = 20;
 	SDL_Rect camera = view_->getCamera();
 	switch (e.type)
 	{
@@ -41,20 +42,16 @@ void Controller::handleEvent(const SDL_Event & e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_LEFT:
-			if (camera.x - step >= 0)
-				view_->moveCamera(-step, 0);
+			horizontalCameraMovement_ = -step;
 			break;
 		case SDLK_RIGHT:
-			if (camera.x + camera.w + step <= Constants::mapWidth)
-				view_->moveCamera(step, 0);
+			horizontalCameraMovement_ = step;
 			break;
 		case SDLK_UP:
-			if (camera.y - step >= 0)
-				view_->moveCamera(0, -step);
+			vericalCameraMovement_ = -step;
 			break;
 		case SDLK_DOWN:
-			if (camera.y + camera.h + step <= Constants::mapHeight)
-				view_->moveCamera(0, step);
+			vericalCameraMovement_ = step;
 			break;
 		case SDLK_p:
 			gamePaused_ = !gamePaused_;
@@ -67,6 +64,25 @@ void Controller::handleEvent(const SDL_Event & e)
 			break;
 		}
 		break;
+	case SDL_KEYUP:
+	{
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_LEFT:
+			horizontalCameraMovement_ = 0;
+			break;
+		case SDLK_RIGHT:
+			horizontalCameraMovement_ = 0;
+			break;
+		case SDLK_UP:
+			vericalCameraMovement_ = 0;
+			break;
+		case SDLK_DOWN:
+			vericalCameraMovement_ = 0;
+			break;
+		}
+		break;
+	}
 	case SDL_MOUSEBUTTONDOWN :
 		model_->switchAnimalRegister(e.button.x + camera.x, e.button.y + camera.y);
 		break;
@@ -87,7 +103,7 @@ void Controller::update()
 	{
 		model_->updateAnimalsPosition();
 	}
-
+	moveCamera();
 	
 
 	auto creatures = model_->getAnimalsData();
@@ -126,10 +142,12 @@ void Controller::loadSettings(const std::string& path )
 		}
 		catch (invalid_argument& e)
 		{
+			std::cerr << e.what() << std::endl;
 			throw LoadingSettingsExcepion();
 		}
 		catch (out_of_range& e)
 		{
+			std::cerr << e.what() << std::endl;
 			throw LoadingSettingsExcepion();
 		}
 
@@ -168,4 +186,16 @@ void Controller::processCommand(const std::string & command)
 	}
 	
 
+}
+
+void Controller::moveCamera()
+{
+	SDL_Rect camera = view_->getCamera();
+
+	if (camera.x + horizontalCameraMovement_ >= 0 &&
+		camera.x + camera.w + horizontalCameraMovement_ <= Constants::mapWidth &&
+		camera.y + vericalCameraMovement_ >= 0 &&
+		camera.y + camera.h + vericalCameraMovement_ <= Constants::mapHeight)
+				view_->moveCamera(horizontalCameraMovement_, vericalCameraMovement_);
+			
 }

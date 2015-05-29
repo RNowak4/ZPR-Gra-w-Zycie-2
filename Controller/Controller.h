@@ -48,6 +48,8 @@ public:
 private:
 	bool gamePaused_; ///<When game is paused, model is not updated.
 	bool drawHelp_;	///<When true, frame with help information is shown on the screen.
+	int vericalCameraMovement_;
+	int horizontalCameraMovement_;
 
 	/**
 	Load settings and simulation details from file.
@@ -59,6 +61,7 @@ private:
 	/**Process one line from settings file, set configuration of Controller basing on it. */
 	void processCommand(const std::string&);
 
+	void moveCamera();
 
 	Model* model_;
 	View* view_;

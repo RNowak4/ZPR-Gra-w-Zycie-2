@@ -3,21 +3,37 @@
 
 #include <exception>
 
-class GameOfLifeException : public std::exception
+struct GameOfLifeException : public std::exception
 {
 };
 
-class InitializingSdlSystemsException : public GameOfLifeException
+struct InitializingSdlSystemsException : public GameOfLifeException
 {
+	virtual const char* what() const 
+	{
+		return "Unabled to initialize SDL systems.";
+	}
 };
 
-class LoadingMediaException : public GameOfLifeException
+struct LoadingMediaException : public GameOfLifeException
 {
-
+	virtual const char* what() const
+	{
+		return "Failed in all files.";
+	}
 };
 
-class LoadingSettingsExcepion : public GameOfLifeException
+struct LoadingSettingsExcepion : public GameOfLifeException
 {
+	virtual const char* what() const
+	{
+		return "Incorrect settings.txt file.";
+	}
+};
+
+struct CreatureConstructionException : public GameOfLifeException
+{
+
 };
 
 

@@ -28,16 +28,16 @@ int main(int argc, char** argv) {
 	catch (InitializingSdlSystemsException& e)
 	{
 		Graphics::unloadLibraries();
-		std::cerr << "Unabled to initialize SDL systems." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	catch (LoadingMediaException& e)
 	{
 		Graphics::unloadLibraries();
-		std::cerr << "Unabled to load all files." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	catch (LoadingSettingsExcepion& e)
 	{
-		std::cerr << "Incorrect settings.txt file." << std::endl;
+		std::cerr << e.what()<< std::endl;
 	}
 
 	
