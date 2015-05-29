@@ -25,6 +25,8 @@ public:
 
 	const static double DEFAULT_MAXIMAL_VALUE;
 
+	const static unsigned DEFAULT_ACTION_TIME_CHANGE;
+
 	const static unsigned DEFAULT_HERBIVORE_SIGHT_LEN;
 	const static unsigned DEFAULT_HERBIVORE_SIGHT_RAD;
 	const static unsigned DEFAULT_HERBIVORE_LIFE_LEN;

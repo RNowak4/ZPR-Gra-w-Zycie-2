@@ -19,3 +19,5 @@ Action::Action(Animal* animalPtr_) :
 Action::~Action() {
 	modelPtr->deleteAction(this);
 }
+
+default_random_engine Action::generator;

@@ -8,6 +8,7 @@
 #ifndef ACTION_H_
 #define ACTION_H_
 
+#include <random>
 
 class Model;
 
@@ -20,6 +21,7 @@ protected:
 	Animal* animalPtr;
 	Model* modelPtr;
 	static Model* defaultModelPtr;
+	static default_random_engine generator;
 
 public:
 	/**

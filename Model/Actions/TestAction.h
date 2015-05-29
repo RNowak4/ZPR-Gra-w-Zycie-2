@@ -8,9 +8,17 @@
 #ifndef MODEL_ACTIONS_TESTACTION_H_
 #define MODEL_ACTIONS_TESTACTION_H_
 
+#include <ctime>
+#include <random>
+
 #include "Action.h"
 
 class TestAction: public Action {
+private:
+	time_t lastChangeTime;
+	std::uniform_int_distribution<int> distribution1;
+	std::uniform_int_distribution<int> distribution2;
+
 public:
 	TestAction(Animal*);
 	TestAction(Animal*, Model*);
