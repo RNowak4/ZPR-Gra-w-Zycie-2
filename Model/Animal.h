@@ -173,7 +173,7 @@ public:
 	 *@brief 	Turns an animal left
 	 */
 	void turnLeft() {
-		angleVelocity = -0.5;
+		angleVelocity = -1.0;
 	}
 
 	/**
