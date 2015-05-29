@@ -1,8 +1,8 @@
 #include "Model/Model.h"
 #include "Controller/Controller.h"
 #include "View/View.h"
-#include "View\Graphics.h"
-#include "Exception\GameOfLifeException.h"
+#include "View/Graphics.h"
+#include "Exception/GameOfLifeException.h"
 
 /* Do implementacji w Controllerze:
  * 
