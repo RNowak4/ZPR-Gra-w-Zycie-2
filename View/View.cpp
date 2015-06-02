@@ -23,9 +23,9 @@ const int FRAMES_COUNT_TO_UPDATE = 10;
 const std::vector<std::string> HELP{"\"Game of Life\" help:",
 									 "*Click on the creature to see its view range and parameters.",
 									 "*Press UP,DOWN,LEFT,RIGHT to move camera on the map.",
-									 "*Press P to pause simulation",
+									 "*Press P to pause simulation.",
 									 "*Press H to exit help menu.",
-									 "*Press Esc to end simulation"};
+									 "*Press Esc to end simulation."};
 auto getGraphics = Graphics::getInstance;
 
 View::View() : controller_(nullptr), event_(), quit_(false)
@@ -40,9 +40,23 @@ void View::drawCreature(const LocationData& data)
 {
 	Graphics::TextureID texId;
 	if (data.animalType_ == HERBIVORE)
-		texId = Graphics::HERBIVORE_MALE;
+	{
+		if (data.animalSex_== MALE)
+			texId = Graphics::HERBIVORE_GROWN_MALE;
+		else
+			texId = Graphics::HERBIVORE_GROWN_FEMALE;
+	}
+	else if (data.animalType_ == CARNIVORE)
+	{
+		if (data.animalSex_ == MALE)
+			texId = Graphics::CARNIVORE_GROWN_MALE;
+		else
+			texId = Graphics::CARNIVORE_GROWN_FEMALE;
+	}
+	else if (data.animalType_ == HERBIVORE_CHILD)
+		texId = Graphics::HERBIVORE_CHILD;
 	else
-		texId = Graphics::CARNIVORE_MALE;
+		texId = Graphics::CARNIVORE_CHILD;
 
 	getGraphics().draw(camera_, getGraphics().get(texId), 
 					   static_cast<int>(data.coordinates_.x),static_cast<int>(data.coordinates_.y),true, data.lookingAngle);

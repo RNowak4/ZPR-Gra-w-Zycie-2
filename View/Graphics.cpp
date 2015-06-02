@@ -16,10 +16,14 @@ Graphics::Graphics()
 	window_ = std::shared_ptr<SDL_Window>(SDL_CreateWindow("Game of Life", 30, 30, 640, 480, SDL_WINDOW_SHOWN), SDL_DestroyWindow);
 	renderer_ = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window_.get(), -1, SDL_RENDERER_ACCELERATED), SDL_DestroyRenderer);
 
-	textures_[GRASS] = loadTexture("Assets/grass.png"), SDL_DestroyTexture;
-	textures_[CARNIVORE_MALE] = loadTexture("Assets/carnivore.png"), SDL_DestroyTexture;
-	textures_[HERBIVORE_MALE] = loadTexture("Assets/herbivore.png"), SDL_DestroyTexture;
-	textures_[FRAME_BACKGROUND] = loadTexture("Assets/frameBackground.png"), SDL_DestroyTexture;
+	textures_[GRASS] = loadTexture("Assets/grass.png");
+	textures_[CARNIVORE_GROWN_MALE] = loadTexture("Assets/carnivore_grown_male.png");
+	textures_[CARNIVORE_GROWN_FEMALE] = loadTexture("Assets/carnivore_grown_female.png");
+	textures_[CARNIVORE_CHILD] = loadTexture("Assets/carnivore_child.png");
+	textures_[HERBIVORE_GROWN_MALE] = loadTexture("Assets/herbivore_grown_male.png");
+	textures_[HERBIVORE_GROWN_FEMALE] = loadTexture("Assets/herbivore_grown_female.png");
+	textures_[HERBIVORE_CHILD] = loadTexture("Assets/herbivore_child.png");
+	textures_[FRAME_BACKGROUND] = loadTexture("Assets/frameBackground.png");
 
 	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", 12), TTF_CloseFont);
 	fonts_[HELP_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", 14), TTF_CloseFont);
