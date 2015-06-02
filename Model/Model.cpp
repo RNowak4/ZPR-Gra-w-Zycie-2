@@ -15,6 +15,8 @@
 #include "Herbivore.h"
 #include "Parameters.h"
 
+// Testowy commit z nowego kompa
+
 Model::Model() {
 	Action::setDefaultModel(this);
 }
