@@ -10,7 +10,7 @@
 #include "../Animal.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
-#include "TestAction.h"
+#include "RandomWalking.h"
 
 Fleeing::Fleeing(Animal* animalPtr_, Animal* hunter_) :
 		Action(animalPtr_), hunter(hunter_) {
@@ -42,7 +42,7 @@ void Fleeing::performAction() {
 
 Action* Fleeing::chooseNextAction() {
 	if (hunter == nullptr)
-		return new TestAction(animalPtr);
+		return new RandomWalking(animalPtr);
 
 	return this;
 }

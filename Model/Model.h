@@ -92,7 +92,7 @@ public:
 	 *@return	vector of pointer to animals being in range of animal specified by coordinates
 	 */
 	std::vector<Animal*> getNearlyAnimals(Coordinates coordinates,
-			unsigned range);
+			const unsigned range);
 
 	/**
 	 *@function getCoordinates

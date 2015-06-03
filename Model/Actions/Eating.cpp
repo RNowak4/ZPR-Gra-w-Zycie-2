@@ -12,7 +12,7 @@
 #include "../Model.h"
 #include "../ViewStructs.h"
 #include "Fleeing.h"
-#include "TestAction.h"
+#include "RandomWalking.h"
 
 using namespace std;
 
@@ -36,7 +36,7 @@ void Eating::performAction() {
 Action* Eating::chooseNextAction() {
 	auto animalsVector = modelPtr->getNearlyAnimals(
 			animalPtr->returnLocationData()->coordinates_,
-			animalPtr->returnLocationData()->sightLen_);
+			animalPtr->getAttributes().hearingRange_);
 
 	for (auto animal : animalsVector) {
 		if (animalPtr->isDangerous(animal)) {
@@ -45,7 +45,7 @@ Action* Eating::chooseNextAction() {
 	}
 
 	if (animalPtr->getAttributes().eatNeed_ < 2.5) {
-		return new TestAction(animalPtr);
+		return new RandomWalking(animalPtr);
 	}
 
 	return this;

@@ -12,8 +12,9 @@
 #include "../Constants.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
-#include "CarnivoreSleeping.h"
-#include "Hunting.h"
+#include "Eating.h"
+#include "Fleeing.h"
+#include "Sleeping.h"
 
 RandomWalking::RandomWalking(Animal* animalPtr_) :
 		CarnivoreAction(animalPtr_) {
@@ -37,7 +38,7 @@ void RandomWalking::performAction() {
 			animalPtr->setVelocity(0.7);
 			switch (distribution1(generator)) {
 			case 0:
-				//animalPtr->turnLeft();
+				animalPtr->turnLeft();
 				break;
 
 			case 1:
@@ -66,20 +67,21 @@ void RandomWalking::performAction() {
 Action* RandomWalking::chooseNextAction() {
 	auto animalVector = modelPtr->getAnimalsInSight(
 			animalPtr->returnCoodtinates(),
-			animalPtr->returnLocationData()->sightLen_,
+			animalPtr->returnLocationData()->sightLen_ / 2,
 			animalPtr->returnLocationData()->lookingAngle,
 			animalPtr->returnLocationData()->lookingRad);
 
 	for (auto animal : animalVector) {
-		if (animalPtr->getAttributes().eatNeed_ <= 7.0)
-			break;
-		if (animal->isHerbivore()) {
-			return new Hunting(animalPtr, animal);
+		if (!animal->isHerbivore()) {
+			return new Fleeing(animalPtr, animal);
 		}
 	}
 
+	if (animalPtr->getAttributes().eatNeed_ > 6.0)
+		return new Eating(animalPtr);
+
 	if (animalPtr->getAttributes().sleepNeed_ > 8.0)
-		return new CarnivoreSleeping(animalPtr);
+		return new Sleeping(animalPtr);
 
 	return this;
 }

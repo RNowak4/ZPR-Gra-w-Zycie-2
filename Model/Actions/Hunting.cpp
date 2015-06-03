@@ -8,10 +8,9 @@
 #include "Hunting.h"
 
 #include "../Animal.h"
-#include "../Attributes.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
-#include "RandomWalking.h"
+#include "CarnivoreRandomWalking.h"
 
 Hunting::Hunting(Animal* animalPtr_, Animal* animalPtr) :
 		Action(animalPtr_), animalToFollowPtr(animalPtr) {
@@ -54,16 +53,16 @@ void Hunting::performAction() {
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates()) < 40) {
 			modelPtr->killAnimal(animalToFollowPtr);
-			animalPtr->getAttributes().eatNeed_ -= 4.0;
-			if (animalPtr->getAttributes().eatNeed_ < 0.0)
-				animalPtr->getAttributes().eatNeed_ = 0.0;
+			animalPtr->returnEatNeed() -= 4.0;
+			if (animalPtr->returnEatNeed() < 0.0)
+				animalPtr->returnEatNeed() = 0.0;
 		}
 	}
 }
 
 Action* Hunting::chooseNextAction() {
 	if (animalToFollowPtr == nullptr) {
-		return new RandomWalking(this->animalPtr);
+		return new CarnivoreRandomWalking(this->animalPtr);
 	}
 
 	return this;

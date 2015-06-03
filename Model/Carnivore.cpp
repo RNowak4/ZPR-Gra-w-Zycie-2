@@ -13,8 +13,8 @@
 Carnivore::Carnivore(unsigned x, unsigned y) :
 		Animal(x, y) {
 	locationData_.animalType_ = CARNIVORE;
-	locationData_.sightLen_ = Constants::DEFAULT_CARNIVORE_SIGHT_LEN;
-	locationData_.lookingRad = Constants::DEFAULT_CARNIVORE_SIGHT_RAD;
+	locationData_.sightLen_ = actualAttributes_.sightLength_;
+	locationData_.lookingRad = actualAttributes_.sightAngle_;
 }
 
 Carnivore::Carnivore(unsigned x, unsigned y, const Modifiers& modifiers) :
@@ -28,8 +28,8 @@ void Carnivore::updateStatus() {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
 
-	actualAttributes_.eatNeed_ += Constants::DEFAULT_CARNIVORE_CONSUMPTION;
-	actualAttributes_.sleepNeed_ += Constants::DEFAULT_CARNIVORE_EXAUSTING;
+	eatNeed_ += actualAttributes_.eatNeed_;
+	sleepNeed_ += actualAttributes_.sleepNeed_;
 
 	if (actualAttributes_.sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
 		actualAttributes_.sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;

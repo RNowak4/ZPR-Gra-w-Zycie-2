@@ -21,6 +21,7 @@ const double Constants::DEFAULT_HERBIVORE_CONSUMPTION = 0.002;
 const double Constants::DEFAULT_HERBIVORE_EXAUSTING = 0.002;
 
 const unsigned Constants::DEFAULT_CARNIVORE_SIGHT_LEN = 300;
+const unsigned Constants::DEFAULT_CARNIVORE_HUNGER = 6.0;
 const unsigned Constants::DEFAULT_CARNIVORE_SIGHT_RAD = 90;
 const unsigned Constants::DEFAULT_CARNIVORE_LIFE_LEN = 6.0;
 const unsigned Constants::DEFAULT_CARNIVORE_HEARING_DISTANCE = 80;

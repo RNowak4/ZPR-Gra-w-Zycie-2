@@ -31,7 +31,7 @@ TestAction::~TestAction() {
 }
 
 void TestAction::performAction() {
-	/*if (time(0) - lastChangeTime > Constants::DEFAULT_ACTION_TIME_CHANGE) {
+	if (time(0) - lastChangeTime > Constants::DEFAULT_ACTION_TIME_CHANGE) {
 		switch (distribution2(generator)) {
 		case 4:
 			animalPtr->setVelocity(0.0);
@@ -60,9 +60,7 @@ void TestAction::performAction() {
 		}
 
 		lastChangeTime = time(0);
-	}*/
-
-	animalPtr->turnLeft();
+	}
 }
 
 Action* TestAction::chooseNextAction() {

@@ -13,7 +13,7 @@
 #include "../ViewStructs.h"
 #include "Eating.h"
 #include "Fleeing.h"
-#include "TestAction.h"
+#include "RandomWalking.h"
 
 class Animal;
 
@@ -37,7 +37,7 @@ void Sleeping::performAction() {
 Action* Sleeping::chooseNextAction() {
 	auto animalsVector = modelPtr->getNearlyAnimals(
 			animalPtr->returnLocationData()->coordinates_,
-			animalPtr->returnLocationData()->sightLen_);
+			animalPtr->getAttributes().hearingRange_);
 
 	for (auto animal : animalsVector) {
 		if (animalPtr->isDangerous(animal)) {
@@ -50,7 +50,7 @@ Action* Sleeping::chooseNextAction() {
 	}
 
 	if (animalPtr->getAttributes().sleepNeed_ < 1.5) {
-		return new TestAction(animalPtr);
+		return new RandomWalking(animalPtr);
 	}
 
 	return this;

@@ -13,8 +13,8 @@
 #include "Parameters.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
-		animalModifiers(), actualAttributes_(animalModifiers), animalViewParameters(
-				0, 0, x, y, animalType) {
+		animalModifiers(), actualAttributes_(), animalViewParameters(0, 0, x, y,
+				animalType) {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
 	locationData_.lookingAngle = 0;
@@ -22,6 +22,9 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	velocity = 0.0;
 	acceleration = 0.0;
 	angleVelocity = 0.0;
+	bornDate = time(0);
+	eatNeed_ = 2.0;
+	sleepNeed_ = 2.0;
 }
 
 Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
@@ -58,11 +61,12 @@ AnimalData* Animal::getAnimalData() {
 	for (auto state : statesVector)
 		dataToReturn->pushString(state->toString());
 
-	dataToReturn->pushPair(string("Speed"), actualAttributes_.maximalSpeed_);
+	dataToReturn->pushPair(string("Speed"),
+			floor(actualAttributes_.maximalSpeed_ * 10) / 10);
 	dataToReturn->pushPair(string("eat need"),
-			floor(actualAttributes_.eatNeed_ * 10) / 10);
+			floor(eatNeed_ * 10) / 10);
 	dataToReturn->pushPair(string("sleep need"),
-			floor(actualAttributes_.sleepNeed_ * 10) / 10);
+			floor(sleepNeed_ * 10) / 10);
 	//TODO reszta
 
 	return dataToReturn;
@@ -107,7 +111,10 @@ void Animal::doMove() {
 }
 
 Animal* Animal::shouldDie() {
-	if (actualAttributes_.eatNeed_ >= 10.0)
+	if (eatNeed_ >= 10.0)
+		return this;
+
+	if ((time(0) - bornDate) > actualAttributes_.lifeLen_)
 		return this;
 
 	return nullptr;

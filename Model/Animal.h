@@ -8,6 +8,7 @@
 #ifndef ANIMAL_H
 #define	ANIMAL_H
 
+#include <ctime>
 #include <list>
 #include <memory>
 #include <string>
@@ -38,11 +39,14 @@ private:
 	double velocity;
 	double acceleration;
 	double angleVelocity;
+	int bornDate;
 
 protected:
 	ActionPtr currentAction;
 	LocationData locationData_;
 	Attributes actualAttributes_;
+	double eatNeed_;
+	double sleepNeed_;
 
 public:
 	/**
@@ -222,15 +226,6 @@ public:
 	}
 
 	/**
-	 *@function getAttributes
-	 *@brief 	returns actual attribues of an animal
-	 *@return	reference to the structure
-	 */
-	Attributes& getAttributes() {
-		return actualAttributes_;
-	}
-
-	/**
 	 *@function shouldDie
 	 *@brief 	Returns this if animal should die or nullptr.
 	 *@return	Pointer to animal class
@@ -244,6 +239,23 @@ public:
 	 */
 	bool isMother() {
 		return this->hasState("Mother");
+	}
+
+	/**
+	 *@function getAttributes
+	 *@brief 	returns actual attribues of an animal
+	 *@return	reference to the structure
+	 */
+	Attributes& getAttributes() {
+		return actualAttributes_;
+	}
+
+	double& returnEatNeed() {
+		return eatNeed_;
+	}
+
+	double& returnSleepNeed() {
+		return sleepNeed_;
 	}
 };
 

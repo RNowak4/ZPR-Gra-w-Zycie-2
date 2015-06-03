@@ -9,7 +9,7 @@
 
 #include "../Attributes.h"
 #include "../Model.h"
-#include "TestAction.h"
+#include "RandomWalking.h"
 
 FeedChildren::FeedChildren(Animal* animalPtr_) :
 		Action(animalPtr_), currentChild(nullptr) {
@@ -52,7 +52,7 @@ Action* FeedChildren::chooseNextAction() {
 		}
 	}
 
-	return new TestAction(animalPtr);
+	return new RandomWalking(animalPtr);
 }
 
 void FeedChildren::deleteAnimal(const Animal* ptrToDelete) {

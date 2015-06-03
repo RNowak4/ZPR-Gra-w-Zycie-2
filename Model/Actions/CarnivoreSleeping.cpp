@@ -39,7 +39,7 @@ Action* CarnivoreSleeping::chooseNextAction() {
 	}
 
 	if (animalPtr->getAttributes().sleepNeed_ < 1.5) {
-		return new RandomWalking(animalPtr);
+		return new CarnivoreRandomWalking(animalPtr);
 	}
 
 	return this;

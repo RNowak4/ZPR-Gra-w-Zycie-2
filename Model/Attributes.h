@@ -10,29 +10,29 @@
 
 struct Modifiers;
 
+#include <random>
+
+using namespace std;
+
 class Attributes {
+private:
+	static default_random_engine generator;
+
 public:
 	double maximalSpeed_;
 	double sleepNeed_;
 	double eatNeed_;
-	double sexNeed_;
-	double sightLength_;
-	double sightAngle_;
-	double naturalDeath_;
+	double sickChance_;
+	double strength_;
+	int sightAngle_;
+	int sightLength_;
+	int hearingRange_;
+	int fertility_;
+	int lifeLen_;
 
-public:
-	Attributes(const Modifiers& modifiers);
+	Attributes();
 
-	//TODO temporary
-	Attributes() {
-		maximalSpeed_  = 2.0;
-		sleepNeed_ = 5.0;
-		eatNeed_ = 5.0;
-		sexNeed_ = 5.0;
-		sightLength_ = 5.0;
-		sightAngle_ = 5.0;
-		naturalDeath_ = 5.0;
-	}
+	Attributes inheritAttributes(const Attributes& secondAttributes) const;
 };
 
 #endif	/* ATTRIBUTES_H */

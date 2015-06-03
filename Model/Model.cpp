@@ -10,7 +10,7 @@
 #include <cmath>
 
 #include "Actions/CarnivoreRandomWalking.h"
-#include "Actions/TestAction.h"
+#include "Actions/RandomWalking.h"
 #include "Carnivore.h"
 #include "Herbivore.h"
 #include "Parameters.h"
@@ -79,7 +79,7 @@ void Model::createCarnivore(unsigned x, unsigned y) {
 void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivorePtr = new Herbivore(x, y);
 	animalList_.push_back(herbivorePtr);
-	herbivorePtr->setAction(shared_ptr < Action > (new TestAction(herbivorePtr)));
+	herbivorePtr->setAction(shared_ptr < Action > (new RandomWalking(herbivorePtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
@@ -224,7 +224,7 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 }
 
 std::vector<Animal*> Model::getNearlyAnimals(Coordinates coordinates,
-		unsigned range) {
+		const unsigned range) {
 	std::vector<Animal*> vectorToReturn;
 	Coordinates tempCoords;
 

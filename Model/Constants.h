@@ -37,6 +37,7 @@ public:
 	const static double DEFAULT_HERBIVORE_EXAUSTING;
 
 	const static unsigned DEFAULT_CARNIVORE_SIGHT_LEN;
+	const static unsigned DEFAULT_CARNIVORE_HUNGER;
 	const static unsigned DEFAULT_CARNIVORE_SIGHT_RAD;
 	const static unsigned DEFAULT_CARNIVORE_LIFE_LEN;
 	const static unsigned DEFAULT_CARNIVORE_HEARING_DISTANCE;
