@@ -104,14 +104,17 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	{
 		ss <<(*i).first << " : " << (*i).second;
 		getGraphics().renderText(camera_, font, ss.str(), 
-			(frame.x + margin-camera_.x)*getGraphics().getScale() + camera_.x,
-			(frame.y - camera_.y)*getGraphics().getScale() + margin + lineCount* lineHeight + camera_.y,
+		    getGraphics().getScaledPosition(frame.x+margin,camera_.x),
+			getGraphics().getScaledPosition(frame.y, camera_.y) +margin +lineCount* lineHeight,
 			col);
 		ss.str("");
 	}
 	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
 	{
-		getGraphics().renderText(camera_, font, (*i), frame.x + margin, frame.y + margin + lineCount*lineHeight, col);
+		getGraphics().renderText(camera_, font, (*i),
+			getGraphics().getScaledPosition(frame.x + margin, camera_.x),
+			getGraphics().getScaledPosition(frame.y + margin, camera_.y) + lineCount* lineHeight,
+			col);
 	}
 }
 
@@ -130,24 +133,6 @@ void View::drawBackground()
 			getGraphics().draw(camera_, tex, i, j);
 		}
 	}
-	/*
-	DEPRECATED
-	SDL_Rect camera{ 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-	shared_ptr<SDL_Texture> tex = getGraphics().get(Graphics::GRASS);
-
-	SDL_QueryTexture(tex.get(), nullptr, nullptr, &backgrWidth, &backgrHeight);
-
-	int xOffset = - (camera_.x%backgrWidth)*getGraphics().getScale();
-	int yOffset = -(camera_.y%backgrHeight)*getGraphics().getScale();;
-
-	for (int i = xOffset; i < camera_.w / getGraphics().getScale(); i += backgrWidth)
-	{
-		for (int j = yOffset; j < camera_.h / getGraphics().getScale(); j += backgrHeight)
-		{
-			getGraphics().draw(camera, tex, i, j);
-		}
-	}
-	*/
 }
 
 void View::run()
@@ -270,8 +255,8 @@ void View::drawHelp()
 	for (unsigned i = 0; i < HELP.size(); ++i)
 	{
 		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i],
-			(frame.x-camera_.x)*getGraphics().getScale() + camera_.x + margin,
-			(frame.y-camera_.y)*getGraphics().getScale() + camera_.y + margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
+			getGraphics().getScaledPosition(frame.x + margin, camera_.x) +margin,
+			getGraphics().getScaledPosition(frame.y + margin, camera_.y) +margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
 	}
 }
 

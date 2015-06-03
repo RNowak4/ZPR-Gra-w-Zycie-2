@@ -125,6 +125,16 @@ public:
 	{
 		scale_ = scale;
 	}
+
+	inline void setScaledPosition(int& position, int cameraAxis)
+	{
+		position = static_cast<int>((position - cameraAxis)*scale_ + cameraAxis);
+	}
+	inline int getScaledPosition(int position, int cameraAxis)
+	{
+		setScaledPosition(position, cameraAxis);
+		return position;
+	}
 	
 private:
 	Graphics();

@@ -109,10 +109,10 @@ void Graphics::draw(const SDL_Rect& camera, std::shared_ptr<SDL_Texture> tex, in
 {
 	SDL_Rect tmp{ x, y };
 	SDL_QueryTexture(tex.get(), nullptr, nullptr, &tmp.w, &tmp.h); //How big is the image to draw.
-	tmp.w *= scale_;
-	tmp.h *= scale_;
-	tmp.x = (tmp.x - camera.x)*scale_ + camera.x;
-	tmp.y = (tmp.y - camera.y)*scale_ + camera.y;
+	tmp.w =  static_cast<int>(tmp.w*scale_);
+	tmp.h = static_cast<int>(tmp.h*scale_);
+	setScaledPosition(tmp.x, camera.x);
+	setScaledPosition(tmp.y, camera.y);
 
 
 	if (centered == true)
@@ -146,8 +146,8 @@ void Graphics::renderText(const SDL_Rect& camera, std::shared_ptr<TTF_Font> font
 
 void Graphics::drawFrame(const SDL_Rect& camera, SDL_Rect rectangle, std::shared_ptr<SDL_Texture> filling)
 {
-	rectangle.x = (rectangle.x - camera.x)*scale_ + camera.x;
-	rectangle.y = (rectangle.y - camera.y)*scale_ + camera.y;
+	setScaledPosition(rectangle.x, camera.x);
+	setScaledPosition(rectangle.y, camera.y);
 	/*Check if object is within camera bounds.*/
 	if (!overlap(rectangle, camera))
 	{
@@ -182,10 +182,10 @@ bool Graphics::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
 
 void Graphics::drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, const SDL_Color & color)
 {
-	x1 = (x1 - camera.x)*scale_ + camera.x;
-	y1 = (y1 - camera.y)*scale_ + camera.y;
-	x2 = (x2 - camera.x)*scale_ + camera.x;
-	y2 = (y2 - camera.y)*scale_ + camera.y;
+	setScaledPosition(x1, camera.x);
+	setScaledPosition(x2, camera.x);
+	setScaledPosition(y1, camera.y);
+	setScaledPosition(y2, camera.y);
 	SDL_Rect area { x1, y1, std::abs(x2 - x1), std::abs(y2 - y1) };;
 	if (x1 > x2)
 	{
@@ -211,8 +211,8 @@ void Graphics::drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, 
 
 void Graphics::drawPoint(const SDL_Rect& camera, int x, int y, const SDL_Color & color)
 {
-	x = (x - camera.x)*scale_ + camera.x;
-	y = (y - camera.y)*scale_ + camera.y;
+	setScaledPosition(x, camera.x);
+	setScaledPosition(y, camera.y);
 	/*Check if point is within camera bounds.*/
 	SDL_Rect area{ x, y, 1, 1 };
 	if (!overlap(area, camera))
