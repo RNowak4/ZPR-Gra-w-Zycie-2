@@ -67,6 +67,10 @@ public:
 	*/
 	void moveCamera(int x, int y);
 
+	void changeScale(double delta);
+
+	double getScale() const;
+
 	/**This method executes the main program loop.*/
 	void run();
 

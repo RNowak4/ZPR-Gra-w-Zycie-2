@@ -9,7 +9,7 @@ struct GameOfLifeException : public std::exception
 
 struct InitializingSdlSystemsException : public GameOfLifeException
 {
-	virtual const char* what() const 
+	virtual const char* what() const throw()
 	{
 		return "Unabled to initialize SDL systems.";
 	}
@@ -17,7 +17,7 @@ struct InitializingSdlSystemsException : public GameOfLifeException
 
 struct LoadingMediaException : public GameOfLifeException
 {
-	virtual const char* what() const
+	virtual const char* what() const throw()
 	{
 		return "Failed in all files.";
 	}
@@ -25,7 +25,7 @@ struct LoadingMediaException : public GameOfLifeException
 
 struct LoadingSettingsExcepion : public GameOfLifeException
 {
-	virtual const char* what() const
+	virtual const char* what() const throw()
 	{
 		return "Incorrect settings.txt file.";
 	}

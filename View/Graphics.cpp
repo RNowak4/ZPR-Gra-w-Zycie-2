@@ -11,7 +11,8 @@ Graphics::Graphics()
 	{
 		throw InitializingSdlSystemsException();
 	}
-	
+	scale_ = 1;
+
 	//TODO Exception throwing!
 	window_ = std::shared_ptr<SDL_Window>(SDL_CreateWindow("Game of Life", 30, 30, 640, 480, SDL_WINDOW_SHOWN), SDL_DestroyWindow);
 	renderer_ = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window_.get(), -1, SDL_RENDERER_ACCELERATED), SDL_DestroyRenderer);
@@ -108,6 +109,11 @@ void Graphics::draw(const SDL_Rect& camera, std::shared_ptr<SDL_Texture> tex, in
 {
 	SDL_Rect tmp{ x, y };
 	SDL_QueryTexture(tex.get(), nullptr, nullptr, &tmp.w, &tmp.h); //How big is the image to draw.
+	tmp.w *= scale_;
+	tmp.h *= scale_;
+	tmp.x = (tmp.x - camera.x)*scale_ + camera.x;
+	tmp.y = (tmp.y - camera.y)*scale_ + camera.y;
+
 
 	if (centered == true)
 	{
@@ -132,16 +138,23 @@ void Graphics::renderText(const SDL_Rect& camera, std::shared_ptr<TTF_Font> font
 {
 	std::shared_ptr<SDL_Surface>  surface(TTF_RenderText_Blended(font.get(), message.c_str(), color), SDL_FreeSurface);
 	std::shared_ptr<SDL_Texture>  texture(SDL_CreateTextureFromSurface(renderer_.get(), surface.get()), SDL_DestroyTexture);
+	double prevScale = scale_;
+	scale_ = 1;
 	draw(camera, texture, x, y);
+	scale_ = prevScale;
 }
 
 void Graphics::drawFrame(const SDL_Rect& camera, SDL_Rect rectangle, std::shared_ptr<SDL_Texture> filling)
 {
+	rectangle.x = (rectangle.x - camera.x)*scale_ + camera.x;
+	rectangle.y = (rectangle.y - camera.y)*scale_ + camera.y;
 	/*Check if object is within camera bounds.*/
 	if (!overlap(rectangle, camera))
 	{
 		return;
 	}
+
+
 	rectangle.x -= camera.x;
 	rectangle.y -= camera.y;
 
@@ -169,6 +182,10 @@ bool Graphics::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
 
 void Graphics::drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, const SDL_Color & color)
 {
+	x1 = (x1 - camera.x)*scale_ + camera.x;
+	y1 = (y1 - camera.y)*scale_ + camera.y;
+	x2 = (x2 - camera.x)*scale_ + camera.x;
+	y2 = (y2 - camera.y)*scale_ + camera.y;
 	SDL_Rect area { x1, y1, std::abs(x2 - x1), std::abs(y2 - y1) };;
 	if (x1 > x2)
 	{
@@ -194,6 +211,8 @@ void Graphics::drawLine(const SDL_Rect& camera, int x1, int y1, int x2, int y2, 
 
 void Graphics::drawPoint(const SDL_Rect& camera, int x, int y, const SDL_Color & color)
 {
+	x = (x - camera.x)*scale_ + camera.x;
+	y = (y - camera.y)*scale_ + camera.y;
 	/*Check if point is within camera bounds.*/
 	SDL_Rect area{ x, y, 1, 1 };
 	if (!overlap(area, camera))
