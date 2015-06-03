@@ -17,11 +17,7 @@ public:
 	Childhood(Animal* animalPtr_);
 	virtual ~Childhood();
 	string toString();
-	bool isThatMe(string stateName) {
-		if (stateName == "Childhood")
-			return true;
-		return false;
-	}
+	bool isThatMe(string stateName);
 };
 
 #endif /* CHILDHOOD_H_ */

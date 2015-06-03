@@ -33,19 +33,19 @@ private:
 	list<Animal*> childrenList;
 	Modifiers animalModifiers;
 	list<StatePtr> statesList;
-	Sex sex_;
-	//AnimalViewParameters animalViewParameters;
 	Coordinates coordinates_;
+	Sex sex_;
 	double velocity;
 	double acceleration;
 	double angleVelocity;
-	int bornDate;
+	time_t bornDate;
 	int childrenNumber;
 
 protected:
 	ActionPtr currentAction;
 	LocationData locationData_;
 	Attributes actualAttributes_;
+	time_t lastRandomize;
 	double eatNeed_;
 	double sleepNeed_;
 

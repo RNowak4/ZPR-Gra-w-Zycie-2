@@ -8,6 +8,8 @@
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_
 
+#include <ctime>
+
 class Constants {
 private:
 	Constants() {
@@ -24,6 +26,8 @@ public:
 	/* ********** */
 
 	const static double DEFAULT_MAXIMAL_VALUE;
+
+	const static time_t DEFAULT_INTERVAL;
 
 	const static unsigned DEFAULT_ACTION_TIME_CHANGE;
 

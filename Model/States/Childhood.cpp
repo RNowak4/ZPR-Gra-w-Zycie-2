@@ -19,10 +19,16 @@ Childhood::Childhood(Animal* animalPtr_) :
 
 Childhood::~Childhood() {
 	animalPtr->getAttributes().eatNeed_ *= 2.0;
-	animalPtr->getAttributes().maximalSpeed_ *= 4.0/3.0;
+	animalPtr->getAttributes().maximalSpeed_ *= 4.0 / 3.0;
 	animalPtr->getAttributes().strength_ *= 4.0;
 }
 
 string Childhood::toString() {
 	return string("Childhood");
+}
+
+bool Childhood::isThatMe(string stateName) {
+	if (stateName == "Childhood")
+		return true;
+	return false;
 }

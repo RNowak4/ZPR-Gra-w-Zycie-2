@@ -13,18 +13,26 @@
 #include "Parameters.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
-		animalModifiers(), actualAttributes_()/*, animalViewParameters(0, 0, x, y,
-				animalType)*/ {
+		animalModifiers(), actualAttributes_() {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
-	locationData_.lookingAngle = 0;
-	sex_ = FEMALE;
+
+	// zeroing important 'move' values
 	velocity = 0.0;
 	acceleration = 0.0;
 	angleVelocity = 0.0;
-	bornDate = time(0);
+	locationData_.lookingAngle = 0;
+	// TODO losowanie plci
+	sex_ = FEMALE;
+
+	// setting up time values
+	lastRandomize = bornDate = time(0);
+
+	// setting up starting important animal values
 	eatNeed_ = 2.0;
 	sleepNeed_ = 2.0;
+
+	// Animal can have only limited number of children
 	childrenNumber = 0;
 }
 
@@ -62,11 +70,13 @@ AnimalData* Animal::getAnimalData() {
 	for (auto state : statesList)
 		dataToReturn->pushString(state->toString());
 
+	dataToReturn->pushPair(string("Eat need"), floor(eatNeed_ * 10) / 10);
+	dataToReturn->pushPair(string("Sleep need"), floor(sleepNeed_ * 10) / 10);
 	dataToReturn->pushPair(string("Speed"),
 			floor(actualAttributes_.maximalSpeed_ * 10) / 10);
-	dataToReturn->pushPair(string("eat need"), floor(eatNeed_ * 10) / 10);
-	dataToReturn->pushPair(string("sleep need"), floor(sleepNeed_ * 10) / 10);
-	//TODO reszta
+	dataToReturn->pushPair(string("Strength"),
+			floor(actualAttributes_.strength_ * 10) / 10);
+	dataToReturn->pushPair(string("Did children"), childrenNumber);
 
 	return dataToReturn;
 }

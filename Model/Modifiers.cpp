@@ -7,7 +7,7 @@
 
 #include "Modifiers.h"
 
-// TODO gauss itp
+// TODO wyjebac to
 void Modifiers::generateModifiers() {
 	strength_ = 5.0;
 	speedAbility_ = 5.0;

@@ -7,10 +7,12 @@
 
 #include "Carnivore.h"
 
+#include <ctime>
+
 #include "Actions/Action.h"
 #include "Constants.h"
 #include "Parameters.h"
-#include <random>
+#include "States/Illness.h"
 
 using namespace std;
 
@@ -41,7 +43,8 @@ void Carnivore::updateStatus() {
 	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
 		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
 
-	if (distribution(generator) <= actualAttributes_.sickChance_) {
-		//TODO dodac chorobe
+	if ((time(0) - lastRandomize) >= Constants::DEFAULT_INTERVAL
+			&& distribution(generator) <= actualAttributes_.sickChance_) {
+		addState(StatePtr(new Illness(this)));
 	}
 }

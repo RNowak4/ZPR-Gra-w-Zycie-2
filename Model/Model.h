@@ -184,7 +184,7 @@ public:
 	 *@brief 	function is used to slow the simulation
 	 */
 	void slowerSimulation() {
-		Parameters::simulationSpeed -= 0.5;
+		Parameters::simulationSpeed -= 0.1;
 		if (Parameters::simulationSpeed < 0)
 			Parameters::simulationSpeed = 0.0;
 	}
@@ -194,7 +194,7 @@ public:
 	 *@brief 	function is used to faster the simulation
 	 */
 	void fasterSimulation() {
-		Parameters::simulationSpeed += 0.5;
+		Parameters::simulationSpeed += 0.1;
 	}
 
 private:

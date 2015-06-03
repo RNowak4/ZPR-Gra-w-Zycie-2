@@ -21,9 +21,11 @@ Mother::~Mother() {
 }
 
 string Mother::toString() {
-	return string("");
+	return string("Mother");
 }
 
 bool Mother::isThatMe(string stateName) {
+	if (stateName == "Mother")
+		return true;
 	return false;
 }

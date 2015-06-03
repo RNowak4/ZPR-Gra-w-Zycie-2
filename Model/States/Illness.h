@@ -18,7 +18,8 @@ public:
 	~Illness();
 	string toString();
 	bool isThatMe(string stateName) {
-		if(stateName == "Illness") return true;
+		if (stateName == "Illness")
+			return true;
 		return false;
 	}
 };
