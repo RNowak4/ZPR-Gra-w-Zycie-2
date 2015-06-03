@@ -79,7 +79,8 @@ void Model::createCarnivore(unsigned x, unsigned y) {
 void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivorePtr = new Herbivore(x, y);
 	animalList_.push_back(herbivorePtr);
-	herbivorePtr->setAction(shared_ptr < Action > (new RandomWalking(herbivorePtr)));
+	herbivorePtr->setAction(
+			shared_ptr < Action > (new RandomWalking(herbivorePtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
@@ -169,11 +170,11 @@ bool Model::switchAnimalRegister(unsigned x, unsigned y) {
 	return true;
 }
 
-void Model::setModelParameters(unsigned adultWidth, unsigned adultHeigth,
-		unsigned youngWidth, unsigned youngHeigth, unsigned mapWidth,
-		unsigned mapHeight) {
-	Parameters::setParameters(adultWidth, adultHeigth, youngWidth, youngHeigth,
-			mapWidth, mapHeight);
+void Model::setModelParameters(unsigned simulationSpeed, unsigned adultWidth,
+		unsigned adultHeigth, unsigned youngWidth, unsigned youngHeigth,
+		unsigned mapWidth, unsigned mapHeight) {
+	Parameters::setParameters(simulationSpeed, adultWidth, adultHeigth,
+			youngWidth, youngHeigth, mapWidth, mapHeight);
 }
 
 double Model::countDistance(Coordinates first, Coordinates second) {

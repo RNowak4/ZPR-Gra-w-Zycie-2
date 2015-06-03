@@ -135,9 +135,9 @@ public:
 	 *@argument mapWidth -		model's map width
 	 *@argument mapHeight -		model's map height
 	 */
-	void setModelParameters(unsigned adultWidth, unsigned adultHeigth,
-			unsigned youngWidth, unsigned youngHeigth, unsigned mapWidth,
-			unsigned mapHeight);
+	void setModelParameters(unsigned simulationSpeed, unsigned adultWidth,
+			unsigned adultHeigth, unsigned youngWidth, unsigned youngHeigth,
+			unsigned mapWidth, unsigned mapHeight);
 
 	/**
 	 *@function countAngle

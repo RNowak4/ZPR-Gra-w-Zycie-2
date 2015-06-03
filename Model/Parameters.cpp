@@ -10,9 +10,10 @@
 Parameters::Parameters() {
 }
 
-void Parameters::setParameters(unsigned adultWidth_, unsigned adultHeigth_,
+void Parameters::setParameters(unsigned simulationSpeed_, unsigned adultWidth_, unsigned adultHeigth_,
 		unsigned youngWidth_, unsigned youngHeigth_, unsigned mapWidth_,
 		unsigned mapHeight_) {
+	simulationSpeed = simulationSpeed_;
 	adultWidth = adultHeigth_;
 	adultHeigth = adultHeigth_;
 	youngHeigth = youngHeigth_;
@@ -21,9 +22,10 @@ void Parameters::setParameters(unsigned adultWidth_, unsigned adultHeigth_,
 	mapWidth = mapWidth_;
 }
 
-unsigned Parameters::adultWidth = 50;
-unsigned Parameters::adultHeigth = 70;
-unsigned Parameters::youngWidth = 30;
-unsigned Parameters::youngHeigth = 50;
-unsigned Parameters::mapWidth = 20000;
-unsigned Parameters::mapHeight = 2000;
+unsigned Parameters::simulationSpeed = 2;
+int Parameters::adultWidth = 50;
+int Parameters::adultHeigth = 70;
+int Parameters::youngWidth = 30;
+int Parameters::youngHeigth = 50;
+int Parameters::mapWidth = 20000;
+int Parameters::mapHeight = 20000;

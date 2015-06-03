@@ -23,15 +23,16 @@ public:
 	 *@argument mapWidth_ -	map width
 	 *@argument mapHeight_ -	map heigth
 	 */
-	static void setParameters(unsigned adultWidth_, unsigned adultHeigth_,
-			unsigned youngWidth_, unsigned youngHeigth_, unsigned mapWidth_,
-			unsigned mapHeight_);
-	unsigned static adultWidth;
-	unsigned static adultHeigth;
-	unsigned static youngWidth;
-	unsigned static youngHeigth;
-	unsigned static mapWidth;
-	unsigned static mapHeight;
+	static void setParameters(unsigned simiulationSpeed_, unsigned adultWidth_,
+			unsigned adultHeigth_, unsigned youngWidth_, unsigned youngHeigth_,
+			unsigned mapWidth_, unsigned mapHeight_);
+	unsigned static simulationSpeed;
+	int static adultWidth;
+	int static adultHeigth;
+	int static youngWidth;
+	int static youngHeigth;
+	int static mapWidth;
+	int static mapHeight;
 };
 
 #endif /* MODEL_PARAMETERS_H_ */

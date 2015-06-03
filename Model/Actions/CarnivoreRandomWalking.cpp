@@ -12,7 +12,6 @@
 #include "../Animal.h"
 #include "../Constants.h"
 #include "../Model.h"
-#include "../ViewStructs.h"
 #include "Hunting.h"
 
 CarnivoreRandomWalking::CarnivoreRandomWalking(Animal* animalPtr_) :
@@ -64,18 +63,8 @@ void CarnivoreRandomWalking::performAction() {
 }
 
 Action* CarnivoreRandomWalking::chooseNextAction() {
-	auto animalVector = modelPtr->getAnimalsInSight(
-			animalPtr->returnCoodtinates(),
-			animalPtr->returnLocationData()->sightLen_,
-			animalPtr->returnLocationData()->lookingAngle,
-			animalPtr->returnLocationData()->lookingRad);
-
 	if (animalPtr->returnEatNeed() >= Constants::DEFAULT_CARNIVORE_HUNGER) {
-		for (auto animal : animalVector) {
-			if (animal->isHerbivore()) {
-				return new Hunting(animalPtr, animal);
-			}
-		}
+		return new Hunting(animalPtr);
 	}
 
 	return this;

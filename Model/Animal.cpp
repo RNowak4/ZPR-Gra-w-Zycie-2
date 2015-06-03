@@ -63,10 +63,8 @@ AnimalData* Animal::getAnimalData() {
 
 	dataToReturn->pushPair(string("Speed"),
 			floor(actualAttributes_.maximalSpeed_ * 10) / 10);
-	dataToReturn->pushPair(string("eat need"),
-			floor(eatNeed_ * 10) / 10);
-	dataToReturn->pushPair(string("sleep need"),
-			floor(sleepNeed_ * 10) / 10);
+	dataToReturn->pushPair(string("eat need"), floor(eatNeed_ * 10) / 10);
+	dataToReturn->pushPair(string("sleep need"), floor(sleepNeed_ * 10) / 10);
 	//TODO reszta
 
 	return dataToReturn;
@@ -91,13 +89,12 @@ void Animal::setPosition(Coordinates coodrinates) {
 }
 
 void Animal::doMove() {
-	locationData_.coordinates_.x += velocity
+	locationData_.coordinates_.x += velocity * Parameters::simulationSpeed
 			* cos((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
-	locationData_.coordinates_.y += velocity
+	locationData_.coordinates_.y += velocity * Parameters::simulationSpeed
 			* sin((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
-	locationData_.lookingAngle += angleVelocity / 1.0;
-	locationData_.lookingAngle %= 360;
-	velocity += acceleration;
+	locationData_.lookingAngle += angleVelocity * Parameters::simulationSpeed;
+	velocity += acceleration * Parameters::simulationSpeed;
 	if (velocity >= this->actualAttributes_.maximalSpeed_) {
 		velocity = this->actualAttributes_.maximalSpeed_;
 		acceleration = 0.0;
@@ -105,7 +102,7 @@ void Animal::doMove() {
 
 	if (locationData_.coordinates_.x <= 0 || locationData_.coordinates_.y <= 0
 			|| locationData_.coordinates_.x >= Parameters::mapWidth
-			|| locationData_.coordinates_.x >= Parameters::mapHeight) {
+			|| locationData_.coordinates_.y >= Parameters::mapHeight) {
 		locationData_.lookingAngle += 180.0;
 	}
 }

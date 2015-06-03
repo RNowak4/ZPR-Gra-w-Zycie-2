@@ -27,9 +27,9 @@ Attributes::Attributes() {
 	// Not needed to be a random, but we want different
 	// startup, so i did it random.
 	sleepNeed_ = (distribution2(generator) / 200.0 + maximalSpeed_ / 400.0)
-			/ 10.0;
+			/ 30.0;
 	eatNeed_ = (distribution2(generator) / 200.0 + maximalSpeed_ / 400.0)
-			/ 10.0;
+			/ 30.0;
 
 	lifeLen_ = lifeDistribution(generator);
 }

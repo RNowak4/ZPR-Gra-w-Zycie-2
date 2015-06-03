@@ -8,18 +8,22 @@
 #include "Hunting.h"
 
 #include "../Animal.h"
+#include "../Attributes.h"
+#include "../Constants.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
-#include "CarnivoreRandomWalking.h"
+#include "Chasing.h"
 
-Hunting::Hunting(Animal* animalPtr_, Animal* animalPtr) :
-		Action(animalPtr_), animalToFollowPtr(animalPtr) {
-	this->animalPtr->setVelocity(2.0);
-	this->animalPtr->setAcceleration(0.1);
-	this->animalPtr->stopTurning();
-	this->animalPtr->setLookingAngle(
-			Model::countAngle(this->animalPtr->returnCoodtinates(),
-					animalToFollowPtr->returnCoodtinates()));
+Hunting::Hunting(Animal* animalPtr_) :
+		Action(animalPtr_) {
+	animalPtr->setLookingAngle(0);
+	animalPtr->setVelocity(
+			this->animalPtr->getAttributes().maximalSpeed_ * 0.75);
+	animalPtr->setAcceleration(0.0);
+	animalPtr->turnRight();
+	lastChangeTime = time(0);
+	distribution1 = std::uniform_int_distribution<int>(0, 2);
+	distribution2 = std::uniform_int_distribution<int>(0, 1);
 }
 
 Hunting::~Hunting() {
@@ -27,49 +31,43 @@ Hunting::~Hunting() {
 }
 
 void Hunting::performAction() {
-	if (animalToFollowPtr != nullptr) {
-		auto locationData = animalPtr->returnLocationData();
-		auto animalVector = modelPtr->getAnimalsInSight(
-				locationData->coordinates_, locationData->sightLen_,
-				locationData->lookingAngle, locationData->lookingRad);
+	if (time(0) - lastChangeTime > Constants::DEFAULT_ACTION_TIME_CHANGE) {
+		switch (distribution1(generator)) {
+		case 0:
+			animalPtr->turnLeft();
+			break;
 
-		unsigned distance = Model::countDistance(locationData->coordinates_,
-				animalToFollowPtr->returnLocationData()->coordinates_);
-		for (auto animal : animalVector) {
-			if (animal != animalToFollowPtr && animal->isHerbivore()) {
-				if (Model::countDistance(locationData->coordinates_,
-						animal->returnLocationData()->coordinates_)
-						< distance) {
-					animalToFollowPtr = animal;
-				}
-			}
+		case 1:
+			animalPtr->stopTurning();
+			break;
+
+		case 2:
+			animalPtr->turnRight();
+			break;
+
+		default:
+			break;
 		}
 
-		auto lookingAngle = Model::countAngle(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates());
-
-		animalPtr->setLookingAngle(lookingAngle);
-
-		if (Model::countDistance(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates()) < 40) {
-			modelPtr->killAnimal(animalToFollowPtr);
-			animalPtr->returnEatNeed() -= 4.0;
-			if (animalPtr->returnEatNeed() < 0.0)
-				animalPtr->returnEatNeed() = 0.0;
-		}
+		lastChangeTime = time(0);
 	}
 }
 
 Action* Hunting::chooseNextAction() {
-	if (animalToFollowPtr == nullptr) {
-		return new CarnivoreRandomWalking(this->animalPtr);
+	auto animalVector = modelPtr->getAnimalsInSight(
+			animalPtr->returnCoodtinates(),
+			animalPtr->returnLocationData()->sightLen_,
+			animalPtr->returnLocationData()->lookingAngle,
+			animalPtr->returnLocationData()->lookingRad);
+
+	for (auto animal : animalVector) {
+		if (animal->isHerbivore()) {
+			return new Chasing(animalPtr, animal);
+		}
 	}
 
 	return this;
 }
 
 void Hunting::deleteAnimal(const Animal* animalPtr) {
-	if (this->animalToFollowPtr == animalPtr) {
-		animalToFollowPtr = nullptr;
-	}
 }

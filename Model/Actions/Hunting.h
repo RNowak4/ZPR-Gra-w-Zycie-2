@@ -8,14 +8,20 @@
 #ifndef MODEL_ACTIONS_HUNTING_H_
 #define MODEL_ACTIONS_HUNTING_H_
 
+#include <ctime>
+#include <random>
 #include "Action.h"
+
+using namespace std;
 
 class Hunting: public Action {
 private:
-	Animal* animalToFollowPtr;
+	time_t lastChangeTime;
+	std::uniform_int_distribution<int> distribution1;
+	std::uniform_int_distribution<int> distribution2;
 
 public:
-	Hunting(Animal*, Animal*);
+	Hunting(Animal*);
 	virtual ~Hunting();
 	void performAction();
 	Action* chooseNextAction();

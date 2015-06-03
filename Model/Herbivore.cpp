@@ -9,6 +9,7 @@
 
 #include "Actions/Action.h"
 #include "Constants.h"
+#include "Parameters.h"
 
 Herbivore::Herbivore(unsigned x, unsigned y) :
 		Animal(x, y) {
@@ -30,8 +31,8 @@ void Herbivore::updateStatus() {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
 
-	eatNeed_ += Constants::DEFAULT_HERBIVORE_CONSUMPTION;
-	sleepNeed_ += Constants::DEFAULT_HERBIVORE_EXAUSTING;
+	eatNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
+	sleepNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
 
 	if (actualAttributes_.sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
 		actualAttributes_.sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
