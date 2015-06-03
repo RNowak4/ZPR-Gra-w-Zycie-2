@@ -78,6 +78,7 @@
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreAction.h" />
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreRandomWalking.h" />
     <ClInclude Include="..\..\..\Model\Actions\CarnivoreSleeping.h" />
+    <ClInclude Include="..\..\..\Model\Actions\Chasing.h" />
     <ClInclude Include="..\..\..\Model\Actions\Eating.h" />
     <ClInclude Include="..\..\..\Model\Actions\FeedChildren.h" />
     <ClInclude Include="..\..\..\Model\Actions\Fleeing.h" />
@@ -115,6 +116,7 @@
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreAction.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreRandomWalking.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\CarnivoreSleeping.cpp" />
+    <ClCompile Include="..\..\..\Model\Actions\Chasing.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Eating.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\FeedChildren.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Fleeing.cpp" />

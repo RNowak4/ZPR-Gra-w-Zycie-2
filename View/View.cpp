@@ -255,8 +255,8 @@ void View::drawHelp()
 	for (unsigned i = 0; i < HELP.size(); ++i)
 	{
 		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i],
-			getGraphics().getScaledPosition(frame.x + margin, camera_.x) +margin,
-			getGraphics().getScaledPosition(frame.y + margin, camera_.y) +margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
+			getGraphics().getScaledPosition(frame.x, camera_.x) +margin,
+			getGraphics().getScaledPosition(frame.y, camera_.y) +margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
 	}
 }
 

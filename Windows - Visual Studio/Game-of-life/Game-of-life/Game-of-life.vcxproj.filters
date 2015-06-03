@@ -153,6 +153,9 @@
     <ClInclude Include="..\..\..\View\Graphics.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\Actions\Chasing.h">
+      <Filter>Header Files\Model\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\main.cpp">
@@ -253,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\View\Graphics.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\Actions\Chasing.cpp">
+      <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
