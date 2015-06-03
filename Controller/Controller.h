@@ -51,6 +51,7 @@ private:
 	int vericalCameraMovement_;
 	int horizontalCameraMovement_;
 	double scaleDelta_;
+	enum {SLOWER,FIXED,FASTER} speedModifier_;
 
 	/**
 	Load settings and simulation details from file.
