@@ -12,6 +12,7 @@ Controller::Controller()
 	gamePaused_ = false;
 	drawHelp_ = false;
 	vericalCameraMovement_=horizontalCameraMovement_=0;
+	speedModifier_ = FIXED;
 	scaleDelta_ = 0;
 }
 
@@ -57,6 +58,12 @@ void Controller::handleEvent(const SDL_Event & e)
 		case SDLK_w:
 			scaleDelta_ = 0.02*view_->getScale();
 			break;
+		case SDLK_a:
+			speedModifier_ = SLOWER;
+			break;
+		case SDLK_d:
+			speedModifier_ = FASTER;
+			break;
 		case SDLK_s:
 			scaleDelta_ = -0.02*view_->getScale();
 			break;
@@ -76,22 +83,20 @@ void Controller::handleEvent(const SDL_Event & e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_LEFT:
-			horizontalCameraMovement_ = 0;
-			break;
 		case SDLK_RIGHT:
 			horizontalCameraMovement_ = 0;
 			break;
 		case SDLK_UP:
-			vericalCameraMovement_ = 0;
-			break;
 		case SDLK_DOWN:
 			vericalCameraMovement_ = 0;
 			break;
 		case SDLK_w:
-			scaleDelta_ = 0;
-			break;
 		case SDLK_s:
 			scaleDelta_ = 0;
+			break;
+		case SDLK_a:
+		case SDLK_d:
+			speedModifier_ = FIXED;
 			break;
 		}
 		break;
@@ -112,6 +117,13 @@ void Controller::handleEvent(const TimeEvent&)
 
 void Controller::update()
 {
+	if (speedModifier_ != FIXED)
+	{
+		if (speedModifier_ == FASTER)
+			model_->fasterSimulation();
+		else
+			model_->slowerSimulation();
+	}
 	view_->changeScale(scaleDelta_);
 	moveCamera();
 
