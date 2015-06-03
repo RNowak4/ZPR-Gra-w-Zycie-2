@@ -10,6 +10,9 @@
 #include "Actions/Action.h"
 #include "Constants.h"
 #include "Parameters.h"
+#include <random>
+
+using namespace std;
 
 Carnivore::Carnivore(unsigned x, unsigned y) :
 		Animal(x, y) {
@@ -23,15 +26,22 @@ Carnivore::Carnivore(unsigned x, unsigned y, const Modifiers& modifiers) :
 }
 
 void Carnivore::updateStatus() {
+	static default_random_engine generator;
+	uniform_int_distribution<int> distribution(0, 100);
+
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();
 	if (currentAction.get() != chosenAction) {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
 
-	eatNeed_ += actualAttributes_.eatNeed_* Parameters::simulationSpeed;
-	sleepNeed_ += actualAttributes_.sleepNeed_* Parameters::simulationSpeed;
+	eatNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
+	sleepNeed_ += actualAttributes_.sleepNeed_ * Parameters::simulationSpeed;
 
-	if (actualAttributes_.sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
-		actualAttributes_.sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
+	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
+		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
+
+	if (distribution(generator) <= actualAttributes_.sickChance_) {
+		//TODO dodac chorobe
+	}
 }

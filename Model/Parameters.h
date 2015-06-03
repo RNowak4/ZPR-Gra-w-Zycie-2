@@ -26,7 +26,7 @@ public:
 	static void setParameters(unsigned simiulationSpeed_, unsigned adultWidth_,
 			unsigned adultHeigth_, unsigned youngWidth_, unsigned youngHeigth_,
 			unsigned mapWidth_, unsigned mapHeight_);
-	unsigned static simulationSpeed;
+	double static simulationSpeed;
 	int static adultWidth;
 	int static adultHeigth;
 	int static youngWidth;

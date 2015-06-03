@@ -7,18 +7,17 @@
 
 #include "Mother.h"
 
-#include <list>
-#include <string>
-
-#include "../Animal.h"
+#include "../Attributes.h"
 
 using namespace std;
 
 Mother::Mother(Animal* animalPtr_) :
 		State(animalPtr_) {
+	animalPtr->getAttributes().strength_ += 1.5;
 }
 
 Mother::~Mother() {
+	animalPtr->getAttributes().strength_ -= 1.5;
 }
 
 string Mother::toString() {

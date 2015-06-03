@@ -14,7 +14,8 @@
 
 class Illness: public State {
 public:
-	Illness();
+	Illness(Animal* animalPtr_);
+	~Illness();
 	string toString();
 	bool isThatMe(string stateName) {
 		if(stateName == "Illness") return true;

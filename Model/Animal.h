@@ -32,14 +32,15 @@ class Animal {
 private:
 	list<Animal*> childrenList;
 	Modifiers animalModifiers;
-	list<StatePtr> statesVector;
+	list<StatePtr> statesList;
 	Sex sex_;
-	AnimalViewParameters animalViewParameters;
+	//AnimalViewParameters animalViewParameters;
 	Coordinates coordinates_;
 	double velocity;
 	double acceleration;
 	double angleVelocity;
 	int bornDate;
+	int childrenNumber;
 
 protected:
 	ActionPtr currentAction;
@@ -243,20 +244,32 @@ public:
 
 	/**
 	 *@function getAttributes
-	 *@brief 	returns actual attribues of an animal
+	 *@brief 	returns actual attributes of an animal
 	 *@return	reference to the structure
 	 */
 	Attributes& getAttributes() {
 		return actualAttributes_;
 	}
 
+	/**
+	 *@function returnEatNeed
+	 *@brief 	returns actual animal's eat need
+	 *@return	reference to double value
+	 */
 	double& returnEatNeed() {
 		return eatNeed_;
 	}
 
+	/**
+	 *@function returnSleepNeed
+	 *@brief 	returns actual animal's sleep need
+	 *@return	reference to double value
+	 */
 	double& returnSleepNeed() {
 		return sleepNeed_;
 	}
+
+	void addState(StatePtr newState);
 };
 
 #endif	/* ANIMAL_H */

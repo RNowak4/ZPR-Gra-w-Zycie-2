@@ -7,16 +7,22 @@
 
 #include "Childhood.h"
 
-#include <string>
+#include "../Animal.h"
+#include "../Attributes.h"
 
-Childhood::Childhood() {
-
+Childhood::Childhood(Animal* animalPtr_) :
+		State(animalPtr_) {
+	animalPtr->getAttributes().eatNeed_ *= 0.5;
+	animalPtr->getAttributes().maximalSpeed_ *= 0.75;
+	animalPtr->getAttributes().strength_ *= 0.25;
 }
 
 Childhood::~Childhood() {
-
+	animalPtr->getAttributes().eatNeed_ *= 2.0;
+	animalPtr->getAttributes().maximalSpeed_ *= 4.0/3.0;
+	animalPtr->getAttributes().strength_ *= 4.0;
 }
 
 string Childhood::toString() {
-	return string("Childhoow");
+	return string("Childhood");
 }

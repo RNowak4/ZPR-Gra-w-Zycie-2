@@ -22,7 +22,7 @@ void Parameters::setParameters(unsigned simulationSpeed_, unsigned adultWidth_, 
 	mapWidth = mapWidth_;
 }
 
-unsigned Parameters::simulationSpeed = 2;
+double Parameters::simulationSpeed = 1.0;
 int Parameters::adultWidth = 50;
 int Parameters::adultHeigth = 70;
 int Parameters::youngWidth = 30;

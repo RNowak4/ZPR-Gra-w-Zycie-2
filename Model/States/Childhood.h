@@ -14,7 +14,7 @@
 
 class Childhood: public State {
 public:
-	Childhood();
+	Childhood(Animal* animalPtr_);
 	virtual ~Childhood();
 	string toString();
 	bool isThatMe(string stateName) {

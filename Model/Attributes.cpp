@@ -7,20 +7,16 @@
 
 #include "Attributes.h"
 
-// TODO  Generowanie poczatkowych atrybutow na podsatwie modyf.
-//		 Beda one potem modyfikowane przez Actions
 Attributes::Attributes() {
-	normal_distribution<double> distribution(5.0, 1.0);
-	normal_distribution<double> distribution2(6.0, 1.0);
-	normal_distribution<double> lifeDistribution(750, 175);
-
 	strength_ = distribution(generator);
 	maximalSpeed_ = distribution(generator);
 	fertility_ = static_cast<int>(distribution(generator));
-	sickChance_ = distribution(generator);
-	// TODO sprawdzic, czy /20.0 jest odpowiednia liczba
+	sickChance_ = sickChanceDistribution(generator);
+
+
 	sightAngle_ = static_cast<int>(distribution(generator) * 360.0 / 20.0);
-	// TODO sprawdzic, czy /10.0 jest odpowiednia liczba
+
+
 	sightLength_ = static_cast<int>(distribution(generator) * 400.0 / 6.0);
 	hearingRange_ = static_cast<int>(distribution(generator) * 400.0 / 6.0);
 
@@ -35,12 +31,16 @@ Attributes::Attributes() {
 }
 
 default_random_engine Attributes::generator;
+normal_distribution<double> Attributes::distribution(5.0, 1.0);
+normal_distribution<double> Attributes::distribution2(6.0, 1.0);
+normal_distribution<double> Attributes::lifeDistribution(750, 175);
+normal_distribution<double> Attributes::sickChanceDistribution(1, 0.3);
+normal_distribution<double> Attributes::mutationDistribution(0, 0.2);
+normal_distribution<double> Attributes::mutationLifeDistribution(0, 10);
 
 Attributes Attributes::inheritAttributes(
 		const Attributes& secondAttributes) const {
 	Attributes newAttributes;
-	normal_distribution<double> mutationDistribution(0, 0.2);
-	normal_distribution<double> mutationLifeDistribution(0, 10);
 
 	newAttributes.strength_ = (this->strength_ + secondAttributes.strength_)
 			/ 2.0 + mutationDistribution(generator);

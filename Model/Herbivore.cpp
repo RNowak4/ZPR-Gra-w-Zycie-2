@@ -34,6 +34,6 @@ void Herbivore::updateStatus() {
 	eatNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
 	sleepNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
 
-	if (actualAttributes_.sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
-		actualAttributes_.sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
+	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
+		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
 }

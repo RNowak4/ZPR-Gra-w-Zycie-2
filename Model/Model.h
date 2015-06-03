@@ -15,6 +15,7 @@
 #include "Actions/Action.h"
 #include "Animal.h"
 #include "AnimalData.h"
+#include "Parameters.h"
 #include "ViewStructs.h"
 
 /**
@@ -177,6 +178,24 @@ public:
 	 *@argument actionPtr - pointer to an action which we want to delete.
 	 */
 	void deleteAction(Action* actionPtr);
+
+	/**
+	 *@function slowerSimulation
+	 *@brief 	function is used to slow the simulation
+	 */
+	void slowerSimulation() {
+		Parameters::simulationSpeed -= 0.5;
+		if (Parameters::simulationSpeed < 0)
+			Parameters::simulationSpeed = 0.0;
+	}
+
+	/**
+	 *@function fasterSimulation
+	 *@brief 	function is used to faster the simulation
+	 */
+	void fasterSimulation() {
+		Parameters::simulationSpeed += 0.5;
+	}
 
 private:
 	std::list<Animal*> animalList_;

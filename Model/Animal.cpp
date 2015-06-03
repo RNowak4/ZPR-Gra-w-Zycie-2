@@ -13,8 +13,8 @@
 #include "Parameters.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
-		animalModifiers(), actualAttributes_(), animalViewParameters(0, 0, x, y,
-				animalType) {
+		animalModifiers(), actualAttributes_()/*, animalViewParameters(0, 0, x, y,
+				animalType)*/ {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
 	locationData_.lookingAngle = 0;
@@ -25,6 +25,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	bornDate = time(0);
 	eatNeed_ = 2.0;
 	sleepNeed_ = 2.0;
+	childrenNumber = 0;
 }
 
 Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
@@ -58,7 +59,7 @@ bool Animal::isThatMe(unsigned x, unsigned y) {
 AnimalData* Animal::getAnimalData() {
 	AnimalData* dataToReturn = new AnimalData();
 
-	for (auto state : statesVector)
+	for (auto state : statesList)
 		dataToReturn->pushString(state->toString());
 
 	dataToReturn->pushPair(string("Speed"),
@@ -71,7 +72,7 @@ AnimalData* Animal::getAnimalData() {
 }
 
 bool Animal::hasState(const string& stateName) {
-	for (auto state : statesVector) {
+	for (auto state : statesList) {
 		if (state->isThatMe(stateName))
 			return true;
 	}
@@ -100,11 +101,14 @@ void Animal::doMove() {
 		acceleration = 0.0;
 	}
 
-	if (locationData_.coordinates_.x <= 0 || locationData_.coordinates_.y <= 0
-			|| locationData_.coordinates_.x >= Parameters::mapWidth
-			|| locationData_.coordinates_.y >= Parameters::mapHeight) {
-		locationData_.lookingAngle += 180.0;
-	}
+	if (locationData_.coordinates_.x <= 0)
+		locationData_.lookingAngle = 0;
+	else if (locationData_.coordinates_.y <= 0)
+		locationData_.lookingAngle = 90;
+	else if (locationData_.coordinates_.x >= Parameters::mapWidth)
+		locationData_.lookingAngle = 180;
+	else if (locationData_.coordinates_.y >= Parameters::mapHeight)
+		locationData_.lookingAngle = 270;
 }
 
 Animal* Animal::shouldDie() {
@@ -115,4 +119,10 @@ Animal* Animal::shouldDie() {
 		return this;
 
 	return nullptr;
+}
+
+void Animal::addState(StatePtr newState) {
+	if (!hasState(newState->toString())) {
+		statesList.push_back(newState);
+	}
 }
