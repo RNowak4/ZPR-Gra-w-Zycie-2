@@ -76,7 +76,7 @@ AnimalData* Animal::getAnimalData() {
 			floor(actualAttributes_.maximalSpeed_ * 10) / 10);
 	dataToReturn->pushPair(string("Strength"),
 			floor(actualAttributes_.strength_ * 10) / 10);
-	dataToReturn->pushPair(string("Did children"), childrenNumber);
+	dataToReturn->pushPair(string("Children"), childrenNumber);
 
 	return dataToReturn;
 }
