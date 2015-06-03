@@ -12,6 +12,7 @@ Controller::Controller()
 	gamePaused_ = false;
 	drawHelp_ = false;
 	vericalCameraMovement_=horizontalCameraMovement_=0;
+	scaleDelta_ = 0;
 }
 
 void Controller::getModel(Model* model)
@@ -53,6 +54,12 @@ void Controller::handleEvent(const SDL_Event & e)
 		case SDLK_DOWN:
 			vericalCameraMovement_ = step;
 			break;
+		case SDLK_w:
+			scaleDelta_ = 0.02*view_->getScale();
+			break;
+		case SDLK_s:
+			scaleDelta_ = -0.02*view_->getScale();
+			break;
 		case SDLK_p:
 			gamePaused_ = !gamePaused_;
 			break;
@@ -80,11 +87,17 @@ void Controller::handleEvent(const SDL_Event & e)
 		case SDLK_DOWN:
 			vericalCameraMovement_ = 0;
 			break;
+		case SDLK_w:
+			scaleDelta_ = 0;
+			break;
+		case SDLK_s:
+			scaleDelta_ = 0;
+			break;
 		}
 		break;
 	}
 	case SDL_MOUSEBUTTONDOWN :
-		model_->switchAnimalRegister(e.button.x + camera.x, e.button.y + camera.y);
+		model_->switchAnimalRegister(e.button.x/view_->getScale() + camera.x, e.button.y/view_->getScale() + camera.y);
 		break;
 	}
 }
@@ -99,11 +112,13 @@ void Controller::handleEvent(const TimeEvent&)
 
 void Controller::update()
 {
+	view_->changeScale(scaleDelta_);
+	moveCamera();
+
 	if (gamePaused_ == false)
 	{
 		model_->updateAnimalsPosition();
 	}
-	moveCamera();
 	
 
 	auto creatures = model_->getAnimalsData();

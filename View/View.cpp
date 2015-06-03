@@ -18,14 +18,17 @@
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const int FPS = 50;
+int scale;
 const double FRAME_TIME = 1.0 / FPS;
 const int FRAMES_COUNT_TO_UPDATE = 10;
 const std::vector<std::string> HELP{"\"Game of Life\" help:",
 									 "*Click on the creature to see its view range and parameters.",
-									 "*Press UP,DOWN,LEFT,RIGHT to move camera on the map.",
-									 "*Press P to pause simulation.",
-									 "*Press H to exit help menu.",
-									 "*Press Esc to end simulation."};
+									 "*Press [UP],[DOWN],[LEFT],[RIGHT] to move camera on the map.",
+									 "*Press [W] to zoom in, [S] to zoom out.",
+									 "*Press [A] to slow down simulation, [D] to speed it up.",
+									 "*Press [P] to pause simulation.",
+									 "*Press [H] to exit help menu.",
+									 "*Press [Esc] to end simulation."};
 auto getGraphics = Graphics::getInstance;
 
 View::View() : controller_(nullptr), event_(), quit_(false)
@@ -100,7 +103,10 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	for (auto i = vec1->begin(); i != vec1->end(); ++i, ++lineCount)
 	{
 		ss <<(*i).first << " : " << (*i).second;
-		getGraphics().renderText(camera_, font, ss.str(), frame.x + margin, frame.y + margin + lineCount* lineHeight, col);
+		getGraphics().renderText(camera_, font, ss.str(), 
+			(frame.x + margin-camera_.x)*getGraphics().getScale() + camera_.x,
+			(frame.y - camera_.y)*getGraphics().getScale() + margin + lineCount* lineHeight + camera_.y,
+			col);
 		ss.str("");
 	}
 	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
@@ -113,21 +119,35 @@ void View::drawBackground()
 {
 	int backgrWidth; 
 	int backgrHeight;
+	shared_ptr<SDL_Texture> tex = getGraphics().get(Graphics::GRASS);
+
+	SDL_QueryTexture(tex.get(), nullptr, nullptr, &backgrWidth, &backgrHeight);
+
+	for (int i = 0; i < Parameters::mapWidth; i += backgrWidth -8)
+	{
+		for (int j = 0; j < Parameters::mapHeight; j += backgrHeight-8)
+		{
+			getGraphics().draw(camera_, tex, i, j);
+		}
+	}
+	/*
+	DEPRECATED
 	SDL_Rect camera{ 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 	shared_ptr<SDL_Texture> tex = getGraphics().get(Graphics::GRASS);
 
 	SDL_QueryTexture(tex.get(), nullptr, nullptr, &backgrWidth, &backgrHeight);
 
-	int xOffset = - (camera_.x%backgrWidth);
-	int yOffset = -(camera_.y%backgrHeight);
+	int xOffset = - (camera_.x%backgrWidth)*getGraphics().getScale();
+	int yOffset = -(camera_.y%backgrHeight)*getGraphics().getScale();;
 
-	for (int i = xOffset; i < camera_.w; i += backgrWidth)
+	for (int i = xOffset; i < camera_.w / getGraphics().getScale(); i += backgrWidth)
 	{
-		for (int j = yOffset; j < camera_.h; j += backgrHeight)
+		for (int j = yOffset; j < camera_.h / getGraphics().getScale(); j += backgrHeight)
 		{
 			getGraphics().draw(camera, tex, i, j);
 		}
 	}
+	*/
 }
 
 void View::run()
@@ -242,12 +262,29 @@ void View::drawHelp()
 {
 	int margin = 5;
 	int lineHeight = 20;
-	int frameWidth = 500;
-	SDL_Rect frame{ camera_.x + (SCREEN_WIDTH - frameWidth)/2, camera_.y + 30, frameWidth, lineHeight*HELP.size() + 2 * margin };
+	int frameWidth = 550;
+	SDL_Rect frame{ camera_.x + (SCREEN_WIDTH - frameWidth) / (2 * getGraphics().getScale()),
+		camera_.y + 30/getGraphics().getScale(),
+		frameWidth, lineHeight*HELP.size() + 2 * margin };
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
 	for (unsigned i = 0; i < HELP.size(); ++i)
 	{
-		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i]
-			, frame.x + margin, frame.y + margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
+		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i],
+			(frame.x-camera_.x)*getGraphics().getScale() + camera_.x + margin,
+			(frame.y-camera_.y)*getGraphics().getScale() + camera_.y + margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
 	}
+}
+
+void View::changeScale(double delta)
+{
+	double newScale = getGraphics().getScale() + delta;
+	if (newScale < 0.3 || newScale>2)
+		return;
+	getGraphics().setScale(newScale);
+
+}
+
+double View::getScale() const
+{
+	return getGraphics().getScale();
 }

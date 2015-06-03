@@ -50,6 +50,7 @@ private:
 	bool drawHelp_;	///<When true, frame with help information is shown on the screen.
 	int vericalCameraMovement_;
 	int horizontalCameraMovement_;
+	double scaleDelta_;
 
 	/**
 	Load settings and simulation details from file.

@@ -115,6 +115,16 @@ public:
 	Show everything drawed by renderer on the screen.
 	*/
 	void renderScreen();
+
+	inline double getScale() const
+	{
+		return scale_;
+	}
+
+	inline void setScale(double scale)
+	{
+		scale_ = scale;
+	}
 	
 private:
 	Graphics();
@@ -137,5 +147,7 @@ private:
 
 	std::shared_ptr<SDL_Window> window_;
 	std::shared_ptr<SDL_Renderer> renderer_;
+
+	double scale_;
 };
 #endif //GOF_GRAPHICS
