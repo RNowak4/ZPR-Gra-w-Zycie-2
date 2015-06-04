@@ -25,7 +25,7 @@ Attributes::Attributes() {
 
 	sightLength_ = static_cast<int>(distribution(generator) * 400.0 / 6.0);
 	sightAngle_ = static_cast<int>(distribution(generator) * 360.0 / 20.0
-			- (sightLength_ - 300) * 1 / 4.0);
+			- (sightLength_ - 300) * 1 / 10.0);
 
 	hearingRange_ = static_cast<int>(distribution(generator) * 400.0 / 6.0);
 
