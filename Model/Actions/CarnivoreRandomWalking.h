@@ -19,6 +19,9 @@ public:
 	CarnivoreRandomWalking(Animal* animalPtr_);
 	virtual ~CarnivoreRandomWalking();
 	Action* chooseNextAction();
+	string toString() {
+		return "Random Walking";
+	}
 };
 
 #endif /* MODEL_ACTIONS_CARNIVORERANDOMWALKING_H_ */

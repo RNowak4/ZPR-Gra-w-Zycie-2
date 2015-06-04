@@ -26,6 +26,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Hunting";
+	}
 };
 
 #endif /* MODEL_ACTIONS_HUNTING_H_ */

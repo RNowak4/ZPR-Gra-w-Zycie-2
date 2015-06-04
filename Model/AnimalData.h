@@ -16,6 +16,7 @@ using namespace std;
 
 class AnimalData {
 private:
+	string action_name;
 	vector<string> stringVector;
 	vector<pair<string, double> > pairVector;
 
@@ -25,6 +26,13 @@ public:
 	 *@brief Default constructor.
 	 */
 	AnimalData();
+
+	/**
+	 *@function setActionName
+	 *@brief Sets action name to send it to the View
+	 *@param action_name - name of the action
+	 */
+	void setActionName(const string& action_name);
 
 	/**
 	 *@function pushString

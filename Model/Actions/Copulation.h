@@ -20,6 +20,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Copulation";
+	}
 };
 
 #endif /* MODEL_ACTIONS_COPULATION_H_ */

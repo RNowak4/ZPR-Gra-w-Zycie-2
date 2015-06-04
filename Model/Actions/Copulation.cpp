@@ -10,6 +10,7 @@
 #include "../Animal.h"
 #include "../Attributes.h"
 #include "../Model.h"
+#include "../States/Mother.h"
 #include "../ViewStructs.h"
 #include "CarnivoreRandomWalking.h"
 #include "HerbivoreRandomWalking.h"
@@ -72,6 +73,8 @@ Action* Copulation::chooseNextAction() {
 						ActionPtr(
 								new HerbivoreRandomWalking(animalToFollowPtr)));
 			}
+
+			mother->addState(StatePtr(new Mother(mother)));
 
 			animalToFollowPtr = nullptr;
 		}

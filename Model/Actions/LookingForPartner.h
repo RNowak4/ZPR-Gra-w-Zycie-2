@@ -17,6 +17,9 @@ public:
 	LookingForPartner(Animal* animalPtr_);
 	virtual ~LookingForPartner();
 	Action* chooseNextAction();
+	string toString() {
+		return "Looking for patner";
+	}
 };
 
 #endif /* MODEL_ACTIONS_LOOKINGFORPARTNER_H_ */

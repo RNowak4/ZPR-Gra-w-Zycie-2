@@ -9,6 +9,7 @@
 #define ACTION_H_
 
 #include <random>
+#include <string>
 
 class Model;
 
@@ -79,6 +80,13 @@ public:
 	static void setDefaultModel(Model* modelPtr) {
 		defaultModelPtr = modelPtr;
 	}
+
+	/**
+	 *@function toString
+	 *@brief 	Function returns name of the action
+	 *@return string
+	 */
+	virtual string toString() = 0;
 };
 
 #endif /* ACTION_H_ */

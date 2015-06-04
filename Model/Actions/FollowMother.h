@@ -17,6 +17,9 @@ public:
 	virtual void performAction();
 	virtual Action* chooseNextAction();
 	virtual void deleteAnimal(const Animal*);
+	string toString() {
+		return "Following mother";
+	}
 };
 
 #endif /* MODEL_ACTIONS_FOLLOWMOTHER_H_ */

@@ -12,6 +12,10 @@
 AnimalData::AnimalData() {
 }
 
+void AnimalData::setActionName(const string& action_name) {
+	this->action_name = action_name;
+}
+
 void AnimalData::pushString(const string& stringToPush) {
 	stringVector.push_back(stringToPush);
 }

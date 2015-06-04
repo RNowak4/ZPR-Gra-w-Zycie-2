@@ -8,6 +8,7 @@
 #include "Model.h"
 
 #include <cmath>
+#include <cstdlib>
 
 #include "Actions/CarnivoreRandomWalking.h"
 #include "Actions/FollowMother.h"
@@ -20,6 +21,7 @@
 
 Model::Model() {
 	Action::setDefaultModel(this);
+	srand(time(0));
 }
 
 Model::~Model() {

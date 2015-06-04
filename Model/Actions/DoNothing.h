@@ -17,6 +17,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Doing nothing";
+	}
 };
 
 #endif /* MODEL_ACTIONS_DONOTHING_H_ */

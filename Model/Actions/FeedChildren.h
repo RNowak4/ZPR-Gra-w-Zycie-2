@@ -24,6 +24,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Feeding children";
+	}
 };
 
 #endif /* MODEL_ACTIONS_FEEDCHILDREN_H_ */

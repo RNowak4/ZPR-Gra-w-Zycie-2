@@ -24,6 +24,7 @@ public:
 	void performAction();
 	virtual Action* chooseNextAction() = 0;
 	void deleteAnimal(const Animal*);
+	virtual string toString() = 0;
 };
 
 #endif /* MODEL_ACTIONS_RANDOMWALKING_H_ */

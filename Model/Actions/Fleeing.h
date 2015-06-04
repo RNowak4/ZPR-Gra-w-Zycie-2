@@ -20,6 +20,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Fleeing";
+	}
 };
 
 #endif /* MODEL_ACTIONS_FLEEING_H_ */

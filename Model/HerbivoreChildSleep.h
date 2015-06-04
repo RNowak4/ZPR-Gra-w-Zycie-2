@@ -17,6 +17,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Sleeping";
+	}
 };
 
 #endif /* MODEL_HERBIVORECHILDSLEEP_H_ */

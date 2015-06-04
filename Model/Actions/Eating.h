@@ -22,6 +22,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Eating";
+	}
 };
 
 #endif /* MODEL_STATES_EATING_H_ */

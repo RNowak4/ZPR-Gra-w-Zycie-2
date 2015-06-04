@@ -20,6 +20,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Sleeping";
+	}
 };
 
 #endif /* MODEL_ACTIONS_SLEEPING_H_ */

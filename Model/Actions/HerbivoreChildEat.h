@@ -17,6 +17,9 @@ public:
 	void performAction();
 	Action* chooseNextAction();
 	void deleteAnimal(const Animal*);
+	string toString() {
+		return "Eating";
+	}
 };
 
 #endif /* MODEL_ACTIONS_HERBIVORECHILDEAT_H_ */

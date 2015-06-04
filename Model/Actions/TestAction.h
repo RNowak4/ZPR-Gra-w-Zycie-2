@@ -28,6 +28,9 @@ public:
 	}
 	void performAction();
 	Action*chooseNextAction();
+	string toString() {
+		return "Test action";
+	}
 };
 
 #endif /* MODEL_ACTIONS_TESTACTION_H_ */

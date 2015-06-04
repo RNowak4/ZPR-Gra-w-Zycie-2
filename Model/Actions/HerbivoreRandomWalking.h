@@ -15,6 +15,9 @@ public:
 	HerbivoreRandomWalking(Animal* animalPtr_);
 	virtual ~HerbivoreRandomWalking();
 	virtual Action* chooseNextAction();
+	string toString() {
+		return "Random walking";
+	}
 };
 
 #endif /* MODEL_ACTIONS_HERBIVORERANDOMWALKING_H_ */

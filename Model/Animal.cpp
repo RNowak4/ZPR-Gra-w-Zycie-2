@@ -8,8 +8,8 @@
 #include "Animal.h"
 
 #include <cmath>
+#include <cstdlib>
 
-#include "Constants.h"
 #include "Parameters.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
@@ -22,8 +22,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	acceleration = 0.0;
 	angleVelocity = 0.0;
 	locationData_.lookingAngle = 0;
-	// TODO losowanie plci
-	sex_ = FEMALE;
+	sex_ = (rand() % 2 + 1) ? FEMALE : MALE;
 
 	// setting up time values
 	timeSinceCopulation = lastRandomize = bornDate = time(0);
@@ -66,6 +65,8 @@ bool Animal::isThatMe(unsigned x, unsigned y) {
 
 AnimalData* Animal::getAnimalData() {
 	AnimalData* dataToReturn = new AnimalData();
+
+	dataToReturn->setActionName(currentAction->toString());
 
 	for (auto state : statesList)
 		dataToReturn->pushString(state->toString());
