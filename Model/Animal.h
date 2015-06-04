@@ -277,7 +277,8 @@ public:
 	}
 
 	bool canHaveChild() {
-		if (childrenNumber < actualAttributes_.fertility_)
+		if (childrenNumber < actualAttributes_.fertility_
+				&& (time(0) - timeSinceCopulation) > 30)
 			return true;
 		return false;
 	}

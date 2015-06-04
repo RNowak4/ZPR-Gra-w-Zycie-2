@@ -7,6 +7,8 @@
 
 #include "Copulation.h"
 
+#include <ctime>
+
 #include "../Animal.h"
 #include "../Attributes.h"
 #include "../Model.h"
@@ -76,6 +78,8 @@ Action* Copulation::chooseNextAction() {
 
 			mother->addState(StatePtr(new Mother(mother)));
 
+			animalToFollowPtr->returnTimeSiceCopulatio() =
+					animalPtr->returnTimeSiceCopulatio() = time(0);
 			animalToFollowPtr = nullptr;
 		}
 

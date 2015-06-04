@@ -22,7 +22,6 @@ RandomWalking::RandomWalking(Animal* animalPtr_) :
 	animalPtr->setVelocity(0.7);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->turnRight();
-	lastChangeTime = time(0);
 	distribution1 = std::uniform_int_distribution<int>(0, 2);
 	distribution2 = std::uniform_int_distribution<int>(0, 1);
 }

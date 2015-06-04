@@ -91,6 +91,7 @@ void Model::createCarnivoreChild(unsigned x, unsigned y,
 	Animal* carnivorePtr = new Carnivore(x, y, attributes);
 	carnivorePtr ->setAction(
 			shared_ptr < Action > (new FollowMother(carnivorePtr , motherPtr)));
+	animalList_.push_back(carnivorePtr);
 }
 
 void Model::createHerbivoreChild(unsigned x, unsigned y,
@@ -98,6 +99,7 @@ void Model::createHerbivoreChild(unsigned x, unsigned y,
 	Animal* herbivorePtr = new Herbivore(x, y, attributes);
 	herbivorePtr->setAction(
 			shared_ptr < Action > (new FollowMother(herbivorePtr, motherPtr)));
+	animalList_.push_back(herbivorePtr);
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {

@@ -8,6 +8,7 @@
 #ifndef ACTION_H_
 #define ACTION_H_
 
+#include <ctime>
 #include <random>
 #include <string>
 

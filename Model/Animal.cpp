@@ -27,6 +27,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 
 	// setting up time values
 	timeSinceCopulation = lastRandomize = bornDate = time(0);
+	timeSinceCopulation -= 30;
 
 	// setting up starting important animal values
 	eatNeed_ = 2.0;
