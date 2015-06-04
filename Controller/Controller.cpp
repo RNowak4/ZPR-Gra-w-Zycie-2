@@ -257,9 +257,9 @@ void Controller::moveCamera()
 {
 	SDL_Rect camera = view_->getCamera();
 	if ((camera.x + horizontalCameraMovement_ >= 0) &&
-		((camera.x + camera.w / view_->getScale() <= Parameters::mapWidth) || (horizontalCameraMovement_<=0)) &&
+		((camera.x + camera.w / view_->getScale() + horizontalCameraMovement_ <= Parameters::mapWidth) ) &&
 		(camera.y + verticalCameraMovement_ >= 0 ) &&
-		((camera.y + camera.h / view_->getScale() <= Parameters::mapHeight) || (verticalCameraMovement_<=0)))
+		((camera.y + camera.h / view_->getScale() + verticalCameraMovement_ <= Parameters::mapHeight)))
 				view_->moveCamera(horizontalCameraMovement_, verticalCameraMovement_);
 			
 }
