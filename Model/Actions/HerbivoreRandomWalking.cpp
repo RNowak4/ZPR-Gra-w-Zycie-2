@@ -15,7 +15,7 @@
 #include "Fleeing.h"
 #include "LookingForPartner.h"
 #include "Sleeping.h"
-
+#include <iostream>
 HerbivoreRandomWalking::HerbivoreRandomWalking(Animal* animalPtr_) :
 		RandomWalking(animalPtr_) {
 }
@@ -37,6 +37,7 @@ Action* HerbivoreRandomWalking::chooseNextAction() {
 		}
 	}
 
+	std::cout << animalPtr->getAttributes().eatNeed_ << std::endl;
 	if (animalPtr->getAttributes().eatNeed_ > 6.0)
 		return new Eating(animalPtr);
 
