@@ -32,21 +32,21 @@ class Animal {
 private:
 	list<Animal*> childrenList;
 	Modifiers animalModifiers;
-	list<StatePtr> statesList;
 	Coordinates coordinates_;
 	Sex sex_;
 	double velocity;
 	double acceleration;
 	double angleVelocity;
-	time_t bornDate;
-	time_t timeSinceCopulation;
 	int childrenNumber;
 	bool dead;
 
 protected:
+	list<StatePtr> statesList;
 	ActionPtr currentAction;
 	LocationData locationData_;
 	Attributes actualAttributes_;
+	time_t bornDate;
+	time_t timeSinceCopulation;
 	time_t lastRandomize;
 	double eatNeed_;
 	double sleepNeed_;
@@ -273,13 +273,16 @@ public:
 
 	void addState(StatePtr newState);
 
+	void looseState(const string& state_name);
+
 	time_t& returnTimeSiceCopulatio() {
 		return timeSinceCopulation;
 	}
 
 	bool canHaveChild() {
 		if (childrenNumber < actualAttributes_.fertility_
-				&& (time(0) - timeSinceCopulation) > 30)
+				&& (time(0) - timeSinceCopulation) > 30
+				&& !hasState("Childhood"))
 			return true;
 		return false;
 	}

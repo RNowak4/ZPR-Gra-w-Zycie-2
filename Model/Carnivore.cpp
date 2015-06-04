@@ -9,9 +9,10 @@
 
 #include <ctime>
 
-#include "Actions/Action.h"
+#include "Actions/CarnivoreRandomWalking.h"
 #include "Constants.h"
 #include "Parameters.h"
+#include "States/Childhood.h"
 #include "States/Illness.h"
 
 using namespace std;
@@ -26,6 +27,7 @@ Carnivore::Carnivore(unsigned x, unsigned y) :
 Carnivore::Carnivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
 	locationData_.animalType_ = CARNIVORE_CHILD;
+	addState(StatePtr(new Childhood(this)));
 	locationData_.sightLen_ = actualAttributes_.sightLength_;
 	locationData_.lookingRad = actualAttributes_.sightAngle_;
 }
@@ -33,6 +35,13 @@ Carnivore::Carnivore(unsigned x, unsigned y, const Attributes& attributes) :
 void Carnivore::updateStatus() {
 	static default_random_engine generator;
 	uniform_int_distribution<int> distribution(0, 100);
+
+	if (locationData_.animalType_ == CARNIVORE_CHILD
+			&& (time(0) - bornDate) >= Constants::DEFAULT_CARNIVORE_YOUTH_LEN) {
+		locationData_.animalType_ = CARNIVORE;
+		looseState("Childhood");
+		currentAction = ActionPtr(new CarnivoreRandomWalking(this));
+	}
 
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();
@@ -50,6 +59,10 @@ void Carnivore::updateStatus() {
 
 	if ((time(0) - lastRandomize) >= Constants::DEFAULT_INTERVAL
 			&& distribution(generator) <= actualAttributes_.sickChance_) {
-		addState(StatePtr(new Illness(this)));
+		if (!hasState("Illness"))
+			addState(StatePtr(new Illness(this)));
+		else {
+			looseState("Illness");
+		}
 	}
 }

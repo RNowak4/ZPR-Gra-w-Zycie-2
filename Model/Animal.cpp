@@ -147,3 +147,12 @@ void Animal::addState(StatePtr newState) {
 		statesList.push_back(newState);
 	}
 }
+
+void Animal::looseState(const string& state_name) {
+	for (auto it = statesList.begin(); it != statesList.end(); ++it) {
+		if ((*it)->isThatMe(state_name)) {
+			statesList.erase(it);
+			return;
+		}
+	}
+}
