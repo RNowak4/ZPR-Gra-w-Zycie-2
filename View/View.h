@@ -16,18 +16,19 @@
 
 class Controller;
 
-extern const int SCREEN_WIDTH;
-extern const int SCREEN_HEIGHT;
-extern const int FPS;
-extern const double FRAME_TIME;
-extern const int FONT_HEIGHT;
-extern const int FRAMES_COUNT_TO_UPDATE;
-extern const std::vector<std::string> HELP;
 
 class View
 {
 public:
 	View();
+
+	static const int SCREEN_WIDTH;
+	static const int SCREEN_HEIGHT;
+	static const int FPS;
+	static const double FRAME_TIME;
+	static const int FONT_HEIGHT;
+	static const int FRAMES_COUNT_TO_UPDATE;
+	static const std::vector<std::string> HELP;
 
 	/**
 	Draw creature on the screen.

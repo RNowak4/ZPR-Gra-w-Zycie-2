@@ -194,11 +194,18 @@ void Controller::processCommand(const std::string & command)
 
 	if (what == "MAP_WIDTH")
 	{
-		ss >> arg; Parameters::mapWidth = std::stoi(arg);
+		ss >> arg;
+		Parameters::mapWidth = std::stoi(arg);
+		if (Parameters::mapWidth  < View::SCREEN_WIDTH)
+			throw LoadingSettingsExcepion();
+	
 	}
 	else if (what == "MAP_HEIGHT")
 	{
-		ss >> arg; Parameters::mapHeight = std::stoi(arg);
+		ss >> arg; 
+		Parameters::mapHeight = std::stoi(arg);
+		if (Parameters::mapHeight  < View::SCREEN_HEIGHT)
+			throw LoadingSettingsExcepion();
 	}
 	else if (what == "CARNIVORE")
 	{

@@ -15,13 +15,12 @@
 #include <algorithm>
 #include <memory>
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
-const int FPS = 50;
-int scale;
-const double FRAME_TIME = 1.0 / FPS;
-const int FRAMES_COUNT_TO_UPDATE = 10;
-const std::vector<std::string> HELP{"\"Game of Life\" help:",
+const int View::SCREEN_WIDTH = 800;
+const int View::SCREEN_HEIGHT = 600;
+const int View::FPS = 50;
+const double View::FRAME_TIME = 1.0 / FPS;
+const int View::FRAMES_COUNT_TO_UPDATE = 10;
+const std::vector<std::string> View::HELP = { "\"Game of Life\" help:",
 									 "*Click on the creature to see its view range and parameters.",
 									 "*Press [UP],[DOWN],[LEFT],[RIGHT] to move camera on the map.",
 									 "*Press [W] to zoom in, [S] to zoom out.",
