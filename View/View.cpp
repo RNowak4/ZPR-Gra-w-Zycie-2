@@ -112,7 +112,7 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	{
 		getGraphics().renderText(camera_, font, (*i),
 			getGraphics().getScaledPosition(frame.x + margin, camera_.x),
-			getGraphics().getScaledPosition(frame.y + margin, camera_.y) + lineCount* lineHeight,
+			getGraphics().getScaledPosition(frame.y, camera_.y) +margin+ lineCount* lineHeight,
 			col);
 	}
 }
