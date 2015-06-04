@@ -12,7 +12,7 @@
 #include "../Model.h"
 #include "../ViewStructs.h"
 #include "CarnivoreRandomWalking.h"
-#include "RandomWalking.h"
+#include "Hunting.h"
 
 class Animal;
 
@@ -35,7 +35,7 @@ void CarnivoreSleeping::performAction() {
 
 Action* CarnivoreSleeping::chooseNextAction() {
 	if (animalPtr->getAttributes().eatNeed_ > 6.0) {
-		return new CarnivoreRandomWalking(animalPtr);
+		return new Hunting(animalPtr);
 	}
 
 	if (animalPtr->getAttributes().sleepNeed_ < 1.5) {
