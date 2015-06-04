@@ -5,6 +5,7 @@
 #include "../Model/Constants.h"
 #include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
+#include <random>
 
 
 Controller::Controller()
@@ -211,18 +212,48 @@ void Controller::processCommand(const std::string & command)
 		ss >> arg; int y = std::stoi(arg);
 		model_->createHerbivore(x, y);
 	}
-	
+	else if (what == "THROW_HERBIVORES" || what == "THROW_CARNIVORES")
+	{
+		ss >> arg; int number = std::stoi(arg);
+		int x;
+		int y;
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine generator(seed);
+		std::uniform_int_distribution<int> Hdistribution(Parameters::adultWidth, Parameters::mapWidth - Parameters::adultWidth);
+		std::uniform_int_distribution<int> Vdistribution(Parameters::adultHeigth, Parameters::mapHeight - Parameters::adultWidth);
+
+		for (int i = 0; i < number; ++i)
+		{
+			x = Hdistribution(generator);
+			y = Vdistribution(generator);
+			if (what == "THROW_HERBIVORES")
+			{
+				model_->createHerbivore(x, y);
+			}
+			else
+			{
+				model_->createCarnivore(x, y);
+			}
+		}
+
+	}
+	else if (what == "THROW_CARNIVORES")
+	{
+		ss >> arg; int x = std::stoi(arg);
+		ss >> arg; int y = std::stoi(arg);
+		model_->createHerbivore(x, y);
+	}
 
 }
 
 void Controller::moveCamera()
 {
 	SDL_Rect camera = view_->getCamera();
-
-	if (camera.x + horizontalCameraMovement_ >= 0 &&
-		camera.x + camera.w + horizontalCameraMovement_ <= Constants::mapWidth &&
+	std::cout << camera.x + camera.w + horizontalCameraMovement_ << " " <<Parameters::mapWidth<<std::endl;
+	/**if (camera.x + horizontalCameraMovement_ >= 0 &&
+		((camera.x + camera.w / view_->getScale() <= Parameters::mapWidth) || (horizontalCameraMovement_<=0)) &&
 		camera.y + vericalCameraMovement_ >= 0 &&
-		camera.y + camera.h + vericalCameraMovement_ <= Constants::mapHeight)
+		((camera.y + camera.h / view_->getScale() <= Parameters::mapHeight) || (vericalCameraMovement_<=0)))**/
 				view_->moveCamera(horizontalCameraMovement_, vericalCameraMovement_);
 			
 }
