@@ -67,7 +67,7 @@ public:
 	 *@function Animal
 	 *@brief 	Creates an new Animal.
 	 */
-	Animal(unsigned, unsigned, const Attributes&, AnimalType = HERBIVORE);
+	Animal(unsigned, unsigned, Attributes, AnimalType = HERBIVORE);
 
 	/**
 	 *@function ~Animal

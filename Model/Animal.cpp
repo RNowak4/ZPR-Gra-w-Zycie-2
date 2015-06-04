@@ -37,9 +37,10 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	childrenNumber = 0;
 }
 
-Animal::Animal(unsigned x, unsigned y, const Attributes& modifiers,
+Animal::Animal(unsigned x, unsigned y, Attributes modifiers,
 		AnimalType animalType) :
 		Animal(x, y) {
+	actualAttributes_ = modifiers;
 }
 
 bool Animal::isThatMe(unsigned x, unsigned y) {

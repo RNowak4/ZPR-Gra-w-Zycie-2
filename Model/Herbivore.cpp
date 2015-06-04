@@ -23,6 +23,8 @@ Herbivore::Herbivore(unsigned x, unsigned y) :
 Herbivore::Herbivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
 	locationData_.animalType_ = HERBIVORE_CHILD;
+	locationData_.sightLen_ = actualAttributes_.sightLength_;
+	locationData_.lookingRad = actualAttributes_.sightAngle_;
 }
 
 void Herbivore::updateStatus() {

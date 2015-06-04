@@ -9,8 +9,10 @@
 
 #include "../Animal.h"
 #include "../Attributes.h"
+#include "../HerbivoreChildSleep.h"
 #include "../Model.h"
 #include "DoNothing.h"
+#include "HerbivoreChildEat.h"
 
 FollowMother::FollowMother(Animal* animalPtr_, Animal* motherPtr_) :
 		ChildAction(animalPtr_, motherPtr_) {
@@ -46,6 +48,13 @@ Action* FollowMother::chooseNextAction() {
 	if (motherPtr == nullptr) {
 		return new DoNothing(this->animalPtr);
 	}
+
+	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE_CHILD
+			&& animalPtr->getAttributes().eatNeed_ > 6.0)
+		return new HerbivoreChildEat(animalPtr, motherPtr);
+
+	if (animalPtr->getAttributes().sleepNeed_ > 8.0)
+		return new HerbivoreChildSleep(animalPtr, motherPtr);
 
 	return this;
 }

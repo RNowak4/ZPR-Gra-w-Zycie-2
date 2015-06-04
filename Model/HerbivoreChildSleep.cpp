@@ -39,14 +39,16 @@ Action* HerbivoreChildSleep::chooseNextAction() {
 	auto animalsVector = modelPtr->getNearlyAnimals(
 			animalPtr->returnLocationData()->coordinates_,
 			animalPtr->getAttributes().hearingRange_);
-
-	for (auto animal : animalsVector) {
-		if (animalPtr->isDangerous(animal)) {
-			return new Fleeing(animalPtr, animal);
+	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE_CHILD) {
+		for (auto animal : animalsVector) {
+			if (animalPtr->isDangerous(animal)) {
+				return new Fleeing(animalPtr, animal);
+			}
 		}
 	}
 
-	if (animalPtr->getAttributes().eatNeed_ > 6.0) {
+	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE_CHILD
+			&& animalPtr->getAttributes().eatNeed_ > 6.0) {
 		return new HerbivoreChildEat(animalPtr, motherPtr);
 	}
 
