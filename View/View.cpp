@@ -249,7 +249,7 @@ void View::drawEyeshot(const LocationData & dat)
 
 	SDL_Color col{ 0xff, 0, 0, 0 };
 	
-
+	
 	for (double angle = angleA; angle <= angleB; angle+=(toRadians/2))
 	{
 		getGraphics().drawPoint(camera_,
