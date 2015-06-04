@@ -28,8 +28,7 @@ Action* CarnivoreRandomWalking::chooseNextAction() {
 		return new Hunting(animalPtr);
 	}
 
-	if (animalPtr->getAttributes().sleepNeed_
-			> Constants::DEFAULT_CARNIVORE_EXAUSTING)
+	if (animalPtr->returnSleepNeed()> 8)
 		return new CarnivoreSleeping(animalPtr);
 
 	if (animalPtr->canHaveChild()) {

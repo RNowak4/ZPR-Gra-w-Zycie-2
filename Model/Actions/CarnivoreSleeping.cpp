@@ -38,9 +38,16 @@ Action* CarnivoreSleeping::chooseNextAction() {
 		return new Hunting(animalPtr);
 	}
 
+	if (animalPtr->returnSleepNeed() <= 2)
+		return new CarnivoreRandomWalking(animalPtr);
+
+
 	if (animalPtr->returnEatNeed() < 1.5) {
 		return new CarnivoreRandomWalking(animalPtr);
 	}
+
+	if (animalPtr->returnSleepNeed() <= 2)
+		return new CarnivoreRandomWalking(animalPtr);
 
 	return this;
 }
