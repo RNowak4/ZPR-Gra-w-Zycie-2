@@ -12,7 +12,7 @@ Controller::Controller()
 {
 	gamePaused_ = false;
 	drawHelp_ = false;
-	vericalCameraMovement_=horizontalCameraMovement_=0;
+	verticalCameraMovement_=horizontalCameraMovement_=0;
 	speedModifier_ = FIXED;
 	scaleDelta_ = 0;
 }
@@ -51,10 +51,10 @@ void Controller::handleEvent(const SDL_Event & e)
 			horizontalCameraMovement_ = step;
 			break;
 		case SDLK_UP:
-			vericalCameraMovement_ = -step;
+			verticalCameraMovement_ = -step;
 			break;
 		case SDLK_DOWN:
-			vericalCameraMovement_ = step;
+			verticalCameraMovement_ = step;
 			break;
 		case SDLK_w:
 			scaleDelta_ = 0.02*view_->getScale();
@@ -89,7 +89,7 @@ void Controller::handleEvent(const SDL_Event & e)
 			break;
 		case SDLK_UP:
 		case SDLK_DOWN:
-			vericalCameraMovement_ = 0;
+			verticalCameraMovement_ = 0;
 			break;
 		case SDLK_w:
 		case SDLK_s:
@@ -249,11 +249,10 @@ void Controller::processCommand(const std::string & command)
 void Controller::moveCamera()
 {
 	SDL_Rect camera = view_->getCamera();
-	std::cout << camera.x + camera.w + horizontalCameraMovement_ << " " <<Parameters::mapWidth<<std::endl;
-	/**if (camera.x + horizontalCameraMovement_ >= 0 &&
+	if ((camera.x + horizontalCameraMovement_ >= 0) &&
 		((camera.x + camera.w / view_->getScale() <= Parameters::mapWidth) || (horizontalCameraMovement_<=0)) &&
-		camera.y + vericalCameraMovement_ >= 0 &&
-		((camera.y + camera.h / view_->getScale() <= Parameters::mapHeight) || (vericalCameraMovement_<=0)))**/
-				view_->moveCamera(horizontalCameraMovement_, vericalCameraMovement_);
+		(camera.y + verticalCameraMovement_ >= 0 ) &&
+		((camera.y + camera.h / view_->getScale() <= Parameters::mapHeight) || (verticalCameraMovement_<=0)))
+				view_->moveCamera(horizontalCameraMovement_, verticalCameraMovement_);
 			
 }

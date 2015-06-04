@@ -48,7 +48,7 @@ public:
 private:
 	bool gamePaused_; ///<When game is paused, model is not updated.
 	bool drawHelp_;	///<When true, frame with help information is shown on the screen.
-	int vericalCameraMovement_;
+	int verticalCameraMovement_;
 	int horizontalCameraMovement_;
 	double scaleDelta_;
 	enum {SLOWER,FIXED,FASTER} speedModifier_;

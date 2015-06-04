@@ -263,7 +263,9 @@ void View::drawHelp()
 void View::changeScale(double delta)
 {
 	double newScale = getGraphics().getScale() + delta;
-	if (newScale < 0.3 || newScale>2)
+	if ((newScale < 0.3 || newScale>2)||
+		(camera_.x + camera_.w / newScale >= Parameters::mapWidth)||
+		(camera_.y + camera_.h /newScale >= Parameters::mapHeight))
 		return;
 	getGraphics().setScale(newScale);
 
