@@ -35,7 +35,9 @@ void Copulation::performAction() {
 		unsigned distance = Model::countDistance(locationData->coordinates_,
 				animalToFollowPtr->returnLocationData()->coordinates_);
 
-		// zrobic kopulacje
+		// zrobic kopulacje - porownac czy plcie sa rozne i te same gatunki i
+		// utworzyc new Colupation dla tego obiektu i dla obiektu pozadania.
+		// Nalezy tez sprawdzic, czy drugi zwierzak moze miec dzieci
 		for (auto animal : animalVector) {
 			if (animal != animalToFollowPtr && animal->isHerbivore()) {
 				if (Model::countDistance(locationData->coordinates_,
