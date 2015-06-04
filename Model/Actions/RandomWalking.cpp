@@ -85,3 +85,7 @@ Action* RandomWalking::chooseNextAction() {
 
 	return this;
 }
+
+void RandomWalking::deleteAnimal(const Animal*) {
+	//do nothing
+}

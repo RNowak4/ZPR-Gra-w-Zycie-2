@@ -10,10 +10,11 @@
 #include <cmath>
 
 #include "Actions/CarnivoreRandomWalking.h"
-#include "Actions/RandomWalking.h"
+#include "Actions/FollowMother.h"
+#include "Actions/HerbivoreRandomWalking.h"
+#include "Attributes.h"
 #include "Carnivore.h"
 #include "Herbivore.h"
-#include "Parameters.h"
 
 // Testowy commit z nowego kompa
 
@@ -80,7 +81,21 @@ void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivorePtr = new Herbivore(x, y);
 	animalList_.push_back(herbivorePtr);
 	herbivorePtr->setAction(
-			shared_ptr < Action > (new RandomWalking(herbivorePtr)));
+			shared_ptr < Action > (new HerbivoreRandomWalking(herbivorePtr)));
+}
+
+void Model::createCarnivoreChild(unsigned x, unsigned y,
+		const Attributes& attributes, Animal* motherPtr) {
+	Animal* carnivorePtr = new Carnivore(x, y, attributes);
+	carnivorePtr ->setAction(
+			shared_ptr < Action > (new FollowMother(carnivorePtr , motherPtr)));
+}
+
+void Model::createHerbivoreChild(unsigned x, unsigned y,
+		const Attributes& attributes, Animal* motherPtr) {
+	Animal* herbivorePtr = new Herbivore(x, y, attributes);
+	herbivorePtr->setAction(
+			shared_ptr < Action > (new FollowMother(herbivorePtr, motherPtr)));
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {

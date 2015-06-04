@@ -23,8 +23,9 @@ Carnivore::Carnivore(unsigned x, unsigned y) :
 	locationData_.lookingRad = actualAttributes_.sightAngle_;
 }
 
-Carnivore::Carnivore(unsigned x, unsigned y, const Modifiers& modifiers) :
-		Animal(x, y, modifiers, CARNIVORE) {
+Carnivore::Carnivore(unsigned x, unsigned y, const Attributes& attributes) :
+		Animal(x, y, attributes) {
+	locationData_.animalType_ = CARNIVORE_CHILD;
 }
 
 void Carnivore::updateStatus() {

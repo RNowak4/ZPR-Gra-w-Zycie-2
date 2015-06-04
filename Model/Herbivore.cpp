@@ -20,8 +20,9 @@ Herbivore::Herbivore(unsigned x, unsigned y) :
 	actualAttributes_.strength_ -= 2.0;
 }
 
-Herbivore::Herbivore(unsigned x, unsigned y, const Modifiers& modifiers) :
-		Animal(x, y, modifiers, CARNIVORE) {
+Herbivore::Herbivore(unsigned x, unsigned y, const Attributes& attributes) :
+		Animal(x, y, attributes) {
+	locationData_.animalType_ = HERBIVORE_CHILD;
 }
 
 void Herbivore::updateStatus() {

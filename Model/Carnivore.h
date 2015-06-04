@@ -27,7 +27,7 @@ public:
 	 *@argument y -	position on y axis
 	 *@argument modifiers - modifiers that will be copied
 	 */
-	Carnivore(unsigned x, unsigned y, const Modifiers& modifiers);
+	Carnivore(unsigned x, unsigned y, const Attributes& attributes);
 
 	/**
 	 *@function isDangerous

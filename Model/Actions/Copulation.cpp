@@ -1,23 +1,19 @@
 /*
- * Follow.cpp
+ * Copulation.cpp
  *
- *  Created on: 22 maj 2015
+ *  Created on: 4 cze 2015
  *      Author: radek
  */
 
-#include "Follow.h"
+#include "Copulation.h"
 
 #include "../Animal.h"
-#include "../Attributes.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
-#include "HerbivoreRandomWalking.h"
+#include "CarnivoreRandomWalking.h"
 
-using namespace std;
-
-Follow::Follow(Animal* animalPtr_, Animal* animalPtr) :
-		Action(animalPtr_), animalToFollowPtr(animalPtr) {
-	this->animalPtr->setVelocity(2.0);
+Copulation::Copulation(Animal* animalPtr_, Animal* animalToFollow) :
+		Action(animalPtr_), animalToFollowPtr(animalToFollow) {
 	this->animalPtr->setAcceleration(0.1);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(
@@ -25,11 +21,11 @@ Follow::Follow(Animal* animalPtr_, Animal* animalPtr) :
 					animalToFollowPtr->returnCoodtinates()));
 }
 
-Follow::~Follow() {
+Copulation::~Copulation() {
 	modelPtr->deleteAction(this);
 }
 
-void Follow::performAction() {
+void Copulation::performAction() {
 	if (animalToFollowPtr != nullptr) {
 		auto locationData = animalPtr->returnLocationData();
 		auto animalVector = modelPtr->getAnimalsInSight(
@@ -38,6 +34,8 @@ void Follow::performAction() {
 
 		unsigned distance = Model::countDistance(locationData->coordinates_,
 				animalToFollowPtr->returnLocationData()->coordinates_);
+
+		// zrobic kopulacje
 		for (auto animal : animalVector) {
 			if (animal != animalToFollowPtr && animal->isHerbivore()) {
 				if (Model::countDistance(locationData->coordinates_,
@@ -52,26 +50,18 @@ void Follow::performAction() {
 				animalToFollowPtr->returnCoodtinates());
 
 		animalPtr->setLookingAngle(lookingAngle);
-
-		if (Model::countDistance(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates()) < 40) {
-			modelPtr->killAnimal(animalToFollowPtr);
-			animalPtr->getAttributes().eatNeed_ -= 4.0;
-			if (animalPtr->getAttributes().eatNeed_ < 0.0)
-				animalPtr->getAttributes().eatNeed_ = 0.0;
-		}
 	}
 }
 
-Action* Follow::chooseNextAction() {
+Action* Copulation::chooseNextAction() {
 	if (animalToFollowPtr == nullptr) {
-		return new HerbivoreRandomWalking(this->animalPtr);
+		return new CarnivoreRandomWalking(this->animalPtr);
 	}
 
 	return this;
 }
 
-void Follow::deleteAnimal(const Animal* animalPtr) {
+void Copulation::deleteAnimal(const Animal* animalPtr) {
 	if (this->animalToFollowPtr == animalPtr) {
 		animalToFollowPtr = nullptr;
 	}

@@ -29,7 +29,7 @@ public:
 	 *@argument y -	position on y axis
 	 *@argument modifiers - modifiers that will be copied
 	 */
-	Herbivore(unsigned, unsigned, const Modifiers& modifiers);
+	Herbivore(unsigned, unsigned, const Attributes& attributes);
 
 	/**
 	 *@function isDangerous

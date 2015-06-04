@@ -8,25 +8,17 @@
 #ifndef MODEL_ACTIONS_CARNIVORERANDOMWALKING_H_
 #define MODEL_ACTIONS_CARNIVORERANDOMWALKING_H_
 
+#include <ctime>
 #include <random>
-#include "CarnivoreAction.h"
+#include "RandomWalking.h"
 
 using namespace std;
 
-class CarnivoreRandomWalking: public CarnivoreAction {
-private:
-	time_t lastChangeTime;
-	std::uniform_int_distribution<int> distribution1;
-	std::uniform_int_distribution<int> distribution2;
-
+class CarnivoreRandomWalking: public RandomWalking {
 public:
 	CarnivoreRandomWalking(Animal* animalPtr_);
 	virtual ~CarnivoreRandomWalking();
-	void performAction();
 	Action* chooseNextAction();
-	void deleteAnimal(const Animal*) {
-		//do nothing about that
-	}
 };
 
 #endif /* MODEL_ACTIONS_CARNIVORERANDOMWALKING_H_ */

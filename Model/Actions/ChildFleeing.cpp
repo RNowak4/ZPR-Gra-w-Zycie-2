@@ -1,33 +1,33 @@
 /*
- * Fleeing.cpp
+ * ChildFleeing.cpp
  *
- *  Created on: 24 maj 2015
+ *  Created on: 4 cze 2015
  *      Author: radek
  */
 
-#include "Fleeing.h"
+#include "ChildFleeing.h"
 
 #include "../Animal.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
-#include "HerbivoreRandomWalking.h"
+#include "FollowMother.h"
 
-Fleeing::Fleeing(Animal* animalPtr_, Animal* hunter_) :
-		Action(animalPtr_), hunter(hunter_) {
-	//TODO przetestowac
-	//animalPtr->setVelocity(1.8);
+ChildFleeing::ChildFleeing(Animal* animalPtr_, Animal* motherPtr_,
+		Animal* hunter_) :
+		ChildAction(animalPtr_, motherPtr_), hunter(hunter_) {
 	animalPtr->setAcceleration(0.05);
 	this->animalPtr->setLookingAngle(
 			Model::countAngle(this->animalPtr->returnCoodtinates(),
 					hunter->returnCoodtinates()) + 180);
 	this->animalPtr->stopTurning();
+
 }
 
-Fleeing::~Fleeing() {
+ChildFleeing::~ChildFleeing() {
 	modelPtr->deleteAction(this);
 }
 
-void Fleeing::performAction() {
+void ChildFleeing::performAction() {
 	if (hunter != nullptr) {
 		this->animalPtr->setLookingAngle(
 				Model::countAngle(this->animalPtr->returnCoodtinates(),
@@ -41,14 +41,14 @@ void Fleeing::performAction() {
 	}
 }
 
-Action* Fleeing::chooseNextAction() {
+Action* ChildFleeing::chooseNextAction() {
 	if (hunter == nullptr)
-		return new HerbivoreRandomWalking(animalPtr);
+		return new FollowMother(animalPtr, motherPtr);
 
 	return this;
 }
 
-void Fleeing::deleteAnimal(const Animal* toDelete) {
+void ChildFleeing::deleteAnimal(const Animal* toDelete) {
 	if (hunter == toDelete)
 		hunter = nullptr;
 }

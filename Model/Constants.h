@@ -35,16 +35,20 @@ public:
 	const static unsigned DEFAULT_HERBIVORE_SIGHT_RAD;
 	const static unsigned DEFAULT_HERBIVORE_LIFE_LEN;
 	const static unsigned DEFAULT_HERBIVORE_HEARING_DISTANCE;
+	const static unsigned DEFAULT_HERBIVORE_YOUTH_LEN;
 	const static double DEFAULT_HERBIVORE_MAX_SPEED;
 	const static double DEFAULT_HERBIVORE_ACCELERATION;
 	const static double DEFAULT_HERBIVORE_CONSUMPTION;
 	const static double DEFAULT_HERBIVORE_EXAUSTING;
+	const static double DEFAULT_HERBIVORE_EATING_SIGHT_REDUCTION;
+	const static double DEFAULT_HERBIVORE_SLEEPING_SIGHT_REDUCTION;
 
 	const static unsigned DEFAULT_CARNIVORE_SIGHT_LEN;
 	const static unsigned DEFAULT_CARNIVORE_HUNGER;
 	const static unsigned DEFAULT_CARNIVORE_SIGHT_RAD;
 	const static unsigned DEFAULT_CARNIVORE_LIFE_LEN;
 	const static unsigned DEFAULT_CARNIVORE_HEARING_DISTANCE;
+	const static unsigned DEFAULT_CARNIVORE_YOUTH_LEN;
 	const static double DEFAULT_CARNIVORE_MAX_SPEED;
 	const static double DEFAULT_CARNIVORE_ACCELERATION;
 	const static double DEFAULT_CARNIVORE_CONSUMPTION;

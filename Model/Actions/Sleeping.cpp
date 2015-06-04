@@ -13,7 +13,7 @@
 #include "../ViewStructs.h"
 #include "Eating.h"
 #include "Fleeing.h"
-#include "RandomWalking.h"
+#include "HerbivoreRandomWalking.h"
 
 class Animal;
 
@@ -50,7 +50,7 @@ Action* Sleeping::chooseNextAction() {
 	}
 
 	if (animalPtr->getAttributes().sleepNeed_ < 1.5) {
-		return new RandomWalking(animalPtr);
+		return new HerbivoreRandomWalking(animalPtr);
 	}
 
 	return this;

@@ -7,17 +7,19 @@
 
 #include "FollowMother.h"
 
+#include "../Animal.h"
+#include "../Attributes.h"
 #include "../Model.h"
-#include "Follow.h"
-#include "RandomWalking.h"
+#include "DoNothing.h"
 
-FollowMother::FollowMother(Animal* animalPtr_, Animal* animalPtr) :
-		Action(animalPtr_), animalToFollowPtr(animalPtr) {
-	this->animalPtr->setVelocity(0.7);
+FollowMother::FollowMother(Animal* animalPtr_, Animal* motherPtr_) :
+		ChildAction(animalPtr_, motherPtr_) {
+	this->animalPtr->setVelocity(
+			this->animalPtr->getAttributes().maximalSpeed_ / 2.0);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(
 			Model::countAngle(this->animalPtr->returnCoodtinates(),
-					animalToFollowPtr->returnCoodtinates()));
+					motherPtr->returnCoodtinates()));
 }
 
 FollowMother::~FollowMother() {
@@ -25,30 +27,31 @@ FollowMother::~FollowMother() {
 }
 
 void FollowMother::performAction() {
-	if (animalToFollowPtr != nullptr) {
+	if (motherPtr != nullptr) {
 		auto lookingAngle = Model::countAngle(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates());
+				motherPtr->returnCoodtinates());
 
 		animalPtr->setLookingAngle(lookingAngle);
 
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
-				animalToFollowPtr->returnCoodtinates()) < 80)
+				motherPtr->returnCoodtinates()) < 80)
 			animalPtr->setVelocity(0.0);
 		else
-			animalPtr->setVelocity(0.7);
+			animalPtr->setVelocity(
+					this->animalPtr->getAttributes().maximalSpeed_ / 2.0);
 	}
 }
 
 Action* FollowMother::chooseNextAction() {
-	if (animalToFollowPtr == nullptr) {
-		return new RandomWalking(this->animalPtr);
+	if (motherPtr == nullptr) {
+		return new DoNothing(this->animalPtr);
 	}
 
 	return this;
 }
 
 void FollowMother::deleteAnimal(const Animal* animalPtr) {
-	if (this->animalToFollowPtr == animalPtr) {
-		animalToFollowPtr = nullptr;
+	if (this->motherPtr == animalPtr) {
+		motherPtr = nullptr;
 	}
 }

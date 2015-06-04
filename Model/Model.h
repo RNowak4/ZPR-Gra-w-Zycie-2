@@ -58,8 +58,10 @@ public:
 	 *@argument y -	position on y axis
 	 */
 	void createHerbivore(unsigned x, unsigned y);
-	void createCarnivore(unsigned x, unsigned y, const Modifiers& modifiers);
-	void createHerbivore(unsigned x, unsigned y, const Modifiers& modifiers);
+	void createCarnivoreChild(unsigned x, unsigned y,
+			const Attributes& attributes, Animal* motherPtr);
+	void createHerbivoreChild(unsigned x, unsigned y,
+			const Attributes& attributes, Animal* motherPtr);
 
 	/**
 	 *@function updateAnimalsStatuses

@@ -39,6 +39,7 @@ private:
 	double acceleration;
 	double angleVelocity;
 	time_t bornDate;
+	time_t timeSinceCopulation;
 	int childrenNumber;
 
 protected:
@@ -66,7 +67,7 @@ public:
 	 *@function Animal
 	 *@brief 	Creates an new Animal.
 	 */
-	Animal(unsigned, unsigned, const Modifiers&, AnimalType = HERBIVORE);
+	Animal(unsigned, unsigned, const Attributes&, AnimalType = HERBIVORE);
 
 	/**
 	 *@function ~Animal
@@ -270,6 +271,10 @@ public:
 	}
 
 	void addState(StatePtr newState);
+
+	time_t& returnTimeSiceCopulatio() {
+		return timeSinceCopulation;
+	}
 };
 
 #endif	/* ANIMAL_H */

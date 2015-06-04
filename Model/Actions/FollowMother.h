@@ -8,13 +8,9 @@
 #ifndef MODEL_ACTIONS_FOLLOWMOTHER_H_
 #define MODEL_ACTIONS_FOLLOWMOTHER_H_
 
-#include "Action.h"
+#include "ChildAction.h"
 
-class FollowMother: public Action {
-public:
-private:
-	Animal* animalToFollowPtr;
-
+class FollowMother: public ChildAction {
 public:
 	FollowMother(Animal*, Animal*);
 	virtual ~FollowMother();

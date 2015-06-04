@@ -26,7 +26,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	sex_ = FEMALE;
 
 	// setting up time values
-	lastRandomize = bornDate = time(0);
+	timeSinceCopulation = lastRandomize = bornDate = time(0);
 
 	// setting up starting important animal values
 	eatNeed_ = 2.0;
@@ -36,7 +36,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	childrenNumber = 0;
 }
 
-Animal::Animal(unsigned x, unsigned y, const Modifiers& modifiers,
+Animal::Animal(unsigned x, unsigned y, const Attributes& modifiers,
 		AnimalType animalType) :
 		Animal(x, y) {
 }

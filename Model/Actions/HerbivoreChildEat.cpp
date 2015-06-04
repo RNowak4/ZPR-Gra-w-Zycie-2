@@ -1,39 +1,40 @@
 /*
- * Eating.cpp
+ * HerbivoreChildEat.cpp
  *
- *  Created on: 24 maj 2015
+ *  Created on: 4 cze 2015
  *      Author: radek
  */
 
-#include "Eating.h"
+#include "HerbivoreChildEat.h"
 
 #include "../Animal.h"
 #include "../Attributes.h"
+#include "../Constants.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
 #include "Fleeing.h"
-#include "HerbivoreRandomWalking.h"
+#include "FollowMother.h"
 
-using namespace std;
-
-Eating::Eating(Animal* animalPtr_) :
-		Action(animalPtr_) {
+HerbivoreChildEat::HerbivoreChildEat(Animal* animalPtr_, Animal* motherPtr_) :
+		ChildAction(animalPtr_, motherPtr_) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->stopTurning();
-	animalPtr->returnLocationData()->sightLen_ -= decreaseValue;
+	animalPtr->returnLocationData()->sightLen_ /=
+			Constants::DEFAULT_HERBIVORE_EATING_SIGHT_REDUCTION;
 }
 
-Eating::~Eating() {
-	animalPtr->returnLocationData()->sightLen_ += decreaseValue;
+HerbivoreChildEat::~HerbivoreChildEat() {
+	animalPtr->returnLocationData()->sightLen_ *=
+			Constants::DEFAULT_HERBIVORE_EATING_SIGHT_REDUCTION;
 	modelPtr->deleteAction(this);
 }
 
-void Eating::performAction() {
+void HerbivoreChildEat::performAction() {
 	animalPtr->getAttributes().eatNeed_ -= 0.07;
 }
 
-Action* Eating::chooseNextAction() {
+Action* HerbivoreChildEat::chooseNextAction() {
 	auto animalsVector = modelPtr->getNearlyAnimals(
 			animalPtr->returnLocationData()->coordinates_,
 			animalPtr->getAttributes().hearingRange_);
@@ -45,12 +46,12 @@ Action* Eating::chooseNextAction() {
 	}
 
 	if (animalPtr->getAttributes().eatNeed_ < 2.5) {
-		return new HerbivoreRandomWalking(animalPtr);
+		return new FollowMother(animalPtr, motherPtr);
 	}
 
 	return this;
 }
 
-void Eating::deleteAnimal(const Animal*) {
+void HerbivoreChildEat::deleteAnimal(const Animal*) {
 	// nothing to do about that
 }
