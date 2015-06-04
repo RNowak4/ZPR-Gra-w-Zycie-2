@@ -82,6 +82,8 @@ Action* Copulation::chooseNextAction() {
 					animalPtr->returnTimeSiceCopulatio() = time(0);
 			animalToFollowPtr->returnLocationData()->coordinates_.x += 20;
 			animalToFollowPtr->returnLocationData()->coordinates_.y += 20;
+			++animalPtr->getChildrenNumber();
+			++animalToFollowPtr->getChildrenNumber();
 			animalToFollowPtr = nullptr;
 		}
 

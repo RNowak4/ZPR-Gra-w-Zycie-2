@@ -290,6 +290,10 @@ public:
 	void markToKill() {
 		dead = true;
 	}
+
+	int& getChildrenNumber() {
+		return childrenNumber;
+	}
 };
 
 #endif	/* ANIMAL_H */
