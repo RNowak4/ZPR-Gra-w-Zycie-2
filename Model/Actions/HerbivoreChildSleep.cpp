@@ -32,7 +32,7 @@ HerbivoreChildSleep::~HerbivoreChildSleep() {
 }
 
 void HerbivoreChildSleep::performAction() {
-	animalPtr->returnSleepNeed() -= 0.05;
+	animalPtr->returnSleepNeed() -= 0.2;
 }
 
 Action* HerbivoreChildSleep::chooseNextAction() {

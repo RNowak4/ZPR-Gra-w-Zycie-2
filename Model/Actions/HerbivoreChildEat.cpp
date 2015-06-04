@@ -31,7 +31,7 @@ HerbivoreChildEat::~HerbivoreChildEat() {
 }
 
 void HerbivoreChildEat::performAction() {
-	animalPtr->returnEatNeed() -= 0.07;
+	animalPtr->returnEatNeed() -= 0.2;
 }
 
 Action* HerbivoreChildEat::chooseNextAction() {
