@@ -8,9 +8,11 @@
 #include "Copulation.h"
 
 #include "../Animal.h"
+#include "../Attributes.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
 #include "CarnivoreRandomWalking.h"
+#include "HerbivoreRandomWalking.h"
 
 Copulation::Copulation(Animal* animalPtr_, Animal* animalToFollow) :
 		Action(animalPtr_), animalToFollowPtr(animalToFollow) {
@@ -27,27 +29,6 @@ Copulation::~Copulation() {
 
 void Copulation::performAction() {
 	if (animalToFollowPtr != nullptr) {
-		auto locationData = animalPtr->returnLocationData();
-		auto animalVector = modelPtr->getAnimalsInSight(
-				locationData->coordinates_, locationData->sightLen_,
-				locationData->lookingAngle, locationData->lookingRad);
-
-		unsigned distance = Model::countDistance(locationData->coordinates_,
-				animalToFollowPtr->returnLocationData()->coordinates_);
-
-		// zrobic kopulacje - porownac czy plcie sa rozne i te same gatunki i
-		// utworzyc new Colupation dla tego obiektu i dla obiektu pozadania.
-		// Nalezy tez sprawdzic, czy drugi zwierzak moze miec dzieci
-		for (auto animal : animalVector) {
-			if (animal != animalToFollowPtr && animal->isHerbivore()) {
-				if (Model::countDistance(locationData->coordinates_,
-						animal->returnLocationData()->coordinates_)
-						< distance) {
-					animalToFollowPtr = animal;
-				}
-			}
-		}
-
 		auto lookingAngle = Model::countAngle(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates());
 
@@ -56,11 +37,54 @@ void Copulation::performAction() {
 }
 
 Action* Copulation::chooseNextAction() {
-	if (animalToFollowPtr == nullptr) {
-		return new CarnivoreRandomWalking(this->animalPtr);
-	}
+	if (animalToFollowPtr != nullptr) {
+		auto locationData = animalPtr->returnLocationData();
+		auto animalVector = modelPtr->getAnimalsInSight(
+				locationData->coordinates_, locationData->sightLen_,
+				locationData->lookingAngle, locationData->lookingRad);
+		auto animalType = locationData->animalType_;
+		Animal* mother;
 
-	return this;
+		unsigned distance = Model::countDistance(locationData->coordinates_,
+				animalToFollowPtr->returnLocationData()->coordinates_);
+
+		if (distance <= 5) {
+			if (locationData->animalSex_ == FEMALE) {
+				mother = animalPtr;
+			} else {
+				mother = animalToFollowPtr;
+			}
+
+			if (animalType == CARNIVORE) {
+				modelPtr->createCarnivoreChild(locationData->coordinates_.x,
+						locationData->coordinates_.y,
+						animalPtr->getAttributes().inheritAttributes(
+								animalToFollowPtr->getAttributes()), mother);
+				animalToFollowPtr->setAction(
+						ActionPtr(
+								new CarnivoreRandomWalking(animalToFollowPtr)));
+			} else {
+				modelPtr->createHerbivoreChild(locationData->coordinates_.x,
+						locationData->coordinates_.y,
+						animalPtr->getAttributes().inheritAttributes(
+								animalToFollowPtr->getAttributes()), mother);
+				animalToFollowPtr->setAction(
+						ActionPtr(
+								new HerbivoreRandomWalking(animalToFollowPtr)));
+			}
+
+			// we did copulation, so now we should
+			// choose different action
+			animalToFollowPtr = nullptr;
+		}
+
+	} else {
+		if (animalPtr->returnLocationData()->animalType_ == CARNIVORE) {
+			return new CarnivoreRandomWalking(animalPtr);
+		} else {
+			return new HerbivoreRandomWalking(animalPtr);
+		}
+	}
 }
 
 void Copulation::deleteAnimal(const Animal* animalPtr) {

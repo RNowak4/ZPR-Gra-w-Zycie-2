@@ -275,6 +275,12 @@ public:
 	time_t& returnTimeSiceCopulatio() {
 		return timeSinceCopulation;
 	}
+
+	bool canHaveChild() {
+		if (childrenNumber < actualAttributes_.fertility_)
+			return true;
+		return false;
+	}
 };
 
 #endif	/* ANIMAL_H */
