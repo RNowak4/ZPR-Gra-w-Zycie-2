@@ -42,10 +42,10 @@ Action* LookingForPartner::chooseNextAction() {
 			}
 		}
 
-		if (animalPtr->getAttributes().eatNeed_ > 6.0)
+		if (animalPtr->returnEatNeed() > 6.0)
 			return new Eating(animalPtr);
 
-		if (animalPtr->getAttributes().sleepNeed_ > 8.0)
+		if (animalPtr->returnSleepNeed() > 8.0)
 			return new Sleeping(animalPtr);
 	} else {
 		if (animalPtr->getAttributes().eatNeed_ > 6.0)

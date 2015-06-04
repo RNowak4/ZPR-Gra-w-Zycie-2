@@ -41,6 +41,7 @@ private:
 	time_t bornDate;
 	time_t timeSinceCopulation;
 	int childrenNumber;
+	bool dead;
 
 protected:
 	ActionPtr currentAction;
@@ -281,6 +282,10 @@ public:
 				&& (time(0) - timeSinceCopulation) > 30)
 			return true;
 		return false;
+	}
+
+	void markToKill() {
+		dead = true;
 	}
 };
 

@@ -37,7 +37,13 @@ Action* HerbivoreRandomWalking::chooseNextAction() {
 		}
 	}
 
-	if (animalPtr->returnEatNeed() > 6.0)		return new Eating(animalPtr);
+<<<<<<< HEAD
+	std::cout << animalPtr->getAttributes().eatNeed_ << std::endl;
+	if (animalPtr->getAttributes().eatNeed_ > 6.0)
+=======
+	if (animalPtr->returnEatNeed() > 6.0)
+>>>>>>> 3c2a059bc3cb1d530e66053fd909fd84b1931e40
+		return new Eating(animalPtr);
 
 	if (animalPtr->returnSleepNeed() > 8.0)
 		return new Sleeping(animalPtr);

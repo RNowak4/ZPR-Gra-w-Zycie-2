@@ -56,9 +56,9 @@ void Follow::performAction() {
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates()) < 40) {
 			modelPtr->killAnimal(animalToFollowPtr);
-			animalPtr->getAttributes().eatNeed_ -= 4.0;
-			if (animalPtr->getAttributes().eatNeed_ < 0.0)
-				animalPtr->getAttributes().eatNeed_ = 0.0;
+			animalPtr->returnEatNeed() -= 4.0;
+			if (animalPtr->returnEatNeed() < 0.0)
+				animalPtr->returnEatNeed() = 0.0;
 		}
 	}
 }

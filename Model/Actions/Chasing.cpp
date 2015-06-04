@@ -12,7 +12,6 @@
 #include "../ViewStructs.h"
 #include "CarnivoreRandomWalking.h"
 
-
 Chasing::Chasing(Animal* animalPtr_, Animal* animalPtr) :
 		Action(animalPtr_), animalToFollowPtr(animalPtr) {
 	this->animalPtr->setAcceleration(0.1);
@@ -52,10 +51,22 @@ void Chasing::performAction() {
 
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
 				animalToFollowPtr->returnCoodtinates()) < 40) {
-			modelPtr->killAnimal(animalToFollowPtr);
-			animalPtr->returnEatNeed() -= 4.0;
-			if (animalPtr->returnEatNeed() < 0.0)
-				animalPtr->returnEatNeed() = 0.0;
+			if (animalToFollowPtr->getAttributes().strength_
+					< animalPtr->getAttributes().strength_) {
+				modelPtr->killAnimal(animalToFollowPtr);
+				animalPtr->returnEatNeed() -= 4.0;
+				if (animalPtr->returnEatNeed() < 0.0)
+					animalPtr->returnEatNeed() = 0.0;
+			} else {
+				/*if(animalToFollowPtr->returnLocationData()->animalType_ == CARNIVORE) {
+					animalPtr->markToKill();
+				}
+				else {
+					animalToFollowPtr = nullptr;
+				}*/
+				//TODO wybrac jedna z tych metod
+				animalPtr->markToKill();
+			}
 		}
 	}
 }

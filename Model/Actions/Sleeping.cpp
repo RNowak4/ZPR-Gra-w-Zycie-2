@@ -31,7 +31,7 @@ Sleeping::~Sleeping() {
 }
 
 void Sleeping::performAction() {
-	animalPtr->getAttributes().sleepNeed_ -= 0.05;
+	animalPtr->returnSleepNeed() -= 0.2;
 }
 
 Action* Sleeping::chooseNextAction() {
@@ -45,11 +45,11 @@ Action* Sleeping::chooseNextAction() {
 		}
 	}
 
-	if (animalPtr->getAttributes().eatNeed_ > 6.0) {
+	if (animalPtr->returnEatNeed() > 6.0) {
 		return new Eating(animalPtr);
 	}
 
-	if (animalPtr->getAttributes().sleepNeed_ < 1.5) {
+	if (animalPtr->returnSleepNeed() < 1.5) {
 		return new HerbivoreRandomWalking(animalPtr);
 	}
 
