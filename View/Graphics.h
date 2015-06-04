@@ -41,9 +41,19 @@ public:
 	*/
 	static void dispose(Graphics& instance);
 
+	/**
+	Unload SDL subsystems.
+	*/
 	static void unloadLibraries();
 
+	/**
+	@return  texture corresponding to given texture id.
+	*/
 	std::shared_ptr<SDL_Texture> get(enum TextureID id);
+
+	/**
+	@return font corrwsponding to given font id.
+	*/
 	std::shared_ptr<TTF_Font> get(enum FontID id);
 
 	/**

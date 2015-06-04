@@ -177,6 +177,9 @@
     <ClInclude Include="..\..\..\Model\Actions\LookingForPartner.h">
       <Filter>Header Files\Model\Actions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Model\States\Mother.h">
+      <Filter>Header Files\Model\States</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\main.cpp">
@@ -301,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\LookingForPartner.cpp">
       <Filter>Source Files\Model\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Model\States\Mother.cpp">
+      <Filter>Source Files\Model\States</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
