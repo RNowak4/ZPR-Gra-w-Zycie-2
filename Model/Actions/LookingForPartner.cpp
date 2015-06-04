@@ -13,9 +13,11 @@
 #include "../Attributes.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
+#include "CarnivoreSleeping.h"
 #include "Copulation.h"
 #include "Eating.h"
 #include "Fleeing.h"
+#include "Hunting.h"
 #include "Sleeping.h"
 
 LookingForPartner::LookingForPartner(Animal* animalPtr_) :
@@ -39,13 +41,19 @@ Action* LookingForPartner::chooseNextAction() {
 				return new Fleeing(animalPtr, animal);
 			}
 		}
+
+		if (animalPtr->getAttributes().eatNeed_ > 6.0)
+			return new Eating(animalPtr);
+
+		if (animalPtr->getAttributes().sleepNeed_ > 8.0)
+			return new Sleeping(animalPtr);
+	} else {
+		if (animalPtr->getAttributes().eatNeed_ > 6.0)
+			return new Hunting(animalPtr);
+
+		if (animalPtr->getAttributes().sleepNeed_ > 8.0)
+			return new CarnivoreSleeping(animalPtr);
 	}
-
-	if (animalPtr->getAttributes().eatNeed_ > 6.0)
-		return new Eating(animalPtr);
-
-	if (animalPtr->getAttributes().sleepNeed_ > 8.0)
-		return new Sleeping(animalPtr);
 
 	animalVector = modelPtr->getAnimalsInSight(animalPtr->returnCoodtinates(),
 			animalPtr->returnLocationData()->sightLen_,

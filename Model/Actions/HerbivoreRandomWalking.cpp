@@ -13,6 +13,7 @@
 #include "../ViewStructs.h"
 #include "Eating.h"
 #include "Fleeing.h"
+#include "LookingForPartner.h"
 #include "Sleeping.h"
 
 HerbivoreRandomWalking::HerbivoreRandomWalking(Animal* animalPtr_) :
@@ -41,6 +42,10 @@ Action* HerbivoreRandomWalking::chooseNextAction() {
 
 	if (animalPtr->getAttributes().sleepNeed_ > 8.0)
 		return new Sleeping(animalPtr);
+
+	if (animalPtr->canHaveChild()) {
+		return new LookingForPartner(animalPtr);
+	}
 
 	return this;
 }
