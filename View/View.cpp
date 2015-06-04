@@ -76,22 +76,24 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 
 	int margin = 5;
 	int lineHeight = 13;
-
+	
 	int x = static_cast<int>(data.first->coordinates_.x); 
 	int y = static_cast<int>(data.first->coordinates_.y);
 
 	std::shared_ptr<TTF_Font> font = getGraphics().get(Graphics::DEFAULT_FONT);
 
+	const std::string& action = data.second->returnActionName();
 	auto vec1 = &data.second->returnPairVector();
 	auto vec2 = &data.second->returnStringVector();
+	
 
 	SDL_Rect frame	{ 
 					  x + Parameters::adultWidth / 2,
 					  y - Parameters::adultHeigth / 2,
 					  150,
-					  2 * margin + (vec1->size() + vec2->size())* lineHeight
+					  2 * margin + (1+vec1->size() + vec2->size())* lineHeight
 					};
-	if (frame.x + frame.w > Parameters::mapWidth)
+	if (frame.x +frame.w > Parameters::mapWidth)
 	{
 		frame.x = Parameters::mapWidth - frame.w/getScale();
 	}
@@ -114,6 +116,12 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	
 	int lineCount = 0;
 	std::stringstream ss;
+
+	getGraphics().renderText(camera_, font, action,
+		getGraphics().getScaledPosition(frame.x + margin, camera_.x),
+		getGraphics().getScaledPosition(frame.y, camera_.y) + margin + lineCount* lineHeight,
+		col);
+	++lineCount;
 	
 	for (auto i = vec1->begin(); i != vec1->end(); ++i, ++lineCount)
 	{

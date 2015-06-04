@@ -108,6 +108,7 @@
     <ClInclude Include="..\..\..\Model\Parameters.h" />
     <ClInclude Include="..\..\..\Model\States\Childhood.h" />
     <ClInclude Include="..\..\..\Model\States\Illness.h" />
+    <ClInclude Include="..\..\..\Model\States\Mother.h" />
     <ClInclude Include="..\..\..\Model\States\State.h" />
     <ClInclude Include="..\..\..\Model\ViewStructs.h" />
     <ClInclude Include="..\..\..\View\Assets.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="..\..\..\Model\Parameters.cpp" />
     <ClCompile Include="..\..\..\Model\States\Childhood.cpp" />
     <ClCompile Include="..\..\..\Model\States\Illness.cpp" />
+    <ClCompile Include="..\..\..\Model\States\Mother.cpp" />
     <ClCompile Include="..\..\..\Model\States\State.cpp" />
     <ClCompile Include="..\..\..\View\Assets.cpp" />
     <ClCompile Include="..\..\..\View\Graphics.cpp" />
