@@ -73,8 +73,6 @@ Action* Copulation::chooseNextAction() {
 								new HerbivoreRandomWalking(animalToFollowPtr)));
 			}
 
-			// we did copulation, so now we should
-			// choose different action
 			animalToFollowPtr = nullptr;
 		}
 
