@@ -86,6 +86,8 @@ Action* Copulation::chooseNextAction() {
 			return new HerbivoreRandomWalking(animalPtr);
 		}
 	}
+
+	return this;
 }
 
 void Copulation::deleteAnimal(const Animal* animalPtr) {

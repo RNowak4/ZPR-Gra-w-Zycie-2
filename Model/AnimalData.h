@@ -74,6 +74,11 @@ public:
 		return pairVector;
 	}
 
+	/**
+	 *@function returnActionName
+	 *@brief Returns an action name
+	 *@return	string
+	 */
 	const string& returnActionName() const {
 		return action_name;
 	}
