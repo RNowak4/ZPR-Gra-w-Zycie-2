@@ -40,8 +40,10 @@ void Carnivore::updateStatus() {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
 
-	eatNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
-	sleepNeed_ += Constants::DEFAULT_CARNIVORE_EXAUSTING * Parameters::simulationSpeed;
+	eatNeed_ += Constants::DEFAULT_CARNIVORE_CONSUMPTION
+			* Parameters::simulationSpeed;
+	sleepNeed_ += Constants::DEFAULT_CARNIVORE_EXAUSTING
+			* Parameters::simulationSpeed;
 
 	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
 		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
