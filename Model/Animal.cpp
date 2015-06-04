@@ -22,7 +22,8 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	acceleration = 0.0;
 	angleVelocity = 0.0;
 	locationData_.lookingAngle = 0;
-	sex_ = (rand() % 2) ? MALE : FEMALE;;
+	sex_ = (rand() % 2) ? MALE : FEMALE;
+	;
 	locationData_.animalSex_ = sex_;
 
 	// setting up time values
@@ -35,12 +36,15 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 
 	// Animal can have only limited number of children
 	childrenNumber = 0;
+
+	dead = false;
 }
 
 Animal::Animal(unsigned x, unsigned y, Attributes modifiers,
 		AnimalType animalType) :
 		Animal(x, y) {
 	actualAttributes_ = modifiers;
+	dead = false;
 }
 
 bool Animal::isThatMe(unsigned x, unsigned y) {
@@ -126,6 +130,9 @@ void Animal::doMove() {
 }
 
 Animal* Animal::shouldDie() {
+	if (dead)
+		return this;
+
 	if (eatNeed_ >= 10.0)
 		return this;
 
