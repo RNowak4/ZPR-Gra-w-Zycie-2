@@ -7,14 +7,14 @@
 
 #include "HerbivoreChildSleep.h"
 
-#include "Actions/Fleeing.h"
-#include "Actions/FollowMother.h"
-#include "Actions/HerbivoreChildEat.h"
-#include "Animal.h"
-#include "Attributes.h"
-#include "Constants.h"
-#include "Model.h"
-#include "ViewStructs.h"
+#include "../Animal.h"
+#include "../Attributes.h"
+#include "../Constants.h"
+#include "../Model.h"
+#include "../ViewStructs.h"
+#include "Fleeing.h"
+#include "FollowMother.h"
+#include "HerbivoreChildEat.h"
 
 HerbivoreChildSleep::HerbivoreChildSleep(Animal* animalPtr_, Animal* motherPtr_) :
 		ChildAction(animalPtr_, motherPtr_) {

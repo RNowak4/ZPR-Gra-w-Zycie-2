@@ -9,10 +9,11 @@
 
 #include "../Animal.h"
 #include "../Attributes.h"
-#include "../HerbivoreChildSleep.h"
 #include "../Model.h"
+#include "../ViewStructs.h"
 #include "DoNothing.h"
 #include "HerbivoreChildEat.h"
+#include "HerbivoreChildSleep.h"
 
 FollowMother::FollowMother(Animal* animalPtr_, Animal* motherPtr_) :
 		ChildAction(animalPtr_, motherPtr_) {

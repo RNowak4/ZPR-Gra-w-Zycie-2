@@ -8,7 +8,9 @@
 #ifndef MODEL_HERBIVORECHILDSLEEP_H_
 #define MODEL_HERBIVORECHILDSLEEP_H_
 
-#include "Actions/ChildAction.h"
+#include <string>
+
+#include "ChildAction.h"
 
 class HerbivoreChildSleep: public ChildAction {
 public:
