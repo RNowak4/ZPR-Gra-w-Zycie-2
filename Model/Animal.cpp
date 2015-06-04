@@ -22,7 +22,8 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	acceleration = 0.0;
 	angleVelocity = 0.0;
 	locationData_.lookingAngle = 0;
-	sex_ = (rand() % 2) ? MALE : FEMALE;
+	sex_ = (rand() % 2) ? MALE : FEMALE;;
+	locationData_.animalSex_ = sex_;
 
 	// setting up time values
 	timeSinceCopulation = lastRandomize = bornDate = time(0);

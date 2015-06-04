@@ -73,6 +73,10 @@ public:
 	const vector<pair<string, double> >& returnPairVector() const {
 		return pairVector;
 	}
+
+	const string& returnActionName() const {
+		return action_name;
+	}
 };
 
 #endif /* ANIMALDATA_H_ */
