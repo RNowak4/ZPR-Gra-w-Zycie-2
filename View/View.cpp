@@ -91,6 +91,22 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 					  150,
 					  2 * margin + (vec1->size() + vec2->size())* lineHeight
 					};
+	if (frame.x + frame.w > Parameters::mapWidth)
+	{
+		frame.x = Parameters::mapWidth - frame.w/getScale();
+	}
+	if (frame.y + frame.h > Parameters::mapHeight)
+	{
+		frame.y = Parameters::mapHeight - frame.h / getScale();
+	}
+	if (frame.x < 0)
+	{
+		frame.x = 0;
+	}
+	if (frame.y < 0)
+	{
+		frame.y = 0;
+	}
 
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
 	SDL_Color col{ 0, 0, 0, 0 };
