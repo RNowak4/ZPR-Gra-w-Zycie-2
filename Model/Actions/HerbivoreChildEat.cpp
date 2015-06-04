@@ -31,7 +31,7 @@ HerbivoreChildEat::~HerbivoreChildEat() {
 }
 
 void HerbivoreChildEat::performAction() {
-	animalPtr->getAttributes().eatNeed_ -= 0.07;
+	animalPtr->returnEatNeed() -= 0.07;
 }
 
 Action* HerbivoreChildEat::chooseNextAction() {
@@ -45,7 +45,7 @@ Action* HerbivoreChildEat::chooseNextAction() {
 		}
 	}
 
-	if (animalPtr->getAttributes().eatNeed_ < 2.5) {
+	if (animalPtr->returnEatNeed() < 2.5) {
 		return new FollowMother(animalPtr, motherPtr);
 	}
 

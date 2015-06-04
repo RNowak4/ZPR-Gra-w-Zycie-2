@@ -28,15 +28,15 @@ void FeedChildren::performAction() {
 						currentChild->returnCoodtinates()));
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
 				currentChild->returnCoodtinates()) < 40) {
-			currentChild->getAttributes().eatNeed_ -= 4.0;
-			animalPtr->getAttributes().eatNeed_ += 0.3;
+			currentChild->returnEatNeed()-= 4.0;
+			animalPtr->returnEatNeed() += 0.3;
 			currentChild = nullptr;
 		}
 	}
 
 	if (currentChild == nullptr) {
 		for (auto child : childrenList) {
-			if (child->getAttributes().eatNeed_ > 6.0) {
+			if (child->returnEatNeed() > 6.0) {
 				currentChild = child;
 				break;
 			}
@@ -46,7 +46,7 @@ void FeedChildren::performAction() {
 
 Action* FeedChildren::chooseNextAction() {
 	for (auto child : childrenList) {
-		if (child->getAttributes().eatNeed_ > 6.0) {
+		if (child->returnEatNeed() > 6.0) {
 			currentChild = child;
 			return this;
 		}

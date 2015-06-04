@@ -30,7 +30,7 @@ Eating::~Eating() {
 }
 
 void Eating::performAction() {
-	animalPtr->getAttributes().eatNeed_ -= 0.07;
+	animalPtr->returnEatNeed() -= 0.07;
 }
 
 Action* Eating::chooseNextAction() {
@@ -44,7 +44,7 @@ Action* Eating::chooseNextAction() {
 		}
 	}
 
-	if (animalPtr->getAttributes().eatNeed_ < 2.5) {
+	if (animalPtr->returnEatNeed() < 2.5) {
 		return new HerbivoreRandomWalking(animalPtr);
 	}
 

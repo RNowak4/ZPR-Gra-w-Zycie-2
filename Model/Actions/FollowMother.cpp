@@ -51,10 +51,10 @@ Action* FollowMother::chooseNextAction() {
 	}
 
 	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE_CHILD
-			&& animalPtr->getAttributes().eatNeed_ > 6.0)
+			&& animalPtr->returnEatNeed() > 6.0)
 		return new HerbivoreChildEat(animalPtr, motherPtr);
 
-	if (animalPtr->getAttributes().sleepNeed_ > 8.0)
+	if (animalPtr->returnSleepNeed() > 8.0)
 		return new HerbivoreChildSleep(animalPtr, motherPtr);
 
 	return this;

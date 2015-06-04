@@ -14,8 +14,6 @@
 
 Fleeing::Fleeing(Animal* animalPtr_, Animal* hunter_) :
 		Action(animalPtr_), hunter(hunter_) {
-	//TODO przetestowac
-	//animalPtr->setVelocity(1.8);
 	animalPtr->setAcceleration(0.05);
 	this->animalPtr->setLookingAngle(
 			Model::countAngle(this->animalPtr->returnCoodtinates(),
