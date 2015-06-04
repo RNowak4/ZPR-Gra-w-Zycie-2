@@ -37,7 +37,7 @@ public:
 	 *@argument another -	another animal
 	 */
 	bool isDangerous(Animal* another) {
-		return true;
+		return false;
 	}
 
 	void updateStatus();
