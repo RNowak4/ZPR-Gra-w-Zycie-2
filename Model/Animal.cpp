@@ -25,6 +25,8 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 	sex_ = (rand() % 2) ? MALE : FEMALE;
 	;
 	locationData_.animalSex_ = sex_;
+	locationData_.lookingRad = actualAttributes_.sightAngle_;
+	locationData_.sightLen_ = actualAttributes_.sightLength_;
 
 	// setting up time values
 	timeSinceCopulation = lastRandomize = bornDate = time(0);

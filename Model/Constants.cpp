@@ -9,7 +9,7 @@
 
 const double Constants::DEFAULT_MAXIMAL_VALUE = 10.0;
 
-const time_t Constants::DEFAULT_INTERVAL = 5;
+const time_t Constants::DEFAULT_INTERVAL = 25;
 
 const unsigned Constants::DEFAULT_ACTION_TIME_CHANGE = 1;
 

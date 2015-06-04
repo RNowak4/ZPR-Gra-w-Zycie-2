@@ -7,6 +7,8 @@
 
 #include "Herbivore.h"
 
+#include <cmath>
+#include <cstdlib>
 #include <ctime>
 
 #include "Actions/HerbivoreRandomWalking.h"
@@ -35,9 +37,6 @@ Herbivore::Herbivore(unsigned x, unsigned y, const Attributes& attributes) :
 }
 
 void Herbivore::updateStatus() {
-	static default_random_engine generator;
-	uniform_int_distribution<int> distribution(0, 100);
-
 	if (locationData_.animalType_ == HERBIVORE_CHILD
 			&& (time(0) - bornDate) >= Constants::DEFAULT_HERBIVORE_YOUTH_LEN) {
 		locationData_.animalType_ = HERBIVORE;
@@ -62,12 +61,13 @@ void Herbivore::updateStatus() {
 	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
 		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
 
-	if ((time(0) - lastRandomize) >= Constants::DEFAULT_INTERVAL
-			&& distribution(generator) <= actualAttributes_.sickChance_) {
+	if ((time(0) - lastRandomize) >= Constants::DEFAULT_INTERVAL/Parameters::simulationSpeed
+			&& (rand()%100) <= floor(actualAttributes_.sickChance_)) {
 		if(!hasState("Illness"))
 			addState(StatePtr(new Illness(this)));
 		else {
 			looseState("Illness");
 		}
+		lastRandomize = time(0);
 	}
 }

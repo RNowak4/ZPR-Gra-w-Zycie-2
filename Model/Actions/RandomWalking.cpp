@@ -7,8 +7,9 @@
 
 #include "RandomWalking.h"
 
+#include <cstdlib>
+
 #include "../Animal.h"
-#include "../Attributes.h"
 #include "../Constants.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
@@ -19,11 +20,10 @@
 RandomWalking::RandomWalking(Animal* animalPtr_) :
 		CarnivoreAction(animalPtr_) {
 	animalPtr->setLookingAngle(0);
-	animalPtr->setVelocity(0.7);
+	animalPtr->setVelocity(animalPtr->getAttributes().maximalSpeed_ / 4);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->turnRight();
-	distribution1 = std::uniform_int_distribution<int>(0, 2);
-	distribution2 = std::uniform_int_distribution<int>(0, 1);
+	lastChangeTime = time(0);
 }
 
 RandomWalking::~RandomWalking() {
@@ -32,10 +32,10 @@ RandomWalking::~RandomWalking() {
 
 void RandomWalking::performAction() {
 	if (time(0) - lastChangeTime > Constants::DEFAULT_ACTION_TIME_CHANGE) {
-		switch (distribution2(generator)) {
+		switch (rand() % 2) {
 		case 0:
 			animalPtr->setVelocity(0.7);
-			switch (distribution1(generator)) {
+			switch (rand() % 3) {
 			case 0:
 				animalPtr->turnLeft();
 				break;

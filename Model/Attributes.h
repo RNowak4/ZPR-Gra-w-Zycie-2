@@ -43,7 +43,7 @@ public:
 	int lifeLen_;
 
 	Attributes();
-
+	void normalizeAll();
 	Attributes inheritAttributes(const Attributes& secondAttributes) const;
 };
 

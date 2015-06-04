@@ -15,8 +15,6 @@
 class RandomWalking: public CarnivoreAction {
 private:
 	time_t lastChangeTime;
-	std::uniform_int_distribution<int> distribution1;
-	std::uniform_int_distribution<int> distribution2;
 
 public:
 	RandomWalking(Animal* animalPtr_);
