@@ -22,9 +22,10 @@
 #include <memory>
 
 /**
-This class provides interface for SDL systems. It holds all graphic, fonts for simulation.
-It has methods for drawing components of the simulation on the screen. This class implements
-the singleton design pattern.
+ *@class Graphics 
+ *This class provides interface for SDL systems. It holds all graphic, fonts for simulation.
+ *It has methods for drawing components of the simulation on the screen. This class implements
+ *the singleton design pattern.
 */
 class Graphics
 {
