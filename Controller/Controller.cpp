@@ -7,29 +7,35 @@
 #include "../Exception/GameOfLifeException.h"
 #include <random>
 
+const int Controller::CAMERA_STEP = 20;
+const double Controller::SCALE_DELTA = 0.02;
+const std::string Controller::SETTINGS_PATH = "settings.txt";
+const int Controller::FRAMES_COUNT_TO_UPDATE = 10;
 
-Controller::Controller()
+Controller::Controller(Model* model, View* view)
 {
+	if (model == nullptr || view == nullptr)
+	{
+		throw InitalizingControllerException();
+	}
+
 	gamePaused_ = false;
 	drawHelp_ = false;
-	verticalCameraMovement_=horizontalCameraMovement_=0;
+	framesSinceUpdatingStatuses_ = 0;
+	verticalCameraMovement_= horizontalCameraMovement_=0;
 	speedModifier_ = FIXED;
 	scaleDelta_ = 0;
-}
-
-void Controller::getModel(Model* model)
-{
+	
 	model_ = model;
-	loadSettings("settings.txt");
+	loadSettings(SETTINGS_PATH);
 
 	Parameters::adultWidth = 40;
 	Parameters::adultHeigth = 40;
 
-}
-void Controller::getView(View* view)
-{
 	view_ = view;
 }
+
+
 
 void Controller::handleEvent(const SDL_Event & e)
 {
@@ -45,19 +51,19 @@ void Controller::handleEvent(const SDL_Event & e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_LEFT:
-			horizontalCameraMovement_ = -step;
+			horizontalCameraMovement_ = -CAMERA_STEP;
 			break;
 		case SDLK_RIGHT:
-			horizontalCameraMovement_ = step;
+			horizontalCameraMovement_ = CAMERA_STEP;
 			break;
 		case SDLK_UP:
-			verticalCameraMovement_ = -step;
+			verticalCameraMovement_ = -CAMERA_STEP;
 			break;
 		case SDLK_DOWN:
-			verticalCameraMovement_ = step;
+			verticalCameraMovement_ = CAMERA_STEP;
 			break;
 		case SDLK_w:
-			scaleDelta_ = 0.02*view_->getScale();
+			scaleDelta_ = SCALE_DELTA*view_->getScale();
 			break;
 		case SDLK_a:
 			speedModifier_ = SLOWER;
@@ -66,7 +72,7 @@ void Controller::handleEvent(const SDL_Event & e)
 			speedModifier_ = FASTER;
 			break;
 		case SDLK_s:
-			scaleDelta_ = -0.02*view_->getScale();
+			scaleDelta_ = -SCALE_DELTA*view_->getScale();
 			break;
 		case SDLK_p:
 			gamePaused_ = !gamePaused_;
@@ -108,13 +114,7 @@ void Controller::handleEvent(const SDL_Event & e)
 	}
 }
 
-void Controller::handleEvent(const TimeEvent&)
-{
-	if (gamePaused_ == false)
-	{
-		model_->updateAnimalsStatuses();
-	}
-}
+
 
 void Controller::update()
 {
@@ -131,6 +131,12 @@ void Controller::update()
 	if (gamePaused_ == false)
 	{
 		model_->updateAnimalsPosition();
+		++framesSinceUpdatingStatuses_;
+		if (framesSinceUpdatingStatuses_ >= FRAMES_COUNT_TO_UPDATE)
+		{
+			model_->updateAnimalsStatuses();
+			framesSinceUpdatingStatuses_ = 0;
+		}
 	}
 	
 

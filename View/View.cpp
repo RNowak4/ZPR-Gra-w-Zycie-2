@@ -1,6 +1,5 @@
 /**
-*@file View.cpp
-* POZDROWIENIA DLA RADKA
+Definitions of View methods.
 *@author Damian Mazurkiewicz
 */
 
@@ -8,18 +7,19 @@
 #include "View.h"
 #include  "../Model/Model.h"
 #include "../Model/Constants.h"
-#include "../Model/Parameters.h"
-#include "TimeEvent.h"
 #include "../Controller/Controller.h"
-#include "Graphics.h"
-#include <algorithm>
-#include <memory>
+#include "../Exception/GameOfLifeException.h"
 
 const int View::SCREEN_WIDTH = 800;
 const int View::SCREEN_HEIGHT = 600;
 const int View::FPS = 50;
 const double View::FRAME_TIME = 1.0 / FPS;
-const int View::FRAMES_COUNT_TO_UPDATE = 10;
+const int View::DEFAULT_LINE_HEIGHT = 13;
+const int View::HELP_LINE_HEIGHT = 20;
+const int View::MARGIN_SIZE = 5;
+const int View::DESCRIPTION_FRAME_WIDTH = 150;
+const int View::HELP_FRAME_WIDTH = 550;
+
 const std::vector<std::string> View::HELP = { "\"Game of Life\" help:",
 									 "*Click on the creature to see its view range and parameters.",
 									 "*Press [UP],[DOWN],[LEFT],[RIGHT] to move camera on the map.",
@@ -28,6 +28,7 @@ const std::vector<std::string> View::HELP = { "\"Game of Life\" help:",
 									 "*Press [P] to pause simulation.",
 									 "*Press [H] to exit help menu.",
 									 "*Press [Esc] to end simulation."};
+
 auto getGraphics = Graphics::getInstance;
 
 View::View() : controller_(nullptr), event_(), quit_(false)
@@ -40,43 +41,50 @@ View::View() : controller_(nullptr), event_(), quit_(false)
 
 void View::drawCreature(const LocationData& data)
 {
+	/*Choose proper texture to draw, basing on animal type.*/
 	Graphics::TextureID texId;
 	if (data.animalType_ == HERBIVORE)
 	{
-		if (data.animalSex_== MALE)
+		if (data.animalSex_ == MALE)
+		{
 			texId = Graphics::HERBIVORE_GROWN_MALE;
+		}
 		else
+		{
 			texId = Graphics::HERBIVORE_GROWN_FEMALE;
+		}
 	}
 	else if (data.animalType_ == CARNIVORE)
 	{
 		if (data.animalSex_ == MALE)
+		{
 			texId = Graphics::CARNIVORE_GROWN_MALE;
+		}
 		else
+		{
 			texId = Graphics::CARNIVORE_GROWN_FEMALE;
+		}
 	}
 	else if (data.animalType_ == HERBIVORE_CHILD)
+	{
 		texId = Graphics::HERBIVORE_CHILD;
+	}
 	else
+	{
 		texId = Graphics::CARNIVORE_CHILD;
+	}
 
 	getGraphics().draw(camera_, getGraphics().get(texId), 
-					   static_cast<int>(data.coordinates_.x),static_cast<int>(data.coordinates_.y),true, data.lookingAngle);
-	
+					   static_cast<int>(data.coordinates_.x),
+					   static_cast<int>(data.coordinates_.y),
+					   true, data.lookingAngle);
 }
 
-void View::getController(Controller* controller)
-{
-	controller_ = controller;
-}
 
 void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalData*> & data)
 {
 	drawEyeshot(*data.first);
 
-	int margin = 5;
-	int lineHeight = 13;
-	
 	int x = static_cast<int>(data.first->coordinates_.x); 
 	int y = static_cast<int>(data.first->coordinates_.y);
 
@@ -86,12 +94,12 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	auto vec1 = &data.second->returnPairVector();
 	auto vec2 = &data.second->returnStringVector();
 	
-
+	/*Calculating the position of the frame with creature description.*/
 	SDL_Rect frame	{ 
 					  x + Parameters::adultWidth / 2,
 					  y - Parameters::adultHeigth / 2,
-					  150,
-					  2 * margin + (1+vec1->size() + vec2->size())* lineHeight
+					  DESCRIPTION_FRAME_WIDTH,
+					  2 * MARGIN_SIZE + (1+vec1->size() + vec2->size())* DEFAULT_LINE_HEIGHT
 					};
 	if (frame.x +frame.w > Parameters::mapWidth)
 	{
@@ -111,32 +119,34 @@ void View::drawCreatureInfo(const std::pair<const LocationData*, const AnimalDat
 	}
 
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
+
 	SDL_Color col{ 0, 0, 0, 0 };
-	
-	
 	int lineCount = 0;
 	std::stringstream ss;
 
+	/*Write current action.*/
 	getGraphics().renderText(camera_, font, action,
-		getGraphics().getScaledPosition(frame.x + margin, camera_.x),
-		getGraphics().getScaledPosition(frame.y, camera_.y) + margin + lineCount* lineHeight,
+		getGraphics().getScaledPosition(frame.x + MARGIN_SIZE, camera_.x),
+		getGraphics().getScaledPosition(frame.y, camera_.y) + MARGIN_SIZE + lineCount* DEFAULT_LINE_HEIGHT,
 		col);
 	++lineCount;
 	
+	/*Write creature factors.*/
 	for (auto i = vec1->begin(); i != vec1->end(); ++i, ++lineCount)
 	{
 		ss <<(*i).first << " : " << (*i).second;
 		getGraphics().renderText(camera_, font, ss.str(), 
-		    getGraphics().getScaledPosition(frame.x+margin,camera_.x),
-			getGraphics().getScaledPosition(frame.y, camera_.y) +margin +lineCount* lineHeight,
+			getGraphics().getScaledPosition(frame.x + MARGIN_SIZE, camera_.x),
+			getGraphics().getScaledPosition(frame.y, camera_.y) + MARGIN_SIZE + lineCount* DEFAULT_LINE_HEIGHT,
 			col);
 		ss.str("");
 	}
+	/*Write creature states.*/
 	for (auto i = vec2->begin(); i != vec2->end(); ++i, ++lineCount)
 	{
 		getGraphics().renderText(camera_, font, (*i),
-			getGraphics().getScaledPosition(frame.x + margin, camera_.x),
-			getGraphics().getScaledPosition(frame.y, camera_.y) +margin+ lineCount* lineHeight,
+			getGraphics().getScaledPosition(frame.x + MARGIN_SIZE, camera_.x),
+			getGraphics().getScaledPosition(frame.y, camera_.y) + MARGIN_SIZE + lineCount* DEFAULT_LINE_HEIGHT,
 			col);
 	}
 }
@@ -149,7 +159,7 @@ void View::drawBackground()
 
 	SDL_QueryTexture(tex.get(), nullptr, nullptr, &backgrWidth, &backgrHeight);
 
-	for (int i = 0; i < Parameters::mapWidth; i += backgrWidth -8)
+	for (int i = 0; i < Parameters::mapWidth; i += backgrWidth-8)
 	{
 		for (int j = 0; j < Parameters::mapHeight; j += backgrHeight-8)
 		{
@@ -158,52 +168,44 @@ void View::drawBackground()
 	}
 }
 
-void View::run()
+void View::run(Controller* controller)
 {
-
-	using namespace std::chrono;
+	if (controller == nullptr)
+	{
+		throw InitalizingViewException();
+	}
+	controller_ = controller;
 	
-	//Time points for time measuring
-	high_resolution_clock::time_point second = high_resolution_clock::now();
+	/*To maintain constant number of FPS.*/
+	using namespace std::chrono;
 	high_resolution_clock::time_point frame = high_resolution_clock::now();
 	duration<double> time_span;
-
-	int fpsCounter = 0;
 
 	quit_ = false;
 
 	getGraphics().setWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-
-	
-	//Main loop of program
+	/*Main loop of program.*/
 	while (!quit_)
 	{
-		//Measuring time of new frame. 
+		/*Measuring time of new frame.*/ 
 		frame = high_resolution_clock::now();
-		getGraphics().clearScreen(); //Clear screen.
 
-		//Sending input from user to conroller to handle it.
+		getGraphics().clearScreen(); 
+
+		/*Sending input from user to conroller to handle it.*/
 		while (SDL_PollEvent(&event_) != 0)
 		{
 			controller_->handleEvent(event_);
 		}
 
 		drawBackground();
-
-		
-		++fpsCounter;
-		if (fpsCounter = FRAMES_COUNT_TO_UPDATE)
-		{
-			controller_->handleEvent(TimeEvent());
-		}
-
 		controller_->update();
 		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), "PRESS H FOR HELP", camera_.x, camera_.y, SDL_Color{ 0xff, 0xff, 0, 0 });
 		
-		getGraphics().renderScreen(); // Render screen.
+		getGraphics().renderScreen(); 
 
-		//We keep the frames per second at relatively fixed amount. 
+		/*Keep the frames per second number at relatively fixed amount. */
 		time_span = duration_cast<duration<double>>(high_resolution_clock::now() - frame);
 		if (time_span.count()< FRAME_TIME)
 			SDL_Delay(static_cast<Uint32>((FRAME_TIME - time_span.count()) * 1000));
@@ -217,14 +219,13 @@ void View::quit()
 	quit_ = true;
 }
 
-void View::moveCamera(int x, int y)
+void View::moveCamera(int dx, int dy)
 {
-	camera_.x += x;
-	camera_.y += y;
-
+	camera_.x += dx;
+	camera_.y += dy;
 }
 
-const SDL_Rect & View::getCamera()
+const SDL_Rect& View::getCamera()
 {
 	return camera_;
 }
@@ -249,7 +250,6 @@ void View::drawEyeshot(const LocationData & dat)
 
 	SDL_Color col{ 0xff, 0, 0, 0 };
 	
-	
 	for (double angle = angleA; angle <= angleB; angle+=(toRadians/2))
 	{
 		getGraphics().drawPoint(camera_,
@@ -268,18 +268,18 @@ void View::drawEyeshot(const LocationData & dat)
 
 void View::drawHelp()
 {
-	int margin = 5;
-	int lineHeight = 20;
-	int frameWidth = 550;
-	SDL_Rect frame{ camera_.x + (SCREEN_WIDTH - frameWidth) / (2 * getGraphics().getScale()),
-		camera_.y + 30/getGraphics().getScale(),
-		frameWidth, lineHeight*HELP.size() + 2 * margin };
+	/*Calculating position of help frame on the screen.*/
+	SDL_Rect frame{ camera_.x + (SCREEN_WIDTH - HELP_FRAME_WIDTH) / (2 * getGraphics().getScale()),
+					camera_.y + 30/getGraphics().getScale(),
+					HELP_FRAME_WIDTH, 
+					HELP_LINE_HEIGHT*HELP.size() + 2*MARGIN_SIZE };
+
 	getGraphics().drawFrame(camera_, frame, getGraphics().get(Graphics::FRAME_BACKGROUND));
 	for (unsigned i = 0; i < HELP.size(); ++i)
 	{
 		getGraphics().renderText(camera_, getGraphics().get(Graphics::HELP_FONT), HELP[i],
-			getGraphics().getScaledPosition(frame.x, camera_.x) +margin,
-			getGraphics().getScaledPosition(frame.y, camera_.y) +margin + i* lineHeight, SDL_Color{ 0, 0, 0, 0 });
+			getGraphics().getScaledPosition(frame.x, camera_.x) + MARGIN_SIZE,
+			getGraphics().getScaledPosition(frame.y, camera_.y) + MARGIN_SIZE + i* HELP_LINE_HEIGHT, SDL_Color{ 0, 0, 0, 0 });
 	}
 }
 

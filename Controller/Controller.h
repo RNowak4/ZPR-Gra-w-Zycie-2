@@ -28,24 +28,26 @@ draw.
 class Controller
 {
 public:
-	void getModel(Model* model);
-	void getView(View* view);
-	Controller();
+
+	const static int CAMERA_STEP;
+	const static double SCALE_DELTA;
+	const static std::string SETTINGS_PATH;
+	static const int FRAMES_COUNT_TO_UPDATE; /**/
+
+	/**
+	*/
+	Controller(Model* model, View* view);
 	/**
 	This funtion takes SDL_Event captured by View, and takes proper action depending on the event.
 	*/
 	void handleEvent(const SDL_Event&);
 
-	/**
-	This function takes TimeEvent, which notifies Controller about passing the required time to update
-	creatures parameters.
-	*/
-	void handleEvent(const TimeEvent&);
 
 	/**Update Model and refresh View.*/
 	void update();
 
 private:
+	int framesSinceUpdatingStatuses_;
 	bool gamePaused_; ///<When game is paused, model is not updated.
 	bool drawHelp_;	///<When true, frame with help information is shown on the screen.
 	int verticalCameraMovement_;

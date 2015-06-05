@@ -15,6 +15,22 @@ struct InitializingSdlSystemsException : public GameOfLifeException
 	}
 };
 
+struct InitalizingControllerException : public GameOfLifeException
+{
+	virtual const char* what() const throw()
+	{
+		return "Unabled to initialize Controller.";
+	}
+};
+
+struct InitalizingViewException : public GameOfLifeException
+{
+	virtual const char* what() const throw()
+	{
+		return "Unabled to initialize View.";
+	}
+};
+
 struct LoadingMediaException : public GameOfLifeException
 {
 	virtual const char* what() const throw()

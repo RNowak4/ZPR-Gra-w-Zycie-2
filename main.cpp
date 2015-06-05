@@ -3,27 +3,17 @@
 #include "View/View.h"
 #include "View/Graphics.h"
 #include "Exception/GameOfLifeException.h"
-
-/* Do implementacji w Controllerze:
- * 
- */
-
-/* Do implementacji w Modelu:
- * 
- */
+#include <iostream>
 
 int main(int argc, char** argv) {
 	
 	try{
+
 		Model model;
-		Controller controller;
 		View view;
+		Controller controller(&model,&view);
 
-		view.getController(&controller);
-		controller.getView(&view);
-		controller.getModel(&model);
-
-		view.run();
+		view.run(&controller);
 	}
 	catch (InitializingSdlSystemsException& e)
 	{

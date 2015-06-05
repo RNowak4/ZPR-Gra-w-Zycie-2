@@ -115,7 +115,6 @@
     <ClInclude Include="..\..\..\View\Assets.h" />
     <ClInclude Include="..\..\..\View\Graphics.h" />
     <ClInclude Include="..\..\..\View\SdlHelper.h" />
-    <ClInclude Include="..\..\..\View\TimeEvent.h" />
     <ClInclude Include="..\..\..\View\View.h" />
   </ItemGroup>
   <ItemGroup>
@@ -143,24 +142,19 @@
     <ClCompile Include="..\..\..\Model\Actions\LookingForPartner.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\RandomWalking.cpp" />
     <ClCompile Include="..\..\..\Model\Actions\Sleeping.cpp" />
-    <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp" />
     <ClCompile Include="..\..\..\Model\Animal.cpp" />
     <ClCompile Include="..\..\..\Model\AnimalData.cpp" />
-    <ClCompile Include="..\..\..\Model\AnimalViewParameters.cpp" />
     <ClCompile Include="..\..\..\Model\Attributes.cpp" />
     <ClCompile Include="..\..\..\Model\Carnivore.cpp" />
     <ClCompile Include="..\..\..\Model\Constants.cpp" />
     <ClCompile Include="..\..\..\Model\Herbivore.cpp" />
     <ClCompile Include="..\..\..\Model\Model.cpp" />
-    <ClCompile Include="..\..\..\Model\Modifiers.cpp" />
     <ClCompile Include="..\..\..\Model\Parameters.cpp" />
     <ClCompile Include="..\..\..\Model\States\Childhood.cpp" />
     <ClCompile Include="..\..\..\Model\States\Illness.cpp" />
     <ClCompile Include="..\..\..\Model\States\Mother.cpp" />
     <ClCompile Include="..\..\..\Model\States\State.cpp" />
-    <ClCompile Include="..\..\..\View\Assets.cpp" />
     <ClCompile Include="..\..\..\View\Graphics.cpp" />
-    <ClCompile Include="..\..\..\View\SdlHelper.cpp" />
     <ClCompile Include="..\..\..\View\View.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
