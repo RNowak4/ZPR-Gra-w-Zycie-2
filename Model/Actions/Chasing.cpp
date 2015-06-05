@@ -58,14 +58,11 @@ void Chasing::performAction() {
 				if (animalPtr->returnEatNeed() < 0.0)
 					animalPtr->returnEatNeed() = 0.0;
 			} else {
-				/*if(animalToFollowPtr->returnLocationData()->animalType_ == CARNIVORE) {
-					animalPtr->markToKill();
-				}
-				else {
-					animalToFollowPtr = nullptr;
-				}*/
-				//TODO wybrac jedna z tych metod
+				// we are marking an animal to be killed soon to avoid seg fault error.
 				animalPtr->markToKill();
+				if (animalPtr->returnLocationData()->animalType_ == CARNIVORE)
+					// if you fight with a sword you can die by a sword
+					animalToFollowPtr->returnEatNeed() -= 4.0;
 			}
 		}
 	}
