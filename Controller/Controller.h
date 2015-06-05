@@ -1,5 +1,5 @@
 /**
-@file Controller.cpp
+@file Controller.h
 @brief File contains Controller class.
 @author Damian Mazurkiewicz
 */
