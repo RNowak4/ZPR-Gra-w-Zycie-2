@@ -32,7 +32,6 @@ public:
 	const static int CAMERA_STEP; /**<Movement (in pixels) of camera in one frame.*/
 	const static double SCALE_DELTA; /**<Scale change in one frame. */
 	const static std::string SETTINGS_PATH; /**< Where is settings file.*/
-	static const int FRAMES_COUNT_TO_UPDATE; /**<How often model should update animal statuses.*/
 
 	/**
 	Initialize Controller obiect, load settings from file.
@@ -52,7 +51,6 @@ public:
 	void update();
 
 private:
-	int framesSinceUpdatingStatuses_;
 	bool gamePaused_; ///<When game is paused, model is not updated.
 	bool drawHelp_;	///<When true, frame with help information is shown on the screen.
 	int verticalCameraMovement_;

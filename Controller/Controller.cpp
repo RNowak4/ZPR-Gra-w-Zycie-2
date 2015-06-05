@@ -14,12 +14,10 @@ Implementation of Controller methods/
 const int Controller::CAMERA_STEP = 20;
 const double Controller::SCALE_DELTA = 0.02;
 const std::string Controller::SETTINGS_PATH = "settings.txt";
-const int Controller::FRAMES_COUNT_TO_UPDATE = 10;
 
 Controller::Controller(Model* model, View* view) : 
 gamePaused_(false),
 drawHelp_(false),
-framesSinceUpdatingStatuses_(0),
 verticalCameraMovement_(0),
 horizontalCameraMovement_(0),
 speedModifier_(FIXED),
@@ -140,13 +138,7 @@ void Controller::update()
 	/*Updating Model.*/
 	if (gamePaused_ == false)
 	{
-		model_->updateAnimalsPosition();
-		++framesSinceUpdatingStatuses_;
-		if (framesSinceUpdatingStatuses_ >= FRAMES_COUNT_TO_UPDATE)
-		{
 			model_->updateAnimalsStatuses();
-			framesSinceUpdatingStatuses_ = 0;
-		}
 	}
 	
 	/*Refreshing View.*/
