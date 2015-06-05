@@ -153,8 +153,13 @@ public:
 	 */
 	AnimalData* getAnimalData();
 
-	void setAction(ActionPtr actionPtr) {
-		currentAction = actionPtr;
+	/**
+	*@function setAction
+	*@brief 	Sets action to current animal.
+	*@argument action_ptr - shared pointer to new action.
+	*/
+	void setAction(ActionPtr action_ptr) {
+		currentAction = action_ptr;
 	}
 
 	/**
