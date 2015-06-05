@@ -1,0 +1,111 @@
+\hypertarget{class_state}{}\section{State Class Reference}
+\label{class_state}\index{State@{State}}
+Inheritance diagram for State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_state_ab91bb1dd5aa6260ab2a456581daf9ec2}{State} ()
+\begin{DoxyCompactList}\small\item\em Default \hyperlink{class_state}{State} class constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_state_ada7fbeef8c2d2d745693ff78ae02f47f}{State} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Default \hyperlink{class_state}{State} class constructor  animal\+\_\+ptr -\/ pointer to animals, which has that state. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_state_a9ddc1df6f998184d6477b48fab90281c}{$\sim$\+State} ()
+\begin{DoxyCompactList}\small\item\em Destructor is used to undone changes in animal\textquotesingle{}s attributes. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_state_afabc279037b4526ec161e6f8988855a9}{to\+String} ()=0
+\begin{DoxyCompactList}\small\item\em Function returns name of current state as string variable. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_state_a049e4e2c7902faf26c7ac5f24f18fccb}{is\+That\+Me} (string state\+\_\+name)=0
+\begin{DoxyCompactList}\small\item\em Function boolean value due to being state which we ask for.  state\+\_\+name -\/ name of state. \end{DoxyCompactList}\item 
+\hypertarget{class_state_ada2495a9b5e28528e60d876aeef554b4}{}virtual void {\bfseries delete\+Animal} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)=0\label{class_state_ada2495a9b5e28528e60d876aeef554b4}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_state_a85c79cfc2aa0d4150de1181e4c41c8ef}{}\hyperlink{class_animal}{Animal} $\ast$ {\bfseries animal\+Ptr}\label{class_state_a85c79cfc2aa0d4150de1181e4c41c8ef}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_state_ab91bb1dd5aa6260ab2a456581daf9ec2}{}\index{State@{State}!State@{State}}
+\index{State@{State}!State@{State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}State\+::\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_state_ab91bb1dd5aa6260ab2a456581daf9ec2}
+
+
+Default \hyperlink{class_state}{State} class constructor. 
+
+\hyperlink{class_state}{State} \hypertarget{class_state_ada7fbeef8c2d2d745693ff78ae02f47f}{}\index{State@{State}!State@{State}}
+\index{State@{State}!State@{State}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}State\+::\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_state_ada7fbeef8c2d2d745693ff78ae02f47f}
+
+
+Default \hyperlink{class_state}{State} class constructor  animal\+\_\+ptr -\/ pointer to animals, which has that state. 
+
+\hyperlink{class_state}{State} \hypertarget{class_state_a9ddc1df6f998184d6477b48fab90281c}{}\index{State@{State}!````~State@{$\sim$\+State}}
+\index{````~State@{$\sim$\+State}!State@{State}}
+\subsubsection[{$\sim$\+State}]{\setlength{\rightskip}{0pt plus 5cm}virtual State\+::$\sim$\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_state_a9ddc1df6f998184d6477b48fab90281c}
+
+
+Destructor is used to undone changes in animal\textquotesingle{}s attributes. 
+
+$\sim$\+State 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_state_a049e4e2c7902faf26c7ac5f24f18fccb}{}\index{State@{State}!is\+That\+Me@{is\+That\+Me}}
+\index{is\+That\+Me@{is\+That\+Me}!State@{State}}
+\subsubsection[{is\+That\+Me}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool State\+::is\+That\+Me (
+\begin{DoxyParamCaption}
+\item[{string}]{state\+\_\+name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_state_a049e4e2c7902faf26c7ac5f24f18fccb}
+
+
+Function boolean value due to being state which we ask for.  state\+\_\+name -\/ name of state. 
+
+is\+That\+Me \begin{DoxyReturn}{Returns}
+boolean value 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_childhood_ad94f07e6803c6bdbd6ee752e6eef9019}{Childhood}, \hyperlink{class_mother_ac5a9fcd972ae6ef6fab71038d8ab3939}{Mother}, and \hyperlink{class_illness_a06f776b529209a716600688a8b4b7f62}{Illness}.
+
+\hypertarget{class_state_afabc279037b4526ec161e6f8988855a9}{}\index{State@{State}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!State@{State}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}virtual string State\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_state_afabc279037b4526ec161e6f8988855a9}
+
+
+Function returns name of current state as string variable. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string name of state. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_childhood_af7cb046d34104c1f8eabf20f2c35321e}{Childhood}, \hyperlink{class_mother_a47c6ce820d67f3dc4d40ac39c495ef62}{Mother}, and \hyperlink{class_illness_a912faaaf9f062c74bf9daeddc0c14e03}{Illness}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+States/\hyperlink{_state_8h}{State.\+h}\item 
+Model/\+States/\hyperlink{_state_8cpp}{State.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\hypertarget{class_follow_mother}{}\section{Follow\+Mother Class Reference}
+\label{class_follow_mother}\index{Follow\+Mother@{Follow\+Mother}}
+Inheritance diagram for Follow\+Mother\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_follow_mother}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_follow_mother_a0399072d549eafc52c0a738fe79a7b3e}{}{\bfseries Follow\+Mother} (\hyperlink{class_animal}{Animal} $\ast$, \hyperlink{class_animal}{Animal} $\ast$)\label{class_follow_mother_a0399072d549eafc52c0a738fe79a7b3e}
+
+\item 
+virtual void \hyperlink{class_follow_mother_ace13e303253ad224eb4ddb1f1f0c800d}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+virtual \hyperlink{class_action}{Action} $\ast$ \hyperlink{class_follow_mother_aef94bc17f41a2873b6d2843054882617}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_follow_mother_a0edf307dfd83b18c3817667f2d2af670}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_follow_mother_a90e915d9987b55223b7c0b8ebf99b4da}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_follow_mother_aef94bc17f41a2873b6d2843054882617}{}\index{Follow\+Mother@{Follow\+Mother}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Follow\+Mother@{Follow\+Mother}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Follow\+Mother\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_follow_mother_aef94bc17f41a2873b6d2843054882617}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_a07c04b7ca874308f2209050998f1643d}{Child\+Action}.
+
+\hypertarget{class_follow_mother_a0edf307dfd83b18c3817667f2d2af670}{}\index{Follow\+Mother@{Follow\+Mother}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Follow\+Mother@{Follow\+Mother}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Follow\+Mother\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_follow_mother_a0edf307dfd83b18c3817667f2d2af670}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_child_action_a153a1578923e7e55687550e53fec21bc}{Child\+Action}.
+
+\hypertarget{class_follow_mother_ace13e303253ad224eb4ddb1f1f0c800d}{}\index{Follow\+Mother@{Follow\+Mother}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Follow\+Mother@{Follow\+Mother}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Follow\+Mother\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_follow_mother_ace13e303253ad224eb4ddb1f1f0c800d}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_child_action_a8b92e893b56c1741816149162c16d5be}{Child\+Action}.
+
+\hypertarget{class_follow_mother_a90e915d9987b55223b7c0b8ebf99b4da}{}\index{Follow\+Mother@{Follow\+Mother}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Follow\+Mother@{Follow\+Mother}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Follow\+Mother\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_follow_mother_a90e915d9987b55223b7c0b8ebf99b4da}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_ab079f9b34939cb040e129c7966222bbd}{Child\+Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_follow_mother_8h}{Follow\+Mother.\+h}\item 
+Model/\+Actions/\hyperlink{_follow_mother_8cpp}{Follow\+Mother.\+cpp}\end{DoxyCompactItemize}

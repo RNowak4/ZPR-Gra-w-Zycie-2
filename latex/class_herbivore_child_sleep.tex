@@ -1,0 +1,98 @@
+\hypertarget{class_herbivore_child_sleep}{}\section{Herbivore\+Child\+Sleep Class Reference}
+\label{class_herbivore_child_sleep}\index{Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}}
+Inheritance diagram for Herbivore\+Child\+Sleep\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_herbivore_child_sleep}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_herbivore_child_sleep_a3572b60d249a2b4b0e50cc01f11db670}{}{\bfseries Herbivore\+Child\+Sleep} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$mother\+\_\+ptr)\label{class_herbivore_child_sleep_a3572b60d249a2b4b0e50cc01f11db670}
+
+\item 
+void \hyperlink{class_herbivore_child_sleep_afeffdc6f6dc5e18a63554b5f0bcb939b}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_herbivore_child_sleep_aad20bdafd64ddb56a99d810953de76aa}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_herbivore_child_sleep_ac6c2c78f023c552cf90076f179256d5a}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_herbivore_child_sleep_a64f782ef578f2f97342819d25c96a410}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_herbivore_child_sleep_aad20bdafd64ddb56a99d810953de76aa}{}\index{Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Herbivore\+Child\+Sleep\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_herbivore_child_sleep_aad20bdafd64ddb56a99d810953de76aa}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_a07c04b7ca874308f2209050998f1643d}{Child\+Action}.
+
+\hypertarget{class_herbivore_child_sleep_ac6c2c78f023c552cf90076f179256d5a}{}\index{Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Herbivore\+Child\+Sleep\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_herbivore_child_sleep_ac6c2c78f023c552cf90076f179256d5a}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_child_action_a153a1578923e7e55687550e53fec21bc}{Child\+Action}.
+
+\hypertarget{class_herbivore_child_sleep_afeffdc6f6dc5e18a63554b5f0bcb939b}{}\index{Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Herbivore\+Child\+Sleep\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_herbivore_child_sleep_afeffdc6f6dc5e18a63554b5f0bcb939b}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_child_action_a8b92e893b56c1741816149162c16d5be}{Child\+Action}.
+
+\hypertarget{class_herbivore_child_sleep_a64f782ef578f2f97342819d25c96a410}{}\index{Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Herbivore\+Child\+Sleep@{Herbivore\+Child\+Sleep}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Herbivore\+Child\+Sleep\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_herbivore_child_sleep_a64f782ef578f2f97342819d25c96a410}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_ab079f9b34939cb040e129c7966222bbd}{Child\+Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_herbivore_child_sleep_8h}{Herbivore\+Child\+Sleep.\+h}\item 
+Model/\+Actions/\hyperlink{_herbivore_child_sleep_8cpp}{Herbivore\+Child\+Sleep.\+cpp}\end{DoxyCompactItemize}

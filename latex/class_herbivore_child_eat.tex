@@ -1,0 +1,98 @@
+\hypertarget{class_herbivore_child_eat}{}\section{Herbivore\+Child\+Eat Class Reference}
+\label{class_herbivore_child_eat}\index{Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}}
+Inheritance diagram for Herbivore\+Child\+Eat\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_herbivore_child_eat}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_herbivore_child_eat_aa672db4e7c4e5a84e643f8393bd0d563}{}{\bfseries Herbivore\+Child\+Eat} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$mother\+\_\+ptr)\label{class_herbivore_child_eat_aa672db4e7c4e5a84e643f8393bd0d563}
+
+\item 
+void \hyperlink{class_herbivore_child_eat_ab587b1aacdfbf5301d516d189352176f}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_herbivore_child_eat_ae5349588055015e12ce6c384937b4354}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_herbivore_child_eat_adbe55d5ca2279f1b45d7816368f9a84d}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_herbivore_child_eat_a2ec22a4f5f382612e478e198fc8347ff}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_herbivore_child_eat_ae5349588055015e12ce6c384937b4354}{}\index{Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Herbivore\+Child\+Eat\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_herbivore_child_eat_ae5349588055015e12ce6c384937b4354}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_a07c04b7ca874308f2209050998f1643d}{Child\+Action}.
+
+\hypertarget{class_herbivore_child_eat_adbe55d5ca2279f1b45d7816368f9a84d}{}\index{Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Herbivore\+Child\+Eat\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_herbivore_child_eat_adbe55d5ca2279f1b45d7816368f9a84d}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_child_action_a153a1578923e7e55687550e53fec21bc}{Child\+Action}.
+
+\hypertarget{class_herbivore_child_eat_ab587b1aacdfbf5301d516d189352176f}{}\index{Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Herbivore\+Child\+Eat\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_herbivore_child_eat_ab587b1aacdfbf5301d516d189352176f}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_child_action_a8b92e893b56c1741816149162c16d5be}{Child\+Action}.
+
+\hypertarget{class_herbivore_child_eat_a2ec22a4f5f382612e478e198fc8347ff}{}\index{Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Herbivore\+Child\+Eat@{Herbivore\+Child\+Eat}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Herbivore\+Child\+Eat\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_herbivore_child_eat_a2ec22a4f5f382612e478e198fc8347ff}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_ab079f9b34939cb040e129c7966222bbd}{Child\+Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_herbivore_child_eat_8h}{Herbivore\+Child\+Eat.\+h}\item 
+Model/\+Actions/\hyperlink{_herbivore_child_eat_8cpp}{Herbivore\+Child\+Eat.\+cpp}\end{DoxyCompactItemize}

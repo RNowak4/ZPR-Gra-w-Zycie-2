@@ -1,0 +1,98 @@
+\hypertarget{class_copulation}{}\section{Copulation Class Reference}
+\label{class_copulation}\index{Copulation@{Copulation}}
+Inheritance diagram for Copulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_copulation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_copulation_a2260fde409e5e713ba90b6cedc2c1769}{}{\bfseries Copulation} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$animal\+\_\+to\+\_\+follow)\label{class_copulation_a2260fde409e5e713ba90b6cedc2c1769}
+
+\item 
+void \hyperlink{class_copulation_ae84cabc1a26df3f94032b6f1df3ff5b9}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_copulation_af3fa52c2093c2f88d0fbaba9ea0209b7}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_copulation_aa13219c19de17875ba71411b1a38f2cc}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_copulation_a111bbe080ab451f6fa070345281b76ee}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_copulation_af3fa52c2093c2f88d0fbaba9ea0209b7}{}\index{Copulation@{Copulation}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Copulation@{Copulation}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Copulation\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_copulation_af3fa52c2093c2f88d0fbaba9ea0209b7}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{Action}.
+
+\hypertarget{class_copulation_aa13219c19de17875ba71411b1a38f2cc}{}\index{Copulation@{Copulation}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Copulation@{Copulation}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Copulation\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_copulation_aa13219c19de17875ba71411b1a38f2cc}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{Action}.
+
+\hypertarget{class_copulation_ae84cabc1a26df3f94032b6f1df3ff5b9}{}\index{Copulation@{Copulation}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Copulation@{Copulation}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Copulation\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_copulation_ae84cabc1a26df3f94032b6f1df3ff5b9}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{Action}.
+
+\hypertarget{class_copulation_a111bbe080ab451f6fa070345281b76ee}{}\index{Copulation@{Copulation}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Copulation@{Copulation}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Copulation\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_copulation_a111bbe080ab451f6fa070345281b76ee}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_copulation_8h}{Copulation.\+h}\item 
+Model/\+Actions/\hyperlink{_copulation_8cpp}{Copulation.\+cpp}\end{DoxyCompactItemize}

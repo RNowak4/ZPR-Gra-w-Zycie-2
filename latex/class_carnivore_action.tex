@@ -1,0 +1,114 @@
+\hypertarget{class_carnivore_action}{}\section{Carnivore\+Action Class Reference}
+\label{class_carnivore_action}\index{Carnivore\+Action@{Carnivore\+Action}}
+Inheritance diagram for Carnivore\+Action\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_carnivore_action}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_carnivore_action_a0d83784d9df308959871ade0908f07dd}{}{\bfseries Carnivore\+Action} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)\label{class_carnivore_action_a0d83784d9df308959871ade0908f07dd}
+
+\item 
+virtual void \hyperlink{class_carnivore_action_ae396f2f07131c21813e7986be130438e}{perform\+Action} ()=0
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+virtual \hyperlink{class_action}{Action} $\ast$ \hyperlink{class_carnivore_action_ae16f836240641508899939c33f9dffd7}{choose\+Next\+Action} ()=0
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_carnivore_action_aedd1918537fb9cf3172ec86cbab062af}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)=0
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_carnivore_action_a2c955f0de63b624b23d15e913060bf2a}{to\+String} ()=0
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_carnivore_action_ae16f836240641508899939c33f9dffd7}{}\index{Carnivore\+Action@{Carnivore\+Action}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Carnivore\+Action@{Carnivore\+Action}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Action}$\ast$ Carnivore\+Action\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_carnivore_action_ae16f836240641508899939c33f9dffd7}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{Action}.
+
+
+
+Implemented in \hyperlink{class_random_walking_a7bfc651d40fd17944ed8efcdf58e0559}{Random\+Walking}, \hyperlink{class_carnivore_random_walking_ac340cd2cebe482ce2e8a616b347dc9da}{Carnivore\+Random\+Walking}, \hyperlink{class_carnivore_sleeping_ad6783bd94c20821e9736d9f2f38934ab}{Carnivore\+Sleeping}, \hyperlink{class_looking_for_partner_abd76956136014399c37f8f62c0510795}{Looking\+For\+Partner}, and \hyperlink{class_herbivore_random_walking_aabb756e01d8d8a7f92ecaef6128a4a2c}{Herbivore\+Random\+Walking}.
+
+\hypertarget{class_carnivore_action_aedd1918537fb9cf3172ec86cbab062af}{}\index{Carnivore\+Action@{Carnivore\+Action}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Carnivore\+Action@{Carnivore\+Action}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Carnivore\+Action\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_carnivore_action_aedd1918537fb9cf3172ec86cbab062af}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{Action}.
+
+
+
+Implemented in \hyperlink{class_random_walking_af8be73eaa8ef5e21f0b127a32b34d4ad}{Random\+Walking}, and \hyperlink{class_carnivore_sleeping_ac4cb50b95fe030543e7a7de019c35383}{Carnivore\+Sleeping}.
+
+\hypertarget{class_carnivore_action_ae396f2f07131c21813e7986be130438e}{}\index{Carnivore\+Action@{Carnivore\+Action}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Carnivore\+Action@{Carnivore\+Action}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Carnivore\+Action\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_carnivore_action_ae396f2f07131c21813e7986be130438e}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{Action}.
+
+
+
+Implemented in \hyperlink{class_random_walking_a04a3fc96e180a6c0ab0af7d29e596082}{Random\+Walking}, and \hyperlink{class_carnivore_sleeping_a22f44ca1cde98236c29bd58089c2af18}{Carnivore\+Sleeping}.
+
+\hypertarget{class_carnivore_action_a2c955f0de63b624b23d15e913060bf2a}{}\index{Carnivore\+Action@{Carnivore\+Action}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Carnivore\+Action@{Carnivore\+Action}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Carnivore\+Action\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_carnivore_action_a2c955f0de63b624b23d15e913060bf2a}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{Action}.
+
+
+
+Implemented in \hyperlink{class_random_walking_a86f089cc5cc28d179e248c67477e8b30}{Random\+Walking}, \hyperlink{class_carnivore_random_walking_ae34e8070f9ac8826bb08141c43adcaf5}{Carnivore\+Random\+Walking}, \hyperlink{class_carnivore_sleeping_a2805a35db94114af285978b9820f0f18}{Carnivore\+Sleeping}, \hyperlink{class_looking_for_partner_a83ef295e8ae6ff29521e0225683bf0af}{Looking\+For\+Partner}, and \hyperlink{class_herbivore_random_walking_a27a17f1ee3d5df3103f3348523c4801a}{Herbivore\+Random\+Walking}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_carnivore_action_8h}{Carnivore\+Action.\+h}\item 
+Model/\+Actions/\hyperlink{_carnivore_action_8cpp}{Carnivore\+Action.\+cpp}\end{DoxyCompactItemize}

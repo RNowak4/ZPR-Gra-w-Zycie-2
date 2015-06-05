@@ -1,0 +1,171 @@
+\hypertarget{class_action}{}\section{Action Class Reference}
+\label{class_action}\index{Action@{Action}}
+Inheritance diagram for Action\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_action}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_action_abcd25a36fbb4261eb65221e4bccb8b0d}{Action} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{class_action}{Action} class -\/ sets animal\+Ptr and model\+Ptr values  animal\+\_\+ptr -\/ pointer to the \hyperlink{class_animal}{Animal}. \end{DoxyCompactList}\item 
+\hyperlink{class_action_a5deee4e1c042e7a6fe9962a6815a5dc4}{Action} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_model}{Model} $\ast$model\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{class_action}{Action} class -\/ sets animal\+Ptr and model\+Ptr values  animal\+\_\+ptr -\/ pointer to the \hyperlink{class_animal}{Animal}  model\+Ptr\+\_\+ -\/ pointer to the model. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_action_acdb06775d157339256a8ecd55749226c}{$\sim$\+Action} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_action}{Action} class -\/ cleans up it\textquotesingle{}s existence in the model. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{perform\+Action} ()=0
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+virtual \hyperlink{class_action}{Action} $\ast$ \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{choose\+Next\+Action} ()=0
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$animal\+Ptr\+\_\+)=0
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{to\+String} ()=0
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_action_a1561b27a20176b1f32ca6f2d5dd94869}{set\+Default\+Model} (\hyperlink{class_model}{Model} $\ast$model\+Ptr)
+\begin{DoxyCompactList}\small\item\em Function sets the default model for \hyperlink{class_action}{Action} class hierarchy  model\+Ptr -\/ pointer to a default model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_action_a37711c4920bfbf5ccf7a82e6165e6cf2}{}\hyperlink{class_animal}{Animal} $\ast$ {\bfseries animal\+Ptr}\label{class_action_a37711c4920bfbf5ccf7a82e6165e6cf2}
+
+\item 
+\hypertarget{class_action_a451d89d07a4cfe44be1fc52490907139}{}\hyperlink{class_model}{Model} $\ast$ {\bfseries model\+Ptr}\label{class_action_a451d89d07a4cfe44be1fc52490907139}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_action_a688c952ee1ee0b25927abd22deadcb4e}{}static \hyperlink{class_model}{Model} $\ast$ {\bfseries default\+Model\+Ptr}\label{class_action_a688c952ee1ee0b25927abd22deadcb4e}
+
+\item 
+\hypertarget{class_action_a7c00867d21a3269e9fda29c9de3cde66}{}static default\+\_\+random\+\_\+engine {\bfseries generator}\label{class_action_a7c00867d21a3269e9fda29c9de3cde66}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_action_abcd25a36fbb4261eb65221e4bccb8b0d}{}\index{Action@{Action}!Action@{Action}}
+\index{Action@{Action}!Action@{Action}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}Action\+::\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_action_abcd25a36fbb4261eb65221e4bccb8b0d}
+
+
+Constructor of \hyperlink{class_action}{Action} class -\/ sets animal\+Ptr and model\+Ptr values  animal\+\_\+ptr -\/ pointer to the \hyperlink{class_animal}{Animal}. 
+
+\hyperlink{class_action}{Action} \hypertarget{class_action_a5deee4e1c042e7a6fe9962a6815a5dc4}{}\index{Action@{Action}!Action@{Action}}
+\index{Action@{Action}!Action@{Action}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}Action\+::\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+ptr, }
+\item[{{\bf Model} $\ast$}]{model\+\_\+ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_action_a5deee4e1c042e7a6fe9962a6815a5dc4}
+
+
+Constructor of \hyperlink{class_action}{Action} class -\/ sets animal\+Ptr and model\+Ptr values  animal\+\_\+ptr -\/ pointer to the \hyperlink{class_animal}{Animal}  model\+Ptr\+\_\+ -\/ pointer to the model. 
+
+\hyperlink{class_action}{Action} \hypertarget{class_action_acdb06775d157339256a8ecd55749226c}{}\index{Action@{Action}!````~Action@{$\sim$\+Action}}
+\index{````~Action@{$\sim$\+Action}!Action@{Action}}
+\subsubsection[{$\sim$\+Action}]{\setlength{\rightskip}{0pt plus 5cm}Action\+::$\sim$\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_action_acdb06775d157339256a8ecd55749226c}
+
+
+Destructor of \hyperlink{class_action}{Action} class -\/ cleans up it\textquotesingle{}s existence in the model. 
+
+$\sim$\+Action 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{}\index{Action@{Action}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Action@{Action}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Action}$\ast$ Action\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_chasing_a2da36a5808c4ecdca22312ce3d68b651}{Chasing}, \hyperlink{class_hunting_a40b8bea137bb08979f6afd70a981cde0}{Hunting}, \hyperlink{class_feed_children_a22a9852c7ca1c0f0016872800b9f993a}{Feed\+Children}, \hyperlink{class_eating_aacfac2762df1da29e4555071e8720390}{Eating}, \hyperlink{class_follow_a32e0774402c8e8885bacb78aefd7abf8}{Follow}, \hyperlink{class_random_walking_a7bfc651d40fd17944ed8efcdf58e0559}{Random\+Walking}, \hyperlink{class_carnivore_random_walking_ac340cd2cebe482ce2e8a616b347dc9da}{Carnivore\+Random\+Walking}, \hyperlink{class_carnivore_sleeping_ad6783bd94c20821e9736d9f2f38934ab}{Carnivore\+Sleeping}, \hyperlink{class_child_action_a07c04b7ca874308f2209050998f1643d}{Child\+Action}, \hyperlink{class_child_fleeing_a4be1b2a301b82cbfc6564f77e950e3fd}{Child\+Fleeing}, \hyperlink{class_copulation_af3fa52c2093c2f88d0fbaba9ea0209b7}{Copulation}, \hyperlink{class_fleeing_a07c3b3096f885a5a4f11d9bdd7e57c6f}{Fleeing}, \hyperlink{class_herbivore_child_sleep_aad20bdafd64ddb56a99d810953de76aa}{Herbivore\+Child\+Sleep}, \hyperlink{class_sleeping_ab7e0642b9b9a7acdf61c5dcd0bc41e59}{Sleeping}, \hyperlink{class_looking_for_partner_abd76956136014399c37f8f62c0510795}{Looking\+For\+Partner}, \hyperlink{class_carnivore_action_ae16f836240641508899939c33f9dffd7}{Carnivore\+Action}, \hyperlink{class_herbivore_action_aa5b97dfe80450e8c340158d864b4aae8}{Herbivore\+Action}, \hyperlink{class_herbivore_child_eat_ae5349588055015e12ce6c384937b4354}{Herbivore\+Child\+Eat}, \hyperlink{class_herbivore_random_walking_aabb756e01d8d8a7f92ecaef6128a4a2c}{Herbivore\+Random\+Walking}, \hyperlink{class_do_nothing_af829f1fc1893c5f9c31e8632c4dbe2cc}{Do\+Nothing}, and \hyperlink{class_follow_mother_aef94bc17f41a2873b6d2843054882617}{Follow\+Mother}.
+
+\hypertarget{class_action_a3e44b723755059935ee658ac1472ee9e}{}\index{Action@{Action}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Action@{Action}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Action\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_action_a3e44b723755059935ee658ac1472ee9e}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implemented in \hyperlink{class_chasing_ac532945a742df4c7a2b73f9bcb93a686}{Chasing}, \hyperlink{class_hunting_af1736450c4ff7f8397d58e0b7aae0fa4}{Hunting}, \hyperlink{class_feed_children_a06823808a9e61b52f6e0cbccf360a93f}{Feed\+Children}, \hyperlink{class_eating_a85cc0b93f26839dbf8c1344ce92c9e41}{Eating}, \hyperlink{class_follow_a2800c1fe0222144e791750699af6001e}{Follow}, \hyperlink{class_random_walking_af8be73eaa8ef5e21f0b127a32b34d4ad}{Random\+Walking}, \hyperlink{class_carnivore_sleeping_ac4cb50b95fe030543e7a7de019c35383}{Carnivore\+Sleeping}, \hyperlink{class_child_action_a153a1578923e7e55687550e53fec21bc}{Child\+Action}, \hyperlink{class_child_fleeing_a57d77a6418b9b1a0b3fd6d1532e2b353}{Child\+Fleeing}, \hyperlink{class_copulation_aa13219c19de17875ba71411b1a38f2cc}{Copulation}, \hyperlink{class_fleeing_a2d79eadf6416380fbe0183ca289f5686}{Fleeing}, \hyperlink{class_herbivore_child_sleep_ac6c2c78f023c552cf90076f179256d5a}{Herbivore\+Child\+Sleep}, \hyperlink{class_sleeping_ab89f2382c544e14fad56c4476e7aad0e}{Sleeping}, \hyperlink{class_carnivore_action_aedd1918537fb9cf3172ec86cbab062af}{Carnivore\+Action}, \hyperlink{class_herbivore_action_a62d0620d0e29fd560260cbc0f9f81abb}{Herbivore\+Action}, \hyperlink{class_herbivore_child_eat_adbe55d5ca2279f1b45d7816368f9a84d}{Herbivore\+Child\+Eat}, \hyperlink{class_do_nothing_ae01160976750e98bf22bc34f773ea264}{Do\+Nothing}, and \hyperlink{class_follow_mother_a0edf307dfd83b18c3817667f2d2af670}{Follow\+Mother}.
+
+\hypertarget{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{}\index{Action@{Action}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Action@{Action}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Action\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implemented in \hyperlink{class_chasing_a244b35d77a91c56686bffe37a50f43d2}{Chasing}, \hyperlink{class_hunting_ab794e2cd49dd525b8d994d24fe7dc7ee}{Hunting}, \hyperlink{class_feed_children_a1bd88e57f553954f1eda70b7a38b1c92}{Feed\+Children}, \hyperlink{class_eating_a0157edfea4cde8e596313d99c4b235be}{Eating}, \hyperlink{class_follow_aefc092266387bcddd87aa334c90afcba}{Follow}, \hyperlink{class_random_walking_a04a3fc96e180a6c0ab0af7d29e596082}{Random\+Walking}, \hyperlink{class_carnivore_sleeping_a22f44ca1cde98236c29bd58089c2af18}{Carnivore\+Sleeping}, \hyperlink{class_child_action_a8b92e893b56c1741816149162c16d5be}{Child\+Action}, \hyperlink{class_child_fleeing_a9d2303d3aa71501e99c96aac579fbf59}{Child\+Fleeing}, \hyperlink{class_copulation_ae84cabc1a26df3f94032b6f1df3ff5b9}{Copulation}, \hyperlink{class_fleeing_afe47ee936d28b2508c9f833080453b64}{Fleeing}, \hyperlink{class_herbivore_child_sleep_afeffdc6f6dc5e18a63554b5f0bcb939b}{Herbivore\+Child\+Sleep}, \hyperlink{class_sleeping_a075291ac36c4c702728c1c6029a30ed7}{Sleeping}, \hyperlink{class_carnivore_action_ae396f2f07131c21813e7986be130438e}{Carnivore\+Action}, \hyperlink{class_herbivore_action_a85823422b73721792c11abdfbb02acc7}{Herbivore\+Action}, \hyperlink{class_herbivore_child_eat_ab587b1aacdfbf5301d516d189352176f}{Herbivore\+Child\+Eat}, \hyperlink{class_do_nothing_a62278199ca50f424ec0de4558ba7efa9}{Do\+Nothing}, and \hyperlink{class_follow_mother_ace13e303253ad224eb4ddb1f1f0c800d}{Follow\+Mother}.
+
+\hypertarget{class_action_a1561b27a20176b1f32ca6f2d5dd94869}{}\index{Action@{Action}!set\+Default\+Model@{set\+Default\+Model}}
+\index{set\+Default\+Model@{set\+Default\+Model}!Action@{Action}}
+\subsubsection[{set\+Default\+Model}]{\setlength{\rightskip}{0pt plus 5cm}static void Action\+::set\+Default\+Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model\+Ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_action_a1561b27a20176b1f32ca6f2d5dd94869}
+
+
+Function sets the default model for \hyperlink{class_action}{Action} class hierarchy  model\+Ptr -\/ pointer to a default model. 
+
+set\+Default\+Model \hypertarget{class_action_a752a31c122f369e92c3e09cdc1a6d617}{}\index{Action@{Action}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Action@{Action}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Action\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_action_a752a31c122f369e92c3e09cdc1a6d617}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_chasing_a94dad51660eda8bb8f7f9b8890bc128e}{Chasing}, \hyperlink{class_hunting_a00f665db30936ce7a96d860bd7e952a4}{Hunting}, \hyperlink{class_feed_children_a2835ed51028709e527a343af495db85b}{Feed\+Children}, \hyperlink{class_eating_a78e402536e59efec5e4643ffe0b4fd5a}{Eating}, \hyperlink{class_follow_aeec724a51b1a92569c0f3bbeef9b0e34}{Follow}, \hyperlink{class_random_walking_a86f089cc5cc28d179e248c67477e8b30}{Random\+Walking}, \hyperlink{class_carnivore_random_walking_ae34e8070f9ac8826bb08141c43adcaf5}{Carnivore\+Random\+Walking}, \hyperlink{class_carnivore_sleeping_a2805a35db94114af285978b9820f0f18}{Carnivore\+Sleeping}, \hyperlink{class_child_action_ab079f9b34939cb040e129c7966222bbd}{Child\+Action}, \hyperlink{class_child_fleeing_a3bc6767ccf4f3783217db650e3002502}{Child\+Fleeing}, \hyperlink{class_copulation_a111bbe080ab451f6fa070345281b76ee}{Copulation}, \hyperlink{class_fleeing_ab0ef11dd8f35cbca7c8157e3ae83f7f0}{Fleeing}, \hyperlink{class_herbivore_child_sleep_a64f782ef578f2f97342819d25c96a410}{Herbivore\+Child\+Sleep}, \hyperlink{class_sleeping_a7a9f89f9febd753e6eb99618cb714440}{Sleeping}, \hyperlink{class_carnivore_action_a2c955f0de63b624b23d15e913060bf2a}{Carnivore\+Action}, \hyperlink{class_herbivore_action_a69260348107b56b677b4e50375a25774}{Herbivore\+Action}, \hyperlink{class_herbivore_child_eat_a2ec22a4f5f382612e478e198fc8347ff}{Herbivore\+Child\+Eat}, \hyperlink{class_looking_for_partner_a83ef295e8ae6ff29521e0225683bf0af}{Looking\+For\+Partner}, \hyperlink{class_do_nothing_ab9e24b3640d4e8125cba091df9d16e7b}{Do\+Nothing}, \hyperlink{class_follow_mother_a90e915d9987b55223b7c0b8ebf99b4da}{Follow\+Mother}, and \hyperlink{class_herbivore_random_walking_a27a17f1ee3d5df3103f3348523c4801a}{Herbivore\+Random\+Walking}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_action_8h}{Action.\+h}\item 
+Model/\+Actions/\hyperlink{_action_8cpp}{Action.\+cpp}\end{DoxyCompactItemize}

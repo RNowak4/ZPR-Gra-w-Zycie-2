@@ -1,0 +1,90 @@
+\hypertarget{class_controller}{}\section{Controller Class Reference}
+\label{class_controller}\index{Controller@{Controller}}
+
+
+{\ttfamily \#include $<$Controller.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_controller_acc4691a24b53d965c0728d754d02f8d1}{Controller} (\hyperlink{class_model}{Model} $\ast$model, \hyperlink{class_view}{View} $\ast$view)
+\item 
+void \hyperlink{class_controller_a52366215054a845cbc38ed5ab6a96168}{handle\+Event} (const S\+D\+L\+\_\+\+Event \&what)
+\item 
+void \hyperlink{class_controller_a7d04c17913f04f99429aa29fa8505484}{update} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_controller_a780915afe4b18974d43a3bcc37191fa3}{C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P} = 20
+\item 
+static const double \hyperlink{class_controller_aebc8c6a5a61745f766ec282bee504ec4}{S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A} = 0.\+02
+\item 
+static const std\+::string \hyperlink{class_controller_a8750bb269d145654c359c8a4acb50259}{S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H} = \char`\"{}settings.\+txt\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class takes input from \hyperlink{class_view}{View} module. Does proper action depending on it. It can update \hyperlink{class_model}{Model} basing on events from \hyperlink{class_view}{View}. It \char`\"{}tells\char`\"{} \hyperlink{class_view}{View} what to draw. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_controller_acc4691a24b53d965c0728d754d02f8d1}{}\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\subsubsection[{Controller}]{\setlength{\rightskip}{0pt plus 5cm}Controller\+::\+Controller (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model, }
+\item[{{\bf View} $\ast$}]{view}
+\end{DoxyParamCaption}
+)}\label{class_controller_acc4691a24b53d965c0728d754d02f8d1}
+Initialize \hyperlink{class_controller}{Controller} obiect, load settings from file. 
+\begin{DoxyParams}{Parameters}
+{\em model} & pointer to object containing logic of the simulation. \\
+\hline
+{\em view} & pointer to object capable of displaying current state of simulation on the screen. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_controller_a52366215054a845cbc38ed5ab6a96168}{}\index{Controller@{Controller}!handle\+Event@{handle\+Event}}
+\index{handle\+Event@{handle\+Event}!Controller@{Controller}}
+\subsubsection[{handle\+Event}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::handle\+Event (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Event \&}]{what}
+\end{DoxyParamCaption}
+)}\label{class_controller_a52366215054a845cbc38ed5ab6a96168}
+This funtion takes S\+D\+L\+\_\+\+Event captured by \hyperlink{class_view}{View}, and takes proper action depending on the event. 
+\begin{DoxyParams}{Parameters}
+{\em what} & Event sent from \hyperlink{class_view}{View}, it describes current action of simulation watcher. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_controller_a7d04c17913f04f99429aa29fa8505484}{}\index{Controller@{Controller}!update@{update}}
+\index{update@{update}!Controller@{Controller}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Controller\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_controller_a7d04c17913f04f99429aa29fa8505484}
+Update \hyperlink{class_model}{Model} and refresh \hyperlink{class_view}{View}. 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_controller_a780915afe4b18974d43a3bcc37191fa3}{}\index{Controller@{Controller}!C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P@{C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P}}
+\index{C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P@{C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P}!Controller@{Controller}}
+\subsubsection[{C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}const int Controller\+::\+C\+A\+M\+E\+R\+A\+\_\+\+S\+T\+E\+P = 20\hspace{0.3cm}{\ttfamily [static]}}\label{class_controller_a780915afe4b18974d43a3bcc37191fa3}
+Movement (in pixels) of camera in one frame.
+
+Implementation of \hyperlink{class_controller}{Controller} methods/ \begin{DoxyAuthor}{Author}
+Damian Mazurkiewicz 
+\end{DoxyAuthor}
+\hypertarget{class_controller_aebc8c6a5a61745f766ec282bee504ec4}{}\index{Controller@{Controller}!S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A@{S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A}}
+\index{S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A@{S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A}!Controller@{Controller}}
+\subsubsection[{S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}const double Controller\+::\+S\+C\+A\+L\+E\+\_\+\+D\+E\+L\+T\+A = 0.\+02\hspace{0.3cm}{\ttfamily [static]}}\label{class_controller_aebc8c6a5a61745f766ec282bee504ec4}
+Scale change in one frame. \hypertarget{class_controller_a8750bb269d145654c359c8a4acb50259}{}\index{Controller@{Controller}!S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H@{S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H}}
+\index{S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H@{S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H}!Controller@{Controller}}
+\subsubsection[{S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Controller\+::\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+P\+A\+T\+H = \char`\"{}settings.\+txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}\label{class_controller_a8750bb269d145654c359c8a4acb50259}
+Where is settings file. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Controller/Controller.\+h\item 
+Controller/Controller.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,212 @@
+\hypertarget{class_sdl_helper}{}\section{Sdl\+Helper Class Reference}
+\label{class_sdl_helper}\index{Sdl\+Helper@{Sdl\+Helper}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_sdl_helper_a5957d7221b7c676f7f70a062142fb4d1}{init} ()
+\item 
+void \hyperlink{class_sdl_helper_a1ae537f9fcbd4d7413d3b9dfb6834eb0}{close} ()
+\item 
+void \hyperlink{class_sdl_helper_a634d651da332b1ce3d4ee5b052612d73}{set\+Window\+Size} (int width, int height)
+\item 
+\hypertarget{class_sdl_helper_a7e7c3f1d8b45240f454b54255287c6e9}{}void {\bfseries set\+Window\+Title} (const std\+::string \&title)\label{class_sdl_helper_a7e7c3f1d8b45240f454b54255287c6e9}
+
+\item 
+void \hyperlink{class_sdl_helper_a28e57527d36b934585bf8132c738bfc6}{draw} (const S\+D\+L\+\_\+\+Rect \&camera, std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ tex, int x, int y, bool centered=false, double angle=0, Uint8 alpha=255)
+\item 
+void \hyperlink{class_sdl_helper_a3468e637caaa6c543bf1c9fc6fcfaf82}{render\+Text} (const S\+D\+L\+\_\+\+Rect \&camera, std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ font, const std\+::string \&message, int x, int y, const S\+D\+L\+\_\+\+Color \&color)
+\item 
+void \hyperlink{class_sdl_helper_a98adc9e9575222133bb0020a483ca55e}{draw\+Frame} (const S\+D\+L\+\_\+\+Rect \&camera, S\+D\+L\+\_\+\+Rect rectangle, std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ filling)
+\item 
+void \hyperlink{class_sdl_helper_a178dda0c392db8104050be846e091226}{draw\+Line} (const S\+D\+L\+\_\+\+Rect \&camera, int x1, int y1, int x2, int y2, const S\+D\+L\+\_\+\+Color \&color)
+\item 
+void \hyperlink{class_sdl_helper_aed4ce26d1a354281b46877d19caacec1}{draw\+Point} (const S\+D\+L\+\_\+\+Rect \&camera, int x, int y, const S\+D\+L\+\_\+\+Color \&color)
+\item 
+void \hyperlink{class_sdl_helper_a483e3f2df3950db06f8096cb31d34134}{clear\+Screen} ()
+\item 
+void \hyperlink{class_sdl_helper_a526243a9976dd1e3464c91da44bfe7f1}{render\+Screen} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_sdl_helper_a60f2c13e402e2009b50374cbaeff5989}{}class {\bfseries Assets}\label{class_sdl_helper_a60f2c13e402e2009b50374cbaeff5989}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sdl_helper_a483e3f2df3950db06f8096cb31d34134}{}\index{Sdl\+Helper@{Sdl\+Helper}!clear\+Screen@{clear\+Screen}}
+\index{clear\+Screen@{clear\+Screen}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{clear\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::clear\+Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a483e3f2df3950db06f8096cb31d34134}
+Clean the screen, remove anything drawn on it . \hypertarget{class_sdl_helper_a1ae537f9fcbd4d7413d3b9dfb6834eb0}{}\index{Sdl\+Helper@{Sdl\+Helper}!close@{close}}
+\index{close@{close}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a1ae537f9fcbd4d7413d3b9dfb6834eb0}
+Unload libraries, clean up all initialized subsystems. \hypertarget{class_sdl_helper_a28e57527d36b934585bf8132c738bfc6}{}\index{Sdl\+Helper@{Sdl\+Helper}!draw@{draw}}
+\index{draw@{draw}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::draw (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$}]{tex, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{bool}]{centered = {\ttfamily false}, }
+\item[{double}]{angle = {\ttfamily 0}, }
+\item[{Uint8}]{alpha = {\ttfamily 255}}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a28e57527d36b934585bf8132c738bfc6}
+Draw image on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em tex} & texture that has to be drawed. \\
+\hline
+{\em x} & horizontal position on the screen. \\
+\hline
+{\em y} & vertical position on the screen. \\
+\hline
+{\em centered} & if true, the x and y cordinates are in the center of the image. \\
+\hline
+{\em angle} & the angle of image \\
+\hline
+{\em alpha} & transparency of image, if 255, the image is not transparent at all. Lesser is the value, the more transparent is image. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sdl_helper_a98adc9e9575222133bb0020a483ca55e}{}\index{Sdl\+Helper@{Sdl\+Helper}!draw\+Frame@{draw\+Frame}}
+\index{draw\+Frame@{draw\+Frame}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{draw\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::draw\+Frame (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{S\+D\+L\+\_\+\+Rect}]{rectangle, }
+\item[{std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$}]{filling}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a98adc9e9575222133bb0020a483ca55e}
+Draw frame in shape of rectangle on the screen filled with given texture. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & when is not null, rectangle will be in position relative to thic camera position. \\
+\hline
+{\em rectangle} & rectangle meaning area we want to cover with frame. \\
+\hline
+{\em filling} & texture, which is intender to cover the area of the frame. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sdl_helper_a178dda0c392db8104050be846e091226}{}\index{Sdl\+Helper@{Sdl\+Helper}!draw\+Line@{draw\+Line}}
+\index{draw\+Line@{draw\+Line}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{draw\+Line}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::draw\+Line (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2, }
+\item[{const S\+D\+L\+\_\+\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a178dda0c392db8104050be846e091226}
+Draw line on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em x1} & horizontal position of beginning of the line on the screen. \\
+\hline
+{\em y1} & vertical position of beginning of the line on the screen. \\
+\hline
+{\em x2} & horizontal position of ending of the line on the screen. \\
+\hline
+{\em y2} & vertical position of ending of the line on the screen. \\
+\hline
+{\em color} & color of the line. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sdl_helper_aed4ce26d1a354281b46877d19caacec1}{}\index{Sdl\+Helper@{Sdl\+Helper}!draw\+Point@{draw\+Point}}
+\index{draw\+Point@{draw\+Point}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{draw\+Point}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::draw\+Point (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{const S\+D\+L\+\_\+\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_aed4ce26d1a354281b46877d19caacec1}
+Draw point on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em x} & horizontal position of point on the screen. \\
+\hline
+{\em y} & vertical position of point on the screen. \\
+\hline
+{\em color} & color of the point. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sdl_helper_a5957d7221b7c676f7f70a062142fb4d1}{}\index{Sdl\+Helper@{Sdl\+Helper}!init@{init}}
+\index{init@{init}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a5957d7221b7c676f7f70a062142fb4d1}
+Initialize S\+D\+L, create window and renderer. \begin{DoxyReturn}{Returns}
+true if succes, otherwise false 
+\end{DoxyReturn}
+\hypertarget{class_sdl_helper_a526243a9976dd1e3464c91da44bfe7f1}{}\index{Sdl\+Helper@{Sdl\+Helper}!render\+Screen@{render\+Screen}}
+\index{render\+Screen@{render\+Screen}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{render\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::render\+Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a526243a9976dd1e3464c91da44bfe7f1}
+Show everything drawed by renderer on the screen. \hypertarget{class_sdl_helper_a3468e637caaa6c543bf1c9fc6fcfaf82}{}\index{Sdl\+Helper@{Sdl\+Helper}!render\+Text@{render\+Text}}
+\index{render\+Text@{render\+Text}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{render\+Text}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::render\+Text (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$}]{font, }
+\item[{const std\+::string \&}]{message, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{const S\+D\+L\+\_\+\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a3468e637caaa6c543bf1c9fc6fcfaf82}
+Draw text on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em font} & font used to print text. \\
+\hline
+{\em message} & message that has to be printed. \\
+\hline
+{\em x} & horizontal position on the screen. \\
+\hline
+{\em y} & vertical position on the screen. \\
+\hline
+{\em color} & color of the font. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_sdl_helper_a634d651da332b1ce3d4ee5b052612d73}{}\index{Sdl\+Helper@{Sdl\+Helper}!set\+Window\+Size@{set\+Window\+Size}}
+\index{set\+Window\+Size@{set\+Window\+Size}!Sdl\+Helper@{Sdl\+Helper}}
+\subsubsection[{set\+Window\+Size}]{\setlength{\rightskip}{0pt plus 5cm}void Sdl\+Helper\+::set\+Window\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)}\label{class_sdl_helper_a634d651da332b1ce3d4ee5b052612d73}
+Set size of the simulation screen. 
+\begin{DoxyParams}{Parameters}
+{\em width} & how wide will window be in pixels. \\
+\hline
+{\em height} & height of window in pixels. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View/\hyperlink{_sdl_helper_8h}{Sdl\+Helper.\+h}\item 
+View/Sdl\+Helper.\+cpp\end{DoxyCompactItemize}

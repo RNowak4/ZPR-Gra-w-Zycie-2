@@ -1,0 +1,60 @@
+\hypertarget{_model_8h}{}\section{Model/\+Model.h File Reference}
+\label{_model_8h}\index{Model/\+Model.\+h@{Model/\+Model.\+h}}
+
+
+Implementation of the \hyperlink{class_animal_data}{Animal\+Data} class.  
+
+
+{\ttfamily \#include $<$list$>$}\\*
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include \char`\"{}Actions/\+Action.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Animal.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Animal\+Data.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Parameters.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}View\+Structs.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_model}{Model}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_model_8h_ab9d1f223751e09c94d87583174f21208}{}typedef shared\+\_\+ptr$<$ \hyperlink{class_animal}{Animal} $>$ {\bfseries Animal\+Ptr}\label{_model_8h_ab9d1f223751e09c94d87583174f21208}
+
+\item 
+\hypertarget{_model_8h_a1770b7875cf90abbeda76893fb383426}{}typedef shared\+\_\+ptr$<$ std\+::vector$<$ pair$<$ const \hyperlink{struct_location_data}{Location\+Data} $\ast$, const \hyperlink{class_animal_data}{Animal\+Data} $\ast$ $>$ $>$ $>$ {\bfseries pair\+Vector\+Ptr}\label{_model_8h_a1770b7875cf90abbeda76893fb383426}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of the \hyperlink{class_animal_data}{Animal\+Data} class. 
+
+Class that represents \hyperlink{class_mother}{Mother} \hyperlink{class_state}{State}.
+
+Class that represents \hyperlink{class_illness}{Illness} \hyperlink{class_state}{State}.
+
+Class that represents \hyperlink{class_childhood}{Childhood} \hyperlink{class_state}{State}.
+
+Class that represents \hyperlink{class_model}{Model}.
+
+\begin{DoxyAuthor}{Author}
+Radoslaw Nowak
+\end{DoxyAuthor}
+This state is set to every child and decreases animal\textquotesingle{}s important attributes.
+
+\begin{DoxyAuthor}{Author}
+Radoslaw Nowak
+\end{DoxyAuthor}
+This state is set randomly to an animal and decreases some of it\textquotesingle{}s attributes.
+
+\begin{DoxyAuthor}{Author}
+Radoslaw Nowak
+\end{DoxyAuthor}
+This state is set to mother while she has young child.
+
+\begin{DoxyAuthor}{Author}
+Radoslaw Nowak 
+\end{DoxyAuthor}

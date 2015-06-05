@@ -1,0 +1,98 @@
+\hypertarget{class_child_fleeing}{}\section{Child\+Fleeing Class Reference}
+\label{class_child_fleeing}\index{Child\+Fleeing@{Child\+Fleeing}}
+Inheritance diagram for Child\+Fleeing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_child_fleeing}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_child_fleeing_aab3b98e37f96eb6b7fddc8d57e519b3c}{}{\bfseries Child\+Fleeing} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$mother\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$hunter)\label{class_child_fleeing_aab3b98e37f96eb6b7fddc8d57e519b3c}
+
+\item 
+void \hyperlink{class_child_fleeing_a9d2303d3aa71501e99c96aac579fbf59}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_child_fleeing_a4be1b2a301b82cbfc6564f77e950e3fd}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_child_fleeing_a57d77a6418b9b1a0b3fd6d1532e2b353}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_child_fleeing_a3bc6767ccf4f3783217db650e3002502}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_child_fleeing_a4be1b2a301b82cbfc6564f77e950e3fd}{}\index{Child\+Fleeing@{Child\+Fleeing}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Child\+Fleeing@{Child\+Fleeing}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Child\+Fleeing\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_child_fleeing_a4be1b2a301b82cbfc6564f77e950e3fd}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_a07c04b7ca874308f2209050998f1643d}{Child\+Action}.
+
+\hypertarget{class_child_fleeing_a57d77a6418b9b1a0b3fd6d1532e2b353}{}\index{Child\+Fleeing@{Child\+Fleeing}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Child\+Fleeing@{Child\+Fleeing}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Child\+Fleeing\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_child_fleeing_a57d77a6418b9b1a0b3fd6d1532e2b353}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_child_action_a153a1578923e7e55687550e53fec21bc}{Child\+Action}.
+
+\hypertarget{class_child_fleeing_a9d2303d3aa71501e99c96aac579fbf59}{}\index{Child\+Fleeing@{Child\+Fleeing}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Child\+Fleeing@{Child\+Fleeing}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Child\+Fleeing\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_child_fleeing_a9d2303d3aa71501e99c96aac579fbf59}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_child_action_a8b92e893b56c1741816149162c16d5be}{Child\+Action}.
+
+\hypertarget{class_child_fleeing_a3bc6767ccf4f3783217db650e3002502}{}\index{Child\+Fleeing@{Child\+Fleeing}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Child\+Fleeing@{Child\+Fleeing}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Child\+Fleeing\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_child_fleeing_a3bc6767ccf4f3783217db650e3002502}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_child_action_ab079f9b34939cb040e129c7966222bbd}{Child\+Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_child_fleeing_8h}{Child\+Fleeing.\+h}\item 
+Model/\+Actions/\hyperlink{_child_fleeing_8cpp}{Child\+Fleeing.\+cpp}\end{DoxyCompactItemize}

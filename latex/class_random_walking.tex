@@ -1,0 +1,106 @@
+\hypertarget{class_random_walking}{}\section{Random\+Walking Class Reference}
+\label{class_random_walking}\index{Random\+Walking@{Random\+Walking}}
+Inheritance diagram for Random\+Walking\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_random_walking}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_random_walking_a2d78b8e5754d3d12db4811a2f922a963}{}{\bfseries Random\+Walking} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)\label{class_random_walking_a2d78b8e5754d3d12db4811a2f922a963}
+
+\item 
+void \hyperlink{class_random_walking_a04a3fc96e180a6c0ab0af7d29e596082}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+virtual \hyperlink{class_action}{Action} $\ast$ \hyperlink{class_random_walking_a7bfc651d40fd17944ed8efcdf58e0559}{choose\+Next\+Action} ()=0
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_random_walking_af8be73eaa8ef5e21f0b127a32b34d4ad}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+virtual string \hyperlink{class_random_walking_a86f089cc5cc28d179e248c67477e8b30}{to\+String} ()=0
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_random_walking_a7bfc651d40fd17944ed8efcdf58e0559}{}\index{Random\+Walking@{Random\+Walking}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Random\+Walking@{Random\+Walking}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Random\+Walking\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_random_walking_a7bfc651d40fd17944ed8efcdf58e0559}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_carnivore_action_ae16f836240641508899939c33f9dffd7}{Carnivore\+Action}.
+
+
+
+Implemented in \hyperlink{class_carnivore_random_walking_ac340cd2cebe482ce2e8a616b347dc9da}{Carnivore\+Random\+Walking}, \hyperlink{class_looking_for_partner_abd76956136014399c37f8f62c0510795}{Looking\+For\+Partner}, and \hyperlink{class_herbivore_random_walking_aabb756e01d8d8a7f92ecaef6128a4a2c}{Herbivore\+Random\+Walking}.
+
+\hypertarget{class_random_walking_af8be73eaa8ef5e21f0b127a32b34d4ad}{}\index{Random\+Walking@{Random\+Walking}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Random\+Walking@{Random\+Walking}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Random\+Walking\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_random_walking_af8be73eaa8ef5e21f0b127a32b34d4ad}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_carnivore_action_aedd1918537fb9cf3172ec86cbab062af}{Carnivore\+Action}.
+
+\hypertarget{class_random_walking_a04a3fc96e180a6c0ab0af7d29e596082}{}\index{Random\+Walking@{Random\+Walking}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Random\+Walking@{Random\+Walking}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Random\+Walking\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_random_walking_a04a3fc96e180a6c0ab0af7d29e596082}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_carnivore_action_ae396f2f07131c21813e7986be130438e}{Carnivore\+Action}.
+
+\hypertarget{class_random_walking_a86f089cc5cc28d179e248c67477e8b30}{}\index{Random\+Walking@{Random\+Walking}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Random\+Walking@{Random\+Walking}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Random\+Walking\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_random_walking_a86f089cc5cc28d179e248c67477e8b30}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_carnivore_action_a2c955f0de63b624b23d15e913060bf2a}{Carnivore\+Action}.
+
+
+
+Implemented in \hyperlink{class_carnivore_random_walking_ae34e8070f9ac8826bb08141c43adcaf5}{Carnivore\+Random\+Walking}, \hyperlink{class_looking_for_partner_a83ef295e8ae6ff29521e0225683bf0af}{Looking\+For\+Partner}, and \hyperlink{class_herbivore_random_walking_a27a17f1ee3d5df3103f3348523c4801a}{Herbivore\+Random\+Walking}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_random_walking_8h}{Random\+Walking.\+h}\item 
+Model/\+Actions/\hyperlink{_random_walking_8cpp}{Random\+Walking.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\hypertarget{class_carnivore_sleeping}{}\section{Carnivore\+Sleeping Class Reference}
+\label{class_carnivore_sleeping}\index{Carnivore\+Sleeping@{Carnivore\+Sleeping}}
+Inheritance diagram for Carnivore\+Sleeping\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_carnivore_sleeping}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_carnivore_sleeping_a80e590b906f475e74e02853d0a7878bf}{}{\bfseries Carnivore\+Sleeping} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)\label{class_carnivore_sleeping_a80e590b906f475e74e02853d0a7878bf}
+
+\item 
+void \hyperlink{class_carnivore_sleeping_a22f44ca1cde98236c29bd58089c2af18}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_carnivore_sleeping_ad6783bd94c20821e9736d9f2f38934ab}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_carnivore_sleeping_ac4cb50b95fe030543e7a7de019c35383}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_carnivore_sleeping_a2805a35db94114af285978b9820f0f18}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_carnivore_sleeping_ad6783bd94c20821e9736d9f2f38934ab}{}\index{Carnivore\+Sleeping@{Carnivore\+Sleeping}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Carnivore\+Sleeping@{Carnivore\+Sleeping}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Carnivore\+Sleeping\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_carnivore_sleeping_ad6783bd94c20821e9736d9f2f38934ab}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_carnivore_action_ae16f836240641508899939c33f9dffd7}{Carnivore\+Action}.
+
+\hypertarget{class_carnivore_sleeping_ac4cb50b95fe030543e7a7de019c35383}{}\index{Carnivore\+Sleeping@{Carnivore\+Sleeping}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Carnivore\+Sleeping@{Carnivore\+Sleeping}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Carnivore\+Sleeping\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_carnivore_sleeping_ac4cb50b95fe030543e7a7de019c35383}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_carnivore_action_aedd1918537fb9cf3172ec86cbab062af}{Carnivore\+Action}.
+
+\hypertarget{class_carnivore_sleeping_a22f44ca1cde98236c29bd58089c2af18}{}\index{Carnivore\+Sleeping@{Carnivore\+Sleeping}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Carnivore\+Sleeping@{Carnivore\+Sleeping}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Carnivore\+Sleeping\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_carnivore_sleeping_a22f44ca1cde98236c29bd58089c2af18}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_carnivore_action_ae396f2f07131c21813e7986be130438e}{Carnivore\+Action}.
+
+\hypertarget{class_carnivore_sleeping_a2805a35db94114af285978b9820f0f18}{}\index{Carnivore\+Sleeping@{Carnivore\+Sleeping}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Carnivore\+Sleeping@{Carnivore\+Sleeping}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Carnivore\+Sleeping\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_carnivore_sleeping_a2805a35db94114af285978b9820f0f18}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_carnivore_action_a2c955f0de63b624b23d15e913060bf2a}{Carnivore\+Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_carnivore_sleeping_8h}{Carnivore\+Sleeping.\+h}\item 
+Model/\+Actions/\hyperlink{_carnivore_sleeping_8cpp}{Carnivore\+Sleeping.\+cpp}\end{DoxyCompactItemize}

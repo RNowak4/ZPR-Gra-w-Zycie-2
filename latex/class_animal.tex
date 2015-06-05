@@ -1,0 +1,622 @@
+\hypertarget{class_animal}{}\section{Animal Class Reference}
+\label{class_animal}\index{Animal@{Animal}}
+Inheritance diagram for Animal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_animal}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_animal_ab26f5f62b5194201e0b07729bde2f5dc}{Animal} (const \hyperlink{class_animal}{Animal} \&orig)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_animal_af84c9e041ddd20710ef3412d415e68a8}{Animal} (unsigned, unsigned, Animal\+Type=H\+E\+R\+B\+I\+V\+O\+R\+E)
+\begin{DoxyCompactList}\small\item\em Creates an new \hyperlink{class_animal}{Animal} with random Modifiers. \end{DoxyCompactList}\item 
+\hyperlink{class_animal_a232b2b3551f7161e100fd1b508accbcd}{Animal} (unsigned, unsigned, \hyperlink{class_attributes}{Attributes}, Animal\+Type=H\+E\+R\+B\+I\+V\+O\+R\+E)
+\begin{DoxyCompactList}\small\item\em Creates an new \hyperlink{class_animal}{Animal}. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_animal_a476af25adde5f0dfa688129c8f86fa5c}{$\sim$\+Animal} ()
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_animal_acd9cdd1e77d0e1c54b2601aa52865b90}{update\+Status} ()=0
+\begin{DoxyCompactList}\small\item\em Updates status of an animal. \end{DoxyCompactList}\item 
+\hyperlink{struct_coordinates}{Coordinates} \hyperlink{class_animal_aacc92184b295e2599bfe4143c107b1c0}{return\+Coodtinates} () const 
+\begin{DoxyCompactList}\small\item\em gets coordinates of an animal. \end{DoxyCompactList}\item 
+\hyperlink{struct_location_data}{Location\+Data} $\ast$ \hyperlink{class_animal_af354475eac6d2f1edb0822d8ee3953df}{return\+Location\+Data} ()
+\begin{DoxyCompactList}\small\item\em gets current location data of an animal. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_animal_a8d6a4aef56a2df828c8b286d993c3037}{is\+Dangerous} (\hyperlink{class_animal}{Animal} $\ast$another)=0
+\begin{DoxyCompactList}\small\item\em checks if animal is Dangerous for another \end{DoxyCompactList}\item 
+bool \hyperlink{class_animal_aae84f5e4412829e71f73c262600be323}{is\+That\+Me} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em checks if an animal is at position. \end{DoxyCompactList}\item 
+bool \hyperlink{class_animal_ad15c619e0b16bd89d8d38360f983955a}{has\+State} (const string \&state\+Name)
+\begin{DoxyCompactList}\small\item\em checks if an animal is at state. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a5694a379251e01647fc8b3a8dd9bb21b}{set\+Position} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em moves an animal to indicated position. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_ad995dd1464ec7d41ff3ac8244aa8085a}{set\+Position} (\hyperlink{struct_coordinates}{Coordinates} coodrinates)
+\begin{DoxyCompactList}\small\item\em moves an animal to indicated position. \end{DoxyCompactList}\item 
+Sex \hyperlink{class_animal_a6d282165027bf10170923c6c87b01f01}{get\+Sex} ()
+\begin{DoxyCompactList}\small\item\em gets animal sex. \end{DoxyCompactList}\item 
+\hyperlink{class_animal_data}{Animal\+Data} $\ast$ \hyperlink{class_animal_a0fb94a1af4632400b4fe8712a343dfc4}{get\+Animal\+Data} ()
+\begin{DoxyCompactList}\small\item\em Gets Data of an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_af796c149072c673e64778b73d4371ec4}{set\+Action} (Action\+Ptr action\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Sets action to current animal.  action\+\_\+ptr -\/ shared pointer to new action. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_adcfe9aacffe9761ec25da5b202b74ee1}{do\+Move} ()
+\begin{DoxyCompactList}\small\item\em Moves an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a5a4e742f6f59293a734c97f0bec51446}{turn\+Right} ()
+\begin{DoxyCompactList}\small\item\em Turns an animal right. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a89663265c1204cbea3ac738ec6a322a0}{turn\+Left} ()
+\begin{DoxyCompactList}\small\item\em Turns an animal left. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_af8213ebc97b4fc1a3f19fee9223bec3a}{stop\+Turning} ()
+\begin{DoxyCompactList}\small\item\em Stops animal\textquotesingle{}s turning. \end{DoxyCompactList}\item 
+bool \hyperlink{class_animal_a732095e2cd7155106d07f27c66bf2c32}{is\+Herbivore} ()
+\begin{DoxyCompactList}\small\item\em Function returns true, if an animal is herbivore. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a26e010f9b80815b471dea886d9499ec8}{set\+Looking\+Angle} (unsigned value\+\_\+to\+\_\+set)
+\begin{DoxyCompactList}\small\item\em Sets looking angle of an animal  velut\+To\+Set -\/ value which will be set. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a8df16f635e0fa5c7ff3ec1fabb4e9be7}{set\+Velocity} (double value\+\_\+to\+\_\+set)
+\begin{DoxyCompactList}\small\item\em Sets velocity of an animal  velut\+To\+Set -\/ value which will be set. \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_ae455eb17f64f95f159c5f8fdc4a67728}{set\+Acceleration} (double value\+\_\+to\+\_\+set)
+\begin{DoxyCompactList}\small\item\em Sets acceleration of an animal  velut\+To\+Set -\/ value which will be set. \end{DoxyCompactList}\item 
+\hyperlink{class_animal}{Animal} $\ast$ \hyperlink{class_animal_adc62fe75008f9f24570d83f1279ba938}{should\+Die} ()
+\begin{DoxyCompactList}\small\item\em Returns this if animal should die or nullptr. \end{DoxyCompactList}\item 
+bool \hyperlink{class_animal_a88babf3ca0b62e73d713bbeda5982975}{is\+Mother} ()
+\begin{DoxyCompactList}\small\item\em Returns true if an animal is mother. \end{DoxyCompactList}\item 
+\hyperlink{class_attributes}{Attributes} \& \hyperlink{class_animal_af6d929cb70afccd523e4fdb8a7c7bc2f}{get\+Attributes} ()
+\begin{DoxyCompactList}\small\item\em returns actual attributes of an animal \end{DoxyCompactList}\item 
+double \& \hyperlink{class_animal_a616394b8840e25c445816d54140e2533}{return\+Eat\+Need} ()
+\begin{DoxyCompactList}\small\item\em returns actual animal\textquotesingle{}s eat need \end{DoxyCompactList}\item 
+double \& \hyperlink{class_animal_aeacd1807204f0a5c5eefedcd6a8a400a}{return\+Sleep\+Need} ()
+\begin{DoxyCompactList}\small\item\em returns actual animal\textquotesingle{}s sleep need \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a2be4b1b1d143492670ee7f22c55f3090}{add\+State} (State\+Ptr new\+\_\+state)
+\begin{DoxyCompactList}\small\item\em adds a state to the animal  new\+\_\+state -\/ state to add \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_aa8cb8cb6c83b686d8076115c2dc1d5de}{loose\+State} (const string \&state\+\_\+name)
+\begin{DoxyCompactList}\small\item\em deletes state from the animal  state\+\_\+name -\/ state to be lost \end{DoxyCompactList}\item 
+time\+\_\+t \& \hyperlink{class_animal_aadf3c770f5b4795704d20e4e779db60e}{return\+Time\+Sice\+Copulation} ()
+\begin{DoxyCompactList}\small\item\em returns a time since last copulation \end{DoxyCompactList}\item 
+bool \hyperlink{class_animal_a79e7309613ba6206cd669f8bb6dfea68}{can\+Have\+Child} ()
+\begin{DoxyCompactList}\small\item\em returns a bool value due to ability of an animal to have a child \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a4843dae3d10111748918c52ef4ff0d18}{mark\+To\+Kill} ()
+\begin{DoxyCompactList}\small\item\em marks an animal to be killed in a model \end{DoxyCompactList}\item 
+int \& \hyperlink{class_animal_a0d801911499ea1f1fd9c35370f796bb6}{get\+Children\+Number} ()
+\begin{DoxyCompactList}\small\item\em gets a children number \end{DoxyCompactList}\item 
+void \hyperlink{class_animal_a159dffe71ed72c6229b17c6e360ca6a1}{delete\+Child} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em deletes a child from child list  animal\+\_\+ptr -\/ pointer to an child \end{DoxyCompactList}\item 
+\hyperlink{class_state}{State} $\ast$ \hyperlink{class_animal_a18d4928a07297d4611e3a4e4197c3a8b}{get\+State} (string state\+\_\+name)
+\begin{DoxyCompactList}\small\item\em gets pointer to state.  state\+\_\+name -\/ name of the state that we want to receive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_animal_a94a0b9dc3fa747aea4eaed4d615bcb32}{}list$<$ \hyperlink{class_animal}{Animal} $\ast$ $>$ {\bfseries children\+List}\label{class_animal_a94a0b9dc3fa747aea4eaed4d615bcb32}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_animal_aaa6816af2bd90c9988e1393fc2b57199}{}list$<$ State\+Ptr $>$ {\bfseries states\+List}\label{class_animal_aaa6816af2bd90c9988e1393fc2b57199}
+
+\item 
+\hypertarget{class_animal_ab0da50ec5f81ba73009c4c658753a03d}{}Action\+Ptr {\bfseries current\+Action}\label{class_animal_ab0da50ec5f81ba73009c4c658753a03d}
+
+\item 
+\hypertarget{class_animal_a2f521f0bb872d3ffe82e4f0d1e816abe}{}\hyperlink{struct_location_data}{Location\+Data} {\bfseries location\+Data}\label{class_animal_a2f521f0bb872d3ffe82e4f0d1e816abe}
+
+\item 
+\hypertarget{class_animal_a717f0c6ca49f0b22eaf1a7198f1e1a1b}{}\hyperlink{class_attributes}{Attributes} {\bfseries actual\+Attributes}\label{class_animal_a717f0c6ca49f0b22eaf1a7198f1e1a1b}
+
+\item 
+\hypertarget{class_animal_aefbe1292bd5be337de52faf38d9b4862}{}time\+\_\+t {\bfseries born\+Date}\label{class_animal_aefbe1292bd5be337de52faf38d9b4862}
+
+\item 
+\hypertarget{class_animal_a944296b52e238a919c56f3738bd31989}{}time\+\_\+t {\bfseries time\+Since\+Copulation}\label{class_animal_a944296b52e238a919c56f3738bd31989}
+
+\item 
+\hypertarget{class_animal_aed941628e1e462bb2199398db8251192}{}time\+\_\+t {\bfseries last\+Randomize}\label{class_animal_aed941628e1e462bb2199398db8251192}
+
+\item 
+\hypertarget{class_animal_a682b0dadf7726ee266415c27b351de42}{}double {\bfseries eat\+Need}\label{class_animal_a682b0dadf7726ee266415c27b351de42}
+
+\item 
+\hypertarget{class_animal_abfdde3c7e89db79ef04abc9312648206}{}double {\bfseries sleep\+Need}\label{class_animal_abfdde3c7e89db79ef04abc9312648206}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_animal_ab26f5f62b5194201e0b07729bde2f5dc}{}\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\subsubsection[{Animal}]{\setlength{\rightskip}{0pt plus 5cm}Animal\+::\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} \&}]{orig}
+\end{DoxyParamCaption}
+)}\label{class_animal_ab26f5f62b5194201e0b07729bde2f5dc}
+
+
+Copy Constructor. 
+
+\hyperlink{class_animal}{Animal} \hypertarget{class_animal_af84c9e041ddd20710ef3412d415e68a8}{}\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\subsubsection[{Animal}]{\setlength{\rightskip}{0pt plus 5cm}Animal\+::\+Animal (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y, }
+\item[{Animal\+Type}]{animal\+\_\+type = {\ttfamily HERBIVORE}}
+\end{DoxyParamCaption}
+)}\label{class_animal_af84c9e041ddd20710ef3412d415e68a8}
+
+
+Creates an new \hyperlink{class_animal}{Animal} with random Modifiers. 
+
+\hyperlink{class_animal}{Animal} \hypertarget{class_animal_a232b2b3551f7161e100fd1b508accbcd}{}\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\subsubsection[{Animal}]{\setlength{\rightskip}{0pt plus 5cm}Animal\+::\+Animal (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y, }
+\item[{{\bf Attributes}}]{modifiers, }
+\item[{Animal\+Type}]{animal\+\_\+type = {\ttfamily HERBIVORE}}
+\end{DoxyParamCaption}
+)}\label{class_animal_a232b2b3551f7161e100fd1b508accbcd}
+
+
+Creates an new \hyperlink{class_animal}{Animal}. 
+
+\hyperlink{class_animal}{Animal} \hypertarget{class_animal_a476af25adde5f0dfa688129c8f86fa5c}{}\index{Animal@{Animal}!````~Animal@{$\sim$\+Animal}}
+\index{````~Animal@{$\sim$\+Animal}!Animal@{Animal}}
+\subsubsection[{$\sim$\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}Animal\+::$\sim$\+Animal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_animal_a476af25adde5f0dfa688129c8f86fa5c}
+
+
+destructor. 
+
+$\sim$\+Animal 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_animal_a2be4b1b1d143492670ee7f22c55f3090}{}\index{Animal@{Animal}!add\+State@{add\+State}}
+\index{add\+State@{add\+State}!Animal@{Animal}}
+\subsubsection[{add\+State}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::add\+State (
+\begin{DoxyParamCaption}
+\item[{State\+Ptr}]{new\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{class_animal_a2be4b1b1d143492670ee7f22c55f3090}
+
+
+adds a state to the animal  new\+\_\+state -\/ state to add 
+
+add\+State \hypertarget{class_animal_a79e7309613ba6206cd669f8bb6dfea68}{}\index{Animal@{Animal}!can\+Have\+Child@{can\+Have\+Child}}
+\index{can\+Have\+Child@{can\+Have\+Child}!Animal@{Animal}}
+\subsubsection[{can\+Have\+Child}]{\setlength{\rightskip}{0pt plus 5cm}bool Animal\+::can\+Have\+Child (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a79e7309613ba6206cd669f8bb6dfea68}
+
+
+returns a bool value due to ability of an animal to have a child 
+
+can\+Have\+Child \begin{DoxyReturn}{Returns}
+bool value 
+\end{DoxyReturn}
+\hypertarget{class_animal_a159dffe71ed72c6229b17c6e360ca6a1}{}\index{Animal@{Animal}!delete\+Child@{delete\+Child}}
+\index{delete\+Child@{delete\+Child}!Animal@{Animal}}
+\subsubsection[{delete\+Child}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::delete\+Child (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_animal_a159dffe71ed72c6229b17c6e360ca6a1}
+
+
+deletes a child from child list  animal\+\_\+ptr -\/ pointer to an child 
+
+delete\+Child \hypertarget{class_animal_adcfe9aacffe9761ec25da5b202b74ee1}{}\index{Animal@{Animal}!do\+Move@{do\+Move}}
+\index{do\+Move@{do\+Move}!Animal@{Animal}}
+\subsubsection[{do\+Move}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::do\+Move (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_animal_adcfe9aacffe9761ec25da5b202b74ee1}
+
+
+Moves an animal. 
+
+do\+Move \hypertarget{class_animal_a0fb94a1af4632400b4fe8712a343dfc4}{}\index{Animal@{Animal}!get\+Animal\+Data@{get\+Animal\+Data}}
+\index{get\+Animal\+Data@{get\+Animal\+Data}!Animal@{Animal}}
+\subsubsection[{get\+Animal\+Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Animal\+Data} $\ast$ Animal\+::get\+Animal\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_animal_a0fb94a1af4632400b4fe8712a343dfc4}
+
+
+Gets Data of an animal. 
+
+get\+Animal\+Data \begin{DoxyReturn}{Returns}
+Pointer to \hyperlink{class_animal_data}{Animal\+Data} class 
+\end{DoxyReturn}
+\hypertarget{class_animal_af6d929cb70afccd523e4fdb8a7c7bc2f}{}\index{Animal@{Animal}!get\+Attributes@{get\+Attributes}}
+\index{get\+Attributes@{get\+Attributes}!Animal@{Animal}}
+\subsubsection[{get\+Attributes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Attributes}\& Animal\+::get\+Attributes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_af6d929cb70afccd523e4fdb8a7c7bc2f}
+
+
+returns actual attributes of an animal 
+
+get\+Attributes \begin{DoxyReturn}{Returns}
+reference to the structure 
+\end{DoxyReturn}
+\hypertarget{class_animal_a0d801911499ea1f1fd9c35370f796bb6}{}\index{Animal@{Animal}!get\+Children\+Number@{get\+Children\+Number}}
+\index{get\+Children\+Number@{get\+Children\+Number}!Animal@{Animal}}
+\subsubsection[{get\+Children\+Number}]{\setlength{\rightskip}{0pt plus 5cm}int\& Animal\+::get\+Children\+Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a0d801911499ea1f1fd9c35370f796bb6}
+
+
+gets a children number 
+
+get\+Children\+Number \begin{DoxyReturn}{Returns}
+int reference 
+\end{DoxyReturn}
+\hypertarget{class_animal_a6d282165027bf10170923c6c87b01f01}{}\index{Animal@{Animal}!get\+Sex@{get\+Sex}}
+\index{get\+Sex@{get\+Sex}!Animal@{Animal}}
+\subsubsection[{get\+Sex}]{\setlength{\rightskip}{0pt plus 5cm}Sex Animal\+::get\+Sex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a6d282165027bf10170923c6c87b01f01}
+
+
+gets animal sex. 
+
+get\+Sex \begin{DoxyReturn}{Returns}
+Sex falue 
+\end{DoxyReturn}
+\hypertarget{class_animal_a18d4928a07297d4611e3a4e4197c3a8b}{}\index{Animal@{Animal}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Animal@{Animal}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} $\ast$ Animal\+::get\+State (
+\begin{DoxyParamCaption}
+\item[{string}]{state\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{class_animal_a18d4928a07297d4611e3a4e4197c3a8b}
+
+
+gets pointer to state.  state\+\_\+name -\/ name of the state that we want to receive. 
+
+get\+State \begin{DoxyReturn}{Returns}
+Pointer to the state or nullptr if not found. 
+\end{DoxyReturn}
+\hypertarget{class_animal_ad15c619e0b16bd89d8d38360f983955a}{}\index{Animal@{Animal}!has\+State@{has\+State}}
+\index{has\+State@{has\+State}!Animal@{Animal}}
+\subsubsection[{has\+State}]{\setlength{\rightskip}{0pt plus 5cm}bool Animal\+::has\+State (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{state\+Name}
+\end{DoxyParamCaption}
+)}\label{class_animal_ad15c619e0b16bd89d8d38360f983955a}
+
+
+checks if an animal is at state. 
+
+is\+That\+Me 
+\begin{DoxyParams}{Parameters}
+{\em state\+Name} & -\/ name of an state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool falue 
+\end{DoxyReturn}
+\hypertarget{class_animal_a8d6a4aef56a2df828c8b286d993c3037}{}\index{Animal@{Animal}!is\+Dangerous@{is\+Dangerous}}
+\index{is\+Dangerous@{is\+Dangerous}!Animal@{Animal}}
+\subsubsection[{is\+Dangerous}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Animal\+::is\+Dangerous (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{another}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_animal_a8d6a4aef56a2df828c8b286d993c3037}
+
+
+checks if animal is Dangerous for another 
+
+is\+Dangerous 
+\begin{DoxyParams}{Parameters}
+{\em another} & -\/ another animal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool falue 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_herbivore_a330a480982c71b393d90a95ae9e7f513}{Herbivore}, and \hyperlink{class_carnivore_a6119646adbb63f861d7a8f873e03086c}{Carnivore}.
+
+\hypertarget{class_animal_a732095e2cd7155106d07f27c66bf2c32}{}\index{Animal@{Animal}!is\+Herbivore@{is\+Herbivore}}
+\index{is\+Herbivore@{is\+Herbivore}!Animal@{Animal}}
+\subsubsection[{is\+Herbivore}]{\setlength{\rightskip}{0pt plus 5cm}bool Animal\+::is\+Herbivore (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a732095e2cd7155106d07f27c66bf2c32}
+
+
+Function returns true, if an animal is herbivore. 
+
+is\+Herbivore \begin{DoxyReturn}{Returns}
+bool value 
+\end{DoxyReturn}
+\hypertarget{class_animal_a88babf3ca0b62e73d713bbeda5982975}{}\index{Animal@{Animal}!is\+Mother@{is\+Mother}}
+\index{is\+Mother@{is\+Mother}!Animal@{Animal}}
+\subsubsection[{is\+Mother}]{\setlength{\rightskip}{0pt plus 5cm}bool Animal\+::is\+Mother (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a88babf3ca0b62e73d713bbeda5982975}
+
+
+Returns true if an animal is mother. 
+
+is\+Mother \begin{DoxyReturn}{Returns}
+boolean value 
+\end{DoxyReturn}
+\hypertarget{class_animal_aae84f5e4412829e71f73c262600be323}{}\index{Animal@{Animal}!is\+That\+Me@{is\+That\+Me}}
+\index{is\+That\+Me@{is\+That\+Me}!Animal@{Animal}}
+\subsubsection[{is\+That\+Me}]{\setlength{\rightskip}{0pt plus 5cm}bool Animal\+::is\+That\+Me (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y}
+\end{DoxyParamCaption}
+)}\label{class_animal_aae84f5e4412829e71f73c262600be323}
+
+
+checks if an animal is at position. 
+
+is\+That\+Me 
+\begin{DoxyParams}{Parameters}
+{\em x} & -\/ position in x axis \\
+\hline
+{\em y} & -\/ position in y axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool falue 
+\end{DoxyReturn}
+\hypertarget{class_animal_aa8cb8cb6c83b686d8076115c2dc1d5de}{}\index{Animal@{Animal}!loose\+State@{loose\+State}}
+\index{loose\+State@{loose\+State}!Animal@{Animal}}
+\subsubsection[{loose\+State}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::loose\+State (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{state\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{class_animal_aa8cb8cb6c83b686d8076115c2dc1d5de}
+
+
+deletes state from the animal  state\+\_\+name -\/ state to be lost 
+
+loose\+State \hypertarget{class_animal_a4843dae3d10111748918c52ef4ff0d18}{}\index{Animal@{Animal}!mark\+To\+Kill@{mark\+To\+Kill}}
+\index{mark\+To\+Kill@{mark\+To\+Kill}!Animal@{Animal}}
+\subsubsection[{mark\+To\+Kill}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::mark\+To\+Kill (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a4843dae3d10111748918c52ef4ff0d18}
+
+
+marks an animal to be killed in a model 
+
+mark\+To\+Kill \hypertarget{class_animal_aacc92184b295e2599bfe4143c107b1c0}{}\index{Animal@{Animal}!return\+Coodtinates@{return\+Coodtinates}}
+\index{return\+Coodtinates@{return\+Coodtinates}!Animal@{Animal}}
+\subsubsection[{return\+Coodtinates}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coordinates} Animal\+::return\+Coodtinates (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_aacc92184b295e2599bfe4143c107b1c0}
+
+
+gets coordinates of an animal. 
+
+return\+Coodtinates \begin{DoxyReturn}{Returns}
+animal\textquotesingle{}s coordinates 
+\end{DoxyReturn}
+\hypertarget{class_animal_a616394b8840e25c445816d54140e2533}{}\index{Animal@{Animal}!return\+Eat\+Need@{return\+Eat\+Need}}
+\index{return\+Eat\+Need@{return\+Eat\+Need}!Animal@{Animal}}
+\subsubsection[{return\+Eat\+Need}]{\setlength{\rightskip}{0pt plus 5cm}double\& Animal\+::return\+Eat\+Need (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a616394b8840e25c445816d54140e2533}
+
+
+returns actual animal\textquotesingle{}s eat need 
+
+return\+Eat\+Need \begin{DoxyReturn}{Returns}
+reference to double value 
+\end{DoxyReturn}
+\hypertarget{class_animal_af354475eac6d2f1edb0822d8ee3953df}{}\index{Animal@{Animal}!return\+Location\+Data@{return\+Location\+Data}}
+\index{return\+Location\+Data@{return\+Location\+Data}!Animal@{Animal}}
+\subsubsection[{return\+Location\+Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location\+Data}$\ast$ Animal\+::return\+Location\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_af354475eac6d2f1edb0822d8ee3953df}
+
+
+gets current location data of an animal. 
+
+return\+Location\+Data \begin{DoxyReturn}{Returns}
+current location data of an animal 
+\end{DoxyReturn}
+\hypertarget{class_animal_aeacd1807204f0a5c5eefedcd6a8a400a}{}\index{Animal@{Animal}!return\+Sleep\+Need@{return\+Sleep\+Need}}
+\index{return\+Sleep\+Need@{return\+Sleep\+Need}!Animal@{Animal}}
+\subsubsection[{return\+Sleep\+Need}]{\setlength{\rightskip}{0pt plus 5cm}double\& Animal\+::return\+Sleep\+Need (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_aeacd1807204f0a5c5eefedcd6a8a400a}
+
+
+returns actual animal\textquotesingle{}s sleep need 
+
+return\+Sleep\+Need \begin{DoxyReturn}{Returns}
+reference to double value 
+\end{DoxyReturn}
+\hypertarget{class_animal_aadf3c770f5b4795704d20e4e779db60e}{}\index{Animal@{Animal}!return\+Time\+Sice\+Copulation@{return\+Time\+Sice\+Copulation}}
+\index{return\+Time\+Sice\+Copulation@{return\+Time\+Sice\+Copulation}!Animal@{Animal}}
+\subsubsection[{return\+Time\+Sice\+Copulation}]{\setlength{\rightskip}{0pt plus 5cm}time\+\_\+t\& Animal\+::return\+Time\+Sice\+Copulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_aadf3c770f5b4795704d20e4e779db60e}
+
+
+returns a time since last copulation 
+
+return\+Time\+Sice\+Copulation \begin{DoxyReturn}{Returns}
+time\+\_\+t reference 
+\end{DoxyReturn}
+\hypertarget{class_animal_ae455eb17f64f95f159c5f8fdc4a67728}{}\index{Animal@{Animal}!set\+Acceleration@{set\+Acceleration}}
+\index{set\+Acceleration@{set\+Acceleration}!Animal@{Animal}}
+\subsubsection[{set\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::set\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{double}]{value\+\_\+to\+\_\+set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_ae455eb17f64f95f159c5f8fdc4a67728}
+
+
+Sets acceleration of an animal  velut\+To\+Set -\/ value which will be set. 
+
+set\+Acceleration \hypertarget{class_animal_af796c149072c673e64778b73d4371ec4}{}\index{Animal@{Animal}!set\+Action@{set\+Action}}
+\index{set\+Action@{set\+Action}!Animal@{Animal}}
+\subsubsection[{set\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::set\+Action (
+\begin{DoxyParamCaption}
+\item[{Action\+Ptr}]{action\+\_\+ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_af796c149072c673e64778b73d4371ec4}
+
+
+Sets action to current animal.  action\+\_\+ptr -\/ shared pointer to new action. 
+
+set\+Action \hypertarget{class_animal_a26e010f9b80815b471dea886d9499ec8}{}\index{Animal@{Animal}!set\+Looking\+Angle@{set\+Looking\+Angle}}
+\index{set\+Looking\+Angle@{set\+Looking\+Angle}!Animal@{Animal}}
+\subsubsection[{set\+Looking\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::set\+Looking\+Angle (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{value\+\_\+to\+\_\+set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a26e010f9b80815b471dea886d9499ec8}
+
+
+Sets looking angle of an animal  velut\+To\+Set -\/ value which will be set. 
+
+set\+Looking\+Angle \hypertarget{class_animal_a5694a379251e01647fc8b3a8dd9bb21b}{}\index{Animal@{Animal}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Animal@{Animal}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y}
+\end{DoxyParamCaption}
+)}\label{class_animal_a5694a379251e01647fc8b3a8dd9bb21b}
+
+
+moves an animal to indicated position. 
+
+set\+Position 
+\begin{DoxyParams}{Parameters}
+{\em x} & -\/ position in x axis \\
+\hline
+{\em y} & -\/ position in y axis \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_animal_ad995dd1464ec7d41ff3ac8244aa8085a}{}\index{Animal@{Animal}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Animal@{Animal}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Coordinates}}]{coodrinates}
+\end{DoxyParamCaption}
+)}\label{class_animal_ad995dd1464ec7d41ff3ac8244aa8085a}
+
+
+moves an animal to indicated position. 
+
+set\+Position 
+\begin{DoxyParams}{Parameters}
+{\em coodrinates} & -\/ coordinates of new position \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_animal_a8df16f635e0fa5c7ff3ec1fabb4e9be7}{}\index{Animal@{Animal}!set\+Velocity@{set\+Velocity}}
+\index{set\+Velocity@{set\+Velocity}!Animal@{Animal}}
+\subsubsection[{set\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::set\+Velocity (
+\begin{DoxyParamCaption}
+\item[{double}]{value\+\_\+to\+\_\+set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a8df16f635e0fa5c7ff3ec1fabb4e9be7}
+
+
+Sets velocity of an animal  velut\+To\+Set -\/ value which will be set. 
+
+set\+Velocity \hypertarget{class_animal_adc62fe75008f9f24570d83f1279ba938}{}\index{Animal@{Animal}!should\+Die@{should\+Die}}
+\index{should\+Die@{should\+Die}!Animal@{Animal}}
+\subsubsection[{should\+Die}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Animal} $\ast$ Animal\+::should\+Die (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_animal_adc62fe75008f9f24570d83f1279ba938}
+
+
+Returns this if animal should die or nullptr. 
+
+should\+Die \begin{DoxyReturn}{Returns}
+Pointer to animal class 
+\end{DoxyReturn}
+\hypertarget{class_animal_af8213ebc97b4fc1a3f19fee9223bec3a}{}\index{Animal@{Animal}!stop\+Turning@{stop\+Turning}}
+\index{stop\+Turning@{stop\+Turning}!Animal@{Animal}}
+\subsubsection[{stop\+Turning}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::stop\+Turning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_af8213ebc97b4fc1a3f19fee9223bec3a}
+
+
+Stops animal\textquotesingle{}s turning. 
+
+stop\+Turning \hypertarget{class_animal_a89663265c1204cbea3ac738ec6a322a0}{}\index{Animal@{Animal}!turn\+Left@{turn\+Left}}
+\index{turn\+Left@{turn\+Left}!Animal@{Animal}}
+\subsubsection[{turn\+Left}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::turn\+Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a89663265c1204cbea3ac738ec6a322a0}
+
+
+Turns an animal left. 
+
+turn\+Left \hypertarget{class_animal_a5a4e742f6f59293a734c97f0bec51446}{}\index{Animal@{Animal}!turn\+Right@{turn\+Right}}
+\index{turn\+Right@{turn\+Right}!Animal@{Animal}}
+\subsubsection[{turn\+Right}]{\setlength{\rightskip}{0pt plus 5cm}void Animal\+::turn\+Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_animal_a5a4e742f6f59293a734c97f0bec51446}
+
+
+Turns an animal right. 
+
+turn\+Right \hypertarget{class_animal_acd9cdd1e77d0e1c54b2601aa52865b90}{}\index{Animal@{Animal}!update\+Status@{update\+Status}}
+\index{update\+Status@{update\+Status}!Animal@{Animal}}
+\subsubsection[{update\+Status}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Animal\+::update\+Status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_animal_acd9cdd1e77d0e1c54b2601aa52865b90}
+
+
+Updates status of an animal. 
+
+update\+Status 
+
+Implemented in \hyperlink{class_herbivore_ab85ced8d71235be1cb475e01e097ba55}{Herbivore}, and \hyperlink{class_carnivore_a34c97ab897ebe2454390997fb49e5f90}{Carnivore}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\hyperlink{_animal_8h}{Animal.\+h}\item 
+Model/\hyperlink{_animal_8cpp}{Animal.\+cpp}\end{DoxyCompactItemize}

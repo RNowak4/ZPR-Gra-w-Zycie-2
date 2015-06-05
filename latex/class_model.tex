@@ -1,0 +1,344 @@
+\hypertarget{class_model}{}\section{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_model_ae3b375de5f6df4faf74a95d64748e048}{Model} ()
+\begin{DoxyCompactList}\small\item\em Default constructor of \hyperlink{class_model}{Model} class. \end{DoxyCompactList}\item 
+\hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_model}{Model} class. Protects agains memory loss. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_aa6ac184b9cbcceddbe5a44c97cfdd618}{create\+Carnivore} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em creates a single carnivore  x -\/ position on x axis  y -\/ position on y axis \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a26eee2f12fc902ea98e53001c0d1c4ea}{create\+Herbivore} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em creates a single herbivore  x -\/ position on x axis  y -\/ position on y axis \end{DoxyCompactList}\item 
+\hyperlink{class_animal}{Animal} $\ast$ \hyperlink{class_model_a8b359acfc61eb24f4b005a8782970616}{create\+Carnivore\+Child} (unsigned x, unsigned y, const \hyperlink{class_attributes}{Attributes} \&attributes, \hyperlink{class_animal}{Animal} $\ast$mother\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em creates a single carnivore child  x -\/ position on x axis  y -\/ position on y axis  attributes -\/ child\textquotesingle{}s attributes  mother\+\_\+ptr -\/ pointer to the mother \end{DoxyCompactList}\item 
+\hyperlink{class_animal}{Animal} $\ast$ \hyperlink{class_model_ac9ba85cbab8df278ed7ce0970f2b3b75}{create\+Herbivore\+Child} (unsigned x, unsigned y, const \hyperlink{class_attributes}{Attributes} \&attributes, \hyperlink{class_animal}{Animal} $\ast$mother\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em creates a single herbivore child  x -\/ position on x axis  y -\/ position on y axis  attributes -\/ child\textquotesingle{}s attributes  mother\+\_\+ptr -\/ pointer to the mother \end{DoxyCompactList}\item 
+void \hyperlink{class_model_aa2d52c9896f6ddc7550f80a05a79d5c6}{update\+Animals\+Statuses} ()
+\begin{DoxyCompactList}\small\item\em updates status of every animal in model \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_animal}{Animal} $\ast$ $>$ \hyperlink{class_model_af7bef4dc55f369d9183f2539cf967f3a}{get\+Animals\+In\+Sight} (\hyperlink{struct_coordinates}{Coordinates} coordinates, unsigned sight\+Len, unsigned looking\+Angle, unsigned looking\+Rad)
+\begin{DoxyCompactList}\small\item\em Returns collection of animals in specified sight range.  coordinates -\/ position of the animal.  sight\+Len -\/ sight length of the animal.  looking\+Angle -\/ animal\textquotesingle{}s looking angle  looking\+Rad -\/ animal\textquotesingle{}s looking radius. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_animal}{Animal} $\ast$ $>$ \hyperlink{class_model_a8bfdd563b3481f4a09aa453a82aeb03d}{get\+Nearly\+Animals} (\hyperlink{struct_coordinates}{Coordinates} coordinates, const unsigned range)
+\begin{DoxyCompactList}\small\item\em Returns collection of animals in specified range.  coordinates -\/ position of the animal.  range -\/ sight length of the animal. \end{DoxyCompactList}\item 
+\hyperlink{struct_coordinates}{Coordinates} \hyperlink{class_model_a3e2a7c4c9f8615681bb125d753ce096b}{get\+Coordinates} (const \hyperlink{class_animal}{Animal} $\ast$animal\+Ptr) const 
+\begin{DoxyCompactList}\small\item\em Function simply returns coordinates of specified animal  animal\+Ptr -\/ Pointer to \hyperlink{class_animal}{Animal} which coordinates we want to get. \end{DoxyCompactList}\item 
+std\+::vector$<$ const \hyperlink{struct_location_data}{Location\+Data} $\ast$ $>$ \hyperlink{class_model_a595350e16f19c49951506c05e0c2f5fd}{get\+Animals\+Location\+Data} ()
+\begin{DoxyCompactList}\small\item\em Function returns all animals location data. \end{DoxyCompactList}\item 
+pair\+Vector\+Ptr \hyperlink{class_model_a851cf88c236cfa584eee39a8cb554650}{get\+Animals\+Data} () const 
+\begin{DoxyCompactList}\small\item\em Function returns animals data. \end{DoxyCompactList}\item 
+bool \hyperlink{class_model_aa584d00faea00084c10d9f07d2f6e4fc}{switch\+Animal\+Register} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em Function swtiches current \hyperlink{class_animal}{Animal} being in registered animals collection  x -\/ position on x axis  y -\/ position on y axis. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a561a1b5d0e5b17d60309a0bd1bbfffed}{set\+Model\+Parameters} (unsigned simulation\+Speed, unsigned adult\+Width, unsigned adult\+Heigth, unsigned young\+Width, unsigned young\+Heigth, unsigned map\+Width, unsigned map\+Height)
+\begin{DoxyCompactList}\small\item\em Function is used to set model\textquotesingle{}s parameters  adult\+Width -\/ width of adult animal  adult\+Heigth -\/ height of adult animal  young\+Width -\/ width of young animal  young\+Heigth -\/ height of young animal  map\+Width -\/ model\textquotesingle{}s map width  map\+Height -\/ model\textquotesingle{}s map height. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a5912db62a8f99275b77908e65d76bf14}{kill\+Animal} (\hyperlink{class_animal}{Animal} $\ast$animal\+Ptr)
+\begin{DoxyCompactList}\small\item\em Deletes an animal from model  animal\+Ptr -\/ Pointer to animal which we want to kill. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a68c3f86c7ff37da667d5944e03c5d3ea}{add\+Action} (\hyperlink{class_action}{Action} $\ast$action\+Ptr)
+\begin{DoxyCompactList}\small\item\em Function is used to add an action to a model.  action\+Ptr -\/ pointer to an action which we want to add. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a9304a9af75efde3ec6184d34ac24c86f}{delete\+Action} (\hyperlink{class_action}{Action} $\ast$action\+Ptr)
+\begin{DoxyCompactList}\small\item\em Function is used to delete an action from a model.  action\+Ptr -\/ pointer to an action which we want to delete. \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a339945890a1fe792078235da65d5caa0}{slower\+Simulation} ()
+\begin{DoxyCompactList}\small\item\em function is used to slow the simulation \end{DoxyCompactList}\item 
+void \hyperlink{class_model_a4542cf27ca6b129d71b5989e327766e8}{faster\+Simulation} ()
+\begin{DoxyCompactList}\small\item\em function is used to faster the simulation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned \hyperlink{class_model_aa5648d070ba25c9668f598af21e32b48}{count\+Angle} (\hyperlink{struct_coordinates}{Coordinates} first, \hyperlink{struct_coordinates}{Coordinates} second)
+\begin{DoxyCompactList}\small\item\em Function is used to count an angle between first and second coordinates  first -\/ coordinates of selected position  second -\/ coordinates of relative position. \end{DoxyCompactList}\item 
+static double \hyperlink{class_model_add64a8dda26f0bf29efe9d633a1e3959}{count\+Distance} (\hyperlink{struct_coordinates}{Coordinates} first, \hyperlink{struct_coordinates}{Coordinates} second)
+\begin{DoxyCompactList}\small\item\em Funtion is used to count a distance between first and second coordinates  first -\/ coordinates of selected position  second -\/ coordinates of relative position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_model_ae3b375de5f6df4faf74a95d64748e048}{}\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_model_ae3b375de5f6df4faf74a95d64748e048}
+
+
+Default constructor of \hyperlink{class_model}{Model} class. 
+
+\hyperlink{class_model}{Model} \hypertarget{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{}\index{Model@{Model}!````~Model@{$\sim$\+Model}}
+\index{````~Model@{$\sim$\+Model}!Model@{Model}}
+\subsubsection[{$\sim$\+Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::$\sim$\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_model_ad6ebd2062a0b823db841a0b88baac4c0}
+
+
+Destructor of \hyperlink{class_model}{Model} class. Protects agains memory loss. 
+
+$\sim$\+Model 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_model_a68c3f86c7ff37da667d5944e03c5d3ea}{}\index{Model@{Model}!add\+Action@{add\+Action}}
+\index{add\+Action@{add\+Action}!Model@{Model}}
+\subsubsection[{add\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::add\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} $\ast$}]{action\+Ptr}
+\end{DoxyParamCaption}
+)}\label{class_model_a68c3f86c7ff37da667d5944e03c5d3ea}
+
+
+Function is used to add an action to a model.  action\+Ptr -\/ pointer to an action which we want to add. 
+
+add\+Action \hypertarget{class_model_aa5648d070ba25c9668f598af21e32b48}{}\index{Model@{Model}!count\+Angle@{count\+Angle}}
+\index{count\+Angle@{count\+Angle}!Model@{Model}}
+\subsubsection[{count\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Model\+::count\+Angle (
+\begin{DoxyParamCaption}
+\item[{{\bf Coordinates}}]{first, }
+\item[{{\bf Coordinates}}]{second}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_model_aa5648d070ba25c9668f598af21e32b48}
+
+
+Function is used to count an angle between first and second coordinates  first -\/ coordinates of selected position  second -\/ coordinates of relative position. 
+
+count\+Angle \begin{DoxyReturn}{Returns}
+unsigned integer value 
+\end{DoxyReturn}
+\hypertarget{class_model_add64a8dda26f0bf29efe9d633a1e3959}{}\index{Model@{Model}!count\+Distance@{count\+Distance}}
+\index{count\+Distance@{count\+Distance}!Model@{Model}}
+\subsubsection[{count\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}double Model\+::count\+Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf Coordinates}}]{first, }
+\item[{{\bf Coordinates}}]{second}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_model_add64a8dda26f0bf29efe9d633a1e3959}
+
+
+Funtion is used to count a distance between first and second coordinates  first -\/ coordinates of selected position  second -\/ coordinates of relative position. 
+
+count\+Distance \begin{DoxyReturn}{Returns}
+unsigned integer value 
+\end{DoxyReturn}
+\hypertarget{class_model_aa6ac184b9cbcceddbe5a44c97cfdd618}{}\index{Model@{Model}!create\+Carnivore@{create\+Carnivore}}
+\index{create\+Carnivore@{create\+Carnivore}!Model@{Model}}
+\subsubsection[{create\+Carnivore}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::create\+Carnivore (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y}
+\end{DoxyParamCaption}
+)}\label{class_model_aa6ac184b9cbcceddbe5a44c97cfdd618}
+
+
+creates a single carnivore  x -\/ position on x axis  y -\/ position on y axis 
+
+create\+Carnivore \hypertarget{class_model_a8b359acfc61eb24f4b005a8782970616}{}\index{Model@{Model}!create\+Carnivore\+Child@{create\+Carnivore\+Child}}
+\index{create\+Carnivore\+Child@{create\+Carnivore\+Child}!Model@{Model}}
+\subsubsection[{create\+Carnivore\+Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Animal} $\ast$ Model\+::create\+Carnivore\+Child (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y, }
+\item[{const {\bf Attributes} \&}]{attributes, }
+\item[{{\bf Animal} $\ast$}]{mother\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_model_a8b359acfc61eb24f4b005a8782970616}
+
+
+creates a single carnivore child  x -\/ position on x axis  y -\/ position on y axis  attributes -\/ child\textquotesingle{}s attributes  mother\+\_\+ptr -\/ pointer to the mother 
+
+create\+Carnivore\+Child \begin{DoxyReturn}{Returns}
+pointer to recently created animal child 
+\end{DoxyReturn}
+\hypertarget{class_model_a26eee2f12fc902ea98e53001c0d1c4ea}{}\index{Model@{Model}!create\+Herbivore@{create\+Herbivore}}
+\index{create\+Herbivore@{create\+Herbivore}!Model@{Model}}
+\subsubsection[{create\+Herbivore}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::create\+Herbivore (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y}
+\end{DoxyParamCaption}
+)}\label{class_model_a26eee2f12fc902ea98e53001c0d1c4ea}
+
+
+creates a single herbivore  x -\/ position on x axis  y -\/ position on y axis 
+
+create\+Herbivore \hypertarget{class_model_ac9ba85cbab8df278ed7ce0970f2b3b75}{}\index{Model@{Model}!create\+Herbivore\+Child@{create\+Herbivore\+Child}}
+\index{create\+Herbivore\+Child@{create\+Herbivore\+Child}!Model@{Model}}
+\subsubsection[{create\+Herbivore\+Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Animal} $\ast$ Model\+::create\+Herbivore\+Child (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y, }
+\item[{const {\bf Attributes} \&}]{attributes, }
+\item[{{\bf Animal} $\ast$}]{mother\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_model_ac9ba85cbab8df278ed7ce0970f2b3b75}
+
+
+creates a single herbivore child  x -\/ position on x axis  y -\/ position on y axis  attributes -\/ child\textquotesingle{}s attributes  mother\+\_\+ptr -\/ pointer to the mother 
+
+create\+Herbivore\+Child \begin{DoxyReturn}{Returns}
+pointer to recently created animal child 
+\end{DoxyReturn}
+\hypertarget{class_model_a9304a9af75efde3ec6184d34ac24c86f}{}\index{Model@{Model}!delete\+Action@{delete\+Action}}
+\index{delete\+Action@{delete\+Action}!Model@{Model}}
+\subsubsection[{delete\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::delete\+Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action} $\ast$}]{action\+Ptr}
+\end{DoxyParamCaption}
+)}\label{class_model_a9304a9af75efde3ec6184d34ac24c86f}
+
+
+Function is used to delete an action from a model.  action\+Ptr -\/ pointer to an action which we want to delete. 
+
+delete\+Action \hypertarget{class_model_a4542cf27ca6b129d71b5989e327766e8}{}\index{Model@{Model}!faster\+Simulation@{faster\+Simulation}}
+\index{faster\+Simulation@{faster\+Simulation}!Model@{Model}}
+\subsubsection[{faster\+Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::faster\+Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_model_a4542cf27ca6b129d71b5989e327766e8}
+
+
+function is used to faster the simulation 
+
+faster\+Simulation \hypertarget{class_model_a851cf88c236cfa584eee39a8cb554650}{}\index{Model@{Model}!get\+Animals\+Data@{get\+Animals\+Data}}
+\index{get\+Animals\+Data@{get\+Animals\+Data}!Model@{Model}}
+\subsubsection[{get\+Animals\+Data}]{\setlength{\rightskip}{0pt plus 5cm}pair\+Vector\+Ptr Model\+::get\+Animals\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_model_a851cf88c236cfa584eee39a8cb554650}
+
+
+Function returns animals data. 
+
+get\+Animals\+Data \begin{DoxyReturn}{Returns}
+Pointer to the Vector of specified pairs. 
+\end{DoxyReturn}
+\hypertarget{class_model_af7bef4dc55f369d9183f2539cf967f3a}{}\index{Model@{Model}!get\+Animals\+In\+Sight@{get\+Animals\+In\+Sight}}
+\index{get\+Animals\+In\+Sight@{get\+Animals\+In\+Sight}!Model@{Model}}
+\subsubsection[{get\+Animals\+In\+Sight}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Animal} $\ast$ $>$ Model\+::get\+Animals\+In\+Sight (
+\begin{DoxyParamCaption}
+\item[{{\bf Coordinates}}]{coordinates, }
+\item[{unsigned}]{sight\+Len, }
+\item[{unsigned}]{looking\+Angle, }
+\item[{unsigned}]{looking\+Rad}
+\end{DoxyParamCaption}
+)}\label{class_model_af7bef4dc55f369d9183f2539cf967f3a}
+
+
+Returns collection of animals in specified sight range.  coordinates -\/ position of the animal.  sight\+Len -\/ sight length of the animal.  looking\+Angle -\/ animal\textquotesingle{}s looking angle  looking\+Rad -\/ animal\textquotesingle{}s looking radius. 
+
+get\+Animals\+In\+Sight \begin{DoxyReturn}{Returns}
+vector of pointer to animals being in sight of animal specified by coordinates 
+\end{DoxyReturn}
+\hypertarget{class_model_a595350e16f19c49951506c05e0c2f5fd}{}\index{Model@{Model}!get\+Animals\+Location\+Data@{get\+Animals\+Location\+Data}}
+\index{get\+Animals\+Location\+Data@{get\+Animals\+Location\+Data}!Model@{Model}}
+\subsubsection[{get\+Animals\+Location\+Data}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ const {\bf Location\+Data} $\ast$ $>$ Model\+::get\+Animals\+Location\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_model_a595350e16f19c49951506c05e0c2f5fd}
+
+
+Function returns all animals location data. 
+
+get\+Animals\+Location\+Data \begin{DoxyReturn}{Returns}
+Vector of \hyperlink{struct_location_data}{Location\+Data} pointers 
+\end{DoxyReturn}
+\hypertarget{class_model_a3e2a7c4c9f8615681bb125d753ce096b}{}\index{Model@{Model}!get\+Coordinates@{get\+Coordinates}}
+\index{get\+Coordinates@{get\+Coordinates}!Model@{Model}}
+\subsubsection[{get\+Coordinates}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coordinates} Model\+::get\+Coordinates (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr}
+\end{DoxyParamCaption}
+) const}\label{class_model_a3e2a7c4c9f8615681bb125d753ce096b}
+
+
+Function simply returns coordinates of specified animal  animal\+Ptr -\/ Pointer to \hyperlink{class_animal}{Animal} which coordinates we want to get. 
+
+get\+Coordinates \begin{DoxyReturn}{Returns}
+\hyperlink{struct_coordinates}{Coordinates} structure 
+\end{DoxyReturn}
+\hypertarget{class_model_a8bfdd563b3481f4a09aa453a82aeb03d}{}\index{Model@{Model}!get\+Nearly\+Animals@{get\+Nearly\+Animals}}
+\index{get\+Nearly\+Animals@{get\+Nearly\+Animals}!Model@{Model}}
+\subsubsection[{get\+Nearly\+Animals}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Animal} $\ast$ $>$ Model\+::get\+Nearly\+Animals (
+\begin{DoxyParamCaption}
+\item[{{\bf Coordinates}}]{coordinates, }
+\item[{const unsigned}]{range}
+\end{DoxyParamCaption}
+)}\label{class_model_a8bfdd563b3481f4a09aa453a82aeb03d}
+
+
+Returns collection of animals in specified range.  coordinates -\/ position of the animal.  range -\/ sight length of the animal. 
+
+get\+Nearly\+Animals \begin{DoxyReturn}{Returns}
+vector of pointer to animals being in range of animal specified by coordinates 
+\end{DoxyReturn}
+\hypertarget{class_model_a5912db62a8f99275b77908e65d76bf14}{}\index{Model@{Model}!kill\+Animal@{kill\+Animal}}
+\index{kill\+Animal@{kill\+Animal}!Model@{Model}}
+\subsubsection[{kill\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::kill\+Animal (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+Ptr}
+\end{DoxyParamCaption}
+)}\label{class_model_a5912db62a8f99275b77908e65d76bf14}
+
+
+Deletes an animal from model  animal\+Ptr -\/ Pointer to animal which we want to kill. 
+
+kill\+Animal \hypertarget{class_model_a561a1b5d0e5b17d60309a0bd1bbfffed}{}\index{Model@{Model}!set\+Model\+Parameters@{set\+Model\+Parameters}}
+\index{set\+Model\+Parameters@{set\+Model\+Parameters}!Model@{Model}}
+\subsubsection[{set\+Model\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::set\+Model\+Parameters (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{simulation\+Speed, }
+\item[{unsigned}]{adult\+Width, }
+\item[{unsigned}]{adult\+Heigth, }
+\item[{unsigned}]{young\+Width, }
+\item[{unsigned}]{young\+Heigth, }
+\item[{unsigned}]{map\+Width, }
+\item[{unsigned}]{map\+Height}
+\end{DoxyParamCaption}
+)}\label{class_model_a561a1b5d0e5b17d60309a0bd1bbfffed}
+
+
+Function is used to set model\textquotesingle{}s parameters  adult\+Width -\/ width of adult animal  adult\+Heigth -\/ height of adult animal  young\+Width -\/ width of young animal  young\+Heigth -\/ height of young animal  map\+Width -\/ model\textquotesingle{}s map width  map\+Height -\/ model\textquotesingle{}s map height. 
+
+set\+Model\+Parameters \hypertarget{class_model_a339945890a1fe792078235da65d5caa0}{}\index{Model@{Model}!slower\+Simulation@{slower\+Simulation}}
+\index{slower\+Simulation@{slower\+Simulation}!Model@{Model}}
+\subsubsection[{slower\+Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::slower\+Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_model_a339945890a1fe792078235da65d5caa0}
+
+
+function is used to slow the simulation 
+
+slower\+Simulation \hypertarget{class_model_aa584d00faea00084c10d9f07d2f6e4fc}{}\index{Model@{Model}!switch\+Animal\+Register@{switch\+Animal\+Register}}
+\index{switch\+Animal\+Register@{switch\+Animal\+Register}!Model@{Model}}
+\subsubsection[{switch\+Animal\+Register}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\+::switch\+Animal\+Register (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{x, }
+\item[{unsigned}]{y}
+\end{DoxyParamCaption}
+)}\label{class_model_aa584d00faea00084c10d9f07d2f6e4fc}
+
+
+Function swtiches current \hyperlink{class_animal}{Animal} being in registered animals collection  x -\/ position on x axis  y -\/ position on y axis. 
+
+switch\+Animal\+Register \begin{DoxyReturn}{Returns}
+bool value 
+\end{DoxyReturn}
+\hypertarget{class_model_aa2d52c9896f6ddc7550f80a05a79d5c6}{}\index{Model@{Model}!update\+Animals\+Statuses@{update\+Animals\+Statuses}}
+\index{update\+Animals\+Statuses@{update\+Animals\+Statuses}!Model@{Model}}
+\subsubsection[{update\+Animals\+Statuses}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::update\+Animals\+Statuses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_model_aa2d52c9896f6ddc7550f80a05a79d5c6}
+
+
+updates status of every animal in model 
+
+update\+Animals\+Statuses 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\hyperlink{_model_8h}{Model.\+h}\item 
+Model/\hyperlink{_model_8cpp}{Model.\+cpp}\end{DoxyCompactItemize}

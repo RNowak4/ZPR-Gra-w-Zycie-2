@@ -1,0 +1,98 @@
+\hypertarget{class_do_nothing}{}\section{Do\+Nothing Class Reference}
+\label{class_do_nothing}\index{Do\+Nothing@{Do\+Nothing}}
+Inheritance diagram for Do\+Nothing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_do_nothing}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_do_nothing_a07c31cc665631fbb7297c340ee37127e}{}{\bfseries Do\+Nothing} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$mother\+\_\+ptr)\label{class_do_nothing_a07c31cc665631fbb7297c340ee37127e}
+
+\item 
+void \hyperlink{class_do_nothing_a62278199ca50f424ec0de4558ba7efa9}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_do_nothing_af829f1fc1893c5f9c31e8632c4dbe2cc}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_do_nothing_ae01160976750e98bf22bc34f773ea264}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_do_nothing_ab9e24b3640d4e8125cba091df9d16e7b}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_do_nothing_af829f1fc1893c5f9c31e8632c4dbe2cc}{}\index{Do\+Nothing@{Do\+Nothing}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Do\+Nothing@{Do\+Nothing}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Do\+Nothing\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_do_nothing_af829f1fc1893c5f9c31e8632c4dbe2cc}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{Action}.
+
+\hypertarget{class_do_nothing_ae01160976750e98bf22bc34f773ea264}{}\index{Do\+Nothing@{Do\+Nothing}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Do\+Nothing@{Do\+Nothing}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Do\+Nothing\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_do_nothing_ae01160976750e98bf22bc34f773ea264}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{Action}.
+
+\hypertarget{class_do_nothing_a62278199ca50f424ec0de4558ba7efa9}{}\index{Do\+Nothing@{Do\+Nothing}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Do\+Nothing@{Do\+Nothing}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Do\+Nothing\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_do_nothing_a62278199ca50f424ec0de4558ba7efa9}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{Action}.
+
+\hypertarget{class_do_nothing_ab9e24b3640d4e8125cba091df9d16e7b}{}\index{Do\+Nothing@{Do\+Nothing}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Do\+Nothing@{Do\+Nothing}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Do\+Nothing\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_do_nothing_ab9e24b3640d4e8125cba091df9d16e7b}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_do_nothing_8h}{Do\+Nothing.\+h}\item 
+Model/\+Actions/\hyperlink{_do_nothing_8cpp}{Do\+Nothing.\+cpp}\end{DoxyCompactItemize}

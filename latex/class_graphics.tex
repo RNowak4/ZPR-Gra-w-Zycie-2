@@ -1,0 +1,303 @@
+\hypertarget{class_graphics}{}\section{Graphics Class Reference}
+\label{class_graphics}\index{Graphics@{Graphics}}
+
+
+{\ttfamily \#include $<$Graphics.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_graphics_ab2279e168182f0b7e06e2f8383c5c388}{}enum {\bfseries Texture\+I\+D} \{ \\*
+{\bfseries G\+R\+A\+S\+S}, 
+{\bfseries H\+E\+R\+B\+I\+V\+O\+R\+E\+\_\+\+G\+R\+O\+W\+N\+\_\+\+M\+A\+L\+E}, 
+{\bfseries H\+E\+R\+B\+I\+V\+O\+R\+E\+\_\+\+G\+R\+O\+W\+N\+\_\+\+F\+E\+M\+A\+L\+E}, 
+{\bfseries H\+E\+R\+B\+I\+V\+O\+R\+E\+\_\+\+C\+H\+I\+L\+D}, 
+\\*
+{\bfseries C\+A\+R\+N\+I\+V\+O\+R\+E\+\_\+\+G\+R\+O\+W\+N\+\_\+\+M\+A\+L\+E}, 
+{\bfseries C\+A\+R\+N\+I\+V\+O\+R\+E\+\_\+\+G\+R\+O\+W\+N\+\_\+\+F\+E\+M\+A\+L\+E}, 
+{\bfseries C\+A\+R\+N\+I\+V\+O\+R\+E\+\_\+\+C\+H\+I\+L\+D}, 
+{\bfseries F\+R\+A\+M\+E\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+N\+D}
+ \}\label{class_graphics_ab2279e168182f0b7e06e2f8383c5c388}
+
+\item 
+\hypertarget{class_graphics_a1213342a76f91e6b4062b80c7ccbcd22}{}enum {\bfseries Font\+I\+D} \{ {\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+F\+O\+N\+T}, 
+{\bfseries H\+E\+L\+P\+\_\+\+F\+O\+N\+T}
+ \}\label{class_graphics_a1213342a76f91e6b4062b80c7ccbcd22}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ \hyperlink{class_graphics_aa4ea206d2d0838ecd873638be99205d4}{get} (enum Texture\+I\+D id)
+\item 
+std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ \hyperlink{class_graphics_a9f24cc7b326adf611a565fe641e28dba}{get} (enum Font\+I\+D id)
+\item 
+void \hyperlink{class_graphics_a9fcb953235531e09e1d7bc95290a4c31}{set\+Window\+Size} (int width, int height)
+\item 
+void \hyperlink{class_graphics_a86b6e3374661fc74f4cfc98219c6ccad}{set\+Window\+Title} (const std\+::string \&title)
+\item 
+void \hyperlink{class_graphics_a928aee39e2d10dfc6ff1dbb4c5b8a743}{draw} (const S\+D\+L\+\_\+\+Rect \&camera, std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ tex, int x, int y, bool centered=false, double angle=0, Uint8 alpha=255)
+\item 
+void \hyperlink{class_graphics_a4e502f4b37a289e4964cfa3dc11d2b21}{render\+Text} (const S\+D\+L\+\_\+\+Rect \&camera, std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ font, const std\+::string \&message, int x, int y, const S\+D\+L\+\_\+\+Color \&color)
+\item 
+void \hyperlink{class_graphics_ad483c1cc7c81f7a30ec88985b0c009f4}{draw\+Frame} (const S\+D\+L\+\_\+\+Rect \&camera, S\+D\+L\+\_\+\+Rect rectangle, std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ filling)
+\item 
+void \hyperlink{class_graphics_a7ba9ba262d144f0fb36a9dacfd2f62ee}{draw\+Line} (const S\+D\+L\+\_\+\+Rect \&camera, int x1, int y1, int x2, int y2, const S\+D\+L\+\_\+\+Color \&color)
+\item 
+void \hyperlink{class_graphics_a7c3828e7e128eebad5350eed95c33b7e}{draw\+Point} (const S\+D\+L\+\_\+\+Rect \&camera, int x, int y, const S\+D\+L\+\_\+\+Color \&color)
+\item 
+void \hyperlink{class_graphics_a68beb512b0697952ebafce249c86dbd3}{clear\+Screen} ()
+\item 
+void \hyperlink{class_graphics_a8adfc8042fbf4816a23e79ae8bd69ac0}{render\+Screen} ()
+\item 
+\hypertarget{class_graphics_aae5b16d2e6a3c6c65007fc9d7169b26a}{}double {\bfseries get\+Scale} () const \label{class_graphics_aae5b16d2e6a3c6c65007fc9d7169b26a}
+
+\item 
+\hypertarget{class_graphics_ae104601ac5893ff7374717f8524f17a4}{}void {\bfseries set\+Scale} (double scale)\label{class_graphics_ae104601ac5893ff7374717f8524f17a4}
+
+\item 
+void \hyperlink{class_graphics_a29b40ec841099a9a2e39bda3defdaec5}{set\+Scaled\+Position} (int \&position, int camera\+Axis)
+\item 
+\hypertarget{class_graphics_ac26fea83c8db7df7056289fc06b7c208}{}int {\bfseries get\+Scaled\+Position} (int position, int camera\+Axis)\label{class_graphics_ac26fea83c8db7df7056289fc06b7c208}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_graphics}{Graphics} \& \hyperlink{class_graphics_ac0bc6e7ec08bf0e9c500c268af07a07d}{get\+Instance} ()
+\item 
+static void \hyperlink{class_graphics_a7e18799dd39f2d61ce8caae62bf931c5}{dispose} (\hyperlink{class_graphics}{Graphics} \&instance)
+\item 
+static void \hyperlink{class_graphics_afa61586a2fddbe60524a39d178467137}{unload\+Libraries} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_graphics}{Graphics} class. \begin{DoxyAuthor}{Author}
+Damian Mazurkiewicz This class provides interface for S\+D\+L systems. It holds all graphic, fonts for simulation. It has methods for drawing components of the simulation on the screen. This class implements the singleton design pattern. 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_graphics_a68beb512b0697952ebafce249c86dbd3}{}\index{Graphics@{Graphics}!clear\+Screen@{clear\+Screen}}
+\index{clear\+Screen@{clear\+Screen}!Graphics@{Graphics}}
+\subsubsection[{clear\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::clear\+Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a68beb512b0697952ebafce249c86dbd3}
+Clean the screen, remove everything drawn on it. \hypertarget{class_graphics_a7e18799dd39f2d61ce8caae62bf931c5}{}\index{Graphics@{Graphics}!dispose@{dispose}}
+\index{dispose@{dispose}!Graphics@{Graphics}}
+\subsubsection[{dispose}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::dispose (
+\begin{DoxyParamCaption}
+\item[{{\bf Graphics} \&}]{instance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_graphics_a7e18799dd39f2d61ce8caae62bf931c5}
+Dispose instance of \hyperlink{class_graphics}{Graphics}, destroy all textures and fonts, unload all S\+D\+L subsystems. \hypertarget{class_graphics_a928aee39e2d10dfc6ff1dbb4c5b8a743}{}\index{Graphics@{Graphics}!draw@{draw}}
+\index{draw@{draw}!Graphics@{Graphics}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::draw (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$}]{tex, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{bool}]{centered = {\ttfamily false}, }
+\item[{double}]{angle = {\ttfamily 0}, }
+\item[{Uint8}]{alpha = {\ttfamily 255}}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a928aee39e2d10dfc6ff1dbb4c5b8a743}
+Draw scaled image on the screen, relative to the camera. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em tex} & texture that has to be drawed. \\
+\hline
+{\em x} & horizontal position on the screen. \\
+\hline
+{\em y} & vertical position on the screen. \\
+\hline
+{\em centered} & if true, the x and y cordinates are in the center of the image. \\
+\hline
+{\em angle} & the angle of image \\
+\hline
+{\em alpha} & transparency of image, if 255, the image is not transparent at all. Lesser is the value, the more transparent is image. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_ad483c1cc7c81f7a30ec88985b0c009f4}{}\index{Graphics@{Graphics}!draw\+Frame@{draw\+Frame}}
+\index{draw\+Frame@{draw\+Frame}!Graphics@{Graphics}}
+\subsubsection[{draw\+Frame}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::draw\+Frame (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{S\+D\+L\+\_\+\+Rect}]{rectangle, }
+\item[{std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$}]{filling}
+\end{DoxyParamCaption}
+)}\label{class_graphics_ad483c1cc7c81f7a30ec88985b0c009f4}
+Draw frame in shape of rectangle on the screen filled with given texture relative to the camera. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & when is not null, rectangle will be in position relative to thic camera position. \\
+\hline
+{\em rectangle} & rectangle meaning area we want to cover with frame. \\
+\hline
+{\em filling} & texture, which is intender to cover the area of the frame. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_a7ba9ba262d144f0fb36a9dacfd2f62ee}{}\index{Graphics@{Graphics}!draw\+Line@{draw\+Line}}
+\index{draw\+Line@{draw\+Line}!Graphics@{Graphics}}
+\subsubsection[{draw\+Line}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::draw\+Line (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2, }
+\item[{const S\+D\+L\+\_\+\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a7ba9ba262d144f0fb36a9dacfd2f62ee}
+Draw line on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em x1} & horizontal position of beginning of the line on the screen. \\
+\hline
+{\em y1} & vertical position of beginning of the line on the screen. \\
+\hline
+{\em x2} & horizontal position of ending of the line on the screen. \\
+\hline
+{\em y2} & vertical position of ending of the line on the screen. \\
+\hline
+{\em color} & color of the line. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_a7c3828e7e128eebad5350eed95c33b7e}{}\index{Graphics@{Graphics}!draw\+Point@{draw\+Point}}
+\index{draw\+Point@{draw\+Point}!Graphics@{Graphics}}
+\subsubsection[{draw\+Point}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::draw\+Point (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{const S\+D\+L\+\_\+\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a7c3828e7e128eebad5350eed95c33b7e}
+Draw point on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em x} & horizontal position of point on the screen. \\
+\hline
+{\em y} & vertical position of point on the screen. \\
+\hline
+{\em color} & color of the point. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_aa4ea206d2d0838ecd873638be99205d4}{}\index{Graphics@{Graphics}!get@{get}}
+\index{get@{get}!Graphics@{Graphics}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ Graphics\+::get (
+\begin{DoxyParamCaption}
+\item[{enum Texture\+I\+D}]{id}
+\end{DoxyParamCaption}
+)}\label{class_graphics_aa4ea206d2d0838ecd873638be99205d4}
+\begin{DoxyReturn}{Returns}
+texture corresponding to given texture id. 
+\end{DoxyReturn}
+\hypertarget{class_graphics_a9f24cc7b326adf611a565fe641e28dba}{}\index{Graphics@{Graphics}!get@{get}}
+\index{get@{get}!Graphics@{Graphics}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ Graphics\+::get (
+\begin{DoxyParamCaption}
+\item[{enum Font\+I\+D}]{id}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a9f24cc7b326adf611a565fe641e28dba}
+\begin{DoxyReturn}{Returns}
+font corresponding to given font id. 
+\end{DoxyReturn}
+\hypertarget{class_graphics_ac0bc6e7ec08bf0e9c500c268af07a07d}{}\index{Graphics@{Graphics}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Graphics@{Graphics}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Graphics} \& Graphics\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_graphics_ac0bc6e7ec08bf0e9c500c268af07a07d}
+\begin{DoxyReturn}{Returns}
+reference to one and only instance of \hyperlink{class_graphics}{Graphics} object. 
+\end{DoxyReturn}
+\hypertarget{class_graphics_a8adfc8042fbf4816a23e79ae8bd69ac0}{}\index{Graphics@{Graphics}!render\+Screen@{render\+Screen}}
+\index{render\+Screen@{render\+Screen}!Graphics@{Graphics}}
+\subsubsection[{render\+Screen}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::render\+Screen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a8adfc8042fbf4816a23e79ae8bd69ac0}
+Show everything drawed by renderer on the screen. \hypertarget{class_graphics_a4e502f4b37a289e4964cfa3dc11d2b21}{}\index{Graphics@{Graphics}!render\+Text@{render\+Text}}
+\index{render\+Text@{render\+Text}!Graphics@{Graphics}}
+\subsubsection[{render\+Text}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::render\+Text (
+\begin{DoxyParamCaption}
+\item[{const S\+D\+L\+\_\+\+Rect \&}]{camera, }
+\item[{std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$}]{font, }
+\item[{const std\+::string \&}]{message, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{const S\+D\+L\+\_\+\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a4e502f4b37a289e4964cfa3dc11d2b21}
+Draw text on the screen relative to the camera. 
+\begin{DoxyParams}{Parameters}
+{\em camera} & S\+D\+L\+\_\+\+Rect object which is enclosing area of the screen. \\
+\hline
+{\em font} & font used to print text. \\
+\hline
+{\em message} & message that has to be printed. \\
+\hline
+{\em x} & horizontal position on the screen. \\
+\hline
+{\em y} & vertical position on the screen. \\
+\hline
+{\em color} & color of the font. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_a29b40ec841099a9a2e39bda3defdaec5}{}\index{Graphics@{Graphics}!set\+Scaled\+Position@{set\+Scaled\+Position}}
+\index{set\+Scaled\+Position@{set\+Scaled\+Position}!Graphics@{Graphics}}
+\subsubsection[{set\+Scaled\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::set\+Scaled\+Position (
+\begin{DoxyParamCaption}
+\item[{int \&}]{position, }
+\item[{int}]{camera\+Axis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_graphics_a29b40ec841099a9a2e39bda3defdaec5}
+Get new position on certain axis, relative to the camera, after scaling. \hypertarget{class_graphics_a9fcb953235531e09e1d7bc95290a4c31}{}\index{Graphics@{Graphics}!set\+Window\+Size@{set\+Window\+Size}}
+\index{set\+Window\+Size@{set\+Window\+Size}!Graphics@{Graphics}}
+\subsubsection[{set\+Window\+Size}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::set\+Window\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a9fcb953235531e09e1d7bc95290a4c31}
+Set size of the simulation screen. 
+\begin{DoxyParams}{Parameters}
+{\em width} & how wide will window be in pixels. \\
+\hline
+{\em height} & height of window in pixels. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_a86b6e3374661fc74f4cfc98219c6ccad}{}\index{Graphics@{Graphics}!set\+Window\+Title@{set\+Window\+Title}}
+\index{set\+Window\+Title@{set\+Window\+Title}!Graphics@{Graphics}}
+\subsubsection[{set\+Window\+Title}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::set\+Window\+Title (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{title}
+\end{DoxyParamCaption}
+)}\label{class_graphics_a86b6e3374661fc74f4cfc98219c6ccad}
+Set title of the simulation screen. 
+\begin{DoxyParams}{Parameters}
+{\em title} & new title. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graphics_afa61586a2fddbe60524a39d178467137}{}\index{Graphics@{Graphics}!unload\+Libraries@{unload\+Libraries}}
+\index{unload\+Libraries@{unload\+Libraries}!Graphics@{Graphics}}
+\subsubsection[{unload\+Libraries}]{\setlength{\rightskip}{0pt plus 5cm}void Graphics\+::unload\+Libraries (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_graphics_afa61586a2fddbe60524a39d178467137}
+Unload S\+D\+L subsystems. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View/Graphics.\+h\item 
+View/Graphics.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,200 @@
+\hypertarget{class_view}{}\section{View Class Reference}
+\label{class_view}\index{View@{View}}
+
+
+{\ttfamily \#include $<$View.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_view_a44ad60a768422d3fa8fbd7576950080a}{View} ()
+\item 
+void \hyperlink{class_view_a8fa2e6421584793804587d5dc9492ba8}{draw\+Creature} (const \hyperlink{struct_location_data}{Location\+Data} \&data)
+\item 
+const S\+D\+L\+\_\+\+Rect \& \hyperlink{class_view_a63207db1dd71282045e0ecde0b93f33d}{get\+Camera} ()
+\item 
+void \hyperlink{class_view_ab9384ef6d65e0abdd481b88256bfe5ae}{draw\+Creature\+Info} (const std\+::pair$<$ const \hyperlink{struct_location_data}{Location\+Data} $\ast$, const \hyperlink{class_animal_data}{Animal\+Data} $\ast$ $>$ \&data)
+\item 
+void \hyperlink{class_view_a2271f4583f0e9373567d6dc9cd436484}{draw\+Background} ()
+\item 
+void \hyperlink{class_view_a485d5f07b947bb0405d311c177b3fd2b}{draw\+Help} ()
+\item 
+void \hyperlink{class_view_a20c20043ccfd30415139cb7d8aaba2fb}{move\+Camera} (int x, int y)
+\item 
+void \hyperlink{class_view_a558e949c9eae886d760f6b6bee8a6d16}{change\+Scale} (double delta)
+\item 
+\hypertarget{class_view_a175a5b623cb3bb324617dae4ef564a73}{}double {\bfseries get\+Scale} () const \label{class_view_a175a5b623cb3bb324617dae4ef564a73}
+
+\item 
+void \hyperlink{class_view_a81b9c32f706bfeb4cd918514fbf871ef}{run} (\hyperlink{class_controller}{Controller} $\ast$controller)
+\item 
+void \hyperlink{class_view_ab37e4bd6e99d390cffd1c2e96880db28}{quit} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_view_a49d4babbeaa66af838d11cb5139becca}{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H} = 800
+\item 
+static const int \hyperlink{class_view_a27d60d1f32f4f86745aedd73eecaaece}{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T} = 600
+\item 
+static const int \hyperlink{class_view_ac4811bd9d7b2887fb16bbc182338f2ce}{F\+P\+S} = 50
+\item 
+static const double \hyperlink{class_view_ae3addf8d83b08604be5ccfb8e5736c81}{F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E} = 1.\+0 / \hyperlink{class_view_ac4811bd9d7b2887fb16bbc182338f2ce}{F\+P\+S}
+\item 
+\hypertarget{class_view_a752b0a4ac38773dddc9af98f61aa3de2}{}static const int {\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+L\+I\+N\+E\+\_\+\+H\+E\+I\+G\+H\+T} = 13\label{class_view_a752b0a4ac38773dddc9af98f61aa3de2}
+
+\item 
+\hypertarget{class_view_a0084e22c5044008fc68cabf2772beda0}{}static const int {\bfseries H\+E\+L\+P\+\_\+\+L\+I\+N\+E\+\_\+\+H\+E\+I\+G\+H\+T} = 20\label{class_view_a0084e22c5044008fc68cabf2772beda0}
+
+\item 
+\hypertarget{class_view_a6f2e83ffc043c7dfe1795c799b3107e5}{}static const int {\bfseries M\+A\+R\+G\+I\+N\+\_\+\+S\+I\+Z\+E} = 5\label{class_view_a6f2e83ffc043c7dfe1795c799b3107e5}
+
+\item 
+\hypertarget{class_view_a78aa6c5d5bbc6ca97e378a5043c445b5}{}static const int {\bfseries D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+R\+A\+M\+E\+\_\+\+W\+I\+D\+T\+H} = 150\label{class_view_a78aa6c5d5bbc6ca97e378a5043c445b5}
+
+\item 
+\hypertarget{class_view_a20c05e0b8bff716d8219daf89264fe25}{}static const int {\bfseries H\+E\+L\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+W\+I\+D\+T\+H} = 550\label{class_view_a20c05e0b8bff716d8219daf89264fe25}
+
+\item 
+static const std\+::vector$<$ std\+::string $>$ \hyperlink{class_view_ad5ede1942eee21c13e7bfeda1c6d9801}{H\+E\+L\+P}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that is responsible for providing visualization of the simulation on the screen. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_view_a44ad60a768422d3fa8fbd7576950080a}{}\index{View@{View}!View@{View}}
+\index{View@{View}!View@{View}}
+\subsubsection[{View}]{\setlength{\rightskip}{0pt plus 5cm}View\+::\+View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_view_a44ad60a768422d3fa8fbd7576950080a}
+Initalize fields of \hyperlink{class_view}{View} object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_view_a558e949c9eae886d760f6b6bee8a6d16}{}\index{View@{View}!change\+Scale@{change\+Scale}}
+\index{change\+Scale@{change\+Scale}!View@{View}}
+\subsubsection[{change\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::change\+Scale (
+\begin{DoxyParamCaption}
+\item[{double}]{delta}
+\end{DoxyParamCaption}
+)}\label{class_view_a558e949c9eae886d760f6b6bee8a6d16}
+Modify zoom of the camera.  delta if positive, zoom in, otherwise, zoom out. \hypertarget{class_view_a2271f4583f0e9373567d6dc9cd436484}{}\index{View@{View}!draw\+Background@{draw\+Background}}
+\index{draw\+Background@{draw\+Background}!View@{View}}
+\subsubsection[{draw\+Background}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::draw\+Background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_view_a2271f4583f0e9373567d6dc9cd436484}
+Draw background, grass, relative to camera position. \hypertarget{class_view_a8fa2e6421584793804587d5dc9492ba8}{}\index{View@{View}!draw\+Creature@{draw\+Creature}}
+\index{draw\+Creature@{draw\+Creature}!View@{View}}
+\subsubsection[{draw\+Creature}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::draw\+Creature (
+\begin{DoxyParamCaption}
+\item[{const {\bf Location\+Data} \&}]{data}
+\end{DoxyParamCaption}
+)}\label{class_view_a8fa2e6421584793804587d5dc9492ba8}
+Draw creature on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em data} & informations about creature location, looking angle, looking radius and type of creature. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_view_ab9384ef6d65e0abdd481b88256bfe5ae}{}\index{View@{View}!draw\+Creature\+Info@{draw\+Creature\+Info}}
+\index{draw\+Creature\+Info@{draw\+Creature\+Info}!View@{View}}
+\subsubsection[{draw\+Creature\+Info}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::draw\+Creature\+Info (
+\begin{DoxyParamCaption}
+\item[{const std\+::pair$<$ const {\bf Location\+Data} $\ast$, const {\bf Animal\+Data} $\ast$ $>$ \&}]{data}
+\end{DoxyParamCaption}
+)}\label{class_view_ab9384ef6d65e0abdd481b88256bfe5ae}
+Draw specific information about creature on the screen, including all important parameters and view range. 
+\begin{DoxyParams}{Parameters}
+{\em data} & std\+::pair containing of information about creature. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_view_a485d5f07b947bb0405d311c177b3fd2b}{}\index{View@{View}!draw\+Help@{draw\+Help}}
+\index{draw\+Help@{draw\+Help}!View@{View}}
+\subsubsection[{draw\+Help}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::draw\+Help (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_view_a485d5f07b947bb0405d311c177b3fd2b}
+Draw window with help information for user, on game screen. \hypertarget{class_view_a63207db1dd71282045e0ecde0b93f33d}{}\index{View@{View}!get\+Camera@{get\+Camera}}
+\index{get\+Camera@{get\+Camera}!View@{View}}
+\subsubsection[{get\+Camera}]{\setlength{\rightskip}{0pt plus 5cm}const S\+D\+L\+\_\+\+Rect \& View\+::get\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_view_a63207db1dd71282045e0ecde0b93f33d}
+\begin{DoxyReturn}{Returns}
+Reference to S\+D\+L\+\_\+\+Rect struct which is representing location and size of camera. 
+\end{DoxyReturn}
+\hypertarget{class_view_a20c20043ccfd30415139cb7d8aaba2fb}{}\index{View@{View}!move\+Camera@{move\+Camera}}
+\index{move\+Camera@{move\+Camera}!View@{View}}
+\subsubsection[{move\+Camera}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::move\+Camera (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{class_view_a20c20043ccfd30415139cb7d8aaba2fb}
+Move the visible region of the map. 
+\begin{DoxyParams}{Parameters}
+{\em x} & how many pixels camera has to move horizontally (right if positive, left if negative). \\
+\hline
+{\em y} & how many pixels camera has to move vertically (down if positive, up if negative). \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_view_ab37e4bd6e99d390cffd1c2e96880db28}{}\index{View@{View}!quit@{quit}}
+\index{quit@{quit}!View@{View}}
+\subsubsection[{quit}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::quit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_view_ab37e4bd6e99d390cffd1c2e96880db28}
+End the main program loop. \hypertarget{class_view_a81b9c32f706bfeb4cd918514fbf871ef}{}\index{View@{View}!run@{run}}
+\index{run@{run}!View@{View}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void View\+::run (
+\begin{DoxyParamCaption}
+\item[{{\bf Controller} $\ast$}]{controller}
+\end{DoxyParamCaption}
+)}\label{class_view_a81b9c32f706bfeb4cd918514fbf871ef}
+Start simulation. 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_view_ac4811bd9d7b2887fb16bbc182338f2ce}{}\index{View@{View}!F\+P\+S@{F\+P\+S}}
+\index{F\+P\+S@{F\+P\+S}!View@{View}}
+\subsubsection[{F\+P\+S}]{\setlength{\rightskip}{0pt plus 5cm}const int View\+::\+F\+P\+S = 50\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ac4811bd9d7b2887fb16bbc182338f2ce}
+How many frames per second will be shown. \hypertarget{class_view_ae3addf8d83b08604be5ccfb8e5736c81}{}\index{View@{View}!F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E@{F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E}}
+\index{F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E@{F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E}!View@{View}}
+\subsubsection[{F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}const double View\+::\+F\+R\+A\+M\+E\+\_\+\+T\+I\+M\+E = 1.\+0 / {\bf F\+P\+S}\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ae3addf8d83b08604be5ccfb8e5736c81}
+How long does one frame lasts. \hypertarget{class_view_ad5ede1942eee21c13e7bfeda1c6d9801}{}\index{View@{View}!H\+E\+L\+P@{H\+E\+L\+P}}
+\index{H\+E\+L\+P@{H\+E\+L\+P}!View@{View}}
+\subsubsection[{H\+E\+L\+P}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<$ std\+::string $>$ View\+::\+H\+E\+L\+P\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_ad5ede1942eee21c13e7bfeda1c6d9801}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{ \textcolor{stringliteral}{"\(\backslash\)"Game of Life\(\backslash\)" help:"},
+                                     \textcolor{stringliteral}{"*Click on the creature to see its view range and parameters."},
+                                     \textcolor{stringliteral}{"*Press [UP],[DOWN],[LEFT],[RIGHT] to move camera on the map."},
+                                     \textcolor{stringliteral}{"*Press [W] to zoom in, [S] to zoom out."},
+                                     \textcolor{stringliteral}{"*Press [A] to slow down simulation, [D] to speed it up."},
+                                     \textcolor{stringliteral}{"*Press [P] to pause simulation."},
+                                     \textcolor{stringliteral}{"*Press [H] to exit help menu."},
+                                     \textcolor{stringliteral}{"*Press [Esc] to end simulation."}\}
+\end{DoxyCode}
+Contents of a help window. \hypertarget{class_view_a27d60d1f32f4f86745aedd73eecaaece}{}\index{View@{View}!S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T@{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T@{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T}!View@{View}}
+\subsubsection[{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}const int View\+::\+S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+H\+T = 600\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a27d60d1f32f4f86745aedd73eecaaece}
+Height of the simulation screen. \hypertarget{class_view_a49d4babbeaa66af838d11cb5139becca}{}\index{View@{View}!S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H@{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H@{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H}!View@{View}}
+\subsubsection[{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}const int View\+::\+S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+T\+H = 800\hspace{0.3cm}{\ttfamily [static]}}\label{class_view_a49d4babbeaa66af838d11cb5139becca}
+Width of the simulation screen.
+
+Definitions of \hyperlink{class_view}{View} methods. \begin{DoxyAuthor}{Author}
+Damian Mazurkiewicz 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View/View.\+h\item 
+View/View.\+cpp\end{DoxyCompactItemize}

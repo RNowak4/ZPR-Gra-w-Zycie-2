@@ -1,0 +1,112 @@
+\hypertarget{class_chasing}{}\section{Chasing Class Reference}
+\label{class_chasing}\index{Chasing@{Chasing}}
+Inheritance diagram for Chasing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chasing}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_chasing_ad64282bb5e01ec074b3c212a879893b2}{Chasing} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr, \hyperlink{class_animal}{Animal} $\ast$animal\+\_\+to\+\_\+follow\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em An only constructor of \hyperlink{class_chasing}{Chasing} class  animal\+\_\+ptr -\/ current animal\textquotesingle{}s pointer.  animal\+\_\+to\+\_\+follow\+\_\+ptr -\/ pointer to an animal which current animal will chase. \end{DoxyCompactList}\item 
+void \hyperlink{class_chasing_a244b35d77a91c56686bffe37a50f43d2}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_chasing_a2da36a5808c4ecdca22312ce3d68b651}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_chasing_ac532945a742df4c7a2b73f9bcb93a686}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_chasing_a94dad51660eda8bb8f7f9b8890bc128e}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_chasing_ad64282bb5e01ec074b3c212a879893b2}{}\index{Chasing@{Chasing}!Chasing@{Chasing}}
+\index{Chasing@{Chasing}!Chasing@{Chasing}}
+\subsubsection[{Chasing}]{\setlength{\rightskip}{0pt plus 5cm}Chasing\+::\+Chasing (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+ptr, }
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+to\+\_\+follow\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_chasing_ad64282bb5e01ec074b3c212a879893b2}
+
+
+An only constructor of \hyperlink{class_chasing}{Chasing} class  animal\+\_\+ptr -\/ current animal\textquotesingle{}s pointer.  animal\+\_\+to\+\_\+follow\+\_\+ptr -\/ pointer to an animal which current animal will chase. 
+
+\hyperlink{class_chasing}{Chasing} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_chasing_a2da36a5808c4ecdca22312ce3d68b651}{}\index{Chasing@{Chasing}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Chasing@{Chasing}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Chasing\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_chasing_a2da36a5808c4ecdca22312ce3d68b651}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{Action}.
+
+\hypertarget{class_chasing_ac532945a742df4c7a2b73f9bcb93a686}{}\index{Chasing@{Chasing}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Chasing@{Chasing}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Chasing\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_chasing_ac532945a742df4c7a2b73f9bcb93a686}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{Action}.
+
+\hypertarget{class_chasing_a244b35d77a91c56686bffe37a50f43d2}{}\index{Chasing@{Chasing}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Chasing@{Chasing}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Chasing\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_chasing_a244b35d77a91c56686bffe37a50f43d2}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{Action}.
+
+\hypertarget{class_chasing_a94dad51660eda8bb8f7f9b8890bc128e}{}\index{Chasing@{Chasing}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Chasing@{Chasing}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Chasing\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_chasing_a94dad51660eda8bb8f7f9b8890bc128e}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_chasing_8h}{Chasing.\+h}\item 
+Model/\+Actions/\hyperlink{_chasing_8cpp}{Chasing.\+cpp}\end{DoxyCompactItemize}

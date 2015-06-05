@@ -1,0 +1,98 @@
+\hypertarget{class_eating}{}\section{Eating Class Reference}
+\label{class_eating}\index{Eating@{Eating}}
+Inheritance diagram for Eating\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_eating}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_eating_a501ef632ad57bffad92d868530d77bd6}{}{\bfseries Eating} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)\label{class_eating_a501ef632ad57bffad92d868530d77bd6}
+
+\item 
+void \hyperlink{class_eating_a0157edfea4cde8e596313d99c4b235be}{perform\+Action} ()
+\begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
+\hyperlink{class_action}{Action} $\ast$ \hyperlink{class_eating_aacfac2762df1da29e4555071e8720390}{choose\+Next\+Action} ()
+\begin{DoxyCompactList}\small\item\em Function is used to choose next action for an animal. \end{DoxyCompactList}\item 
+void \hyperlink{class_eating_a85cc0b93f26839dbf8c1344ce92c9e41}{delete\+Animal} (const \hyperlink{class_animal}{Animal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Function is used to avoid segmentation fault -\/ if animal. \end{DoxyCompactList}\item 
+string \hyperlink{class_eating_a78e402536e59efec5e4643ffe0b4fd5a}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Function returns name of the action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_eating_aacfac2762df1da29e4555071e8720390}{}\index{Eating@{Eating}!choose\+Next\+Action@{choose\+Next\+Action}}
+\index{choose\+Next\+Action@{choose\+Next\+Action}!Eating@{Eating}}
+\subsubsection[{choose\+Next\+Action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Action} $\ast$ Eating\+::choose\+Next\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_eating_aacfac2762df1da29e4555071e8720390}
+
+
+Function is used to choose next action for an animal. 
+
+choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
+\hyperlink{class_action}{Action} pointer to the next action. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{Action}.
+
+\hypertarget{class_eating_a85cc0b93f26839dbf8c1344ce92c9e41}{}\index{Eating@{Eating}!delete\+Animal@{delete\+Animal}}
+\index{delete\+Animal@{delete\+Animal}!Eating@{Eating}}
+\subsubsection[{delete\+Animal}]{\setlength{\rightskip}{0pt plus 5cm}void Eating\+::delete\+Animal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Animal} $\ast$}]{animal\+Ptr\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_eating_a85cc0b93f26839dbf8c1344ce92c9e41}
+
+
+Function is used to avoid segmentation fault -\/ if animal. 
+
+delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
+
+Implements \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{Action}.
+
+\hypertarget{class_eating_a0157edfea4cde8e596313d99c4b235be}{}\index{Eating@{Eating}!perform\+Action@{perform\+Action}}
+\index{perform\+Action@{perform\+Action}!Eating@{Eating}}
+\subsubsection[{perform\+Action}]{\setlength{\rightskip}{0pt plus 5cm}void Eating\+::perform\+Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_eating_a0157edfea4cde8e596313d99c4b235be}
+
+
+performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action 
+
+perform\+Action 
+
+Implements \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{Action}.
+
+\hypertarget{class_eating_a78e402536e59efec5e4643ffe0b4fd5a}{}\index{Eating@{Eating}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Eating@{Eating}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Eating\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_eating_a78e402536e59efec5e4643ffe0b4fd5a}
+
+
+Function returns name of the action. 
+
+to\+String \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{Action}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Model/\+Actions/\hyperlink{_eating_8h}{Eating.\+h}\item 
+Model/\+Actions/\hyperlink{_eating_8cpp}{Eating.\+cpp}\end{DoxyCompactItemize}

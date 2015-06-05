@@ -1,0 +1,63 @@
+\hypertarget{class_assets}{}\section{Assets Class Reference}
+\label{class_assets}\index{Assets@{Assets}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_assets_a124ad6e4e23306a02182c9e9bff9077e}{}enum {\bfseries Texture\+I\+D} \{ {\bfseries G\+R\+A\+S\+S}, 
+{\bfseries H\+E\+R\+B\+I\+V\+O\+R\+E}, 
+{\bfseries C\+A\+R\+N\+I\+V\+O\+R\+E}, 
+{\bfseries F\+R\+A\+M\+E\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+N\+D}
+ \}\label{class_assets_a124ad6e4e23306a02182c9e9bff9077e}
+
+\item 
+\hypertarget{class_assets_a1c314adc15f0955d73fd19bf78deff0d}{}enum {\bfseries Font\+I\+D} \{ {\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+F\+O\+N\+T}
+ \}\label{class_assets_a1c314adc15f0955d73fd19bf78deff0d}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_assets_a28bccf60521a9718e85ddc8ece32cf7e}{load\+Assets} (const \hyperlink{class_sdl_helper}{Sdl\+Helper} \&sdl)
+\item 
+\hypertarget{class_assets_ade0991aab20ab534630c67fd9048da79}{}std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ {\bfseries get} (enum Texture\+I\+D id)\label{class_assets_ade0991aab20ab534630c67fd9048da79}
+
+\item 
+\hypertarget{class_assets_a6e17c5c3fffd6fdf471fa78b9cf61141}{}std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ {\bfseries get} (enum Font\+I\+D id)\label{class_assets_a6e17c5c3fffd6fdf471fa78b9cf61141}
+
+\item 
+\hypertarget{class_assets_a6517210bf261d909e9f78880187feea1}{}void {\bfseries dispose\+Assets} ()\label{class_assets_a6517210bf261d909e9f78880187feea1}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_assets}{Assets} \& \hyperlink{class_assets_aba1de36ccaa81529b6a735a6b47fd009}{get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_assets_aba1de36ccaa81529b6a735a6b47fd009}{}\index{Assets@{Assets}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Assets@{Assets}}
+\subsubsection[{get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Assets}\& Assets\+::get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_assets_aba1de36ccaa81529b6a735a6b47fd009}
+\hyperlink{class_assets}{Assets} class is a singleton. It is because creating more objects of this class has no practical use and it can only waste memory. \hypertarget{class_assets_a28bccf60521a9718e85ddc8ece32cf7e}{}\index{Assets@{Assets}!load\+Assets@{load\+Assets}}
+\index{load\+Assets@{load\+Assets}!Assets@{Assets}}
+\subsubsection[{load\+Assets}]{\setlength{\rightskip}{0pt plus 5cm}void Assets\+::load\+Assets (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sdl\+Helper} \&}]{sdl}
+\end{DoxyParamCaption}
+)}\label{class_assets_a28bccf60521a9718e85ddc8ece32cf7e}
+Load necessary files to memory. 
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View/\hyperlink{_assets_8h}{Assets.\+h}\item 
+View/Assets.\+cpp\end{DoxyCompactItemize}
