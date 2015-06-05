@@ -1,7 +1,6 @@
 var searchData=
 [
   ['inheritattributes',['inheritAttributes',['../class_attributes.html#a69f4faab85246ca504afc6797b22dc4e',1,'Attributes']]],
-  ['init',['init',['../class_sdl_helper.html#a5957d7221b7c676f7f70a062142fb4d1',1,'SdlHelper']]],
   ['isdangerous',['isDangerous',['../class_animal.html#a8d6a4aef56a2df828c8b286d993c3037',1,'Animal::isDangerous()'],['../class_carnivore.html#a6119646adbb63f861d7a8f873e03086c',1,'Carnivore::isDangerous()'],['../class_herbivore.html#a330a480982c71b393d90a95ae9e7f513',1,'Herbivore::isDangerous()']]],
   ['isherbivore',['isHerbivore',['../class_animal.html#a732095e2cd7155106d07f27c66bf2c32',1,'Animal']]],
   ['ismother',['isMother',['../class_animal.html#a88babf3ca0b62e73d713bbeda5982975',1,'Animal']]],

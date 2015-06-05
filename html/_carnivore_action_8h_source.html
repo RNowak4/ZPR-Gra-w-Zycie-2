@@ -94,29 +94,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_action_8h.html">Action.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_carnivore_action.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_carnivore_action.html">CarnivoreAction</a>: <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_carnivore_action.html">CarnivoreAction</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_carnivore_action.html">CarnivoreAction</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_carnivore_action.html#ae396f2f07131c21813e7986be130438e">performAction</a>() = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_carnivore_action.html#ae16f836240641508899939c33f9dffd7">chooseNextAction</a>() = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_carnivore_action.html#aedd1918537fb9cf3172ec86cbab062af">deleteAnimal</a>(<span class="keyword">const</span> <a class="code" href="class_animal.html">Animal</a>*)=0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="class_carnivore_action.html#a2c955f0de63b624b23d15e913060bf2a">toString</a>() = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CARNIVOREACTION_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_carnivore_action.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_carnivore_action.html">CarnivoreAction</a>: <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_carnivore_action.html">CarnivoreAction</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_carnivore_action.html">CarnivoreAction</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_carnivore_action.html#ae396f2f07131c21813e7986be130438e">performAction</a>() = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_carnivore_action.html#ae16f836240641508899939c33f9dffd7">chooseNextAction</a>() = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_carnivore_action.html#aedd1918537fb9cf3172ec86cbab062af">deleteAnimal</a>(<span class="keyword">const</span> <a class="code" href="class_animal.html">Animal</a>*)=0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="class_carnivore_action.html#a2c955f0de63b624b23d15e913060bf2a">toString</a>() = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CARNIVOREACTION_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_carnivore_action_html_ae396f2f07131c21813e7986be130438e"><div class="ttname"><a href="class_carnivore_action.html#ae396f2f07131c21813e7986be130438e">CarnivoreAction::performAction</a></div><div class="ttdeci">virtual void performAction()=0</div><div class="ttdoc">performs action of an animal - changes it&#39;s values that depends of current action ...</div></div>
 <div class="ttc" id="class_carnivore_action_html_a2c955f0de63b624b23d15e913060bf2a"><div class="ttname"><a href="class_carnivore_action.html#a2c955f0de63b624b23d15e913060bf2a">CarnivoreAction::toString</a></div><div class="ttdeci">virtual string toString()=0</div><div class="ttdoc">Function returns name of the action. </div></div>
 <div class="ttc" id="_action_8h_html"><div class="ttname"><a href="_action_8h.html">Action.h</a></div><div class="ttdoc">Virtual class that is used to represent. </div></div>
 <div class="ttc" id="class_carnivore_action_html_aedd1918537fb9cf3172ec86cbab062af"><div class="ttname"><a href="class_carnivore_action.html#aedd1918537fb9cf3172ec86cbab062af">CarnivoreAction::deleteAnimal</a></div><div class="ttdeci">virtual void deleteAnimal(const Animal *)=0</div><div class="ttdoc">Function is used to avoid segmentation fault - if animal. </div></div>
-<div class="ttc" id="class_animal_html"><div class="ttname"><a href="class_animal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> Animal.h:29</div></div>
-<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:22</div></div>
+<div class="ttc" id="class_animal_html"><div class="ttname"><a href="class_animal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> Animal.h:34</div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:26</div></div>
 <div class="ttc" id="class_carnivore_action_html_ae16f836240641508899939c33f9dffd7"><div class="ttname"><a href="class_carnivore_action.html#ae16f836240641508899939c33f9dffd7">CarnivoreAction::chooseNextAction</a></div><div class="ttdeci">virtual Action * chooseNextAction()=0</div><div class="ttdoc">Function is used to choose next action for an animal. </div></div>
-<div class="ttc" id="class_carnivore_action_html"><div class="ttname"><a href="class_carnivore_action.html">CarnivoreAction</a></div><div class="ttdef"><b>Definition:</b> CarnivoreAction.h:14</div></div>
+<div class="ttc" id="class_carnivore_action_html"><div class="ttname"><a href="class_carnivore_action.html">CarnivoreAction</a></div><div class="ttdef"><b>Definition:</b> CarnivoreAction.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 20:50:27 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

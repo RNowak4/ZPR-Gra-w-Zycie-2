@@ -10,8 +10,6 @@ var searchData=
   ['animal_2eh',['Animal.h',['../_animal_8h.html',1,'']]],
   ['animaldata',['AnimalData',['../class_animal_data.html',1,'AnimalData'],['../class_animal_data.html#a19d9316fa054fdf7908874ffb9f96b54',1,'AnimalData::AnimalData()']]],
   ['animaldata_2eh',['AnimalData.h',['../_animal_data_8h.html',1,'']]],
-  ['assets',['Assets',['../class_assets.html',1,'']]],
-  ['assets_2eh',['Assets.h',['../_assets_8h.html',1,'']]],
   ['attributes',['Attributes',['../class_attributes.html',1,'Attributes'],['../class_attributes.html#a81480f8fb5fa048f2f7b52f7fa9fd64e',1,'Attributes::Attributes()']]],
   ['attributes_2ecpp',['Attributes.cpp',['../_attributes_8cpp.html',1,'']]],
   ['attributes_2eh',['Attributes.h',['../_attributes_8h.html',1,'']]]

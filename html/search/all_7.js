@@ -3,7 +3,6 @@ var searchData=
   ['illness',['Illness',['../class_illness.html',1,'']]],
   ['illness_2ecpp',['Illness.cpp',['../_illness_8cpp.html',1,'']]],
   ['inheritattributes',['inheritAttributes',['../class_attributes.html#a69f4faab85246ca504afc6797b22dc4e',1,'Attributes']]],
-  ['init',['init',['../class_sdl_helper.html#a5957d7221b7c676f7f70a062142fb4d1',1,'SdlHelper']]],
   ['initalizingcontrollerexception',['InitalizingControllerException',['../struct_initalizing_controller_exception.html',1,'']]],
   ['initalizingviewexception',['InitalizingViewException',['../struct_initalizing_view_exception.html',1,'']]],
   ['initializingsdlsystemsexception',['InitializingSdlSystemsException',['../struct_initializing_sdl_systems_exception.html',1,'']]],

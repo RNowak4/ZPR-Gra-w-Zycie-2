@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['loadassets',['loadAssets',['../class_assets.html#a28bccf60521a9718e85ddc8ece32cf7e',1,'Assets']]],
   ['loadingmediaexception',['LoadingMediaException',['../struct_loading_media_exception.html',1,'']]],
   ['loadingsettingsexcepion',['LoadingSettingsExcepion',['../struct_loading_settings_excepion.html',1,'']]],
   ['locationdata',['LocationData',['../struct_location_data.html',1,'']]],

@@ -5,7 +5,6 @@ var searchData=
   ['animal_2ecpp',['Animal.cpp',['../_animal_8cpp.html',1,'']]],
   ['animal_2eh',['Animal.h',['../_animal_8h.html',1,'']]],
   ['animaldata_2eh',['AnimalData.h',['../_animal_data_8h.html',1,'']]],
-  ['assets_2eh',['Assets.h',['../_assets_8h.html',1,'']]],
   ['attributes_2ecpp',['Attributes.cpp',['../_attributes_8cpp.html',1,'']]],
   ['attributes_2eh',['Attributes.h',['../_attributes_8h.html',1,'']]]
 ];

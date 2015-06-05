@@ -5,12 +5,12 @@ var searchData=
   ['deletechild',['deleteChild',['../class_animal.html#a159dffe71ed72c6229b17c6e360ca6a1',1,'Animal']]],
   ['dispose',['dispose',['../class_graphics.html#a7e18799dd39f2d61ce8caae62bf931c5',1,'Graphics']]],
   ['domove',['doMove',['../class_animal.html#adcfe9aacffe9761ec25da5b202b74ee1',1,'Animal']]],
-  ['draw',['draw',['../class_graphics.html#a928aee39e2d10dfc6ff1dbb4c5b8a743',1,'Graphics::draw()'],['../class_sdl_helper.html#a28e57527d36b934585bf8132c738bfc6',1,'SdlHelper::draw()']]],
+  ['draw',['draw',['../class_graphics.html#a928aee39e2d10dfc6ff1dbb4c5b8a743',1,'Graphics']]],
   ['drawbackground',['drawBackground',['../class_view.html#a2271f4583f0e9373567d6dc9cd436484',1,'View']]],
   ['drawcreature',['drawCreature',['../class_view.html#a8fa2e6421584793804587d5dc9492ba8',1,'View']]],
   ['drawcreatureinfo',['drawCreatureInfo',['../class_view.html#ab9384ef6d65e0abdd481b88256bfe5ae',1,'View']]],
-  ['drawframe',['drawFrame',['../class_graphics.html#ad483c1cc7c81f7a30ec88985b0c009f4',1,'Graphics::drawFrame()'],['../class_sdl_helper.html#a98adc9e9575222133bb0020a483ca55e',1,'SdlHelper::drawFrame()']]],
+  ['drawframe',['drawFrame',['../class_graphics.html#ad483c1cc7c81f7a30ec88985b0c009f4',1,'Graphics']]],
   ['drawhelp',['drawHelp',['../class_view.html#a485d5f07b947bb0405d311c177b3fd2b',1,'View']]],
-  ['drawline',['drawLine',['../class_graphics.html#a7ba9ba262d144f0fb36a9dacfd2f62ee',1,'Graphics::drawLine()'],['../class_sdl_helper.html#a178dda0c392db8104050be846e091226',1,'SdlHelper::drawLine()']]],
-  ['drawpoint',['drawPoint',['../class_graphics.html#a7c3828e7e128eebad5350eed95c33b7e',1,'Graphics::drawPoint()'],['../class_sdl_helper.html#aed4ce26d1a354281b46877d19caacec1',1,'SdlHelper::drawPoint()']]]
+  ['drawline',['drawLine',['../class_graphics.html#a7ba9ba262d144f0fb36a9dacfd2f62ee',1,'Graphics']]],
+  ['drawpoint',['drawPoint',['../class_graphics.html#a7c3828e7e128eebad5350eed95c33b7e',1,'Graphics']]]
 ];

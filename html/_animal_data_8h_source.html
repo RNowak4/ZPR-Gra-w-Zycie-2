@@ -98,46 +98,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_animal_data.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_animal_data.html">AnimalData</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">string</span> action_name;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    vector&lt;string&gt; stringVector;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    vector&lt;pair&lt;string, double&gt; &gt; pairVector;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_animal_data.html">AnimalData</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> setActionName(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; action_name);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> pushString(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; strintToPush);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> pushPair(<span class="keyword">const</span> pair&lt;string, double&gt;&amp; pairToPush);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> pushPair(<span class="keywordtype">string</span> stringToPush, <span class="keywordtype">double</span> numberToPush);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_animal_data.html#a97a1647f68e3594c779e78a895d70f6a">   64</a></span>&#160;    <span class="keyword">const</span> vector&lt;string&gt;&amp; <a class="code" href="class_animal_data.html#a97a1647f68e3594c779e78a895d70f6a">returnStringVector</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> stringVector;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_animal_data.html#a17503023c699aea755b3bb5eeef9c172">   73</a></span>&#160;    <span class="keyword">const</span> vector&lt;pair&lt;string, double&gt; &gt;&amp; <a class="code" href="class_animal_data.html#a17503023c699aea755b3bb5eeef9c172">returnPairVector</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> pairVector;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_animal_data.html#a05a1a5d1018246ca0c052faf66d33ea8">   82</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="class_animal_data.html#a05a1a5d1018246ca0c052faf66d33ea8">returnActionName</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> action_name;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ANIMALDATA_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_animal_data_html_a17503023c699aea755b3bb5eeef9c172"><div class="ttname"><a href="class_animal_data.html#a17503023c699aea755b3bb5eeef9c172">AnimalData::returnPairVector</a></div><div class="ttdeci">const vector&lt; pair&lt; string, double &gt; &gt; &amp; returnPairVector() const </div><div class="ttdoc">Returns an vector of pairs to view. </div><div class="ttdef"><b>Definition:</b> AnimalData.h:73</div></div>
-<div class="ttc" id="class_animal_data_html_a05a1a5d1018246ca0c052faf66d33ea8"><div class="ttname"><a href="class_animal_data.html#a05a1a5d1018246ca0c052faf66d33ea8">AnimalData::returnActionName</a></div><div class="ttdeci">const string &amp; returnActionName() const </div><div class="ttdoc">Returns an action name. </div><div class="ttdef"><b>Definition:</b> AnimalData.h:82</div></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_animal_data.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_animal_data.html">AnimalData</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">string</span> action_name;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    vector&lt;string&gt; stringVector;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    vector&lt;pair&lt;string, double&gt; &gt; pairVector;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_animal_data.html">AnimalData</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> setActionName(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; action_name);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> pushString(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; strintToPush);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> pushPair(<span class="keyword">const</span> pair&lt;string, double&gt;&amp; pairToPush);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> pushPair(<span class="keywordtype">string</span> stringToPush, <span class="keywordtype">double</span> numberToPush);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_animal_data.html#a97a1647f68e3594c779e78a895d70f6a">   68</a></span>&#160;    <span class="keyword">const</span> vector&lt;string&gt;&amp; <a class="code" href="class_animal_data.html#a97a1647f68e3594c779e78a895d70f6a">returnStringVector</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> stringVector;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_animal_data.html#a17503023c699aea755b3bb5eeef9c172">   77</a></span>&#160;    <span class="keyword">const</span> vector&lt;pair&lt;string, double&gt; &gt;&amp; <a class="code" href="class_animal_data.html#a17503023c699aea755b3bb5eeef9c172">returnPairVector</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> pairVector;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_animal_data.html#a05a1a5d1018246ca0c052faf66d33ea8">   86</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="class_animal_data.html#a05a1a5d1018246ca0c052faf66d33ea8">returnActionName</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> action_name;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ANIMALDATA_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_animal_data_html_a17503023c699aea755b3bb5eeef9c172"><div class="ttname"><a href="class_animal_data.html#a17503023c699aea755b3bb5eeef9c172">AnimalData::returnPairVector</a></div><div class="ttdeci">const vector&lt; pair&lt; string, double &gt; &gt; &amp; returnPairVector() const </div><div class="ttdoc">Returns an vector of pairs to view. </div><div class="ttdef"><b>Definition:</b> AnimalData.h:77</div></div>
+<div class="ttc" id="class_animal_data_html_a05a1a5d1018246ca0c052faf66d33ea8"><div class="ttname"><a href="class_animal_data.html#a05a1a5d1018246ca0c052faf66d33ea8">AnimalData::returnActionName</a></div><div class="ttdeci">const string &amp; returnActionName() const </div><div class="ttdoc">Returns an action name. </div><div class="ttdef"><b>Definition:</b> AnimalData.h:86</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_animal_data_html_a97a1647f68e3594c779e78a895d70f6a"><div class="ttname"><a href="class_animal_data.html#a97a1647f68e3594c779e78a895d70f6a">AnimalData::returnStringVector</a></div><div class="ttdeci">const vector&lt; string &gt; &amp; returnStringVector() const </div><div class="ttdoc">Returns an vector of strings to view. </div><div class="ttdef"><b>Definition:</b> AnimalData.h:64</div></div>
-<div class="ttc" id="class_animal_data_html"><div class="ttname"><a href="class_animal_data.html">AnimalData</a></div><div class="ttdef"><b>Definition:</b> AnimalData.h:17</div></div>
+<div class="ttc" id="class_animal_data_html_a97a1647f68e3594c779e78a895d70f6a"><div class="ttname"><a href="class_animal_data.html#a97a1647f68e3594c779e78a895d70f6a">AnimalData::returnStringVector</a></div><div class="ttdeci">const vector&lt; string &gt; &amp; returnStringVector() const </div><div class="ttdoc">Returns an vector of strings to view. </div><div class="ttdef"><b>Definition:</b> AnimalData.h:68</div></div>
+<div class="ttc" id="class_animal_data_html"><div class="ttname"><a href="class_animal_data.html">AnimalData</a></div><div class="ttdef"><b>Definition:</b> AnimalData.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 20:50:27 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

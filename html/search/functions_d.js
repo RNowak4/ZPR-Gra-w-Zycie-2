@@ -10,7 +10,7 @@ var searchData=
   ['setposition',['setPosition',['../class_animal.html#a5694a379251e01647fc8b3a8dd9bb21b',1,'Animal::setPosition(unsigned x, unsigned y)'],['../class_animal.html#ad995dd1464ec7d41ff3ac8244aa8085a',1,'Animal::setPosition(Coordinates coodrinates)']]],
   ['setscaledposition',['setScaledPosition',['../class_graphics.html#a29b40ec841099a9a2e39bda3defdaec5',1,'Graphics']]],
   ['setvelocity',['setVelocity',['../class_animal.html#a8df16f635e0fa5c7ff3ec1fabb4e9be7',1,'Animal']]],
-  ['setwindowsize',['setWindowSize',['../class_graphics.html#a9fcb953235531e09e1d7bc95290a4c31',1,'Graphics::setWindowSize()'],['../class_sdl_helper.html#a634d651da332b1ce3d4ee5b052612d73',1,'SdlHelper::setWindowSize()']]],
+  ['setwindowsize',['setWindowSize',['../class_graphics.html#a9fcb953235531e09e1d7bc95290a4c31',1,'Graphics']]],
   ['setwindowtitle',['setWindowTitle',['../class_graphics.html#a86b6e3374661fc74f4cfc98219c6ccad',1,'Graphics']]],
   ['shoulddie',['shouldDie',['../class_animal.html#adc62fe75008f9f24570d83f1279ba938',1,'Animal']]],
   ['slowersimulation',['slowerSimulation',['../class_model.html#a339945890a1fe792078235da65d5caa0',1,'Model']]],

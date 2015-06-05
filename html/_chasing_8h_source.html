@@ -94,35 +94,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_action_8h.html">Action.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_chasing.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chasing.html">Chasing</a>: <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_animal.html">Animal</a>* animalToFollowPtr;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_chasing.html#ad64282bb5e01ec074b3c212a879893b2">Chasing</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr, <a class="code" href="class_animal.html">Animal</a>* animal_to_follow_ptr);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_chasing.html">Chasing</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_chasing.html#a244b35d77a91c56686bffe37a50f43d2">performAction</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_chasing.html#a2da36a5808c4ecdca22312ce3d68b651">chooseNextAction</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_chasing.html#ac532945a742df4c7a2b73f9bcb93a686">deleteAnimal</a>(<span class="keyword">const</span> <a class="code" href="class_animal.html">Animal</a>*);</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">   31</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">toString</a>() {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Chasing&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODEL_ACTIONS_CHASING_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_chasing_html_a94dad51660eda8bb8f7f9b8890bc128e"><div class="ttname"><a href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">Chasing::toString</a></div><div class="ttdeci">string toString()</div><div class="ttdoc">Function returns name of the action. </div><div class="ttdef"><b>Definition:</b> Chasing.h:31</div></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_chasing.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chasing.html">Chasing</a>: <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_animal.html">Animal</a>* animalToFollowPtr;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_chasing.html#ad64282bb5e01ec074b3c212a879893b2">Chasing</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr, <a class="code" href="class_animal.html">Animal</a>* animal_to_follow_ptr);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_chasing.html">Chasing</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_chasing.html#a244b35d77a91c56686bffe37a50f43d2">performAction</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_chasing.html#a2da36a5808c4ecdca22312ce3d68b651">chooseNextAction</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_chasing.html#ac532945a742df4c7a2b73f9bcb93a686">deleteAnimal</a>(<span class="keyword">const</span> <a class="code" href="class_animal.html">Animal</a>*);</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">   35</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">toString</a>() {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Chasing&quot;</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODEL_ACTIONS_CHASING_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_chasing_html_a94dad51660eda8bb8f7f9b8890bc128e"><div class="ttname"><a href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">Chasing::toString</a></div><div class="ttdeci">string toString()</div><div class="ttdoc">Function returns name of the action. </div><div class="ttdef"><b>Definition:</b> Chasing.h:35</div></div>
 <div class="ttc" id="class_chasing_html_ac532945a742df4c7a2b73f9bcb93a686"><div class="ttname"><a href="class_chasing.html#ac532945a742df4c7a2b73f9bcb93a686">Chasing::deleteAnimal</a></div><div class="ttdeci">void deleteAnimal(const Animal *)</div><div class="ttdoc">Function is used to avoid segmentation fault - if animal. </div><div class="ttdef"><b>Definition:</b> Chasing.cpp:79</div></div>
 <div class="ttc" id="_action_8h_html"><div class="ttname"><a href="_action_8h.html">Action.h</a></div><div class="ttdoc">Virtual class that is used to represent. </div></div>
-<div class="ttc" id="class_animal_html"><div class="ttname"><a href="class_animal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> Animal.h:29</div></div>
-<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:22</div></div>
+<div class="ttc" id="class_animal_html"><div class="ttname"><a href="class_animal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> Animal.h:34</div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:26</div></div>
 <div class="ttc" id="class_chasing_html_ad64282bb5e01ec074b3c212a879893b2"><div class="ttname"><a href="class_chasing.html#ad64282bb5e01ec074b3c212a879893b2">Chasing::Chasing</a></div><div class="ttdeci">Chasing(Animal *animal_ptr, Animal *animal_to_follow_ptr)</div><div class="ttdoc">An only constructor of Chasing class  animal_ptr - current animal&#39;s pointer.  animal_to_follow_ptr - ...</div><div class="ttdef"><b>Definition:</b> Chasing.cpp:15</div></div>
-<div class="ttc" id="class_chasing_html"><div class="ttname"><a href="class_chasing.html">Chasing</a></div><div class="ttdef"><b>Definition:</b> Chasing.h:15</div></div>
+<div class="ttc" id="class_chasing_html"><div class="ttname"><a href="class_chasing.html">Chasing</a></div><div class="ttdef"><b>Definition:</b> Chasing.h:19</div></div>
 <div class="ttc" id="class_chasing_html_a244b35d77a91c56686bffe37a50f43d2"><div class="ttname"><a href="class_chasing.html#a244b35d77a91c56686bffe37a50f43d2">Chasing::performAction</a></div><div class="ttdeci">void performAction()</div><div class="ttdoc">performs action of an animal - changes it&#39;s values that depends of current action ...</div><div class="ttdef"><b>Definition:</b> Chasing.cpp:28</div></div>
 <div class="ttc" id="class_chasing_html_a2da36a5808c4ecdca22312ce3d68b651"><div class="ttname"><a href="class_chasing.html#a2da36a5808c4ecdca22312ce3d68b651">Chasing::chooseNextAction</a></div><div class="ttdeci">Action * chooseNextAction()</div><div class="ttdoc">Function is used to choose next action for an animal. </div><div class="ttdef"><b>Definition:</b> Chasing.cpp:71</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 20:50:27 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
