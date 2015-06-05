@@ -10,13 +10,13 @@
 #ifndef MODEL_ACTIONS_CHASING_H_
 #define MODEL_ACTIONS_CHASING_H_
 
-#include "Action.h"
+#include "CarnivoreAction.h"
 
 /**
 @class Chasing
 Class that represents chasing action being performed by carnivore animal.
 */
-class Chasing: public Action {
+class Chasing: public CarnivoreAction {
 private:
 	Animal* animalToFollowPtr;
 

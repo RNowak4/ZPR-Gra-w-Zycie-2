@@ -12,7 +12,7 @@
 #include "../Model.h"
 
 DoNothing::DoNothing(Animal* animal_ptr, Animal* mother_ptr) :
-		Action(animal_ptr) {
+		ChildAction(animal_ptr, nullptr) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->stopTurning();

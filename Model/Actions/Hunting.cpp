@@ -16,7 +16,7 @@
 #include "Chasing.h"
 
 Hunting::Hunting(Animal* animal_ptr) :
-		Action(animal_ptr) {
+		CarnivoreAction(animal_ptr) {
 	animalPtr->setLookingAngle(0);
 	animalPtr->setVelocity(
 			this->animalPtr->getAttributes().maximalSpeed_ * 0.75);

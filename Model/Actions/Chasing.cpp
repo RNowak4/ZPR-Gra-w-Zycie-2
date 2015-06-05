@@ -13,7 +13,7 @@
 #include "CarnivoreRandomWalking.h"
 
 Chasing::Chasing(Animal* animal_ptr, Animal* animal_ptr_2) :
-		Action(animal_ptr), animalToFollowPtr(animal_ptr_2) {
+		CarnivoreAction(animal_ptr), animalToFollowPtr(animal_ptr_2) {
 	this->animalPtr->setAcceleration(0.1);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(

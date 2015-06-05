@@ -9,13 +9,13 @@
 #ifndef MODEL_ACTIONS_SLEEPING_H_
 #define MODEL_ACTIONS_SLEEPING_H_
 
-#include "Action.h"
+#include "HerbivoreAction.h"
 
 /**
 @class Sleeping
-Class that represents sleeping action being performed by carnivore animal.
+Class that represents sleeping action being performed by herbivore animal.
 */
-class Sleeping: public Action {
+class Sleeping: public HerbivoreAction {
 private:
 	static const unsigned decreaseValue = 200; /** Value which is used to decrease sight lenght*/
 

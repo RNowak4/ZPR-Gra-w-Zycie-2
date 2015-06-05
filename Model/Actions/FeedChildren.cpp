@@ -12,7 +12,7 @@
 #include "CarnivoreRandomWalking.h"
 
 FeedChildren::FeedChildren(Animal* animal_ptr) :
-		Action(animal_ptr), currentChild(nullptr) {
+		CarnivoreAction(animal_ptr), currentChild(nullptr) {
 	animalPtr->setVelocity(1.0);
 	animalPtr->stopTurning();
 }

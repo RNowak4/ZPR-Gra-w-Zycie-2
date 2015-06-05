@@ -11,7 +11,7 @@
 
 #include <ctime>
 #include <random>
-#include "Action.h"
+#include "CarnivoreAction.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ using namespace std;
 @class Hunting
 Class that represents hunting action being performed by carnivore animal.
 */
-class Hunting: public Action {
+class Hunting: public CarnivoreAction {
 private:
 	time_t lastChangeTime;
 	std::uniform_int_distribution<int> distribution1;

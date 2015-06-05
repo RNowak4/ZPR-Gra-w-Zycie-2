@@ -9,7 +9,7 @@
 #ifndef MODEL_STATES_EATING_H_
 #define MODEL_STATES_EATING_H_
 
-#include "Action.h"
+#include "HerbivoreAction.h"
 
 class Animal;
 
@@ -17,7 +17,7 @@ class Animal;
 @class Eating
 Class that represents eating action being performed by herbivore animal.
 */
-class Eating: public Action {
+class Eating: public HerbivoreAction {
 private:
 	static const unsigned decreaseValue = 150;
 

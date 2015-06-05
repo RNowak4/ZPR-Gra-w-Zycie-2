@@ -12,13 +12,13 @@
 #include <list>
 
 #include "../Animal.h"
-#include "Action.h"
+#include "CarnivoreAction.h"
 
 /**
 @class FeedChildren
 Class that represents feeding childre action being performed by carnivore animal.
 */
-class FeedChildren: public Action {
+class FeedChildren: public CarnivoreAction {
 private:
 	list<Animal*> childrenList;
 	Animal* currentChild;

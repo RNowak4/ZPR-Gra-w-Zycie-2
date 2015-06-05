@@ -8,13 +8,13 @@
 #ifndef MODEL_ACTIONS_DONOTHING_H_
 #define MODEL_ACTIONS_DONOTHING_H_
 
-#include "Action.h"
+#include "ChildAction.h"
 
 /**
 @class DoNothing
 Class that represents doing nothing action being performed by orphaned carnivores child.
 */
-class DoNothing: public Action {
+class DoNothing: public ChildAction {
 public:
 	DoNothing(Animal* animal_ptr, Animal* mother_ptr);
 	virtual ~DoNothing();
