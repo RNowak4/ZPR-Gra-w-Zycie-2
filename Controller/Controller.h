@@ -13,7 +13,7 @@
 //define it for a Unix machine
 #include <SDL2/SDL.h>
 #endif
-#include "../View/TimeEvent.h"
+
 #include <fstream>
 #include <sstream>
 #include <memory>
