@@ -29,7 +29,6 @@ Herbivore::Herbivore(unsigned x, unsigned y) :
 Herbivore::Herbivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
 	locationData.animalType_ = HERBIVORE_CHILD;
-	//addState(StatePtr(new Childhood(this)));
 	locationData.sightLen_ = actualAttributes.sightLength_;
 	locationData.lookingRad = actualAttributes.sightAngle_;
 	actualAttributes.maximalSpeed_ -= 1.5;
@@ -49,9 +48,6 @@ void Herbivore::updateStatus() {
 	if (currentAction.get() != chosenAction) {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
-
-	/*eatNeed += actualAttributes.eatNeed * Parameters::simulationSpeed;
-	 sleepNeed += actualAttributes.sleepNeed * Parameters::simulationSpeed;*/
 
 	eatNeed += Constants::DEFAULT_HERBIVORE_CONSUMPTION
 			* Parameters::simulationSpeed;

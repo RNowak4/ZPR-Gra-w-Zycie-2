@@ -14,12 +14,6 @@ struct Modifiers;
 
 using namespace std;
 
-/*
- static 		normal_distribution<double> distribution(5.0, 1.0);
- static 		normal_distribution<double> distribution2(6.0, 1.0);
- static normal_distribution<double> lifeDistribution(750, 175);
- static normal_distribution<double> sickChanceDistribution(1, 0.3);*/
-
 class Attributes {
 private:
 	static default_random_engine generator;

@@ -40,6 +40,10 @@ public:
 		return false;
 	}
 
+	/**
+	 *@function updateStatus
+	 *@brief 	updates herbivore's status
+	 */
 	void updateStatus();
 };
 

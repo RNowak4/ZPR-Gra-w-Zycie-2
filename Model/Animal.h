@@ -275,12 +275,27 @@ public:
 	 */
 	void addState(StatePtr new_state);
 
+	/**
+	 *@function looseState
+	 *@brief 	deletes state from the animal
+	 *@argument state_name - state to be lost
+	 */
 	void looseState(const string& state_name);
 
-	time_t& returnTimeSiceCopulatio() {
+	/**
+	 *@function returnTimeSiceCopulation
+	 *@brief 	returns a time since last copulation
+	 *@return	time_t reference
+	 */
+	time_t& returnTimeSiceCopulation() {
 		return timeSinceCopulation;
 	}
 
+	/**
+	 *@function canHaveChild
+	 *@brief 	returns a bool value due to ability of an animal to have a child
+	 *@return	bool value
+	 */
 	bool canHaveChild() {
 		if (childrenNumber < actualAttributes.fertility_
 				&& (time(0) - timeSinceCopulation) > 30
@@ -289,14 +304,28 @@ public:
 		return false;
 	}
 
+	/**
+	 *@function markToKill
+	 *@brief 	marks an animal to be killed in a model
+	 */
 	void markToKill() {
 		dead = true;
 	}
 
+	/**
+	 *@function getChildrenNumber
+	 *@brief 	gets a children number
+	 *@return	int reference
+	 */
 	int& getChildrenNumber() {
 		return childrenNumber;
 	}
 
+	/**
+	 *@function deleteChild
+	 *@brief 	deletes a child from child list
+	 *@argument animal_ptr - pointer to an child
+	 */
 	void deleteChild(Animal* animal_ptr);
 };
 

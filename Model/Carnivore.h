@@ -38,6 +38,10 @@ public:
 		return true;
 	}
 
+	/**
+	 *@function updateStatus
+	 *@brief 	updates carnivore's status
+	 */
 	void updateStatus();
 };
 

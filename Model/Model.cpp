@@ -17,8 +17,6 @@
 #include "Carnivore.h"
 #include "Herbivore.h"
 
-// Testowy commit z nowego kompa
-
 Model::Model() {
 	Action::setDefaultModel(this);
 	srand(time(0));
@@ -28,9 +26,6 @@ Model::~Model() {
 	for (auto animalPtr : animalList)
 		delete animalPtr;
 }
-
-//Model(const Model& orig) {
-//}
 
 Coordinates Model::getCoordinates(const Animal* animalToGet) const {
 	for (auto animalPtr : animalList) {

@@ -29,7 +29,6 @@ Carnivore::Carnivore(unsigned x, unsigned y) :
 Carnivore::Carnivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
 	locationData.animalType_ = CARNIVORE_CHILD;
-	//addState(StatePtr(new Childhood(this)));
 	locationData.sightLen_ = actualAttributes.sightLength_;
 	locationData.lookingRad = actualAttributes.sightAngle_;
 }
