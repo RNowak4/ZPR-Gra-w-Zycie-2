@@ -25,8 +25,8 @@ Virtual class that represents action which can be performed by an animal.
 */
 class Action {
 protected:
-	Animal* animalPtr;
-	Model* modelPtr;
+	Animal* animalPtr; /** pointer to animal performing that action */
+	Model* modelPtr;  /** pointer to the model */
 	static Model* defaultModelPtr;
 	static default_random_engine generator;
 

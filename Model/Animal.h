@@ -33,26 +33,26 @@ It is virtual class.
 */
 class Animal {
 private:
-	Sex sex;
-	double velocity;
-	double acceleration;
-	double angleVelocity;
-	int childrenNumber;
+	Sex sex; /** animal's sex */
+	double velocity; /** animal's velocity */
+	double acceleration; /** animal's acceleration */
+	double angleVelocity; /** animal's angle velocity */
+	int childrenNumber; /** animal's childrens number */
 	bool dead;
 
 protected:
-	list<StatePtr> statesList;
-	ActionPtr currentAction;
-	LocationData locationData;
-	Attributes actualAttributes;
-	time_t bornDate;
-	time_t timeSinceCopulation;
+	list<StatePtr> statesList; /** animal's states */
+	ActionPtr currentAction; /** animal's current action */
+	LocationData locationData; /** animal's current location data */
+	Attributes actualAttributes; /** animal's actual attributes */
+	time_t bornDate; /** animal's born date */
+	time_t timeSinceCopulation; /** animal's time since copulation */
 	time_t lastRandomize;
-	double eatNeed;
-	double sleepNeed;
+	double eatNeed; /** animal's eat need */
+	double sleepNeed; /** animal's sleep need */
 
 public:
-	list<Animal*> childrenList;
+	list<Animal*> childrenList; /** animal's children list */
 
 	/**
 	 *@function Animal
