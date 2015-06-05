@@ -1,5 +1,6 @@
 /**
-File contains Controller class.
+@file Controller.cpp
+@brief File contains Controller class.
 @author Damian Mazurkiewicz
 */
 
@@ -21,6 +22,7 @@ class View;
 class Model;
 
 /**
+@class Controller
 Class takes input from View module. Does proper action depending on it. 
 It can update Model basing on events from View. It "tells" View what to
 draw.
