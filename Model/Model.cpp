@@ -84,8 +84,8 @@ void Model::createHerbivore(unsigned x, unsigned y) {
 Animal* Model::createCarnivoreChild(unsigned x, unsigned y,
 		const Attributes& attributes, Animal* motherPtr) {
 	Animal* carnivore_ptr = new Carnivore(x, y, attributes);
-	carnivore_ptr ->setAction(
-			shared_ptr < Action > (new FollowMother(carnivore_ptr , motherPtr)));
+	carnivore_ptr->setAction(
+			shared_ptr < Action > (new FollowMother(carnivore_ptr, motherPtr)));
 	animalList.push_back(carnivore_ptr);
 	return carnivore_ptr;
 }
@@ -266,13 +266,17 @@ void Model::killAnimal(Animal* animal_ptr) {
 	}
 
 	for (auto it = animalList.begin(); it != animalList.end(); ++it) {
-		(*it)->deleteChild(animal_ptr);
 
 		if (*it == animal_ptr) {
 			temp_ptr = *it;
 			animalList.erase(it);
 			delete temp_ptr;
+			break;
 		}
+	}
+
+	for (auto it = animalList.begin(); it != animalList.end(); ++it) {
+		(*it)->deleteChild(animal_ptr);
 	}
 }
 
