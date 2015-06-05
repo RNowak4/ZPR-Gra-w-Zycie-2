@@ -83,12 +83,6 @@ public:
 	void updateAnimalsStatuses();
 
 	/**
-	 *@function updateAnimalsPosition
-	 *@brief 	updates position of every animal in model
-	 */
-	void updateAnimalsPosition();
-
-	/**
 	 *@function getAnimalsInSight
 	 *@brief 	Returns collection of animals in specified sight range.
 	 *@argument coordinates -  position of the animal.

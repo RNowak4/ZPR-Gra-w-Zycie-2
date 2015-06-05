@@ -40,6 +40,7 @@ void Model::updateAnimalsStatuses() {
 	list<Animal*> animalToDieList;
 
 	for (auto animal : animalList) {
+		animal->doMove();
 		animal->updateStatus();
 		if (animal->shouldDie() != nullptr)
 			animalToDieList.push_back(animal);
@@ -48,22 +49,6 @@ void Model::updateAnimalsStatuses() {
 	for (auto animal : animalToDieList) {
 		killAnimal(animal);
 	}
-}
-
-//TODO wiekszosc przerzucic do update status
-void Model::updateAnimalsPosition() {
-	/*list<Animal*> animalToDieList;*/
-
-	for (auto animal : animalList) {
-		animal->doMove();
-		/*animal->updateStatus();
-		if (animal->shouldDie() != nullptr)
-			animalToDieList.push_back(animal);*/
-	}
-
-	/*for (auto animal : animalToDieList) {
-		killAnimal(animal);
-	}*/
 }
 
 std::vector<const LocationData*> Model::getAnimalsLocationData() {
