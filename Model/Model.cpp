@@ -37,14 +37,6 @@ Coordinates Model::getCoordinates(const Animal* animalToGet) const {
 }
 
 void Model::updateAnimalsStatuses() {
-	for (auto animal_ptr : animalList) {
-		/*animal_ptr->doMove();
-		 animal_ptr->updateStatus();*/
-	}
-}
-
-//TODO wiekszosc przerzucic do update status
-void Model::updateAnimalsPosition() {
 	list<Animal*> animalToDieList;
 
 	for (auto animal : animalList) {

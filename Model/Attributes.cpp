@@ -19,7 +19,7 @@ void normalize(double& value) {
 }
 
 Attributes::Attributes() {
-	strength_ = distribution(generator);
+	strength_ = distribution2(generator);
 	maximalSpeed_ = distribution(generator);
 	fertility_ = static_cast<int>(distribution(generator));
 	sickChance_ = sickChanceDistribution(generator);
