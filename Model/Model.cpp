@@ -23,23 +23,23 @@ Model::Model() {
 }
 
 Model::~Model() {
-	for (auto animalPtr : animalList)
-		delete animalPtr;
+	for (auto animal_ptr : animalList)
+		delete animal_ptr;
 }
 
 Coordinates Model::getCoordinates(const Animal* animalToGet) const {
-	for (auto animalPtr : animalList) {
-		if (animalPtr == animalToGet)
-			return animalPtr->returnCoodtinates();
+	for (auto animal_ptr : animalList) {
+		if (animal_ptr == animalToGet)
+			return animal_ptr->returnCoodtinates();
 	}
 
 	return Coordinates(0, 0);
 }
 
 void Model::updateAnimalsStatuses() {
-	for (auto animalPtr : animalList) {
-		/*animalPtr->doMove();
-		 animalPtr->updateStatus();*/
+	for (auto animal_ptr : animalList) {
+		/*animal_ptr->doMove();
+		 animal_ptr->updateStatus();*/
 	}
 }
 
@@ -101,26 +101,26 @@ Animal* Model::createHerbivoreChild(unsigned x, unsigned y,
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
-	Animal* animalPtr = findAnimal(x, y);
-	if (animalPtr == nullptr)
+	Animal* animal_ptr = findAnimal(x, y);
+	if (animal_ptr == nullptr)
 		return false;
 
-	registeredanimalList.push_back(animalPtr);
+	registeredanimalList.push_back(animal_ptr);
 	return true;
 }
 
-bool Model::registerAnimal(Animal* animalPtr) {
-	registeredanimalList.push_back(animalPtr);
+bool Model::registerAnimal(Animal* animal_ptr) {
+	registeredanimalList.push_back(animal_ptr);
 
 	return false;
 }
 
 bool Model::deregisterAnimal(unsigned x, unsigned y) {
-	Animal* animalPtr = findAnimal(x, y);
-	if (animalPtr == nullptr)
+	Animal* animal_ptr = findAnimal(x, y);
+	if (animal_ptr == nullptr)
 		return false;
 
-	return deregisterAnimal(animalPtr);
+	return deregisterAnimal(animal_ptr);
 }
 
 bool Model::deregisterAnimal(Animal* animalToErase) {
@@ -144,10 +144,10 @@ Animal* Model::findAnimal(unsigned x, unsigned y) {
 	return nullptr;
 }
 
-bool Model::isRegistered(Animal* animalPtr) const {
+bool Model::isRegistered(Animal* animal_ptr) const {
 	for (auto it = registeredanimalList.begin();
 			it != registeredanimalList.end(); ++it) {
-		if (*it == animalPtr) {
+		if (*it == animal_ptr) {
 			return true;
 		}
 	}
@@ -175,14 +175,14 @@ pairVectorPtr Model::getAnimalsData() const {
 }
 
 bool Model::switchAnimalRegister(unsigned x, unsigned y) {
-	Animal* animalPtr = findAnimal(x, y);
-	if (animalPtr == nullptr)
+	Animal* animal_ptr = findAnimal(x, y);
+	if (animal_ptr == nullptr)
 		return false;
 
-	if (isRegistered(animalPtr))
-		deregisterAnimal(animalPtr);
+	if (isRegistered(animal_ptr))
+		deregisterAnimal(animal_ptr);
 	else
-		registerAnimal(animalPtr);
+		registerAnimal(animal_ptr);
 
 	return true;
 }
@@ -258,23 +258,20 @@ std::vector<Animal*> Model::getNearlyAnimals(Coordinates coordinates,
 	return vectorToReturn;
 }
 
-void Model::killAnimal(Animal* animalPtr) {
+void Model::killAnimal(Animal* animal_ptr) {
 	Animal* temp_ptr;
 
 	for (auto action : actionsList) {
-		action->deleteAnimal(animalPtr);
+		action->deleteAnimal(animal_ptr);
 	}
 
 	for (auto it = animalList.begin(); it != animalList.end(); ++it) {
-		for(auto it2 = (*it)->childrenList.begin(); it2 != (*it)->childrenList.end(); ++it2) {
-			(*it2)->deleteChild(animalPtr);
-		}
+		(*it)->deleteChild(animal_ptr);
 
-		if (*it == animalPtr) {
+		if (*it == animal_ptr) {
 			temp_ptr = *it;
 			animalList.erase(it);
 			delete temp_ptr;
-			break;
 		}
 	}
 }
