@@ -49,6 +49,14 @@ Animal::Animal(unsigned x, unsigned y, Attributes modifiers,
 	dead = false;
 }
 
+Animal::~Animal() {
+	for(auto child : childrenList) {
+		auto state_ptr = child->getState("Childhood");
+		if(state_ptr != nullptr)
+			state_ptr->deleteAnimal(this);
+	}
+}
+
 bool Animal::isThatMe(unsigned x, unsigned y) {
 	double tmpX, tmpY;
 	tmpX = x;

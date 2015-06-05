@@ -71,8 +71,7 @@ public:
 	 *@function ~Animal
 	 *@brief 	destructor.
 	 */
-	virtual ~Animal() {
-	}
+	virtual ~Animal();
 
 	/**
 	 *@function updateStatus
