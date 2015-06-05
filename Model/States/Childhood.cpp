@@ -1,9 +1,10 @@
-/*
- * Childhood.cpp
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file Childhood.cpp
+* @brief Implementation of the Childhood class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Childhood.h"
 

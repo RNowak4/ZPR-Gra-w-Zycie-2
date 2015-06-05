@@ -1,9 +1,10 @@
-/*
- * FeedChildren.cpp
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file FeedChildren.cpp
+* @brief Implementation of the FeedChildren class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "FeedChildren.h"
 

@@ -1,9 +1,10 @@
-/*
- * Parameters.cpp
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file Parameters.cpp
+* @brief Implementation of the Parameters class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Parameters.h"
 

@@ -1,10 +1,11 @@
-/*
- * Childhood.h
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
-
+/**
+* @file Model.h
+* @brief Class that represents Childhood State.
+* @brief This state is set to every child
+* @brief and decreases animal's important attributes.
+*
+* @author Radoslaw Nowak
+*/
 #ifndef CHILDHOOD_H_
 #define CHILDHOOD_H_
 

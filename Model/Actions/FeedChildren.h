@@ -1,9 +1,10 @@
-/*
- * FeedChildren.h
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file FeedChildren.h
+* @brief Class that is used to represent
+* @brief feeding children by their mother.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_FEEDCHILDREN_H_
 #define MODEL_ACTIONS_FEEDCHILDREN_H_

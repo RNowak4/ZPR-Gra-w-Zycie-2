@@ -1,9 +1,10 @@
-/*
- * CarnivoreRandomWalking.cpp
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file CarnivoreRandomWalking.cpp
+* @brief Implementation of the CarnivoreRandomWalking class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "CarnivoreRandomWalking.h"
 

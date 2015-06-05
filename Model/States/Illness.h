@@ -1,9 +1,11 @@
-/*
- * Illness.h
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file Model.h
+* @brief Class that represents Illness State.
+* @brief This state is set randomly to an animal
+* @brief and decreases some of it's attributes.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef ILLNESS_H_
 #define ILLNESS_H_

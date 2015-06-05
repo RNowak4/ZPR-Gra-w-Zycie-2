@@ -1,9 +1,10 @@
-/*
- * RandomWalking.h
- *
- *  Created on: 21 maj 2015
- *      Author: radek
- */
+/**
+* @file RandomWalking.h
+* @brief Virtual class that is used to represent
+* @brief random walking.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_RANDOMWALKING_H_
 #define MODEL_ACTIONS_RANDOMWALKING_H_

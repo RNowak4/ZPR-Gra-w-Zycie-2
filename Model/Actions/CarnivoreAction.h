@@ -1,9 +1,10 @@
-/*
- * CarnivoreAction.h
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file CarnivoreAction.h
+* @brief Virtual class that is used to represent
+* @brief an carnivore action which permorm an animal.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef CARNIVOREACTION_H_
 #define CARNIVOREACTION_H_

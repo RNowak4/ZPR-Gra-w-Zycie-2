@@ -23,6 +23,7 @@ private:
 	static normal_distribution<double> sickChanceDistribution;
 	static normal_distribution<double> mutationDistribution;
 	static normal_distribution<double> mutationLifeDistribution;
+	void normalizaAll();
 
 public:
 	double maximalSpeed_;
@@ -36,8 +37,19 @@ public:
 	int fertility_;
 	int lifeLen_;
 
+	/**
+	*@function Attributes
+	*@brief 	Default constructor of Attributes class.
+	*@brief		Used to randomly choosing important for animals variables.
+	*/
 	Attributes();
-	void normalizeAll();
+
+	/**
+	*@function inheritAttributes
+	*@brief 	Function is used to inherit attributes when child is being borned.
+	*@argument second_attributes -	attributes of the partner.
+	*@return	inherited attributes.
+	*/
 	Attributes inheritAttributes(const Attributes& second_attributes) const;
 };
 

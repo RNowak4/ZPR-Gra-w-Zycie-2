@@ -18,13 +18,6 @@
 #include "Parameters.h"
 #include "ViewStructs.h"
 
-/**
- *@function szablon
- *@brief 	szablon
- *@argument szablon
- *@return	szablon
- */
-
 typedef shared_ptr<Animal> AnimalPtr;
 typedef shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > pairVectorPtr;
 

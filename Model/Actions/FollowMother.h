@@ -1,10 +1,10 @@
-/*
- * FollowMother.h
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
-
+/**
+* @file FollowMother.h
+* @brief Class that is used to represent
+* @brief following the mother performed by children.
+*
+* @author Radoslaw Nowak
+*/
 #ifndef MODEL_ACTIONS_FOLLOWMOTHER_H_
 #define MODEL_ACTIONS_FOLLOWMOTHER_H_
 

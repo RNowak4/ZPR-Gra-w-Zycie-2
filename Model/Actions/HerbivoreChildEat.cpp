@@ -1,9 +1,10 @@
-/*
- * HerbivoreChildEat.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file HerbivoreChildEat.cpp
+* @brief Implementation of the HerbivoreChildEat class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "HerbivoreChildEat.h"
 

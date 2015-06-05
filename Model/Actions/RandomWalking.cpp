@@ -1,9 +1,10 @@
-/*
- * RandomWalking.cpp
- *
- *  Created on: 21 maj 2015
- *      Author: radek
- */
+/**
+* @file RandomWalking.cpp
+* @brief Implementation of the RadnomWalking class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "RandomWalking.h"
 

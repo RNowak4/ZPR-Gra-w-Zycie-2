@@ -1,9 +1,9 @@
-/*
- * Sleeping.cpp
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file Sleeping.cpp
+* @brief Implementation of the Sleeping class
+*
+* @author Radoslaw Nowak
+*/
 
 #include "Sleeping.h"
 

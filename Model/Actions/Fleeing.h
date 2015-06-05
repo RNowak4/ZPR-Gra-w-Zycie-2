@@ -1,9 +1,10 @@
-/*
- * Fleeing.h
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file Fleeing.h
+* @brief Class that is used to represent
+* @brief fleeing children by herbivore.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_FLEEING_H_
 #define MODEL_ACTIONS_FLEEING_H_

@@ -1,9 +1,10 @@
-/*
- * HerbivoreChildSleep.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file HerbivoreChildSleep.cpp
+* @brief Implementation of the HerbivoreChildSleep class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "HerbivoreChildSleep.h"
 

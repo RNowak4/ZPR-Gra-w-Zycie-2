@@ -1,6 +1,6 @@
 /**
  * @file Constants.h
- * @brief Class which represents a constant values of the Model parameters
+ * @brief Class which represents a constant values of the Model 
  *
  * @author Radoslaw Nowak
  */

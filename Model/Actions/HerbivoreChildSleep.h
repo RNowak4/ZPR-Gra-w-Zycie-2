@@ -1,9 +1,11 @@
-/*
- * HerbivoreChildSleep.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file HerbivoreChildSleep.h
+* @brief Class that is used to represent
+* @brief sleeping permormed by herbivore children.
+*
+* @author Radoslaw Nowak
+*/
+
 
 #ifndef MODEL_HERBIVORECHILDSLEEP_H_
 #define MODEL_HERBIVORECHILDSLEEP_H_

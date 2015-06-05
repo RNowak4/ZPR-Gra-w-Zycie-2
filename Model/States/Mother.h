@@ -1,9 +1,11 @@
-/*
- * Mother.h
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file Model.h
+* @brief Class that represents Mother State.
+* @brief This state is set to mother while she
+* @brief has young child.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_STATES_MOTHER_H_
 #define MODEL_STATES_MOTHER_H_

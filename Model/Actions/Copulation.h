@@ -1,9 +1,10 @@
-/*
- * Copulation.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file Copulation.h
+* @brief Class that is used to represent
+* @brief a copulation between animals.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_COPULATION_H_
 #define MODEL_ACTIONS_COPULATION_H_

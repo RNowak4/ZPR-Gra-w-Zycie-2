@@ -1,9 +1,10 @@
-/* 
- * File:   Attributes.cpp
- * Author: Radek
- * 
- * Created on 12 marca 2015, 00:37
- */
+/**
+* @file Attributes.cpp
+* @brief Implementation of the Attributes class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Attributes.h"
 

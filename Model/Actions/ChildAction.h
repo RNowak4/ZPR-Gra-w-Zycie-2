@@ -1,9 +1,10 @@
-/*
- * ChildAction.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file ChildAction.h
+* @brief Virtual class that is used to represent
+* @brief an sleep action which can be permorfm by carnivore animal.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_CHILDACTION_H_
 #define MODEL_ACTIONS_CHILDACTION_H_

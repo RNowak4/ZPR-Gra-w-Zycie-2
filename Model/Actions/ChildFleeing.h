@@ -1,10 +1,11 @@
-/*
- * ChildFleeing.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
-
+/**
+* @file ChildFleeing.h
+* @brief Class that is used to represent
+* @brief an chasing another animal action
+* @brief which can be permorfm by carnivore animal.
+*
+* @author Radoslaw Nowak
+*/
 #ifndef MODEL_ACTIONS_CHILDFLEEING_H_
 #define MODEL_ACTIONS_CHILDFLEEING_H_
 

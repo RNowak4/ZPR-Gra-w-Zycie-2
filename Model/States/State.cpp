@@ -1,9 +1,9 @@
-/*
- * State.cpp
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file State.cpp
+* @brief Implementation of the State class
+*
+* @author Radoslaw Nowak
+*/
 
 #include "State.h"
 

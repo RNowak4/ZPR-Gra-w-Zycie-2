@@ -1,9 +1,9 @@
-/*
- * DoNothing.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file DoNothing.h
+* @brief Class that is used to represent doing nothing.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_DONOTHING_H_
 #define MODEL_ACTIONS_DONOTHING_H_

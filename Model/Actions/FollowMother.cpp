@@ -1,9 +1,10 @@
-/*
- * FollowMother.cpp
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file FollowMother.cpp
+* @brief Implementation of the FollowMother class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "FollowMother.h"
 

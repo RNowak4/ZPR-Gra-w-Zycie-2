@@ -1,9 +1,11 @@
-/*
- * CarnivoreRandomWalking.h
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file CarnivoreRandomWalking.h
+* @brief Class that is used to represent
+* @brief an random walking carnivore 
+* @brief action which permorm an animal.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_CARNIVORERANDOMWALKING_H_
 #define MODEL_ACTIONS_CARNIVORERANDOMWALKING_H_

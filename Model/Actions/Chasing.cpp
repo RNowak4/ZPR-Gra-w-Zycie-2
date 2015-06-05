@@ -1,9 +1,9 @@
-/*
- * Chasing.cpp
- *
- *  Created on: 3 cze 2015
- *      Author: radek
- */
+/**
+* @file Chasing.cpp
+* @brief Implementation of the Chasing class
+*
+* @author Radoslaw Nowak
+*/
 
 #include "Chasing.h"
 

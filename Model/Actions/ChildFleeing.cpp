@@ -1,9 +1,10 @@
-/*
- * ChildFleeing.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file ChildFleeing.cpp
+* @brief Implementation of the ChildFleeing class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "ChildFleeing.h"
 

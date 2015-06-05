@@ -1,9 +1,10 @@
-/*
- * DoNothing.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file DoNothing.cpp
+* @brief Implementation of the DoNothing class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "DoNothing.h"
 

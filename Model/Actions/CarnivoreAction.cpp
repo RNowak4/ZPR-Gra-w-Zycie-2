@@ -1,9 +1,10 @@
-/*
- * CarnivoreAction.cpp
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file CarnivoreAction.cpp
+* @brief Implementation of the CarnivoreAction class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "CarnivoreAction.h"
 

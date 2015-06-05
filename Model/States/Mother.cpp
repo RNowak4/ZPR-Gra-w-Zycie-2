@@ -1,9 +1,10 @@
-/*
- * Mother.cpp
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file Mother.cpp
+* @brief Implementation of the Mother class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Mother.h"
 

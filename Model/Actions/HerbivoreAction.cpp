@@ -1,9 +1,10 @@
-/*
- * HerbivoreAction.cpp
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file HerbivoreAction.cpp
+* @brief Implementation of the HerbivoreAcion class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "HerbivoreAction.h"
 

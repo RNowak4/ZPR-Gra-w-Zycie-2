@@ -1,9 +1,10 @@
-/*
- * Hunting.cpp
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file Hunting.cpp
+* @brief Implementation of the Hunting class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Hunting.h"
 

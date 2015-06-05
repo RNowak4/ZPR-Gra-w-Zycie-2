@@ -1,9 +1,9 @@
-/*
- * State.h
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file State.h
+* @brief Virtual class that represents States which can have an animal.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef STATE_H_
 #define STATE_H_
@@ -19,10 +19,38 @@ protected:
 	Animal* animalPtr;
 
 public:
+	/**
+	*@function State
+	*@brief 	Default State class constructor
+	*/
 	State();
-	State(Animal*);
+
+	/**
+	*@function State
+	*@brief 	Default State class constructor
+	*@argument animal_ptr -		pointer to animals, which has that state.
+	*/
+	State(Animal* animal_ptr);
+
+	/**
+	*@function ~State
+	*@brief 	Destructor is used to undone changes in animal's attributes.
+	*/
 	virtual ~State() { }
+
+	/**
+	*@function toString
+	*@brief 	Function returns name of current state as string variable.
+	*@return	string name of state.
+	*/
 	virtual string toString() = 0;
+
+	/**
+	*@function isThatMe
+	*@brief 	Function boolean value due to being state which we ask for.
+	*@argument state_name -	name of state.
+	*@return	boolean value
+	*/
 	virtual bool isThatMe(string state_name) = 0;
 };
 

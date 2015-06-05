@@ -1,9 +1,10 @@
-/*
- * HerbivoreAction.h
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file HerbivoreAction.h
+* @brief Virtual classthat is used to represent
+* @brief an action performed by herbivore animals.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef HERBIVOREACTION_H_
 #define HERBIVOREACTION_H_

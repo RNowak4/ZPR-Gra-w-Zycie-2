@@ -1,9 +1,10 @@
-/*
- * Sleeping.h
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file Sleeping.h
+* @brief Class that is used to represent
+* @brief sleep action permormed by carnivores.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_SLEEPING_H_
 #define MODEL_ACTIONS_SLEEPING_H_

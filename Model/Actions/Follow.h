@@ -1,9 +1,10 @@
-/*
- * Follow.h
- *
- *  Created on: 22 maj 2015
- *      Author: radek
- */
+/**
+* @file Follow.h
+* @brief Class that is used to represent
+* @brief follow action.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_FOLLOW_H_
 #define MODEL_ACTIONS_FOLLOW_H_

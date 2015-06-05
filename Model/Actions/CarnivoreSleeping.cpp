@@ -1,9 +1,10 @@
-/*
- * CarnivoreSleeping.cpp
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file CarnivoreSleeping.cpp
+* @brief Implementation of the CarnivoreSleeping class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "CarnivoreSleeping.h"
 

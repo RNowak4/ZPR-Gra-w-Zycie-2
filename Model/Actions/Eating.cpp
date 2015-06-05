@@ -1,9 +1,10 @@
-/*
- * Eating.cpp
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file Eating.cpp
+* @brief Implementation of the Eating class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Eating.h"
 

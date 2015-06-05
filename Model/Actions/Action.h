@@ -1,9 +1,10 @@
-/*
- * Action.h
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file Action.h
+* @brief Virtual class that is used to represent 
+* @brief an action which permorm an animal.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef ACTION_H_
 #define ACTION_H_
@@ -29,14 +30,14 @@ public:
 	/**
 	 *@function Action
 	 *@brief Constructor of Action class - sets animalPtr and modelPtr values
-	 *@argument animalPtr_ -	pointer to the Animal
+	 *@argument animal_ptr -	pointer to the Animal
 	 */
 	Action(Animal* animal_ptr);
 
 	/**
 	 *@function Action
 	 *@brief Constructor of Action class - sets animalPtr and modelPtr values
-	 *@argument animalPtr_ -	pointer to the Animal
+	 *@argument animal_ptr -	pointer to the Animal
 	 *@argument modelPtr_ -	pointer to the model
 	 */
 	Action(Animal* animal_ptr, Model* model_ptr) :
@@ -57,10 +58,10 @@ public:
 	virtual void performAction() = 0;
 
 	/**
-	 *@function szablon
-	 *@brief 	szablon
-	 *@argument szablon
-	 *@return	szablon
+	 *@function chooseNextAction
+	 *@brief 	Function is used to choose next action for an animal
+	 *@brief	depending on current situation.
+	 *@return	Action pointer to the next action.
 	 */
 	virtual Action* chooseNextAction() = 0;
 

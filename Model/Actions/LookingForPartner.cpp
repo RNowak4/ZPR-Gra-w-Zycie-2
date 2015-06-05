@@ -1,9 +1,10 @@
-/*
- * LookingForPartner.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file LookingForPartner.cpp
+* @brief Implementation of the LookingForPartner class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "LookingForPartner.h"
 

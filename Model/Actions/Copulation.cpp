@@ -1,9 +1,10 @@
-/*
- * Copulation.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file Copulation.cpp
+* @brief Implementation of the Copulation class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Copulation.h"
 

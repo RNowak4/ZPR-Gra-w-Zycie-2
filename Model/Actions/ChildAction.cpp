@@ -1,9 +1,9 @@
-/*
- * ChildAction.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file ChildAction.cpp
+* @brief Implementation of the ChildAction class
+*
+* @author Radoslaw Nowak
+*/
 
 #include "ChildAction.h"
 

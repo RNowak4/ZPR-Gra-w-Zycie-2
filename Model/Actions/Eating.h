@@ -1,9 +1,10 @@
-/*
- * Eating.h
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file Eating.h
+* @brief Class that is used to represent
+* @brief an eating performed by herbivore.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_STATES_EATING_H_
 #define MODEL_STATES_EATING_H_

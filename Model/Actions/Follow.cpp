@@ -1,9 +1,9 @@
-/*
- * Follow.cpp
- *
- *  Created on: 22 maj 2015
- *      Author: radek
- */
+/**
+* @file Follow.cpp
+* @brief Implementation of the Follow class
+*
+* @author Radoslaw Nowak
+*/
 
 #include "Follow.h"
 

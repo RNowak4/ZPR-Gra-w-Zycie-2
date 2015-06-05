@@ -1,9 +1,11 @@
-/*
- * HerbivoreRandomWalking.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file HerbivoreRandomWalking.h
+* @brief Class that is used to represent
+* @brief random walking  permormed by herbivores.
+*
+* @author Radoslaw Nowak
+*/
+
 
 #ifndef MODEL_ACTIONS_HERBIVORERANDOMWALKING_H_
 #define MODEL_ACTIONS_HERBIVORERANDOMWALKING_H_

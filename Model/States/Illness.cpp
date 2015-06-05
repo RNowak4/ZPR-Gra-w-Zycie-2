@@ -1,9 +1,9 @@
-/*
- * Illness.cpp
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file Illness.cpp
+* @brief Implementation of the Illness class
+*
+* @author Radoslaw Nowak
+*/
 
 #include "Illness.h"
 

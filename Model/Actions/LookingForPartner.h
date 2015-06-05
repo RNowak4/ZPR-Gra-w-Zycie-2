@@ -1,9 +1,10 @@
-/*
- * LookingForPartner.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file LookingForPartner.h
+* @brief Class that is used to represent
+* @brief looking for a partner to copulate.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_LOOKINGFORPARTNER_H_
 #define MODEL_ACTIONS_LOOKINGFORPARTNER_H_

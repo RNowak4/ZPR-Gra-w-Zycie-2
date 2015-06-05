@@ -1,9 +1,10 @@
-/*
- * HerbivoreChildEat.h
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file HerbivoreChildEat.h
+* @brief Class that is used to represent
+* @brief eating permormed by herbivore children.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_HERBIVORECHILDEAT_H_
 #define MODEL_ACTIONS_HERBIVORECHILDEAT_H_

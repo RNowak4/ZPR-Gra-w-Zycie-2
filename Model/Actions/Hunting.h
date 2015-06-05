@@ -1,9 +1,10 @@
-/*
- * Hunting.h
- *
- *  Created on: 27 maj 2015
- *      Author: radek
- */
+/**
+* @file Hunting.h
+* @brief Class that is used to represent
+* @brief hunting action permormed by carnivores.
+*
+* @author Radoslaw Nowak
+*/
 
 #ifndef MODEL_ACTIONS_HUNTING_H_
 #define MODEL_ACTIONS_HUNTING_H_

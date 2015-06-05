@@ -1,9 +1,10 @@
-/*
- * Action.cpp
- *
- *  Created on: 17-05-2015
- *      Author: radek
- */
+/**
+* @file Action.cpp
+* @brief Implementation of the Action class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Action.h"
 

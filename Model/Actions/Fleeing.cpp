@@ -1,9 +1,10 @@
-/*
- * Fleeing.cpp
- *
- *  Created on: 24 maj 2015
- *      Author: radek
- */
+/**
+* @file Fleeing.cpp
+* @brief Implementation of the Fleeing class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "Fleeing.h"
 

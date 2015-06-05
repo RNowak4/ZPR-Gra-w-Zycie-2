@@ -1,9 +1,10 @@
-/*
- * HerbivoreRandomWalking.cpp
- *
- *  Created on: 4 cze 2015
- *      Author: radek
- */
+/**
+* @file HerbivoreRandomWalking.cpp
+* @brief Implementation of the HerbivoreRandomWalking class
+*
+* @author Radoslaw Nowak
+*/
+
 
 #include "HerbivoreRandomWalking.h"
 
