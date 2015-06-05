@@ -1,5 +1,6 @@
 /**
-View class.
+@file View.h
+@brief View class.
 @author Damian Mazurkiewicz
 */
 
