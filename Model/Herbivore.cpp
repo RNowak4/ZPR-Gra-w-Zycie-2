@@ -44,6 +44,9 @@ void Herbivore::updateStatus() {
 		currentAction = ActionPtr(new HerbivoreRandomWalking(this));
 	}
 
+	if (childrenList.size() == 0)
+		looseState("Mother");
+
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();
 	if (currentAction.get() != chosenAction) {
@@ -61,9 +64,10 @@ void Herbivore::updateStatus() {
 	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
 		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
 
-	if ((time(0) - lastRandomize) >= Constants::DEFAULT_INTERVAL/Parameters::simulationSpeed
-			&& (rand()%100) <= floor(actualAttributes_.sickChance_)) {
-		if(!hasState("Illness"))
+	if ((time(0) - lastRandomize)
+			>= Constants::DEFAULT_INTERVAL / Parameters::simulationSpeed
+			&& (rand() % 100) <= floor(actualAttributes_.sickChance_)) {
+		if (!hasState("Illness"))
 			addState(StatePtr(new Illness(this)));
 		else {
 			looseState("Illness");

@@ -16,6 +16,7 @@
 #include "CarnivoreSleeping.h"
 #include "Copulation.h"
 #include "Eating.h"
+#include "FeedChildren.h"
 #include "Fleeing.h"
 #include "Hunting.h"
 #include "Sleeping.h"
@@ -48,6 +49,12 @@ Action* LookingForPartner::chooseNextAction() {
 		if (animalPtr->returnSleepNeed() > 8.0)
 			return new Sleeping(animalPtr);
 	} else {
+		for (auto child : animalPtr->childrenList) {
+			if (child->returnEatNeed() > 7.5) {
+				return new FeedChildren(animalPtr);
+			}
+		}
+
 		if (animalPtr->getAttributes().eatNeed_ > 6.0)
 			return new Hunting(animalPtr);
 

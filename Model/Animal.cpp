@@ -158,3 +158,12 @@ void Animal::looseState(const string& state_name) {
 		}
 	}
 }
+
+void Animal::deleteChild(Animal* childPtr) {
+	for (auto it = childrenList.begin(); it != childrenList.end(); ++it) {
+		if(*it == childPtr) {
+			childrenList.erase(it);
+			return;
+		}
+	}
+}

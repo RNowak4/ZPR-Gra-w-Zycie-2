@@ -7,9 +7,8 @@
 
 #include "FeedChildren.h"
 
-#include "../Attributes.h"
 #include "../Model.h"
-#include "HerbivoreRandomWalking.h"
+#include "CarnivoreRandomWalking.h"
 
 FeedChildren::FeedChildren(Animal* animalPtr_) :
 		Action(animalPtr_), currentChild(nullptr) {
@@ -52,7 +51,7 @@ Action* FeedChildren::chooseNextAction() {
 		}
 	}
 
-	return new HerbivoreRandomWalking(animalPtr);
+	return new CarnivoreRandomWalking(animalPtr);
 }
 
 void FeedChildren::deleteAnimal(const Animal* ptrToDelete) {

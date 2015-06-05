@@ -13,6 +13,9 @@
 #include "State.h"
 
 class Childhood: public State {
+private:
+	double dec_values[3];
+
 public:
 	Childhood(Animal* animalPtr_);
 	virtual ~Childhood();

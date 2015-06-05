@@ -37,7 +37,8 @@ Action* HerbivoreRandomWalking::chooseNextAction() {
 		}
 	}
 
-	if (animalPtr->returnEatNeed() > 6.0)		return new Eating(animalPtr);
+	if (animalPtr->returnEatNeed() > 6.0)
+		return new Eating(animalPtr);
 
 	if (animalPtr->returnSleepNeed() > 8.0)
 		return new Sleeping(animalPtr);

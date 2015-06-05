@@ -30,7 +30,6 @@ typedef shared_ptr<State> StatePtr;
 
 class Animal {
 private:
-	list<Animal*> childrenList;
 	Modifiers animalModifiers;
 	Coordinates coordinates_;
 	Sex sex_;
@@ -52,6 +51,8 @@ protected:
 	double sleepNeed_;
 
 public:
+	list<Animal*> childrenList;
+
 	/**
 	 *@function Animal
 	 *@brief 	Copy Constructor.
@@ -294,6 +295,8 @@ public:
 	int& getChildrenNumber() {
 		return childrenNumber;
 	}
+
+	void deleteChild(Animal* animalPtr);
 };
 
 #endif	/* ANIMAL_H */

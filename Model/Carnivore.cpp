@@ -42,6 +42,9 @@ void Carnivore::updateStatus() {
 		currentAction = ActionPtr(new CarnivoreRandomWalking(this));
 	}
 
+	if(childrenList.size() == 0)
+		looseState("Mother");
+
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();
 	if (currentAction.get() != chosenAction) {

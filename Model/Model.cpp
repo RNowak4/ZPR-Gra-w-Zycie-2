@@ -268,6 +268,10 @@ void Model::killAnimal(Animal* animalPtr) {
 	}
 
 	for (auto it = animalList_.begin(); it != animalList_.end(); ++it) {
+		for(auto it2 = (*it)->childrenList.begin(); it2 != (*it)->childrenList.end(); ++it2) {
+			(*it2)->deleteChild(animalPtr);
+		}
+
 		if (*it == animalPtr) {
 			tmpPtr = *it;
 			animalList_.erase(it);
