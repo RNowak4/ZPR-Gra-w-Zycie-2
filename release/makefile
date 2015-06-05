@@ -48,13 +48,13 @@ all: ZPR-Gra-w-Zycie-22
 ZPR-Gra-w-Zycie-22: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "ZPR-Gra-w-Zycie-22" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++  -o "../ZPR-Gra-w-Zycie-22" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) ZPR-Gra-w-Zycie-22
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) ../ZPR-Gra-w-Zycie-22
 	-@echo ' '
 
 .PHONY: all clean dependents
