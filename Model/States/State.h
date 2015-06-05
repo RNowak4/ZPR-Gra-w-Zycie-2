@@ -52,6 +52,8 @@ public:
 	*@return	boolean value
 	*/
 	virtual bool isThatMe(string state_name) = 0;
+
+	virtual void deleteAnimal(Animal* animal_ptr) = 0;
 };
 
 #endif /* STATE_H_ */

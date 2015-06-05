@@ -172,3 +172,12 @@ void Animal::deleteChild(Animal* child_ptr) {
 		looseState("Mother");
 	}
 }
+
+State* Animal::getState(string state_name) {
+	for(auto state : statesList) {
+		if(state->isThatMe(state_name))
+			return state.get();
+	}
+
+	return nullptr;
+}

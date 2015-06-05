@@ -1,11 +1,11 @@
 /**
-* @file Model.h
-* @brief Class that represents Mother State.
-* @brief This state is set to mother while she
-* @brief has young child.
-*
-* @author Radoslaw Nowak
-*/
+ * @file Model.h
+ * @brief Class that represents Mother State.
+ * @brief This state is set to mother while she
+ * @brief has young child.
+ *
+ * @author Radoslaw Nowak
+ */
 
 #ifndef MODEL_STATES_MOTHER_H_
 #define MODEL_STATES_MOTHER_H_
@@ -22,6 +22,8 @@ public:
 	virtual ~Mother();
 	virtual string toString();
 	virtual bool isThatMe(string state_name);
+	virtual void deleteAnimal(Animal* animal_ptr) {
+	}
 };
 
 #endif /* MODEL_STATES_MOTHER_H_ */

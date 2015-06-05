@@ -23,6 +23,11 @@ public:
 	virtual ~Childhood();
 	string toString();
 	bool isThatMe(string state_name);
+	virtual void deleteAnimal(Animal* animal_ptr) {
+		if (mother == animal_ptr) {
+			mother = nullptr;
+		}
+	}
 };
 
 #endif /* CHILDHOOD_H_ */

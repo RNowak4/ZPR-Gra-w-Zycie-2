@@ -11,6 +11,7 @@
 #include "../Animal.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
+#include "DoNothing.h"
 #include "FollowMother.h"
 
 ChildFleeing::ChildFleeing(Animal* animal_ptr, Animal* mother_ptr,
@@ -46,10 +47,16 @@ Action* ChildFleeing::chooseNextAction() {
 	if (hunter == nullptr)
 		return new FollowMother(animalPtr, motherPtr);
 
+	if(modelPtr == nullptr)
+		return new DoNothing(animalPtr, motherPtr);
+
 	return this;
 }
 
 void ChildFleeing::deleteAnimal(const Animal* toDelete) {
 	if (hunter == toDelete)
 		hunter = nullptr;
+
+	if(motherPtr == toDelete)
+		motherPtr = nullptr;
 }

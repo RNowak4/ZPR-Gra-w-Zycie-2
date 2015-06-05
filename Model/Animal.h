@@ -327,6 +327,8 @@ public:
 	 *@argument animal_ptr - pointer to an child
 	 */
 	void deleteChild(Animal* animal_ptr);
+
+	State* getState(string state_name);
 };
 
 #endif	/* ANIMAL_H */

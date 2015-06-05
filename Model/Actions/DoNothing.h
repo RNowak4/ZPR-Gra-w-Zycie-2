@@ -12,7 +12,7 @@
 
 class DoNothing: public Action {
 public:
-	DoNothing(Animal* animal_ptr);
+	DoNothing(Animal* animal_ptr, Animal* mother_ptr);
 	virtual ~DoNothing();
 	void performAction();
 	Action* chooseNextAction();

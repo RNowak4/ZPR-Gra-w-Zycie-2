@@ -48,7 +48,7 @@ void FollowMother::performAction() {
 
 Action* FollowMother::chooseNextAction() {
 	if (motherPtr == nullptr) {
-		return new DoNothing(this->animalPtr);
+		return new DoNothing(this->animalPtr, motherPtr);
 	}
 
 	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE_CHILD

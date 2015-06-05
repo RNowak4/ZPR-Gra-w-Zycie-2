@@ -11,11 +11,14 @@
 #include "../Animal.h"
 #include "../Model.h"
 
-DoNothing::DoNothing(Animal* animal_ptr) :
+DoNothing::DoNothing(Animal* animal_ptr, Animal* mother_ptr) :
 		Action(animal_ptr) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->stopTurning();
+	auto state_ptr = animalPtr->getState("Childhood");
+	if(state_ptr != nullptr)
+		state_ptr->deleteAnimal(mother_ptr);
 }
 
 DoNothing::~DoNothing() {

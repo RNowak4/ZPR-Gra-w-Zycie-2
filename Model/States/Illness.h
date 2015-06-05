@@ -1,11 +1,11 @@
 /**
-* @file Model.h
-* @brief Class that represents Illness State.
-* @brief This state is set randomly to an animal
-* @brief and decreases some of it's attributes.
-*
-* @author Radoslaw Nowak
-*/
+ * @file Model.h
+ * @brief Class that represents Illness State.
+ * @brief This state is set randomly to an animal
+ * @brief and decreases some of it's attributes.
+ *
+ * @author Radoslaw Nowak
+ */
 
 #ifndef ILLNESS_H_
 #define ILLNESS_H_
@@ -23,6 +23,8 @@ public:
 		if (state_name == "Illness")
 			return true;
 		return false;
+	}
+	virtual void deleteAnimal(Animal* animal_ptr) {
 	}
 };
 

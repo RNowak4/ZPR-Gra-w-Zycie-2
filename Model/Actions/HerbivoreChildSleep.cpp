@@ -13,6 +13,7 @@
 #include "../Constants.h"
 #include "../Model.h"
 #include "../ViewStructs.h"
+#include "DoNothing.h"
 #include "Fleeing.h"
 #include "FollowMother.h"
 #include "HerbivoreChildEat.h"
@@ -37,6 +38,9 @@ void HerbivoreChildSleep::performAction() {
 }
 
 Action* HerbivoreChildSleep::chooseNextAction() {
+	if(motherPtr == nullptr)
+		return new DoNothing(animalPtr, motherPtr);
+
 	auto animalsVector = modelPtr->getNearlyAnimals(
 			animalPtr->returnLocationData()->coordinates_,
 			animalPtr->getAttributes().hearingRange_);
@@ -60,6 +64,7 @@ Action* HerbivoreChildSleep::chooseNextAction() {
 	return this;
 }
 
-void HerbivoreChildSleep::deleteAnimal(const Animal*) {
-	// nothing to do about that
+void HerbivoreChildSleep::deleteAnimal(const Animal* to_delete) {
+	if(motherPtr == to_delete)
+		motherPtr = nullptr;
 }

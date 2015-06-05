@@ -25,7 +25,8 @@ Childhood::~Childhood() {
 	animalPtr->getAttributes().eatNeed_ += dec_values[0];
 	animalPtr->getAttributes().maximalSpeed_ += dec_values[1];
 	animalPtr->getAttributes().strength_ += dec_values[2];
-	mother->deleteChild(animalPtr);
+	if(mother != nullptr)
+		mother->deleteChild(animalPtr);
 }
 
 string Childhood::toString() {
