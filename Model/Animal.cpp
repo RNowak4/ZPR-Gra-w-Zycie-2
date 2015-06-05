@@ -89,6 +89,7 @@ AnimalData* Animal::getAnimalData() {
 		data_to_return->pushString(state->toString());
 
 	data_to_return->pushPair(string("Eat need"), floor(eatNeed * 10) / 10);
+	data_to_return->pushPair(string("Fertility"), actualAttributes.fertility_);
 	data_to_return->pushPair(string("Sleep need"), floor(sleepNeed * 10) / 10);
 	data_to_return->pushPair(string("Maximal speed"),
 			floor(actualAttributes.maximalSpeed_ * 10) / 10);
