@@ -65,6 +65,11 @@ Action* Hunting::chooseNextAction() {
 		if (animal->isHerbivore()) {
 			return new Chasing(animalPtr, animal);
 		}
+
+		// then attacks everyone
+		if (animalPtr->returnEatNeed() > 9.0) {
+			return new Chasing(animalPtr, animal);
+		}
 	}
 
 	return this;
