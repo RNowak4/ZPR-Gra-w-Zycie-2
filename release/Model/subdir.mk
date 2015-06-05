@@ -4,14 +4,14 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-Model/Animal.cpp \
-Model/AnimalData.cpp \
-Model/Attributes.cpp \
-Model/Carnivore.cpp \
-Model/Constants.cpp \
-Model/Herbivore.cpp \
-Model/Model.cpp \
-Model/Parameters.cpp 
+../Model/Animal.cpp \
+../Model/AnimalData.cpp \
+../Model/Attributes.cpp \
+../Model/Carnivore.cpp \
+../Model/Constants.cpp \
+../Model/Herbivore.cpp \
+../Model/Model.cpp \
+../Model/Parameters.cpp 
 
 OBJS += \
 ./Model/Animal.o \

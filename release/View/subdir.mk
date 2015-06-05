@@ -4,21 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-./View/Assets.cpp \
-./View/Graphics.cpp \
-./View/SdlHelper.cpp \
-./View/View.cpp 
+../View/Graphics.cpp \
+../View/View.cpp 
 
 OBJS += \
-./View/Assets.o \
 ./View/Graphics.o \
-./View/SdlHelper.o \
 ./View/View.o 
 
 CPP_DEPS += \
-./View/Assets.d \
 ./View/Graphics.d \
-./View/SdlHelper.d \
 ./View/View.d 
 
 

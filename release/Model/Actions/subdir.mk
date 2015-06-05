@@ -4,28 +4,28 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-Model/Actions/Action.cpp \
-Model/Actions/CarnivoreAction.cpp \
-Model/Actions/CarnivoreRandomWalking.cpp \
-Model/Actions/CarnivoreSleeping.cpp \
-Model/Actions/Chasing.cpp \
-Model/Actions/ChildAction.cpp \
-Model/Actions/ChildFleeing.cpp \
-Model/Actions/Copulation.cpp \
-Model/Actions/DoNothing.cpp \
-Model/Actions/Eating.cpp \
-Model/Actions/FeedChildren.cpp \
-Model/Actions/Fleeing.cpp \
-Model/Actions/Follow.cpp \
-Model/Actions/FollowMother.cpp \
-Model/Actions/HerbivoreAction.cpp \
-Model/Actions/HerbivoreChildEat.cpp \
-Model/Actions/HerbivoreChildSleep.cpp \
-Model/Actions/HerbivoreRandomWalking.cpp \
-Model/Actions/Hunting.cpp \
-Model/Actions/LookingForPartner.cpp \
-Model/Actions/RandomWalking.cpp \
-Model/Actions/Sleeping.cpp 
+../Model/Actions/Action.cpp \
+../Model/Actions/CarnivoreAction.cpp \
+../Model/Actions/CarnivoreRandomWalking.cpp \
+../Model/Actions/CarnivoreSleeping.cpp \
+../Model/Actions/Chasing.cpp \
+../Model/Actions/ChildAction.cpp \
+../Model/Actions/ChildFleeing.cpp \
+../Model/Actions/Copulation.cpp \
+../Model/Actions/DoNothing.cpp \
+../Model/Actions/Eating.cpp \
+../Model/Actions/FeedChildren.cpp \
+../Model/Actions/Fleeing.cpp \
+../Model/Actions/Follow.cpp \
+../Model/Actions/FollowMother.cpp \
+../Model/Actions/HerbivoreAction.cpp \
+../Model/Actions/HerbivoreChildEat.cpp \
+../Model/Actions/HerbivoreChildSleep.cpp \
+../Model/Actions/HerbivoreRandomWalking.cpp \
+../Model/Actions/Hunting.cpp \
+../Model/Actions/LookingForPartner.cpp \
+../Model/Actions/RandomWalking.cpp \
+../Model/Actions/Sleeping.cpp 
 
 OBJS += \
 ./Model/Actions/Action.o \

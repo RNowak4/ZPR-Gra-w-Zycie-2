@@ -4,10 +4,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-Model/States/Childhood.cpp \
-Model/States/Illness.cpp \
-Model/States/Mother.cpp \
-Model/States/State.cpp 
+../Model/States/Childhood.cpp \
+../Model/States/Illness.cpp \
+../Model/States/Mother.cpp \
+../Model/States/State.cpp 
 
 OBJS += \
 ./Model/States/Childhood.o \
