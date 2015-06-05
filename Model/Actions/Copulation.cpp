@@ -5,10 +5,10 @@
 * @author Radoslaw Nowak
 */
 
-
 #include "Copulation.h"
 
 #include <ctime>
+#include <cstdlib>
 
 #include "../Animal.h"
 #include "../Attributes.h"
@@ -55,6 +55,19 @@ Action* Copulation::chooseNextAction() {
 				animalToFollowPtr->returnLocationData()->coordinates_);
 
 		if (distance <= 5) {
+			if (rand() % 100 > 25) {
+				animalToFollowPtr->returnTimeSiceCopulation() =
+					animalPtr->returnTimeSiceCopulation() = time(0);
+				if (animalType == CARNIVORE) {
+					animalToFollowPtr->setAction(ActionPtr(new CarnivoreRandomWalking(animalToFollowPtr)));
+					return new CarnivoreRandomWalking(animalPtr);
+				}
+				else {
+					animalToFollowPtr->setAction(ActionPtr(new HerbivoreRandomWalking(animalToFollowPtr)));
+					return new HerbivoreRandomWalking(animalPtr);
+				}
+			}
+
 			if (locationData->animalSex_ == FEMALE) {
 				mother = animalPtr;
 			} else {
@@ -84,8 +97,8 @@ Action* Copulation::chooseNextAction() {
 			mother->addState(StatePtr(new Mother(mother)));
 			child->addState(StatePtr(new Childhood(animalPtr, mother)));
 
-			animalToFollowPtr->returnTimeSiceCopulatio() =
-					animalPtr->returnTimeSiceCopulatio() = time(0);
+			animalToFollowPtr->returnTimeSiceCopulation() =
+					animalPtr->returnTimeSiceCopulation() = time(0);
 			animalToFollowPtr->returnLocationData()->coordinates_.x += 20;
 			animalToFollowPtr->returnLocationData()->coordinates_.y += 20;
 			++animalPtr->getChildrenNumber();
