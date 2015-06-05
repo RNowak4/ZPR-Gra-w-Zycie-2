@@ -20,7 +20,7 @@ Virtual class that represents State of an animals.
 */
 class State {
 protected:
-	Animal* animalPtr;
+	Animal* animalPtr; /** pointer to animal having this state */
 
 public:
 	/**

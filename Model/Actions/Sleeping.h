@@ -17,7 +17,7 @@ Class that represents sleeping action being performed by carnivore animal.
 */
 class Sleeping: public Action {
 private:
-	static const unsigned decreaseValue = 200;
+	static const unsigned decreaseValue = 200; /** Value which is used to decrease sight lenght*/
 
 public:
 	Sleeping(Animal* animal_ptr);
