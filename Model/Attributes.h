@@ -44,7 +44,7 @@ public:
 
 	Attributes();
 	void normalizeAll();
-	Attributes inheritAttributes(const Attributes& secondAttributes) const;
+	Attributes inheritAttributes(const Attributes& second_attributes) const;
 };
 
 #endif	/* ATTRIBUTES_H */

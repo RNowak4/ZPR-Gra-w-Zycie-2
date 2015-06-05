@@ -62,41 +62,41 @@ void Attributes::normalizeAll() {
 }
 
 Attributes Attributes::inheritAttributes(
-		const Attributes& secondAttributes) const {
-	Attributes newAttributes;
+		const Attributes& second_attributes) const {
+	Attributes new_attributes;
 
-	newAttributes.strength_ = (this->strength_ + secondAttributes.strength_)
+	new_attributes.strength_ = (this->strength_ + second_attributes.strength_)
 			/ 2.0 + mutationDistribution(generator);
 
-	newAttributes.fertility_ = (this->fertility_ + secondAttributes.fertility_)
+	new_attributes.fertility_ = (this->fertility_ + second_attributes.fertility_)
 			/ 2.0 + mutationDistribution(generator) * 4.0;
 
-	newAttributes.sickChance_ = (this->sickChance_
-			+ secondAttributes.sickChance_) / 2.0
+	new_attributes.sickChance_ = (this->sickChance_
+			+ second_attributes.sickChance_) / 2.0
 			+ mutationDistribution(generator);
 
-	newAttributes.sightAngle_ = (this->sightAngle_
-			+ secondAttributes.sightAngle_) / 2.0
+	new_attributes.sightAngle_ = (this->sightAngle_
+			+ second_attributes.sightAngle_) / 2.0
 			+ (mutationDistribution(generator) * 360.0 / 20.0);
 
-	newAttributes.sightLength_ = (this->sightLength_
-			+ secondAttributes.sightLength_) / 2.0
+	new_attributes.sightLength_ = (this->sightLength_
+			+ second_attributes.sightLength_) / 2.0
 			+ (mutationDistribution(generator) * 400.0 / 6.0);
 
-	newAttributes.hearingRange_ = (this->hearingRange_
-			+ secondAttributes.hearingRange_) / 2.0
+	new_attributes.hearingRange_ = (this->hearingRange_
+			+ second_attributes.hearingRange_) / 2.0
 			+ (mutationDistribution(generator) * 400.0 / 6.0);
 
-	newAttributes.eatNeed_ = (this->eatNeed_ + secondAttributes.eatNeed_) / 2.0
+	new_attributes.eatNeed_ = (this->eatNeed_ + second_attributes.eatNeed_) / 2.0
 			+ mutationDistribution(generator);
 
-	newAttributes.sleepNeed_ = (this->sleepNeed_ + secondAttributes.sleepNeed_)
+	new_attributes.sleepNeed_ = (this->sleepNeed_ + second_attributes.sleepNeed_)
 			/ 2.0 + mutationDistribution(generator);
 
-	newAttributes.lifeLen_ = (this->lifeLen_ + secondAttributes.lifeLen_) / 2.0
+	new_attributes.lifeLen_ = (this->lifeLen_ + second_attributes.lifeLen_) / 2.0
 			+ mutationLifeDistribution(generator);
 
-	newAttributes.normalizeAll();
+	new_attributes.normalizeAll();
 
-	return newAttributes;
+	return new_attributes;
 }
