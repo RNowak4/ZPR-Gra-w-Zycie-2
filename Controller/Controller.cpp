@@ -7,7 +7,6 @@
 #include "../View/View.h"
 #include "../Model/Model.h"
 #include <iostream>
-#include "../Model/Constants.h"
 #include "../Model/Parameters.h"
 #include "../Exception/GameOfLifeException.h"
 #include <random>
