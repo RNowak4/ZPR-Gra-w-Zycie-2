@@ -15,7 +15,6 @@
 
 #include "Actions/Action.h"
 #include "AnimalData.h"
-#include "AnimalViewParameters.h"
 #include "Attributes.h"
 #include "States/State.h"
 #include "ViewStructs.h"
