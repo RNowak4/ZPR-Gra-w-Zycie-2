@@ -1,5 +1,6 @@
 /**
-Graphics class.
+@file Graphics.h
+@brief  Graphics class.
 @author Damian Mazurkiewicz
 */
 #ifndef GOL_GRAPHICS
