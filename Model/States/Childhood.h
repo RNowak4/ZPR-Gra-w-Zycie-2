@@ -13,6 +13,10 @@
 
 #include "State.h"
 
+/**
+@class Childhood
+Class that represents state called Childhood.
+*/
 class Childhood: public State {
 private:
 	Animal* mother;

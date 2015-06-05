@@ -14,6 +14,10 @@ struct Modifiers;
 
 using namespace std;
 
+/**
+@class Attributes
+Class that represents animal's attributes.
+*/
 class Attributes {
 private:
 	static default_random_engine generator;

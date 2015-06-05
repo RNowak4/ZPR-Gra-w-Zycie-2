@@ -13,6 +13,10 @@
 
 class Animal;
 
+/**
+@class Eating
+Class that represents eating action being performed by herbivore animal.
+*/
 class Eating: public Action {
 private:
 	static const unsigned decreaseValue = 150;

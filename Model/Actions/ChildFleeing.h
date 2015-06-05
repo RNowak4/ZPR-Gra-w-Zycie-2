@@ -11,6 +11,10 @@
 
 #include "ChildAction.h"
 
+/**
+@class ChildFleeing
+Class that represents fleeing action being performed by child animal.
+*/
 class ChildFleeing: public ChildAction {
 private:
 	Animal* hunter;

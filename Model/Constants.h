@@ -10,6 +10,10 @@
 
 #include <ctime>
 
+/**
+@class Constants
+Class that represents Herbivore in the model.
+*/
 class Constants {
 private:
 	Constants() {

@@ -21,6 +21,10 @@
 typedef shared_ptr<Animal> AnimalPtr;
 typedef shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > pairVectorPtr;
 
+/**
+@class Model
+Class that is responsible for providing interface for the controller.
+*/
 class Model {
 public:
 	/**

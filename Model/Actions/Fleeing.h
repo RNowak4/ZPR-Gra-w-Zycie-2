@@ -11,6 +11,10 @@
 
 #include "Action.h"
 
+/**
+@class Fleeing
+Class that represents fleeing action being performed by herbivore animal.
+*/
 class Fleeing: public Action {
 private:
 	Animal* hunter;

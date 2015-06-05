@@ -16,6 +16,10 @@
 #include "../Animal.h"
 #include "State.h"
 
+/**
+@class Mother
+Class that represents state called Mother.
+*/
 class Mother: public State {
 public:
 	Mother(Animal* animal_ptr);

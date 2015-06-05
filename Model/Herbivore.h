@@ -10,6 +10,10 @@
 
 #include "Animal.h"
 
+/**
+@class Herbivore
+Class that is responsible for providing visualization of the simulation on the screen.
+*/
 class Herbivore: public Animal {
 private:
 

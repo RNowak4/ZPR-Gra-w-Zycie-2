@@ -12,6 +12,10 @@
 
 #include "RandomWalking.h"
 
+/**
+@class HerbivoreRandomWalking
+Class that represents random walking action being performed by herbivore child animal.
+*/
 class HerbivoreRandomWalking: public RandomWalking {
 public:
 	HerbivoreRandomWalking(Animal* animal_ptr);

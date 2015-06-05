@@ -12,6 +12,10 @@
 
 #include "Action.h"
 
+/**
+@class Chasing
+Class that represents chasing action being performed by carnivore animal.
+*/
 class Chasing: public Action {
 private:
 	Animal* animalToFollowPtr;

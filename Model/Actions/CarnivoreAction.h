@@ -11,6 +11,10 @@
 
 #include "Action.h"
 
+/**
+@class CarnivoreAction
+Virtual class that represents action which can be performed by Carnivore animal.
+*/
 class CarnivoreAction: public Action {
 public:
 	CarnivoreAction(Animal* animal_ptr);

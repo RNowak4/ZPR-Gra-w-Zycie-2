@@ -14,6 +14,10 @@
 
 #include "State.h"
 
+/**
+@class Mother
+Class that represents illness.
+*/
 class Illness: public State {
 public:
 	Illness(Animal* animal_ptr);

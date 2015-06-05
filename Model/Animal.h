@@ -26,6 +26,11 @@ typedef shared_ptr<Action> ActionPtr;
 typedef shared_ptr<AnimalData> AnimalDataPtr;
 typedef shared_ptr<State> StatePtr;
 
+/**
+@class Animal
+Class that represents each animal in the model. 
+It is virtual class.
+*/
 class Animal {
 private:
 	Sex sex;

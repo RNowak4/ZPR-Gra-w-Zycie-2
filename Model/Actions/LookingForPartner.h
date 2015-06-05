@@ -13,6 +13,10 @@
 
 using namespace std;
 
+/**
+@class LookingForPartner
+Class that represents looking for partner action being performed by an animal.
+*/
 class LookingForPartner: public RandomWalking {
 public:
 	LookingForPartner(Animal* animal_ptr);

@@ -11,6 +11,10 @@
 
 #include "Action.h"
 
+/**
+@class Copulation
+Class that represents copulation.
+*/
 class Copulation: public Action {
 private:
 	Animal* animalToFollowPtr;

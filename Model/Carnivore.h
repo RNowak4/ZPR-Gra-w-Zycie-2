@@ -10,6 +10,10 @@
 
 #include "Animal.h"
 
+/**
+@class Carnivore
+Class that represents Carnivore in the model.
+*/
 class Carnivore: public Animal {
 public:
 	/**

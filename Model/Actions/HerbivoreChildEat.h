@@ -11,6 +11,10 @@
 
 #include "ChildAction.h"
 
+/**
+@class HerbivoreChildEat
+Class that represents eating action being performed by herbivore child animal.
+*/
 class HerbivoreChildEat: public ChildAction {
 public:
 	HerbivoreChildEat(Animal* animal_ptr, Animal* mother_ptr);

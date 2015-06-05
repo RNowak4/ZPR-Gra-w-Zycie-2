@@ -11,6 +11,10 @@
 
 #include "CarnivoreAction.h"
 
+/**
+@class CarnivoreSleeping
+Class that represents sleeping action being performed by carnivore animal.
+*/
 class CarnivoreSleeping: public CarnivoreAction {
 private:
 	static const unsigned decreaseValue = 200;

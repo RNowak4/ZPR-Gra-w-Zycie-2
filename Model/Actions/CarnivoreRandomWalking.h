@@ -16,6 +16,10 @@
 
 using namespace std;
 
+/**
+@class CarnivoreRandomWalking
+Class that represents random walking action being performed by carnivore animal.
+*/
 class CarnivoreRandomWalking: public RandomWalking {
 public:
 	CarnivoreRandomWalking(Animal* animal_ptr);

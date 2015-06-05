@@ -13,6 +13,10 @@
 
 struct Coordinates;
 
+/**
+@class Follow
+Class that represents following action being performed by herbivore animal.
+*/
 class Follow: public Action {
 private:
 	Animal* animalToFollowPtr;

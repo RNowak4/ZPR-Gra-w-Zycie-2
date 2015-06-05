@@ -10,6 +10,10 @@
 
 #include "ChildAction.h"
 
+/**
+@class FollowMother
+Class that represents following mother action being performed by child animal.
+*/
 class FollowMother: public ChildAction {
 public:
 	FollowMother(Animal*, Animal*);

@@ -13,6 +13,10 @@
 #include <random>
 #include "CarnivoreAction.h"
 
+/**
+@class RandomWalking
+Virtual class that represents random walking action being performed by an animal.
+*/
 class RandomWalking: public CarnivoreAction {
 private:
 	time_t lastChangeTime;

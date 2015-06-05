@@ -15,6 +15,10 @@
 
 using namespace std;
 
+/**
+@class Hunting
+Class that represents hunting action being performed by carnivore animal.
+*/
 class Hunting: public Action {
 private:
 	time_t lastChangeTime;

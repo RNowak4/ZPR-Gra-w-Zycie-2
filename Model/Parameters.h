@@ -8,6 +8,10 @@
 #ifndef MODEL_PARAMETERS_H_
 #define MODEL_PARAMETERS_H_
 
+/**
+@class Parameters
+Class that represents models parameters, which user can change.
+*/
 class Parameters {
 private:
 	Parameters();

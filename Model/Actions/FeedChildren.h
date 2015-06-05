@@ -14,6 +14,10 @@
 #include "../Animal.h"
 #include "Action.h"
 
+/**
+@class FeedChildren
+Class that represents feeding childre action being performed by carnivore animal.
+*/
 class FeedChildren: public Action {
 private:
 	list<Animal*> childrenList;

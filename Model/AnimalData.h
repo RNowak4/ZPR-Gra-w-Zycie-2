@@ -14,6 +14,10 @@
 
 using namespace std;
 
+/**
+@class AnimalData
+Class that represents Data which model sends to the Cotroller.
+*/
 class AnimalData {
 private:
 	string action_name;

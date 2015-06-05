@@ -14,6 +14,10 @@
 
 #include "ChildAction.h"
 
+/**
+@class HerbivoreChildSleep
+Class that represents sleeping action being performed by herbivore child animal.
+*/
 class HerbivoreChildSleep: public ChildAction {
 public:
 	HerbivoreChildSleep(Animal* animal_ptr, Animal* mother_ptr);

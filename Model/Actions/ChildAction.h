@@ -11,6 +11,10 @@
 
 #include "Action.h"
 
+/**
+@class ChildAction
+Virtual class that represents action which can perform only child.
+*/
 class ChildAction: public Action {
 protected:
 	Animal* motherPtr;

@@ -14,6 +14,10 @@ class Animal;
 
 using namespace std;
 
+/**
+@class State
+Virtual class that represents State of an animals.
+*/
 class State {
 protected:
 	Animal* animalPtr;

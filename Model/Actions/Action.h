@@ -19,6 +19,10 @@ class Animal;
 
 using namespace std;
 
+/**
+@class Action
+Virtual class that represents action which can be performed by an animal.
+*/
 class Action {
 protected:
 	Animal* animalPtr;

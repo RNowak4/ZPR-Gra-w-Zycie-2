@@ -10,6 +10,10 @@
 
 #include "Action.h"
 
+/**
+@class DoNothing
+Class that represents doing nothing action being performed by orphaned carnivores child.
+*/
 class DoNothing: public Action {
 public:
 	DoNothing(Animal* animal_ptr, Animal* mother_ptr);
