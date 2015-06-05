@@ -16,6 +16,7 @@
 class Controller;
 
 /**
+@class View
 Class that is responsible for providing visualization of the simulation on the screen.
 */
 class View
