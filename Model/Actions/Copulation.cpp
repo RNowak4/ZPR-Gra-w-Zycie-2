@@ -95,7 +95,8 @@ Action* Copulation::chooseNextAction() {
 			}
 
 			mother->addState(StatePtr(new Mother(mother)));
-			child->addState(StatePtr(new Childhood(animalPtr, mother)));
+			mother->childrenList.push_back(child);
+			child->addState(StatePtr(new Childhood(child, mother)));
 
 			animalToFollowPtr->returnTimeSiceCopulation() =
 					animalPtr->returnTimeSiceCopulation() = time(0);

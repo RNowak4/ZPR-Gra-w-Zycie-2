@@ -56,10 +56,10 @@ Action* FeedChildren::chooseNextAction() {
 }
 
 void FeedChildren::deleteAnimal(const Animal* ptrToDelete) {
-	for (auto it = childrenList.begin(); it != childrenList.end(); ++it) {
+/*	for (auto it = childrenList.begin(); it != childrenList.end(); ++it) {
 		if (*it == ptrToDelete) {
 			childrenList.erase(it);
 			break;
 		}
-	}
+	}*/
 }

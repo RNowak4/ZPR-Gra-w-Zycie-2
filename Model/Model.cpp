@@ -274,7 +274,7 @@ void Model::killAnimal(Animal* animal_ptr) {
 			break;
 		}
 	}
-
+	
 	for (auto it = animalList.begin(); it != animalList.end(); ++it) {
 		(*it)->deleteChild(animal_ptr);
 	}
