@@ -51,10 +51,30 @@ public:
 	 *@argument y -	position on y axis
 	 */
 	void createHerbivore(unsigned x, unsigned y);
+
+	/**
+	*@function createCarnivoreChild
+	*@brief 	creates a single carnivore child
+	*@argument x -	position on x axis
+	*@argument y -	position on y axis
+	*@argument attributes - child's attributes
+	*@argument mother_ptr - pointer to the mother
+	*@return pointer to recently created animal child
+	*/
 	Animal* createCarnivoreChild(unsigned x, unsigned y,
-			const Attributes& attributes, Animal* motherPtr);
+			const Attributes& attributes, Animal* mother_ptr);
+
+	/**
+	*@function createHerbivoreChild
+	*@brief 	creates a single herbivore child
+	*@argument x -	position on x axis
+	*@argument y -	position on y axis
+	*@argument attributes - child's attributes
+	*@argument mother_ptr - pointer to the mother
+	*@return pointer to recently created animal child
+	*/
 	Animal* createHerbivoreChild(unsigned x, unsigned y,
-			const Attributes& attributes, Animal* motherPtr);
+			const Attributes& attributes, Animal* mother_ptr);
 
 	/**
 	 *@function updateAnimalsStatuses
