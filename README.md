@@ -1,12 +1,10 @@
 # ZPR-Gra-w-Zycie
-Szkielet aplikacji.
 
 Autorzy: 
 Damian Mazurkiewicz, Radosław Nowak.
 
 Opis:
-Szkielet aplikacji zawiera podstawową strukturę klas. Wykorzystuje bibliotekę SDL 2.03. Pokazuje użycie tej biblioteki
-( wyświatlanie scenerii i obracających się stworzeń, można poruszać się po planszy używając strzałek ). 
+Wersja finalna symulacji.
 
 Kompilacja:
 
@@ -14,10 +12,9 @@ Kompilacja:
 
 Wymagane biblioteki SDL 2.0.3, SDL_image 2.0
 
-Kompilacja za pomocą pliku makefile, z głównego katalogu.
-
-Uwaga: Program zapisuje aktualna wartość FPSow do standardowego wyjścia, więc pod Linuksem, aby zobaczyć, ile FPSów jest
-       w danej chwili, należy program uruchomić z konsoli.
+Kompilacja za pomocą pliku makefile, z katalogu relase, poleceniem "make all"
+Dostępne jest również polecenie "male clean", czyszczące pliki tymczasowe.
+Plik binarny zostanie utworzony w katalogu głównym projektu.
 
 2) Windows Visual C++
 
