@@ -327,6 +327,12 @@ public:
 	 */
 	void deleteChild(Animal* animal_ptr);
 
+	/**
+	*@function getState
+	*@brief 	gets pointer to state.
+	*@argument state_name - name of the state that we want to receive.
+	*@return Pointer to the state or nullptr if not found.
+	*/
 	State* getState(string state_name);
 };
 
