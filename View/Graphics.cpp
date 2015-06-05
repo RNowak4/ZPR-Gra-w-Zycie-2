@@ -1,5 +1,6 @@
 /**
-Implementation of the Graphics class methods.
+@file Graphics.cpp
+@brief Implementation of the Graphics class methods.
 @author Damian Mazurkiewicz
 */
 
