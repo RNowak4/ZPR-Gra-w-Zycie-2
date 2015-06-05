@@ -31,13 +31,13 @@ LookingForPartner::~LookingForPartner() {
 }
 
 Action* LookingForPartner::chooseNextAction() {
-	auto animalVector = modelPtr->getAnimalsInSight(
+	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE) {
+		auto animalVector = modelPtr->getAnimalsInSight(
 			animalPtr->returnCoodtinates(),
 			animalPtr->returnLocationData()->sightLen_ / 2,
 			animalPtr->returnLocationData()->lookingAngle,
 			animalPtr->returnLocationData()->lookingRad);
 
-	if (animalPtr->returnLocationData()->animalType_ == HERBIVORE) {
 		for (auto animal : animalVector) {
 			if (!animal->isHerbivore()) {
 				return new Fleeing(animalPtr, animal);
@@ -63,7 +63,7 @@ Action* LookingForPartner::chooseNextAction() {
 			return new CarnivoreSleeping(animalPtr);
 	}
 
-	animalVector = modelPtr->getAnimalsInSight(animalPtr->returnCoodtinates(),
+	auto animalVector = modelPtr->getAnimalsInSight(animalPtr->returnCoodtinates(),
 			animalPtr->returnLocationData()->sightLen_,
 			animalPtr->returnLocationData()->lookingAngle,
 			animalPtr->returnLocationData()->lookingRad);

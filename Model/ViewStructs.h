@@ -35,8 +35,8 @@ struct Coordinates {
 struct LocationData {
 	Coordinates coordinates_;
 	int lookingAngle;
-	unsigned lookingRad;
-	double sightLen_;
+	int lookingRad;
+	int sightLen_;
 	AnimalType animalType_;
 	Sex animalSex_;
 };
