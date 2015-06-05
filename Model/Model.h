@@ -197,21 +197,13 @@ public:
 	 *@function slowerSimulation
 	 *@brief 	function is used to slow the simulation
 	 */
-	void slowerSimulation() {
-		Parameters::simulationSpeed -= 0.1;
-		if (Parameters::simulationSpeed < 0)
-			Parameters::simulationSpeed = 0.0;
-	}
+	void slowerSimulation();
 
 	/**
 	 *@function fasterSimulation
 	 *@brief 	function is used to faster the simulation
 	 */
-	void fasterSimulation() {
-		Parameters::simulationSpeed += 0.1;
-		if (Parameters::simulationSpeed > Constants::MAX_SIMULATION_SPEED)
-			Parameters::simulationSpeed = 5.0;
-	}
+	void fasterSimulation();
 
 private:
 	std::list<Animal*> animalList;

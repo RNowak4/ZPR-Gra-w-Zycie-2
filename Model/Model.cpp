@@ -284,3 +284,15 @@ void Model::deleteAction(Action* action_ptr) {
 		}
 	}
 }
+
+void Model::fasterSimulation() {
+	Parameters::simulationSpeed += 0.1;
+	if (Parameters::simulationSpeed > Constants::MAX_SIMULATION_SPEED)
+		Parameters::simulationSpeed = 5.0;
+}
+
+void Model::slowerSimulation() {
+	Parameters::simulationSpeed -= 0.1;
+	if (Parameters::simulationSpeed < 0)
+		Parameters::simulationSpeed = 0.0;
+}
