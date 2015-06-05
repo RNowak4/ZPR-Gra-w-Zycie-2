@@ -98,12 +98,11 @@ Inheritance diagram for CarnivoreAction:</div>
  <div class="center">
   <img src="class_carnivore_action.png" usemap="#CarnivoreAction_map" alt=""/>
   <map id="CarnivoreAction_map" name="CarnivoreAction_map">
-<area href="class_action.html" alt="Action" shape="rect" coords="84,0,242,24"/>
-<area href="class_carnivore_sleeping.html" alt="CarnivoreSleeping" shape="rect" coords="0,112,158,136"/>
-<area href="class_random_walking.html" alt="RandomWalking" shape="rect" coords="168,112,326,136"/>
-<area href="class_carnivore_random_walking.html" alt="CarnivoreRandomWalking" shape="rect" coords="0,168,158,192"/>
-<area href="class_herbivore_random_walking.html" alt="HerbivoreRandomWalking" shape="rect" coords="168,168,326,192"/>
-<area href="class_looking_for_partner.html" alt="LookingForPartner" shape="rect" coords="336,168,494,192"/>
+<area href="class_action.html" alt="Action" shape="rect" coords="192,0,310,24"/>
+<area href="class_carnivore_sleeping.html" alt="CarnivoreSleeping" shape="rect" coords="0,112,118,136"/>
+<area href="class_chasing.html" alt="Chasing" shape="rect" coords="128,112,246,136"/>
+<area href="class_feed_children.html" alt="FeedChildren" shape="rect" coords="256,112,374,136"/>
+<area href="class_hunting.html" alt="Hunting" shape="rect" coords="384,112,502,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -138,19 +137,17 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_class_action"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_action')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_action.html">Action</a></td></tr>
-<tr class="memitem:a1561b27a20176b1f32ca6f2d5dd94869 inherit pub_static_methods_class_action"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a1561b27a20176b1f32ca6f2d5dd94869">setDefaultModel</a> (<a class="el" href="class_model.html">Model</a> *modelPtr)</td></tr>
+<tr class="memitem:a1561b27a20176b1f32ca6f2d5dd94869 inherit pub_static_methods_class_action"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a1561b27a20176b1f32ca6f2d5dd94869">setDefaultModel</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_action.html#a451d89d07a4cfe44be1fc52490907139">modelPtr</a>)</td></tr>
 <tr class="memdesc:a1561b27a20176b1f32ca6f2d5dd94869 inherit pub_static_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function sets the default model for <a class="el" href="class_action.html">Action</a> class hierarchy  modelPtr - pointer to a default model.  <a href="#a1561b27a20176b1f32ca6f2d5dd94869">More...</a><br /></td></tr>
 <tr class="separator:a1561b27a20176b1f32ca6f2d5dd94869 inherit pub_static_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_action"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_action')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_action.html">Action</a></td></tr>
 <tr class="memitem:a37711c4920bfbf5ccf7a82e6165e6cf2 inherit pro_attribs_class_action"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37711c4920bfbf5ccf7a82e6165e6cf2"></a>
 <a class="el" href="class_animal.html">Animal</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>animalPtr</b></td></tr>
 <tr class="separator:a37711c4920bfbf5ccf7a82e6165e6cf2 inherit pro_attribs_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a451d89d07a4cfe44be1fc52490907139 inherit pro_attribs_class_action"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a451d89d07a4cfe44be1fc52490907139"></a>
-<a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>modelPtr</b></td></tr>
+<tr class="memitem:a451d89d07a4cfe44be1fc52490907139 inherit pro_attribs_class_action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a451d89d07a4cfe44be1fc52490907139">modelPtr</a></td></tr>
 <tr class="separator:a451d89d07a4cfe44be1fc52490907139 inherit pro_attribs_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_class_action"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_action')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="class_action.html">Action</a></td></tr>
-<tr class="memitem:a688c952ee1ee0b25927abd22deadcb4e inherit pro_static_attribs_class_action"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a688c952ee1ee0b25927abd22deadcb4e"></a>
-static <a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>defaultModelPtr</b></td></tr>
+<tr class="memitem:a688c952ee1ee0b25927abd22deadcb4e inherit pro_static_attribs_class_action"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a688c952ee1ee0b25927abd22deadcb4e">defaultModelPtr</a></td></tr>
 <tr class="separator:a688c952ee1ee0b25927abd22deadcb4e inherit pro_static_attribs_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c00867d21a3269e9fda29c9de3cde66 inherit pro_static_attribs_class_action"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c00867d21a3269e9fda29c9de3cde66"></a>
 static default_random_engine&#160;</td><td class="memItemRight" valign="bottom"><b>generator</b></td></tr>
@@ -185,7 +182,7 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 
 <p>Implements <a class="el" href="class_action.html#a53d4d2522e3dd256e8b6eb1fe5887649">Action</a>.</p>
 
-<p>Implemented in <a class="el" href="class_random_walking.html#a7bfc651d40fd17944ed8efcdf58e0559">RandomWalking</a>, <a class="el" href="class_carnivore_random_walking.html#ac340cd2cebe482ce2e8a616b347dc9da">CarnivoreRandomWalking</a>, <a class="el" href="class_carnivore_sleeping.html#ad6783bd94c20821e9736d9f2f38934ab">CarnivoreSleeping</a>, <a class="el" href="class_looking_for_partner.html#abd76956136014399c37f8f62c0510795">LookingForPartner</a>, and <a class="el" href="class_herbivore_random_walking.html#aabb756e01d8d8a7f92ecaef6128a4a2c">HerbivoreRandomWalking</a>.</p>
+<p>Implemented in <a class="el" href="class_chasing.html#a2da36a5808c4ecdca22312ce3d68b651">Chasing</a>, <a class="el" href="class_hunting.html#a40b8bea137bb08979f6afd70a981cde0">Hunting</a>, <a class="el" href="class_feed_children.html#a22a9852c7ca1c0f0016872800b9f993a">FeedChildren</a>, and <a class="el" href="class_carnivore_sleeping.html#ad6783bd94c20821e9736d9f2f38934ab">CarnivoreSleeping</a>.</p>
 
 </div>
 </div>
@@ -216,7 +213,7 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 
 <p>Implements <a class="el" href="class_action.html#a3e44b723755059935ee658ac1472ee9e">Action</a>.</p>
 
-<p>Implemented in <a class="el" href="class_random_walking.html#af8be73eaa8ef5e21f0b127a32b34d4ad">RandomWalking</a>, and <a class="el" href="class_carnivore_sleeping.html#ac4cb50b95fe030543e7a7de019c35383">CarnivoreSleeping</a>.</p>
+<p>Implemented in <a class="el" href="class_chasing.html#ac532945a742df4c7a2b73f9bcb93a686">Chasing</a>, <a class="el" href="class_hunting.html#af1736450c4ff7f8397d58e0b7aae0fa4">Hunting</a>, <a class="el" href="class_feed_children.html#a06823808a9e61b52f6e0cbccf360a93f">FeedChildren</a>, and <a class="el" href="class_carnivore_sleeping.html#ac4cb50b95fe030543e7a7de019c35383">CarnivoreSleeping</a>.</p>
 
 </div>
 </div>
@@ -246,7 +243,7 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 
 <p>Implements <a class="el" href="class_action.html#a3c85e74092f2c31f4b8a4aa4df88d2d8">Action</a>.</p>
 
-<p>Implemented in <a class="el" href="class_random_walking.html#a04a3fc96e180a6c0ab0af7d29e596082">RandomWalking</a>, and <a class="el" href="class_carnivore_sleeping.html#a22f44ca1cde98236c29bd58089c2af18">CarnivoreSleeping</a>.</p>
+<p>Implemented in <a class="el" href="class_chasing.html#a244b35d77a91c56686bffe37a50f43d2">Chasing</a>, <a class="el" href="class_hunting.html#ab794e2cd49dd525b8d994d24fe7dc7ee">Hunting</a>, <a class="el" href="class_feed_children.html#a1bd88e57f553954f1eda70b7a38b1c92">FeedChildren</a>, and <a class="el" href="class_carnivore_sleeping.html#a22f44ca1cde98236c29bd58089c2af18">CarnivoreSleeping</a>.</p>
 
 </div>
 </div>
@@ -276,7 +273,7 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 
 <p>Implements <a class="el" href="class_action.html#a752a31c122f369e92c3e09cdc1a6d617">Action</a>.</p>
 
-<p>Implemented in <a class="el" href="class_random_walking.html#a86f089cc5cc28d179e248c67477e8b30">RandomWalking</a>, <a class="el" href="class_carnivore_random_walking.html#ae34e8070f9ac8826bb08141c43adcaf5">CarnivoreRandomWalking</a>, <a class="el" href="class_carnivore_sleeping.html#a2805a35db94114af285978b9820f0f18">CarnivoreSleeping</a>, <a class="el" href="class_looking_for_partner.html#a83ef295e8ae6ff29521e0225683bf0af">LookingForPartner</a>, and <a class="el" href="class_herbivore_random_walking.html#a27a17f1ee3d5df3103f3348523c4801a">HerbivoreRandomWalking</a>.</p>
+<p>Implemented in <a class="el" href="class_chasing.html#a94dad51660eda8bb8f7f9b8890bc128e">Chasing</a>, <a class="el" href="class_hunting.html#a00f665db30936ce7a96d860bd7e952a4">Hunting</a>, <a class="el" href="class_feed_children.html#a2835ed51028709e527a343af495db85b">FeedChildren</a>, and <a class="el" href="class_carnivore_sleeping.html#a2805a35db94114af285978b9820f0f18">CarnivoreSleeping</a>.</p>
 
 </div>
 </div>
@@ -287,7 +284,7 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 23:59:01 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

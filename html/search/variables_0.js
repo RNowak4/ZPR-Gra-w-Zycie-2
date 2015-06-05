@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['camera_5fstep',['CAMERA_STEP',['../class_controller.html#a780915afe4b18974d43a3bcc37191fa3',1,'Controller']]]
+  ['actualattributes',['actualAttributes',['../class_animal.html#a717f0c6ca49f0b22eaf1a7198f1e1a1b',1,'Animal']]]
 ];

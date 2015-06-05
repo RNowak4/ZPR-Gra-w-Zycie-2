@@ -92,9 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef MODEL_ACTIONS_DONOTHING_H_</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define MODEL_ACTIONS_DONOTHING_H_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_action_8h.html">Action.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_child_action_8h.html">ChildAction.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_do_nothing.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_do_nothing.html">DoNothing</a>: <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_do_nothing.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_do_nothing.html">DoNothing</a>: <span class="keyword">public</span> <a class="code" href="class_child_action.html">ChildAction</a> {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_do_nothing.html">DoNothing</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr, <a class="code" href="class_animal.html">Animal</a>* mother_ptr);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_do_nothing.html">DoNothing</a>();</div>
@@ -108,17 +108,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODEL_ACTIONS_DONOTHING_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_do_nothing_html_af829f1fc1893c5f9c31e8632c4dbe2cc"><div class="ttname"><a href="class_do_nothing.html#af829f1fc1893c5f9c31e8632c4dbe2cc">DoNothing::chooseNextAction</a></div><div class="ttdeci">Action * chooseNextAction()</div><div class="ttdoc">Function is used to choose next action for an animal. </div><div class="ttdef"><b>Definition:</b> DoNothing.cpp:32</div></div>
-<div class="ttc" id="_action_8h_html"><div class="ttname"><a href="_action_8h.html">Action.h</a></div><div class="ttdoc">Virtual class that is used to represent. </div></div>
 <div class="ttc" id="class_do_nothing_html_ab9e24b3640d4e8125cba091df9d16e7b"><div class="ttname"><a href="class_do_nothing.html#ab9e24b3640d4e8125cba091df9d16e7b">DoNothing::toString</a></div><div class="ttdeci">string toString()</div><div class="ttdoc">Function returns name of the action. </div><div class="ttdef"><b>Definition:</b> DoNothing.h:24</div></div>
 <div class="ttc" id="class_animal_html"><div class="ttname"><a href="class_animal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> Animal.h:34</div></div>
 <div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:26</div></div>
 <div class="ttc" id="class_do_nothing_html_a62278199ca50f424ec0de4558ba7efa9"><div class="ttname"><a href="class_do_nothing.html#a62278199ca50f424ec0de4558ba7efa9">DoNothing::performAction</a></div><div class="ttdeci">void performAction()</div><div class="ttdoc">performs action of an animal - changes it&#39;s values that depends of current action ...</div><div class="ttdef"><b>Definition:</b> DoNothing.cpp:28</div></div>
 <div class="ttc" id="class_do_nothing_html"><div class="ttname"><a href="class_do_nothing.html">DoNothing</a></div><div class="ttdef"><b>Definition:</b> DoNothing.h:17</div></div>
 <div class="ttc" id="class_do_nothing_html_ae01160976750e98bf22bc34f773ea264"><div class="ttname"><a href="class_do_nothing.html#ae01160976750e98bf22bc34f773ea264">DoNothing::deleteAnimal</a></div><div class="ttdeci">void deleteAnimal(const Animal *)</div><div class="ttdoc">Function is used to avoid segmentation fault - if animal. </div><div class="ttdef"><b>Definition:</b> DoNothing.cpp:36</div></div>
+<div class="ttc" id="_child_action_8h_html"><div class="ttname"><a href="_child_action_8h.html">ChildAction.h</a></div><div class="ttdoc">Virtual class that is used to represent. </div></div>
+<div class="ttc" id="class_child_action_html"><div class="ttname"><a href="class_child_action.html">ChildAction</a></div><div class="ttdef"><b>Definition:</b> ChildAction.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 23:59:01 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

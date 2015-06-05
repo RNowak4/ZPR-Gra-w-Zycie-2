@@ -13,6 +13,7 @@ var searchData=
   ['setwindowsize',['setWindowSize',['../class_graphics.html#a9fcb953235531e09e1d7bc95290a4c31',1,'Graphics']]],
   ['setwindowtitle',['setWindowTitle',['../class_graphics.html#a86b6e3374661fc74f4cfc98219c6ccad',1,'Graphics']]],
   ['shoulddie',['shouldDie',['../class_animal.html#adc62fe75008f9f24570d83f1279ba938',1,'Animal']]],
+  ['sleeping',['Sleeping',['../class_sleeping.html#a647c313fc4ba4ffd5c9fc28713fae267',1,'Sleeping']]],
   ['slowersimulation',['slowerSimulation',['../class_model.html#a339945890a1fe792078235da65d5caa0',1,'Model']]],
   ['state',['State',['../class_state.html#ab91bb1dd5aa6260ab2a456581daf9ec2',1,'State::State()'],['../class_state.html#ada7fbeef8c2d2d745693ff78ae02f47f',1,'State::State(Animal *animal_ptr)']]],
   ['stopturning',['stopTurning',['../class_animal.html#af8213ebc97b4fc1a3f19fee9223bec3a',1,'Animal']]],

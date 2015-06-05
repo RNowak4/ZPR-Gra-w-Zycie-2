@@ -101,18 +101,27 @@ Inheritance diagram for Action:</div>
  <div class="center">
   <img src="class_action.png" usemap="#Action_map" alt=""/>
   <map id="Action_map" name="Action_map">
-<area href="class_carnivore_action.html" alt="CarnivoreAction" shape="rect" coords="115,56,220,80"/>
-<area href="class_chasing.html" alt="Chasing" shape="rect" coords="115,112,220,136"/>
-<area href="class_child_action.html" alt="ChildAction" shape="rect" coords="115,168,220,192"/>
-<area href="class_copulation.html" alt="Copulation" shape="rect" coords="115,224,220,248"/>
-<area href="class_do_nothing.html" alt="DoNothing" shape="rect" coords="115,280,220,304"/>
-<area href="class_eating.html" alt="Eating" shape="rect" coords="115,336,220,360"/>
-<area href="class_feed_children.html" alt="FeedChildren" shape="rect" coords="115,392,220,416"/>
-<area href="class_fleeing.html" alt="Fleeing" shape="rect" coords="115,448,220,472"/>
-<area href="class_follow.html" alt="Follow" shape="rect" coords="115,504,220,528"/>
-<area href="class_herbivore_action.html" alt="HerbivoreAction" shape="rect" coords="115,560,220,584"/>
-<area href="class_hunting.html" alt="Hunting" shape="rect" coords="115,616,220,640"/>
-<area href="class_sleeping.html" alt="Sleeping" shape="rect" coords="115,672,220,696"/>
+<area href="class_carnivore_action.html" alt="CarnivoreAction" shape="rect" coords="0,56,158,80"/>
+<area href="class_child_action.html" alt="ChildAction" shape="rect" coords="336,56,494,80"/>
+<area href="class_copulation.html" alt="Copulation" shape="rect" coords="504,56,662,80"/>
+<area href="class_fleeing.html" alt="Fleeing" shape="rect" coords="672,56,830,80"/>
+<area href="class_follow.html" alt="Follow" shape="rect" coords="840,56,998,80"/>
+<area href="class_herbivore_action.html" alt="HerbivoreAction" shape="rect" coords="1008,56,1166,80"/>
+<area href="class_random_walking.html" alt="RandomWalking" shape="rect" coords="1344,56,1502,80"/>
+<area href="class_carnivore_sleeping.html" alt="CarnivoreSleeping" shape="rect" coords="168,112,326,136"/>
+<area href="class_chasing.html" alt="Chasing" shape="rect" coords="168,168,326,192"/>
+<area href="class_feed_children.html" alt="FeedChildren" shape="rect" coords="168,224,326,248"/>
+<area href="class_hunting.html" alt="Hunting" shape="rect" coords="168,280,326,304"/>
+<area href="class_child_fleeing.html" alt="ChildFleeing" shape="rect" coords="504,112,662,136"/>
+<area href="class_do_nothing.html" alt="DoNothing" shape="rect" coords="504,168,662,192"/>
+<area href="class_follow_mother.html" alt="FollowMother" shape="rect" coords="504,224,662,248"/>
+<area href="class_herbivore_child_eat.html" alt="HerbivoreChildEat" shape="rect" coords="504,280,662,304"/>
+<area href="class_herbivore_child_sleep.html" alt="HerbivoreChildSleep" shape="rect" coords="504,336,662,360"/>
+<area href="class_eating.html" alt="Eating" shape="rect" coords="1176,112,1334,136"/>
+<area href="class_sleeping.html" alt="Sleeping" shape="rect" coords="1176,168,1334,192"/>
+<area href="class_carnivore_random_walking.html" alt="CarnivoreRandomWalking" shape="rect" coords="1512,112,1670,136"/>
+<area href="class_herbivore_random_walking.html" alt="HerbivoreRandomWalking" shape="rect" coords="1512,168,1670,192"/>
+<area href="class_looking_for_partner.html" alt="LookingForPartner" shape="rect" coords="1512,224,1670,248"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -142,7 +151,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1561b27a20176b1f32ca6f2d5dd94869"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a1561b27a20176b1f32ca6f2d5dd94869">setDefaultModel</a> (<a class="el" href="class_model.html">Model</a> *modelPtr)</td></tr>
+<tr class="memitem:a1561b27a20176b1f32ca6f2d5dd94869"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a1561b27a20176b1f32ca6f2d5dd94869">setDefaultModel</a> (<a class="el" href="class_model.html">Model</a> *<a class="el" href="class_action.html#a451d89d07a4cfe44be1fc52490907139">modelPtr</a>)</td></tr>
 <tr class="memdesc:a1561b27a20176b1f32ca6f2d5dd94869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function sets the default model for <a class="el" href="class_action.html">Action</a> class hierarchy  modelPtr - pointer to a default model.  <a href="#a1561b27a20176b1f32ca6f2d5dd94869">More...</a><br /></td></tr>
 <tr class="separator:a1561b27a20176b1f32ca6f2d5dd94869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -151,14 +160,12 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a37711c4920bfbf5ccf7a82e6165e6cf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37711c4920bfbf5ccf7a82e6165e6cf2"></a>
 <a class="el" href="class_animal.html">Animal</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>animalPtr</b></td></tr>
 <tr class="separator:a37711c4920bfbf5ccf7a82e6165e6cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a451d89d07a4cfe44be1fc52490907139"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a451d89d07a4cfe44be1fc52490907139"></a>
-<a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>modelPtr</b></td></tr>
+<tr class="memitem:a451d89d07a4cfe44be1fc52490907139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a451d89d07a4cfe44be1fc52490907139">modelPtr</a></td></tr>
 <tr class="separator:a451d89d07a4cfe44be1fc52490907139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a688c952ee1ee0b25927abd22deadcb4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a688c952ee1ee0b25927abd22deadcb4e"></a>
-static <a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>defaultModelPtr</b></td></tr>
+<tr class="memitem:a688c952ee1ee0b25927abd22deadcb4e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a688c952ee1ee0b25927abd22deadcb4e">defaultModelPtr</a></td></tr>
 <tr class="separator:a688c952ee1ee0b25927abd22deadcb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c00867d21a3269e9fda29c9de3cde66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c00867d21a3269e9fda29c9de3cde66"></a>
 static default_random_engine&#160;</td><td class="memItemRight" valign="bottom"><b>generator</b></td></tr>
@@ -390,6 +397,49 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a688c952ee1ee0b25927abd22deadcb4e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_model.html">Model</a> * Action::defaultModelPtr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>pointer to the model </p>
+
+</div>
+</div>
+<a class="anchor" id="a451d89d07a4cfe44be1fc52490907139"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_model.html">Model</a>* Action::modelPtr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>pointer to animal performing that action </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Model/Actions/<a class="el" href="_action_8h_source.html">Action.h</a></li>
 <li>Model/Actions/<a class="el" href="_action_8cpp.html">Action.cpp</a></li>
@@ -397,7 +447,7 @@ static default_random_engine&#160;</td><td class="memItemRight" valign="bottom">
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 23:59:01 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -7,14 +7,13 @@
 Inheritance diagram for Sleeping\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_sleeping}
+\includegraphics[height=3.000000cm]{class_sleeping}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_sleeping_a647c313fc4ba4ffd5c9fc28713fae267}{}{\bfseries Sleeping} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)\label{class_sleeping_a647c313fc4ba4ffd5c9fc28713fae267}
-
+\hyperlink{class_sleeping_a647c313fc4ba4ffd5c9fc28713fae267}{Sleeping} (\hyperlink{class_animal}{Animal} $\ast$animal\+\_\+ptr)
 \item 
 void \hyperlink{class_sleeping_a075291ac36c4c702728c1c6029a30ed7}{perform\+Action} ()
 \begin{DoxyCompactList}\small\item\em performs action of an animal -\/ changes it\textquotesingle{}s values that depends of current action \end{DoxyCompactList}\item 
@@ -28,7 +27,17 @@ string \hyperlink{class_sleeping_a7a9f89f9febd753e6eb99618cb714440}{to\+String} 
 
 
 \subsection{Detailed Description}
-Class that represents sleeping action being performed by carnivore animal. 
+Class that represents sleeping action being performed by herbivore animal. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sleeping_a647c313fc4ba4ffd5c9fc28713fae267}{}\index{Sleeping@{Sleeping}!Sleeping@{Sleeping}}
+\index{Sleeping@{Sleeping}!Sleeping@{Sleeping}}
+\subsubsection[{Sleeping}]{\setlength{\rightskip}{0pt plus 5cm}Sleeping\+::\+Sleeping (
+\begin{DoxyParamCaption}
+\item[{{\bf Animal} $\ast$}]{animal\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{class_sleeping_a647c313fc4ba4ffd5c9fc28713fae267}
+Value which is used to decrease sight lenght 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_sleeping_ab7e0642b9b9a7acdf61c5dcd0bc41e59}{}\index{Sleeping@{Sleeping}!choose\+Next\+Action@{choose\+Next\+Action}}
@@ -47,7 +56,7 @@ choose\+Next\+Action depending on current situation. \begin{DoxyReturn}{Returns}
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_action_a53d4d2522e3dd256e8b6eb1fe5887649}{Action}.
+Implements \hyperlink{class_herbivore_action_aa5b97dfe80450e8c340158d864b4aae8}{Herbivore\+Action}.
 
 \hypertarget{class_sleeping_ab89f2382c544e14fad56c4476e7aad0e}{}\index{Sleeping@{Sleeping}!delete\+Animal@{delete\+Animal}}
 \index{delete\+Animal@{delete\+Animal}!Sleeping@{Sleeping}}
@@ -62,7 +71,7 @@ Function is used to avoid segmentation fault -\/ if animal.
 
 delete\+Animal which we for example are hunting -\/ dies -\/ this functions sets animal\+Ptr to the null value, avoiding error  animal\+Ptr\+\_\+ -\/ pointer to deleted animal 
 
-Implements \hyperlink{class_action_a3e44b723755059935ee658ac1472ee9e}{Action}.
+Implements \hyperlink{class_herbivore_action_a62d0620d0e29fd560260cbc0f9f81abb}{Herbivore\+Action}.
 
 \hypertarget{class_sleeping_a075291ac36c4c702728c1c6029a30ed7}{}\index{Sleeping@{Sleeping}!perform\+Action@{perform\+Action}}
 \index{perform\+Action@{perform\+Action}!Sleeping@{Sleeping}}
@@ -77,7 +86,7 @@ performs action of an animal -\/ changes it\textquotesingle{}s values that depen
 
 perform\+Action 
 
-Implements \hyperlink{class_action_a3c85e74092f2c31f4b8a4aa4df88d2d8}{Action}.
+Implements \hyperlink{class_herbivore_action_a85823422b73721792c11abdfbb02acc7}{Herbivore\+Action}.
 
 \hypertarget{class_sleeping_a7a9f89f9febd753e6eb99618cb714440}{}\index{Sleeping@{Sleeping}!to\+String@{to\+String}}
 \index{to\+String@{to\+String}!Sleeping@{Sleeping}}
@@ -95,7 +104,7 @@ string
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_action_a752a31c122f369e92c3e09cdc1a6d617}{Action}.
+Implements \hyperlink{class_herbivore_action_a69260348107b56b677b4e50375a25774}{Herbivore\+Action}.
 
 
 

@@ -92,14 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef MODEL_ACTIONS_SLEEPING_H_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define MODEL_ACTIONS_SLEEPING_H_</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_action_8h.html">Action.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_herbivore_action_8h.html">HerbivoreAction.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_sleeping.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sleeping.html">Sleeping</a>: <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_sleeping.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sleeping.html">Sleeping</a>: <span class="keyword">public</span> <a class="code" href="class_herbivore_action.html">HerbivoreAction</a> {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> decreaseValue = 200;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> decreaseValue = 200; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_sleeping.html">Sleeping</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_sleeping.html#a647c313fc4ba4ffd5c9fc28713fae267">Sleeping</a>(<a class="code" href="class_animal.html">Animal</a>* animal_ptr);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_sleeping.html">Sleeping</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sleeping.html#a075291ac36c4c702728c1c6029a30ed7">performAction</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_sleeping.html#ab7e0642b9b9a7acdf61c5dcd0bc41e59">chooseNextAction</a>();</div>
@@ -110,18 +109,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODEL_ACTIONS_SLEEPING_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_sleeping_html_a647c313fc4ba4ffd5c9fc28713fae267"><div class="ttname"><a href="class_sleeping.html#a647c313fc4ba4ffd5c9fc28713fae267">Sleeping::Sleeping</a></div><div class="ttdeci">Sleeping(Animal *animal_ptr)</div><div class="ttdef"><b>Definition:</b> Sleeping.cpp:20</div></div>
 <div class="ttc" id="class_sleeping_html"><div class="ttname"><a href="class_sleeping.html">Sleeping</a></div><div class="ttdef"><b>Definition:</b> Sleeping.h:18</div></div>
-<div class="ttc" id="_action_8h_html"><div class="ttname"><a href="_action_8h.html">Action.h</a></div><div class="ttdoc">Virtual class that is used to represent. </div></div>
+<div class="ttc" id="_herbivore_action_8h_html"><div class="ttname"><a href="_herbivore_action_8h.html">HerbivoreAction.h</a></div><div class="ttdoc">Virtual classthat is used to represent. </div></div>
 <div class="ttc" id="class_animal_html"><div class="ttname"><a href="class_animal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> Animal.h:34</div></div>
 <div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> Action.h:26</div></div>
 <div class="ttc" id="class_sleeping_html_ab7e0642b9b9a7acdf61c5dcd0bc41e59"><div class="ttname"><a href="class_sleeping.html#ab7e0642b9b9a7acdf61c5dcd0bc41e59">Sleeping::chooseNextAction</a></div><div class="ttdeci">Action * chooseNextAction()</div><div class="ttdoc">Function is used to choose next action for an animal. </div><div class="ttdef"><b>Definition:</b> Sleeping.cpp:37</div></div>
 <div class="ttc" id="class_sleeping_html_a7a9f89f9febd753e6eb99618cb714440"><div class="ttname"><a href="class_sleeping.html#a7a9f89f9febd753e6eb99618cb714440">Sleeping::toString</a></div><div class="ttdeci">string toString()</div><div class="ttdoc">Function returns name of the action. </div><div class="ttdef"><b>Definition:</b> Sleeping.h:28</div></div>
+<div class="ttc" id="class_herbivore_action_html"><div class="ttname"><a href="class_herbivore_action.html">HerbivoreAction</a></div><div class="ttdef"><b>Definition:</b> HerbivoreAction.h:18</div></div>
 <div class="ttc" id="class_sleeping_html_ab89f2382c544e14fad56c4476e7aad0e"><div class="ttname"><a href="class_sleeping.html#ab89f2382c544e14fad56c4476e7aad0e">Sleeping::deleteAnimal</a></div><div class="ttdeci">void deleteAnimal(const Animal *)</div><div class="ttdoc">Function is used to avoid segmentation fault - if animal. </div><div class="ttdef"><b>Definition:</b> Sleeping.cpp:59</div></div>
 <div class="ttc" id="class_sleeping_html_a075291ac36c4c702728c1c6029a30ed7"><div class="ttname"><a href="class_sleeping.html#a075291ac36c4c702728c1c6029a30ed7">Sleeping::performAction</a></div><div class="ttdeci">void performAction()</div><div class="ttdoc">performs action of an animal - changes it&#39;s values that depends of current action ...</div><div class="ttdef"><b>Definition:</b> Sleeping.cpp:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 5 2015 22:10:35 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 5 2015 23:59:01 for ZPR - Game of Life by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
