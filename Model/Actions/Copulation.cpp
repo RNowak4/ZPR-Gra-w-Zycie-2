@@ -56,7 +56,7 @@ Action* Copulation::chooseNextAction() {
 		unsigned distance = Model::countDistance(locationData->coordinates_,
 				animalToFollowPtr->returnLocationData()->coordinates_);
 
-		if (distance <= (Constants::DEFAULT_COPULATION_RANGE / Parameters::simulationSpeed)) {
+		if (distance <= ((Parameters::simulationSpeed / Constants::DEFAULT_COPULATION_RANGE) + 2)) {
 			if (rand() % 100 > 25) {
 				animalToFollowPtr->returnTimeSiceCopulation() =
 					animalPtr->returnTimeSiceCopulation() = time(0);
