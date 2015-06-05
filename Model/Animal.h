@@ -268,6 +268,11 @@ public:
 		return sleepNeed;
 	}
 
+	/**
+	 *@function addState
+	 *@brief 	adds a state to the animal
+	 *@argument new_state - state to add
+	 */
 	void addState(StatePtr new_state);
 
 	void looseState(const string& state_name);
