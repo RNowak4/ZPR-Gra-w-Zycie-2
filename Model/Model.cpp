@@ -25,7 +25,7 @@ Model::Model() {
 }
 
 Model::~Model() {
-	for (auto animalPtr : animalList_)
+	for (auto animalPtr : animalList)
 		delete animalPtr;
 }
 
@@ -33,7 +33,7 @@ Model::~Model() {
 //}
 
 Coordinates Model::getCoordinates(const Animal* animalToGet) const {
-	for (auto animalPtr : animalList_) {
+	for (auto animalPtr : animalList) {
 		if (animalPtr == animalToGet)
 			return animalPtr->returnCoodtinates();
 	}
@@ -42,7 +42,7 @@ Coordinates Model::getCoordinates(const Animal* animalToGet) const {
 }
 
 void Model::updateAnimalsStatuses() {
-	for (auto animalPtr : animalList_) {
+	for (auto animalPtr : animalList) {
 		/*animalPtr->doMove();
 		 animalPtr->updateStatus();*/
 	}
@@ -52,7 +52,7 @@ void Model::updateAnimalsStatuses() {
 void Model::updateAnimalsPosition() {
 	list<Animal*> animalToDieList;
 
-	for (auto animal : animalList_) {
+	for (auto animal : animalList) {
 		animal->doMove();
 		animal->updateStatus();
 		if (animal->shouldDie() != nullptr)
@@ -66,7 +66,7 @@ void Model::updateAnimalsPosition() {
 
 std::vector<const LocationData*> Model::getAnimalsLocationData() {
 	std::vector<const LocationData*> vectorToReturn;
-	for (auto animal : animalList_)
+	for (auto animal : animalList)
 		vectorToReturn.push_back(animal->returnLocationData());
 
 	return vectorToReturn;
@@ -74,14 +74,14 @@ std::vector<const LocationData*> Model::getAnimalsLocationData() {
 
 void Model::createCarnivore(unsigned x, unsigned y) {
 	Animal* carnivore_ptr = new Carnivore(x, y);
-	animalList_.push_back(carnivore_ptr);
+	animalList.push_back(carnivore_ptr);
 	carnivore_ptr->setAction(
 			shared_ptr < Action > (new CarnivoreRandomWalking(carnivore_ptr)));
 }
 
 void Model::createHerbivore(unsigned x, unsigned y) {
 	Animal* herbivore_ptr = new Herbivore(x, y);
-	animalList_.push_back(herbivore_ptr);
+	animalList.push_back(herbivore_ptr);
 	herbivore_ptr->setAction(
 			shared_ptr < Action > (new HerbivoreRandomWalking(herbivore_ptr)));
 }
@@ -91,7 +91,7 @@ Animal* Model::createCarnivoreChild(unsigned x, unsigned y,
 	Animal* carnivore_ptr = new Carnivore(x, y, attributes);
 	carnivore_ptr ->setAction(
 			shared_ptr < Action > (new FollowMother(carnivore_ptr , motherPtr)));
-	animalList_.push_back(carnivore_ptr);
+	animalList.push_back(carnivore_ptr);
 	return carnivore_ptr;
 }
 
@@ -100,7 +100,7 @@ Animal* Model::createHerbivoreChild(unsigned x, unsigned y,
 	Animal* herbivore_ptr = new Herbivore(x, y, attributes);
 	herbivore_ptr->setAction(
 			shared_ptr < Action > (new FollowMother(herbivore_ptr, motherPtr)));
-	animalList_.push_back(herbivore_ptr);
+	animalList.push_back(herbivore_ptr);
 
 	return herbivore_ptr;
 }
@@ -110,12 +110,12 @@ bool Model::registerAnimal(unsigned x, unsigned y) {
 	if (animalPtr == nullptr)
 		return false;
 
-	registeredAnimalList_.push_back(animalPtr);
+	registeredanimalList.push_back(animalPtr);
 	return true;
 }
 
 bool Model::registerAnimal(Animal* animalPtr) {
-	registeredAnimalList_.push_back(animalPtr);
+	registeredanimalList.push_back(animalPtr);
 
 	return false;
 }
@@ -129,10 +129,10 @@ bool Model::deregisterAnimal(unsigned x, unsigned y) {
 }
 
 bool Model::deregisterAnimal(Animal* animalToErase) {
-	for (auto it = registeredAnimalList_.begin();
-			it != registeredAnimalList_.end(); ++it) {
+	for (auto it = registeredanimalList.begin();
+			it != registeredanimalList.end(); ++it) {
 		if (*it == animalToErase) {
-			registeredAnimalList_.erase(it);
+			registeredanimalList.erase(it);
 			return true;
 		}
 	}
@@ -141,7 +141,7 @@ bool Model::deregisterAnimal(Animal* animalToErase) {
 }
 
 Animal* Model::findAnimal(unsigned x, unsigned y) {
-	for (auto animal : animalList_) {
+	for (auto animal : animalList) {
 		if (animal->isThatMe(x, y)) {
 			return animal;
 		}
@@ -150,8 +150,8 @@ Animal* Model::findAnimal(unsigned x, unsigned y) {
 }
 
 bool Model::isRegistered(Animal* animalPtr) const {
-	for (auto it = registeredAnimalList_.begin();
-			it != registeredAnimalList_.end(); ++it) {
+	for (auto it = registeredanimalList.begin();
+			it != registeredanimalList.end(); ++it) {
 		if (*it == animalPtr) {
 			return true;
 		}
@@ -164,7 +164,7 @@ pairVectorPtr Model::getAnimalsData() const {
 	shared_ptr<std::vector<pair<const LocationData*, const AnimalData*> > > vectorToReturn(
 			new std::vector<pair<const LocationData*, const AnimalData*> >());
 
-	for (auto animal : animalList_) {
+	for (auto animal : animalList) {
 		if (isRegistered(animal))
 			vectorToReturn->push_back(
 					pair<const LocationData*, const AnimalData*>(
@@ -230,7 +230,7 @@ std::vector<Animal*> Model::getAnimalsInSight(Coordinates coordinates,
 	Coordinates tempCoords;
 	unsigned angle;
 
-	for (auto animal : animalList_) {
+	for (auto animal : animalList) {
 		tempCoords = animal->returnLocationData()->coordinates_;
 		if (tempCoords == coordinates)
 			continue;
@@ -251,7 +251,7 @@ std::vector<Animal*> Model::getNearlyAnimals(Coordinates coordinates,
 	std::vector<Animal*> vectorToReturn;
 	Coordinates tempCoords;
 
-	for (auto animal : animalList_) {
+	for (auto animal : animalList) {
 		tempCoords = animal->returnLocationData()->coordinates_;
 		if (tempCoords == coordinates)
 			continue;
@@ -266,18 +266,18 @@ std::vector<Animal*> Model::getNearlyAnimals(Coordinates coordinates,
 void Model::killAnimal(Animal* animalPtr) {
 	Animal* temp_ptr;
 
-	for (auto action : actionsList_) {
+	for (auto action : actionsList) {
 		action->deleteAnimal(animalPtr);
 	}
 
-	for (auto it = animalList_.begin(); it != animalList_.end(); ++it) {
+	for (auto it = animalList.begin(); it != animalList.end(); ++it) {
 		for(auto it2 = (*it)->childrenList.begin(); it2 != (*it)->childrenList.end(); ++it2) {
 			(*it2)->deleteChild(animalPtr);
 		}
 
 		if (*it == animalPtr) {
 			temp_ptr = *it;
-			animalList_.erase(it);
+			animalList.erase(it);
 			delete temp_ptr;
 			break;
 		}
@@ -285,13 +285,13 @@ void Model::killAnimal(Animal* animalPtr) {
 }
 
 void Model::addAction(Action* action_ptr) {
-	actionsList_.push_back(action_ptr);
+	actionsList.push_back(action_ptr);
 }
 
 void Model::deleteAction(Action* action_ptr) {
-	for (auto it = actionsList_.begin(); it != actionsList_.end(); ++it) {
+	for (auto it = actionsList.begin(); it != actionsList.end(); ++it) {
 		if (*it == action_ptr) {
-			actionsList_.erase(it);
+			actionsList.erase(it);
 			break;
 		}
 	}

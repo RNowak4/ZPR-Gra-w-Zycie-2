@@ -200,9 +200,9 @@ public:
 	}
 
 private:
-	std::list<Animal*> animalList_;
-	std::list<Animal*> registeredAnimalList_;
-	std::list<Action*> actionsList_;
+	std::list<Animal*> animalList;
+	std::list<Animal*> registeredanimalList;
+	std::list<Action*> actionsList;
 
 	/**
 	 *@function findAnimal

@@ -13,28 +13,28 @@
 #include "Parameters.h"
 
 Animal::Animal(unsigned x, unsigned y, AnimalType animal_type) :
-		actualAttributes_() {
-	locationData_.coordinates_.x = x;
-	locationData_.coordinates_.y = y;
+		actualAttributes() {
+	locationData.coordinates_.x = x;
+	locationData.coordinates_.y = y;
 
 	// zeroing important 'move' values
 	velocity = 0.0;
 	acceleration = 0.0;
 	angleVelocity = 0.0;
-	locationData_.lookingAngle = 0;
-	sex_ = (rand() % 2) ? MALE : FEMALE;
-	;
-	locationData_.animalSex_ = sex_;
-	locationData_.lookingRad = actualAttributes_.sightAngle_;
-	locationData_.sightLen_ = actualAttributes_.sightLength_;
+	locationData.lookingAngle = 0;
+	sex = (rand() % 2) ? MALE : FEMALE;
+
+	locationData.animalSex_ = sex;
+	locationData.lookingRad = actualAttributes.sightAngle_;
+	locationData.sightLen_ = actualAttributes.sightLength_;
 
 	// setting up time values
 	timeSinceCopulation = lastRandomize = bornDate = time(0);
 	timeSinceCopulation -= 30;
 
 	// setting up starting important animal values
-	eatNeed_ = 2.0;
-	sleepNeed_ = 2.0;
+	eatNeed = 2.0;
+	sleepNeed = 2.0;
 
 	// Animal can have only limited number of children
 	childrenNumber = 0;
@@ -45,7 +45,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animal_type) :
 Animal::Animal(unsigned x, unsigned y, Attributes modifiers,
 		AnimalType animal_type) :
 		Animal(x, y) {
-	actualAttributes_ = modifiers;
+	actualAttributes = modifiers;
 	dead = false;
 }
 
@@ -63,10 +63,10 @@ bool Animal::isThatMe(unsigned x, unsigned y) {
 		height = Parameters::adultHeigth;
 	}
 
-	if (tmpX >= (locationData_.coordinates_.x - width / 2)
-			&& tmpX <= (locationData_.coordinates_.x + width / 2)
-			&& tmpY >= (locationData_.coordinates_.y - height / 2)
-			&& tmpY <= (locationData_.coordinates_.y + height / 2))
+	if (tmpX >= (locationData.coordinates_.x - width / 2)
+			&& tmpX <= (locationData.coordinates_.x + width / 2)
+			&& tmpY >= (locationData.coordinates_.y - height / 2)
+			&& tmpY <= (locationData.coordinates_.y + height / 2))
 		return true;
 
 	return false;
@@ -80,13 +80,13 @@ AnimalData* Animal::getAnimalData() {
 	for (auto state : statesList)
 		data_to_return->pushString(state->toString());
 
-	data_to_return->pushPair(string("Eat need"), floor(eatNeed_ * 10) / 10);
-	data_to_return->pushPair(string("Sleep need"), floor(sleepNeed_ * 10) / 10);
+	data_to_return->pushPair(string("Eat need"), floor(eatNeed * 10) / 10);
+	data_to_return->pushPair(string("Sleep need"), floor(sleepNeed * 10) / 10);
 	data_to_return->pushPair(string("Maximal speed"),
-			floor(actualAttributes_.maximalSpeed_ * 10) / 10);
+			floor(actualAttributes.maximalSpeed_ * 10) / 10);
 	data_to_return->pushPair(string("Strength"),
-			(floor(actualAttributes_.strength_ * 10) / 10 > 0) ?
-					floor(actualAttributes_.strength_ * 10) / 10 : 0);
+			(floor(actualAttributes.strength_ * 10) / 10 > 0) ?
+					floor(actualAttributes.strength_ * 10) / 10 : 0);
 	data_to_return->pushPair(string("Children"), childrenNumber);
 
 	return data_to_return;
@@ -102,44 +102,44 @@ bool Animal::hasState(const string& stateName) {
 }
 
 void Animal::setPosition(unsigned x, unsigned y) {
-	this->locationData_.coordinates_.x = x;
-	this->locationData_.coordinates_.y = y;
+	this->locationData.coordinates_.x = x;
+	this->locationData.coordinates_.y = y;
 }
 
 void Animal::setPosition(Coordinates coodrinates) {
-	this->locationData_.coordinates_ = coodrinates;
+	this->locationData.coordinates_ = coodrinates;
 }
 
 void Animal::doMove() {
-	locationData_.coordinates_.x += velocity * Parameters::simulationSpeed
-			* cos((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
-	locationData_.coordinates_.y += velocity * Parameters::simulationSpeed
-			* sin((double) locationData_.lookingAngle * M_PI / 180.0) / 1.0;
-	locationData_.lookingAngle += angleVelocity * Parameters::simulationSpeed;
+	locationData.coordinates_.x += velocity * Parameters::simulationSpeed
+			* cos((double) locationData.lookingAngle * M_PI / 180.0) / 1.0;
+	locationData.coordinates_.y += velocity * Parameters::simulationSpeed
+			* sin((double) locationData.lookingAngle * M_PI / 180.0) / 1.0;
+	locationData.lookingAngle += angleVelocity * Parameters::simulationSpeed;
 	velocity += acceleration * Parameters::simulationSpeed;
-	if (velocity >= this->actualAttributes_.maximalSpeed_) {
-		velocity = this->actualAttributes_.maximalSpeed_;
+	if (velocity >= this->actualAttributes.maximalSpeed_) {
+		velocity = this->actualAttributes.maximalSpeed_;
 		acceleration = 0.0;
 	}
 
-	if (locationData_.coordinates_.x <= 0)
-		locationData_.lookingAngle = 0;
-	else if (locationData_.coordinates_.y <= 0)
-		locationData_.lookingAngle = 90;
-	else if (locationData_.coordinates_.x >= Parameters::mapWidth)
-		locationData_.lookingAngle = 180;
-	else if (locationData_.coordinates_.y >= Parameters::mapHeight)
-		locationData_.lookingAngle = 270;
+	if (locationData.coordinates_.x <= 0)
+		locationData.lookingAngle = 0;
+	else if (locationData.coordinates_.y <= 0)
+		locationData.lookingAngle = 90;
+	else if (locationData.coordinates_.x >= Parameters::mapWidth)
+		locationData.lookingAngle = 180;
+	else if (locationData.coordinates_.y >= Parameters::mapHeight)
+		locationData.lookingAngle = 270;
 }
 
 Animal* Animal::shouldDie() {
 	if (dead)
 		return this;
 
-	if (eatNeed_ >= 10.0)
+	if (eatNeed >= 10.0)
 		return this;
 
-	if ((time(0) - bornDate) > actualAttributes_.lifeLen_)
+	if ((time(0) - bornDate) > actualAttributes.lifeLen_)
 		return this;
 
 	return nullptr;

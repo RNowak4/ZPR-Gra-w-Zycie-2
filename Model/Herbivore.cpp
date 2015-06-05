@@ -19,27 +19,27 @@
 
 Herbivore::Herbivore(unsigned x, unsigned y) :
 		Animal(x, y) {
-	locationData_.animalType_ = HERBIVORE;
-	locationData_.sightLen_ = actualAttributes_.sightLength_;
-	locationData_.lookingRad = actualAttributes_.sightAngle_;
-	actualAttributes_.maximalSpeed_ -= 1.5;
-	actualAttributes_.strength_ -= 2.0;
+	locationData.animalType_ = HERBIVORE;
+	locationData.sightLen_ = actualAttributes.sightLength_;
+	locationData.lookingRad = actualAttributes.sightAngle_;
+	actualAttributes.maximalSpeed_ -= 1.5;
+	actualAttributes.strength_ -= 2.0;
 }
 
 Herbivore::Herbivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
-	locationData_.animalType_ = HERBIVORE_CHILD;
+	locationData.animalType_ = HERBIVORE_CHILD;
 	//addState(StatePtr(new Childhood(this)));
-	locationData_.sightLen_ = actualAttributes_.sightLength_;
-	locationData_.lookingRad = actualAttributes_.sightAngle_;
-	actualAttributes_.maximalSpeed_ -= 1.5;
-	actualAttributes_.strength_ -= 2.0;
+	locationData.sightLen_ = actualAttributes.sightLength_;
+	locationData.lookingRad = actualAttributes.sightAngle_;
+	actualAttributes.maximalSpeed_ -= 1.5;
+	actualAttributes.strength_ -= 2.0;
 }
 
 void Herbivore::updateStatus() {
-	if (locationData_.animalType_ == HERBIVORE_CHILD
+	if (locationData.animalType_ == HERBIVORE_CHILD
 			&& (time(0) - bornDate) >= Constants::DEFAULT_HERBIVORE_YOUTH_LEN) {
-		locationData_.animalType_ = HERBIVORE;
+		locationData.animalType_ = HERBIVORE;
 		looseState("Childhood");
 		currentAction = ActionPtr(new HerbivoreRandomWalking(this));
 	}
@@ -50,20 +50,20 @@ void Herbivore::updateStatus() {
 		currentAction = shared_ptr < Action > (chosenAction);
 	}
 
-	/*eatNeed_ += actualAttributes_.eatNeed_ * Parameters::simulationSpeed;
-	 sleepNeed_ += actualAttributes_.sleepNeed_ * Parameters::simulationSpeed;*/
+	/*eatNeed += actualAttributes.eatNeed * Parameters::simulationSpeed;
+	 sleepNeed += actualAttributes.sleepNeed * Parameters::simulationSpeed;*/
 
-	eatNeed_ += Constants::DEFAULT_HERBIVORE_CONSUMPTION
+	eatNeed += Constants::DEFAULT_HERBIVORE_CONSUMPTION
 			* Parameters::simulationSpeed;
-	sleepNeed_ += Constants::DEFAULT_HERBIVORE_EXAUSTING
+	sleepNeed += Constants::DEFAULT_HERBIVORE_EXAUSTING
 			* Parameters::simulationSpeed;
 
-	if (sleepNeed_ >= Constants::DEFAULT_MAXIMAL_VALUE)
-		sleepNeed_ = Constants::DEFAULT_MAXIMAL_VALUE;
+	if (sleepNeed >= Constants::DEFAULT_MAXIMAL_VALUE)
+		sleepNeed = Constants::DEFAULT_MAXIMAL_VALUE;
 
 	if ((time(0) - lastRandomize)
 			>= Constants::DEFAULT_INTERVAL / Parameters::simulationSpeed
-			&& (rand() % 100) <= floor(actualAttributes_.sickChance_)) {
+			&& (rand() % 100) <= floor(actualAttributes.sickChance_)) {
 		if (!hasState("Illness"))
 			addState(StatePtr(new Illness(this)));
 		else {

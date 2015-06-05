@@ -29,8 +29,7 @@ typedef shared_ptr<State> StatePtr;
 
 class Animal {
 private:
-	Coordinates coordinates_;
-	Sex sex_;
+	Sex sex;
 	double velocity;
 	double acceleration;
 	double angleVelocity;
@@ -40,13 +39,13 @@ private:
 protected:
 	list<StatePtr> statesList;
 	ActionPtr currentAction;
-	LocationData locationData_;
-	Attributes actualAttributes_;
+	LocationData locationData;
+	Attributes actualAttributes;
 	time_t bornDate;
 	time_t timeSinceCopulation;
 	time_t lastRandomize;
-	double eatNeed_;
-	double sleepNeed_;
+	double eatNeed;
+	double sleepNeed;
 
 public:
 	list<Animal*> childrenList;
@@ -88,7 +87,7 @@ public:
 	 *@return 	animal's coordinates
 	 */
 	Coordinates returnCoodtinates() const {
-		return locationData_.coordinates_;
+		return locationData.coordinates_;
 	}
 
 	/**
@@ -97,7 +96,7 @@ public:
 	 *@return	current location data of an animal
 	 */
 	LocationData* returnLocationData() {
-		return &locationData_;
+		return &locationData;
 	}
 
 	/**
@@ -146,7 +145,7 @@ public:
 	 *@return	Sex falue
 	 */
 	Sex getSex() {
-		return sex_;
+		return sex;
 	}
 
 	/**
@@ -196,8 +195,8 @@ public:
 	 *@return	bool value
 	 */
 	bool isHerbivore() {
-		return locationData_.animalType_ == HERBIVORE
-				|| locationData_.animalType_ == HERBIVORE_CHILD;
+		return locationData.animalType_ == HERBIVORE
+				|| locationData.animalType_ == HERBIVORE_CHILD;
 	}
 
 	/**
@@ -206,7 +205,7 @@ public:
 	 *@argument velutToSet	- value which will be set
 	 */
 	void setLookingAngle(unsigned value_to_set) {
-		locationData_.lookingAngle = value_to_set;
+		locationData.lookingAngle = value_to_set;
 	}
 
 	/**
@@ -249,7 +248,7 @@ public:
 	 *@return	reference to the structure
 	 */
 	Attributes& getAttributes() {
-		return actualAttributes_;
+		return actualAttributes;
 	}
 
 	/**
@@ -258,7 +257,7 @@ public:
 	 *@return	reference to double value
 	 */
 	double& returnEatNeed() {
-		return eatNeed_;
+		return eatNeed;
 	}
 
 	/**
@@ -267,7 +266,7 @@ public:
 	 *@return	reference to double value
 	 */
 	double& returnSleepNeed() {
-		return sleepNeed_;
+		return sleepNeed;
 	}
 
 	void addState(StatePtr new_state);
@@ -279,7 +278,7 @@ public:
 	}
 
 	bool canHaveChild() {
-		if (childrenNumber < actualAttributes_.fertility_
+		if (childrenNumber < actualAttributes.fertility_
 				&& (time(0) - timeSinceCopulation) > 30
 				&& !hasState("Childhood"))
 			return true;
