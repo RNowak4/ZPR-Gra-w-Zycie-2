@@ -1,3 +1,7 @@
+/**
+Implementation of Controller methods/
+@author Damian Mazurkiewicz
+*/
 #include "Controller.h"
 #include "../View/View.h"
 #include "../Model/Model.h"
@@ -12,41 +16,41 @@ const double Controller::SCALE_DELTA = 0.02;
 const std::string Controller::SETTINGS_PATH = "settings.txt";
 const int Controller::FRAMES_COUNT_TO_UPDATE = 10;
 
-Controller::Controller(Model* model, View* view)
+Controller::Controller(Model* model, View* view) : 
+gamePaused_(false),
+drawHelp_(false),
+framesSinceUpdatingStatuses_(0),
+verticalCameraMovement_(0),
+horizontalCameraMovement_(0),
+speedModifier_(FIXED),
+scaleDelta_(0),
+model_(model),
+view_(view)
 {
-	if (model == nullptr || view == nullptr)
+	if (model_ == nullptr || view_ == nullptr)
 	{
 		throw InitalizingControllerException();
 	}
-
-	gamePaused_ = false;
-	drawHelp_ = false;
-	framesSinceUpdatingStatuses_ = 0;
-	verticalCameraMovement_= horizontalCameraMovement_=0;
-	speedModifier_ = FIXED;
-	scaleDelta_ = 0;
-	
-	model_ = model;
+	Parameters::mapHeight = Parameters::mapWidth = 0;
 	loadSettings(SETTINGS_PATH);
-
-	Parameters::adultWidth = 40;
-	Parameters::adultHeigth = 40;
-
-	view_ = view;
+	if (Parameters::mapWidth == 0 || Parameters::mapHeight == 0)
+	{
+		throw LoadingSettingsExcepion();
+	}	
+	Parameters::adultHeigth = Parameters::adultWidth = 40;
+	Parameters::youngHeigth = Parameters::youngWidth = 30;
 }
 
 
 
 void Controller::handleEvent(const SDL_Event & e)
 {
-	int step = 20;
 	SDL_Rect camera = view_->getCamera();
 	switch (e.type)
 	{
 	case SDL_QUIT:
 		view_->quit();
 		break;
-
 	case SDL_KEYDOWN:
 		switch (e.key.keysym.sym)
 		{
@@ -65,14 +69,14 @@ void Controller::handleEvent(const SDL_Event & e)
 		case SDLK_w:
 			scaleDelta_ = SCALE_DELTA*view_->getScale();
 			break;
+		case SDLK_s:
+			scaleDelta_ = -SCALE_DELTA*view_->getScale();
+			break;
 		case SDLK_a:
 			speedModifier_ = SLOWER;
 			break;
 		case SDLK_d:
 			speedModifier_ = FASTER;
-			break;
-		case SDLK_s:
-			scaleDelta_ = -SCALE_DELTA*view_->getScale();
 			break;
 		case SDLK_p:
 			gamePaused_ = !gamePaused_;
@@ -118,16 +122,22 @@ void Controller::handleEvent(const SDL_Event & e)
 
 void Controller::update()
 {
+	/*Setting view, simulation options.*/
 	if (speedModifier_ != FIXED)
 	{
 		if (speedModifier_ == FASTER)
+		{
 			model_->fasterSimulation();
+		}
 		else
+		{
 			model_->slowerSimulation();
+		}
 	}
 	view_->changeScale(scaleDelta_);
 	moveCamera();
 
+	/*Updating Model.*/
 	if (gamePaused_ == false)
 	{
 		model_->updateAnimalsPosition();
@@ -139,7 +149,7 @@ void Controller::update()
 		}
 	}
 	
-
+	/*Refreshing View.*/
 	auto creatures = model_->getAnimalsData();
 	for (auto i : *creatures)
 	{
@@ -163,9 +173,8 @@ void Controller::loadSettings(const std::string& path )
 {
 	std::ifstream file;
 	file.open(path);
-	if (!file.good())
+	if (!file.is_open())
 		return;
-	std::stringstream ss;
 	std::string command;
 
 	while (std::getline(file, command))
@@ -186,6 +195,7 @@ void Controller::loadSettings(const std::string& path )
 		}
 
 	}
+	file.close();
 }
 
 void Controller::processCommand(const std::string & command)
@@ -198,7 +208,7 @@ void Controller::processCommand(const std::string & command)
 	if (!ss.good())
 		return;
 
-	if (what == "MAP_WIDTH")
+	if (what == "MAP_WIDTH" && Parameters::mapWidth==0)
 	{
 		ss >> arg;
 		Parameters::mapWidth = std::stoi(arg);
@@ -206,12 +216,16 @@ void Controller::processCommand(const std::string & command)
 			throw LoadingSettingsExcepion();
 	
 	}
-	else if (what == "MAP_HEIGHT")
+	else if (what == "MAP_HEIGHT" && Parameters::mapHeight==0)
 	{
 		ss >> arg; 
 		Parameters::mapHeight = std::stoi(arg);
 		if (Parameters::mapHeight  < View::SCREEN_HEIGHT)
 			throw LoadingSettingsExcepion();
+	}
+	else if (Parameters::mapWidth == 0 || Parameters::mapHeight == 0)
+	{
+		throw LoadingSettingsExcepion();
 	}
 	else if (what == "CARNIVORE")
 	{
