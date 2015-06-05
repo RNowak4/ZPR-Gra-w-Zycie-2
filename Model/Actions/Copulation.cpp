@@ -12,7 +12,9 @@
 
 #include "../Animal.h"
 #include "../Attributes.h"
+#include "../Constants.h"
 #include "../Model.h"
+#include "../Parameters.h"
 #include "../States/Childhood.h"
 #include "../States/Mother.h"
 #include "../ViewStructs.h"
@@ -54,7 +56,7 @@ Action* Copulation::chooseNextAction() {
 		unsigned distance = Model::countDistance(locationData->coordinates_,
 				animalToFollowPtr->returnLocationData()->coordinates_);
 
-		if (distance <= 5) {
+		if (distance <= (Constants::DEFAULT_COPULATION_RANGE / Parameters::simulationSpeed)) {
 			if (rand() % 100 > 25) {
 				animalToFollowPtr->returnTimeSiceCopulation() =
 					animalPtr->returnTimeSiceCopulation() = time(0);
