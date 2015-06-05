@@ -1,0 +1,5 @@
+/Debug/
+/Release/*.pdb
+/*.opensdf
+/*.sdf
+/*.suo
