@@ -1,3 +1,7 @@
+/**
+Classes for Exceptions that may be thrown by objects from simulation.
+@author Damian Mazurkiewicz
+*/
 #ifndef GAME_OF_LIFE_EXCEPTION
 #define GAME_OF_LIFE_EXCEPTION
 
@@ -46,11 +50,5 @@ struct LoadingSettingsExcepion : public GameOfLifeException
 		return "Incorrect settings.txt file.";
 	}
 };
-
-struct CreatureConstructionException : public GameOfLifeException
-{
-
-};
-
 
 #endif //GAME_OF_LIFE_EXCEPTION

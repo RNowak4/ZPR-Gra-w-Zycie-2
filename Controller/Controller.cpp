@@ -248,15 +248,7 @@ void Controller::processCommand(const std::string & command)
 				model_->createCarnivore(x, y);
 			}
 		}
-
 	}
-	else if (what == "THROW_CARNIVORES")
-	{
-		ss >> arg; int x = std::stoi(arg);
-		ss >> arg; int y = std::stoi(arg);
-		model_->createHerbivore(x, y);
-	}
-
 }
 
 void Controller::moveCamera()

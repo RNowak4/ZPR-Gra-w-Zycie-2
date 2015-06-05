@@ -1,3 +1,8 @@
+/**
+Implementation of the Graphics class methods.
+@author Damian Mazurkiewicz
+*/
+
 #include "Graphics.h"
 #include "../Exception/GameOfLifeException.h"
 #include <iostream>
@@ -29,6 +34,7 @@ Graphics::Graphics()
 	fonts_[DEFAULT_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", 12), TTF_CloseFont);
 	fonts_[HELP_FONT] = std::shared_ptr<TTF_Font>(TTF_OpenFont("Assets/verdanab.ttf", 14), TTF_CloseFont);
 
+	/*Checking if all media components were properly loaded.*/
 	for (auto i : textures_)
 	{
 		if (!i.second)
@@ -59,7 +65,6 @@ void Graphics::dispose(Graphics& graphics)
 	graphics.window_.reset();
 	unloadLibraries();
 }
-
 
 void Graphics::unloadLibraries(){
 	TTF_Quit();
@@ -92,14 +97,17 @@ void Graphics::clearScreen()
 {
 	SDL_RenderClear(renderer_.get());
 }
+
 void Graphics::renderScreen()
 {
 	SDL_RenderPresent(renderer_.get());
 }
+
 void Graphics::setWindowSize(int width, int height)
 {
 	SDL_SetWindowSize(window_.get(), width, height);
 }
+
 void Graphics::setWindowTitle(const std::string & title)
 {
 	SDL_SetWindowTitle(window_.get(), title.c_str());
@@ -107,13 +115,13 @@ void Graphics::setWindowTitle(const std::string & title)
 
 void Graphics::draw(const SDL_Rect& camera, std::shared_ptr<SDL_Texture> tex, int x, int y, bool centered, double angle, Uint8 alpha)
 {
+	/*Calculate position and size of image to draw.*/
 	SDL_Rect tmp{ x, y };
-	SDL_QueryTexture(tex.get(), nullptr, nullptr, &tmp.w, &tmp.h); //How big is the image to draw.
+	SDL_QueryTexture(tex.get(), nullptr, nullptr, &tmp.w, &tmp.h); 
 	tmp.w =  static_cast<int>(tmp.w*scale_);
 	tmp.h = static_cast<int>(tmp.h*scale_);
 	setScaledPosition(tmp.x, camera.x);
 	setScaledPosition(tmp.y, camera.y);
-
 
 	if (centered == true)
 	{
@@ -154,7 +162,6 @@ void Graphics::drawFrame(const SDL_Rect& camera, SDL_Rect rectangle, std::shared
 		return;
 	}
 
-
 	rectangle.x -= camera.x;
 	rectangle.y -= camera.y;
 
@@ -163,9 +170,6 @@ void Graphics::drawFrame(const SDL_Rect& camera, SDL_Rect rectangle, std::shared
 	SDL_SetTextureAlphaMod(filling.get(), 0xff);  //After drawing we bring texture back to normal state ( not transparent ).
 	SDL_SetRenderDrawColor(renderer_.get(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderDrawRect(renderer_.get(), &rectangle);
-
-
-
 }
 
 bool Graphics::overlap(const SDL_Rect& r1, const SDL_Rect& r2)

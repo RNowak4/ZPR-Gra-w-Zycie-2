@@ -135,14 +135,8 @@
     <ClInclude Include="..\..\..\Model\Constants.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\View\Assets.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Model\Parameters.h">
       <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\View\SdlHelper.h">
-      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Controller\Controller.h">
       <Filter>Header Files\Controller</Filter>
