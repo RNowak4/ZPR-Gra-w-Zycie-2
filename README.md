@@ -6,6 +6,9 @@ Damian Mazurkiewicz, Radosław Nowak.
 Opis:
 Wersja finalna symulacji.
 
+Dokumentacja:
+Należy otworzyć plik index.html znajdujący się w folderze doc/html
+
 Kompilacja:
 
 1) Linux
