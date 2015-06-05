@@ -1,29 +1,24 @@
+/**
+Main function of 'Game of Life'. It creates instances of Model, View,Controller and runs
+the simulation. It also intercepts the exceptions that may be thrown during execution.
+@author Damian Mazurkiewicz
+*/
 #include "Model/Model.h"
 #include "Controller/Controller.h"
 #include "View/View.h"
 #include "View/Graphics.h"
 #include "Exception/GameOfLifeException.h"
-
-/* Do implementacji w Controllerze:
- * 
- */
-
-/* Do implementacji w Modelu:
- * 
- */
+#include <iostream>
 
 int main(int argc, char** argv) {
 	
-	try{
+	try
+	{
 		Model model;
-		Controller controller;
 		View view;
+		Controller controller(&model,&view);
 
-		view.getController(&controller);
-		controller.getView(&view);
-		controller.getModel(&model);
-
-		view.run();
+		view.run(&controller);
 	}
 	catch (InitializingSdlSystemsException& e)
 	{
@@ -39,7 +34,14 @@ int main(int argc, char** argv) {
 	{
 		std::cerr << e.what()<< std::endl;
 	}
-
+	catch (InitalizingControllerException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch (InitalizingViewException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	
 	#ifdef _WIN32
 	system("PAUSE");

@@ -1,5 +1,9 @@
-#ifndef GOF_GRAPHICS
-#define GOF_GRAPHICS
+/**
+Graphics class.
+@author Damian Mazurkiewicz
+*/
+#ifndef GOL_GRAPHICS
+#define GOL_GRAPHICS
 
 #ifdef _WIN32
 #include <SDL.h>
@@ -16,6 +20,11 @@
 #include <string>
 #include <memory>
 
+/**
+This class provides interface for SDL systems. It holds all graphic, fonts for simulation.
+It has methods for drawing components of the simulation on the screen. This class implements
+the singleton design pattern.
+*/
 class Graphics
 {
 public:
@@ -52,7 +61,7 @@ public:
 	std::shared_ptr<SDL_Texture> get(enum TextureID id);
 
 	/**
-	@return font corrwsponding to given font id.
+	@return font corresponding to given font id.
 	*/
 	std::shared_ptr<TTF_Font> get(enum FontID id);
 
@@ -62,10 +71,15 @@ public:
 	@param height height of window in pixels.
 	*/
 	void setWindowSize(int width, int height);
+
+	/**
+	Set title of the simulation screen.
+	@param title new title.
+	*/
 	void setWindowTitle(const std::string & title);
 
 	/**
-	Draw image on the screen.
+	Draw scaled image on the screen, relative to the camera.
 	@param camera		 SDL_Rect object which is enclosing area of the screen.
 	@param tex			 texture that has to be drawed.
 	@param x			 horizontal position on the screen.
@@ -78,9 +92,9 @@ public:
 	void draw(const SDL_Rect& camera, std::shared_ptr<SDL_Texture> tex, int x, int y, bool centered = false, double angle = 0, Uint8 alpha = 255);
 
 	/**
-	Draw text on the screen.
+	Draw text on the screen relative to the camera.
 	@param camera		 SDL_Rect object which is enclosing area of the screen.
-	@param font		 font used to print text.
+	@param font		     font used to print text.
 	@param message		 message that has to be printed.
 	@param x			 horizontal position on the screen.
 	@param y			 vertical position on the screen.
@@ -89,7 +103,7 @@ public:
 	void renderText(const SDL_Rect& camera, std::shared_ptr<TTF_Font> font, const std::string& message, int x, int y, const SDL_Color& color);
 
 	/**
-	Draw frame in shape of rectangle on the screen filled with given texture.
+	Draw frame in shape of rectangle on the screen filled with given texture relative to the camera.
 	@param camera		 when is not null, rectangle will be in position relative to thic camera position.
 	@param rectangle    rectangle meaning area we want to cover with frame.
 	@param filling		 texture, which is intender to cover the area of the frame.
@@ -117,7 +131,7 @@ public:
 	void drawPoint(const SDL_Rect& camera, int x, int y, const SDL_Color& color);
 
 	/**
-	Clean the screen, remove anything drawn on it .
+	Clean the screen, remove everything drawn on it.
 	*/
 	void clearScreen();
 
@@ -126,20 +140,16 @@ public:
 	*/
 	void renderScreen();
 
-	inline double getScale() const
-	{
-		return scale_;
-	}
+	inline double getScale() const	{return scale_;}
 
-	inline void setScale(double scale)
-	{
-		scale_ = scale;
-	}
+	inline void setScale(double scale)	{scale_ = scale;}
 
-	inline void setScaledPosition(int& position, int cameraAxis)
+	/**Get new position on certain axis, relative to the camera, after scaling.*/
+	inline void setScaledPosition(int& position, int cameraAxis) 
 	{
 		position = static_cast<int>((position - cameraAxis)*scale_ + cameraAxis);
 	}
+
 	inline int getScaledPosition(int position, int cameraAxis)
 	{
 		setScaledPosition(position, cameraAxis);
@@ -170,4 +180,4 @@ private:
 
 	double scale_;
 };
-#endif //GOF_GRAPHICS
+#endif //GOL_GRAPHICS

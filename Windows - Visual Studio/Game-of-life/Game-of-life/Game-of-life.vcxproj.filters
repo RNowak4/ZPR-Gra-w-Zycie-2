@@ -132,20 +132,11 @@
     <ClInclude Include="..\..\..\Model\ViewStructs.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\View\TimeEvent.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Model\Constants.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\View\Assets.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Model\Parameters.h">
       <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\View\SdlHelper.h">
-      <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Controller\Controller.h">
       <Filter>Header Files\Controller</Filter>
@@ -212,9 +203,6 @@
     <ClCompile Include="..\..\..\Model\AnimalData.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Model\AnimalViewParameters.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Model\Attributes.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
@@ -223,12 +211,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Herbivore.cpp">
       <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Modifiers.cpp">
-      <Filter>Source Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Model\Actions\TestAction.cpp">
-      <Filter>Source Files\Model\Actions</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Model\Actions\Follow.cpp">
       <Filter>Source Files\Model\Actions</Filter>
@@ -269,17 +251,11 @@
     <ClCompile Include="..\..\..\Model\Parameters.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\View\SdlHelper.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Model\Constants.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Controller\Controller.cpp">
       <Filter>Source Files\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\View\Assets.cpp">
-      <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\View\Graphics.cpp">
       <Filter>Source Files\View</Filter>
