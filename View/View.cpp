@@ -1,6 +1,7 @@
 /**
-Definitions of View methods.
-*@author Damian Mazurkiewicz
+@file View.cpp
+@brief Definitions of View methods.
+@author Damian Mazurkiewicz
 */
 
 #include <sstream>
