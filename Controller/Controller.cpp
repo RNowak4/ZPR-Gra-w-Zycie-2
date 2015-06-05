@@ -1,5 +1,6 @@
 /**
-Implementation of Controller methods/
+@file Controller.cpp
+@brief Implementation of Controller methods.
 @author Damian Mazurkiewicz
 */
 #include "Controller.h"
