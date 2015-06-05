@@ -23,7 +23,11 @@ private:
 	static normal_distribution<double> sickChanceDistribution;
 	static normal_distribution<double> mutationDistribution;
 	static normal_distribution<double> mutationLifeDistribution;
-	void normalizaAll();
+	/**
+	 *@function normalizeAll
+	 *@brief 	Function is used to normalize attributes numerical values.
+	 */
+	void normalizeAll();
 
 public:
 	double maximalSpeed_;
@@ -38,18 +42,18 @@ public:
 	int lifeLen_;
 
 	/**
-	*@function Attributes
-	*@brief 	Default constructor of Attributes class.
-	*@brief		Used to randomly choosing important for animals variables.
-	*/
+	 *@function Attributes
+	 *@brief 	Default constructor of Attributes class.
+	 *@brief		Used to randomly choosing important for animals variables.
+	 */
 	Attributes();
 
 	/**
-	*@function inheritAttributes
-	*@brief 	Function is used to inherit attributes when child is being borned.
-	*@argument second_attributes -	attributes of the partner.
-	*@return	inherited attributes.
-	*/
+	 *@function inheritAttributes
+	 *@brief 	Function is used to inherit attributes when child is being borned.
+	 *@argument second_attributes -	attributes of the partner.
+	 *@return	inherited attributes.
+	 */
 	Attributes inheritAttributes(const Attributes& second_attributes) const;
 };
 
