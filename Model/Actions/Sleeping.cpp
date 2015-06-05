@@ -17,8 +17,8 @@
 
 class Animal;
 
-Sleeping::Sleeping(Animal* animalPtr_) :
-		Action(animalPtr_) {
+Sleeping::Sleeping(Animal* animal_ptr) :
+		Action(animal_ptr) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->stopTurning();
 	animalPtr->setAcceleration(0.0);

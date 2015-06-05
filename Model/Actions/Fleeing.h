@@ -15,7 +15,7 @@ private:
 	Animal* hunter;
 
 public:
-	Fleeing(Animal* animalPtr_, Animal* hunter_);
+	Fleeing(Animal* animal_ptr, Animal* hunter_);
 	virtual ~Fleeing();
 	void performAction();
 	Action* chooseNextAction();

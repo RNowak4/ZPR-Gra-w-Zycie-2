@@ -17,7 +17,6 @@
 #include "AnimalData.h"
 #include "AnimalViewParameters.h"
 #include "Attributes.h"
-#include "Modifiers.h"
 #include "States/State.h"
 #include "ViewStructs.h"
 
@@ -30,7 +29,6 @@ typedef shared_ptr<State> StatePtr;
 
 class Animal {
 private:
-	Modifiers animalModifiers;
 	Coordinates coordinates_;
 	Sex sex_;
 	double velocity;
@@ -207,8 +205,8 @@ public:
 	 *@brief 	Sets looking angle of an animal
 	 *@argument velutToSet	- value which will be set
 	 */
-	void setLookingAngle(unsigned valueToSet) {
-		locationData_.lookingAngle = valueToSet;
+	void setLookingAngle(unsigned value_to_set) {
+		locationData_.lookingAngle = value_to_set;
 	}
 
 	/**
@@ -216,8 +214,8 @@ public:
 	 *@brief 	Sets velocity of an animal
 	 *@argument velutToSet	- value which will be set
 	 */
-	void setVelocity(double valueToSet) {
-		velocity = valueToSet;
+	void setVelocity(double value_to_set) {
+		velocity = value_to_set;
 	}
 
 	/**
@@ -225,8 +223,8 @@ public:
 	 *@brief 	Sets acceleration of an animal
 	 *@argument velutToSet	- value which will be set
 	 */
-	void setAcceleration(double valueToSet) {
-		acceleration = valueToSet;
+	void setAcceleration(double value_to_set) {
+		acceleration = value_to_set;
 	}
 
 	/**
@@ -272,7 +270,7 @@ public:
 		return sleepNeed_;
 	}
 
-	void addState(StatePtr newState);
+	void addState(StatePtr new_state);
 
 	void looseState(const string& state_name);
 
@@ -296,7 +294,7 @@ public:
 		return childrenNumber;
 	}
 
-	void deleteChild(Animal* animalPtr);
+	void deleteChild(Animal* animal_ptr);
 };
 
 #endif	/* ANIMAL_H */

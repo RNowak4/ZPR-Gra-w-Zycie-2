@@ -15,7 +15,7 @@ private:
 	static const unsigned decreaseValue = 200;
 
 public:
-	CarnivoreSleeping(Animal* animalPtr_);
+	CarnivoreSleeping(Animal* animal_ptr);
 	virtual ~CarnivoreSleeping();
 	void performAction();
 	Action* chooseNextAction();

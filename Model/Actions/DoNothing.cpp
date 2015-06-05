@@ -10,8 +10,8 @@
 #include "../Animal.h"
 #include "../Model.h"
 
-DoNothing::DoNothing(Animal* animalPtr_) :
-		Action(animalPtr_) {
+DoNothing::DoNothing(Animal* animal_ptr) :
+		Action(animal_ptr) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->stopTurning();

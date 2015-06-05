@@ -16,7 +16,7 @@ using namespace std;
 
 class CarnivoreRandomWalking: public RandomWalking {
 public:
-	CarnivoreRandomWalking(Animal* animalPtr_);
+	CarnivoreRandomWalking(Animal* animal_ptr);
 	virtual ~CarnivoreRandomWalking();
 	Action* chooseNextAction();
 	string toString() {

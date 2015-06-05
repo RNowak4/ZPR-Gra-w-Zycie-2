@@ -12,8 +12,8 @@
 #include "../ViewStructs.h"
 #include "CarnivoreRandomWalking.h"
 
-Chasing::Chasing(Animal* animalPtr_, Animal* animalPtr) :
-		Action(animalPtr_), animalToFollowPtr(animalPtr) {
+Chasing::Chasing(Animal* animal_ptr, Animal* animal_ptr_2) :
+		Action(animal_ptr), animalToFollowPtr(animal_ptr_2) {
 	this->animalPtr->setAcceleration(0.1);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(

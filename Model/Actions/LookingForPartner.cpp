@@ -21,8 +21,8 @@
 #include "Hunting.h"
 #include "Sleeping.h"
 
-LookingForPartner::LookingForPartner(Animal* animalPtr_) :
-		RandomWalking(animalPtr_) {
+LookingForPartner::LookingForPartner(Animal* animal_ptr) :
+		RandomWalking(animal_ptr) {
 }
 
 LookingForPartner::~LookingForPartner() {

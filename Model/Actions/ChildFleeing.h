@@ -15,7 +15,7 @@ private:
 	Animal* hunter;
 
 public:
-	ChildFleeing(Animal* animalPtr_, Animal* motherPtr_, Animal* hunter);
+	ChildFleeing(Animal* animal_ptr, Animal* mother_ptr, Animal* hunter);
 	virtual ~ChildFleeing();
 	void performAction();
 	Action* chooseNextAction();

@@ -31,7 +31,7 @@ public:
 	 *@brief Constructor of Action class - sets animalPtr and modelPtr values
 	 *@argument animalPtr_ -	pointer to the Animal
 	 */
-	Action(Animal* animalPtr_);
+	Action(Animal* animal_ptr);
 
 	/**
 	 *@function Action
@@ -39,8 +39,8 @@ public:
 	 *@argument animalPtr_ -	pointer to the Animal
 	 *@argument modelPtr_ -	pointer to the model
 	 */
-	Action(Animal* animalPtr_, Model* modelPtr_) :
-			animalPtr(animalPtr_), modelPtr(modelPtr_) {
+	Action(Animal* animal_ptr, Model* model_ptr) :
+			animalPtr(animal_ptr), modelPtr(model_ptr) {
 
 	}
 

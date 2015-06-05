@@ -16,8 +16,8 @@
 #include "LookingForPartner.h"
 #include "Sleeping.h"
 #include <iostream>
-HerbivoreRandomWalking::HerbivoreRandomWalking(Animal* animalPtr_) :
-		RandomWalking(animalPtr_) {
+HerbivoreRandomWalking::HerbivoreRandomWalking(Animal* animal_ptr) :
+		RandomWalking(animal_ptr) {
 }
 
 HerbivoreRandomWalking::~HerbivoreRandomWalking() {

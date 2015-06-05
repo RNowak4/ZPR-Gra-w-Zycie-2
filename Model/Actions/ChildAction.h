@@ -15,7 +15,7 @@ protected:
 	Animal* motherPtr;
 
 public:
-	ChildAction(Animal* animalPtr_, Animal* motherPtr_);
+	ChildAction(Animal* animal_ptr, Animal* mother_ptr);
 	virtual ~ChildAction();
 	virtual void performAction() = 0;
 	virtual Action* chooseNextAction() = 0;

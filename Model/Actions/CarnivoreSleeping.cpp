@@ -16,8 +16,8 @@
 
 class Animal;
 
-CarnivoreSleeping::CarnivoreSleeping(Animal* animalPtr_) :
-		CarnivoreAction(animalPtr_) {
+CarnivoreSleeping::CarnivoreSleeping(Animal* animal_ptr) :
+		CarnivoreAction(animal_ptr) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->stopTurning();
 	animalPtr->setAcceleration(0.0);

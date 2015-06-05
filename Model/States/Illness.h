@@ -14,11 +14,11 @@
 
 class Illness: public State {
 public:
-	Illness(Animal* animalPtr_);
+	Illness(Animal* animal_ptr);
 	~Illness();
 	string toString();
-	bool isThatMe(string stateName) {
-		if (stateName == "Illness")
+	bool isThatMe(string state_name) {
+		if (state_name == "Illness")
 			return true;
 		return false;
 	}

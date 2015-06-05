@@ -58,9 +58,9 @@ public:
 	 *@argument y -	position on y axis
 	 */
 	void createHerbivore(unsigned x, unsigned y);
-	void createCarnivoreChild(unsigned x, unsigned y,
+	Animal* createCarnivoreChild(unsigned x, unsigned y,
 			const Attributes& attributes, Animal* motherPtr);
-	void createHerbivoreChild(unsigned x, unsigned y,
+	Animal* createHerbivoreChild(unsigned x, unsigned y,
 			const Attributes& attributes, Animal* motherPtr);
 
 	/**

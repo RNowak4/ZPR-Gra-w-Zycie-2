@@ -7,8 +7,8 @@
 
 #include "ChildAction.h"
 
-ChildAction::ChildAction(Animal* animalPtr_, Animal* motherPtr_) :
-		Action(animalPtr_), motherPtr(motherPtr_) {
+ChildAction::ChildAction(Animal* animal_ptr, Animal* mother_ptr) :
+		Action(animal_ptr), motherPtr(mother_ptr) {
 }
 
 ChildAction::~ChildAction() {

@@ -10,10 +10,10 @@
 #include "../Animal.h"
 #include "../Attributes.h"
 
-Illness::Illness(Animal* animalPtr_) :
-		State(animalPtr_) {
-	animalPtr_->getAttributes().strength_ -= 4.0;
-	animalPtr_->getAttributes().lifeLen_ -= 100;
+Illness::Illness(Animal* animal_ptr) :
+		State(animal_ptr) {
+	animal_ptr->getAttributes().strength_ -= 4.0;
+	animal_ptr->getAttributes().lifeLen_ -= 100;
 }
 
 Illness::~Illness() {

@@ -15,7 +15,7 @@ private:
 	Animal* animalToFollowPtr;
 
 public:
-	Copulation(Animal* animalPtr_, Animal* animalToFollow);
+	Copulation(Animal* animal_ptr, Animal* animal_to_follow);
 	virtual ~Copulation();
 	void performAction();
 	Action* chooseNextAction();

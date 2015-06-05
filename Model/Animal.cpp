@@ -12,8 +12,8 @@
 
 #include "Parameters.h"
 
-Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
-		animalModifiers(), actualAttributes_() {
+Animal::Animal(unsigned x, unsigned y, AnimalType animal_type) :
+		actualAttributes_() {
 	locationData_.coordinates_.x = x;
 	locationData_.coordinates_.y = y;
 
@@ -43,7 +43,7 @@ Animal::Animal(unsigned x, unsigned y, AnimalType animalType) :
 }
 
 Animal::Animal(unsigned x, unsigned y, Attributes modifiers,
-		AnimalType animalType) :
+		AnimalType animal_type) :
 		Animal(x, y) {
 	actualAttributes_ = modifiers;
 	dead = false;
@@ -73,22 +73,23 @@ bool Animal::isThatMe(unsigned x, unsigned y) {
 }
 
 AnimalData* Animal::getAnimalData() {
-	AnimalData* dataToReturn = new AnimalData();
+	AnimalData* data_to_return = new AnimalData();
 
-	dataToReturn->setActionName(currentAction->toString());
+	data_to_return->setActionName(currentAction->toString());
 
 	for (auto state : statesList)
-		dataToReturn->pushString(state->toString());
+		data_to_return->pushString(state->toString());
 
-	dataToReturn->pushPair(string("Eat need"), floor(eatNeed_ * 10) / 10);
-	dataToReturn->pushPair(string("Sleep need"), floor(sleepNeed_ * 10) / 10);
-	dataToReturn->pushPair(string("Speed"),
+	data_to_return->pushPair(string("Eat need"), floor(eatNeed_ * 10) / 10);
+	data_to_return->pushPair(string("Sleep need"), floor(sleepNeed_ * 10) / 10);
+	data_to_return->pushPair(string("Maximal speed"),
 			floor(actualAttributes_.maximalSpeed_ * 10) / 10);
-	dataToReturn->pushPair(string("Strength"),
-			floor(actualAttributes_.strength_ * 10) / 10);
-	dataToReturn->pushPair(string("Children"), childrenNumber);
+	data_to_return->pushPair(string("Strength"),
+			(floor(actualAttributes_.strength_ * 10) / 10 > 0) ?
+					floor(actualAttributes_.strength_ * 10) / 10 : 0);
+	data_to_return->pushPair(string("Children"), childrenNumber);
 
-	return dataToReturn;
+	return data_to_return;
 }
 
 bool Animal::hasState(const string& stateName) {
@@ -144,9 +145,9 @@ Animal* Animal::shouldDie() {
 	return nullptr;
 }
 
-void Animal::addState(StatePtr newState) {
-	if (!hasState(newState->toString())) {
-		statesList.push_back(newState);
+void Animal::addState(StatePtr new_state) {
+	if (!hasState(new_state->toString())) {
+		statesList.push_back(new_state);
 	}
 }
 
@@ -159,11 +160,15 @@ void Animal::looseState(const string& state_name) {
 	}
 }
 
-void Animal::deleteChild(Animal* childPtr) {
+void Animal::deleteChild(Animal* child_ptr) {
 	for (auto it = childrenList.begin(); it != childrenList.end(); ++it) {
-		if(*it == childPtr) {
+		if (*it == child_ptr) {
 			childrenList.erase(it);
-			return;
+			break;
 		}
+	}
+
+	if (childrenList.size() == 0) {
+		looseState("Mother");
 	}
 }

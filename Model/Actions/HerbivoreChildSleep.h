@@ -14,7 +14,7 @@
 
 class HerbivoreChildSleep: public ChildAction {
 public:
-	HerbivoreChildSleep(Animal* animalPtr_, Animal* motherPtr_);
+	HerbivoreChildSleep(Animal* animal_ptr, Animal* mother_ptr);
 	virtual ~HerbivoreChildSleep();
 	void performAction();
 	Action* chooseNextAction();

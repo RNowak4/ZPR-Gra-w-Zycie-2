@@ -12,7 +12,7 @@
 
 class HerbivoreRandomWalking: public RandomWalking {
 public:
-	HerbivoreRandomWalking(Animal* animalPtr_);
+	HerbivoreRandomWalking(Animal* animal_ptr);
 	virtual ~HerbivoreRandomWalking();
 	virtual Action* chooseNextAction();
 	string toString() {

@@ -16,8 +16,8 @@
 
 using namespace std;
 
-Eating::Eating(Animal* animalPtr_) :
-		Action(animalPtr_) {
+Eating::Eating(Animal* animal_ptr) :
+		Action(animal_ptr) {
 	animalPtr->setVelocity(0.0);
 	animalPtr->setAcceleration(0.0);
 	animalPtr->stopTurning();

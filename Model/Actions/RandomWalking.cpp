@@ -17,8 +17,8 @@
 #include "Fleeing.h"
 #include "Sleeping.h"
 
-RandomWalking::RandomWalking(Animal* animalPtr_) :
-		CarnivoreAction(animalPtr_) {
+RandomWalking::RandomWalking(Animal* animal_ptr) :
+		CarnivoreAction(animal_ptr) {
 	animalPtr->setLookingAngle(0);
 	animalPtr->setVelocity(animalPtr->getAttributes().maximalSpeed_ / 4);
 	animalPtr->setAcceleration(0.0);

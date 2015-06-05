@@ -15,8 +15,8 @@
 
 using namespace std;
 
-Follow::Follow(Animal* animalPtr_, Animal* animalPtr) :
-		Action(animalPtr_), animalToFollowPtr(animalPtr) {
+Follow::Follow(Animal* animal_ptr, Animal* animal_ptr_2) :
+		Action(animal_ptr), animalToFollowPtr(animal_ptr_2) {
 	this->animalPtr->setVelocity(2.0);
 	this->animalPtr->setAcceleration(0.1);
 	this->animalPtr->stopTurning();

@@ -17,7 +17,7 @@ private:
 	time_t lastChangeTime;
 
 public:
-	RandomWalking(Animal* animalPtr_);
+	RandomWalking(Animal* animal_ptr);
 	virtual ~RandomWalking();
 	void performAction();
 	virtual Action* chooseNextAction() = 0;

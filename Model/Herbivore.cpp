@@ -29,7 +29,7 @@ Herbivore::Herbivore(unsigned x, unsigned y) :
 Herbivore::Herbivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
 	locationData_.animalType_ = HERBIVORE_CHILD;
-	addState(StatePtr(new Childhood(this)));
+	//addState(StatePtr(new Childhood(this)));
 	locationData_.sightLen_ = actualAttributes_.sightLength_;
 	locationData_.lookingRad = actualAttributes_.sightAngle_;
 	actualAttributes_.maximalSpeed_ -= 1.5;
@@ -43,9 +43,6 @@ void Herbivore::updateStatus() {
 		looseState("Childhood");
 		currentAction = ActionPtr(new HerbivoreRandomWalking(this));
 	}
-
-	if (childrenList.size() == 0)
-		looseState("Mother");
 
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();

@@ -10,8 +10,8 @@
 #include "../Model.h"
 #include "CarnivoreRandomWalking.h"
 
-FeedChildren::FeedChildren(Animal* animalPtr_) :
-		Action(animalPtr_), currentChild(nullptr) {
+FeedChildren::FeedChildren(Animal* animal_ptr) :
+		Action(animal_ptr), currentChild(nullptr) {
 	animalPtr->setVelocity(1.0);
 	animalPtr->stopTurning();
 }

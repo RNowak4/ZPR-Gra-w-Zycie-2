@@ -14,11 +14,11 @@ using namespace std;
 
 class LookingForPartner: public RandomWalking {
 public:
-	LookingForPartner(Animal* animalPtr_);
+	LookingForPartner(Animal* animal_ptr);
 	virtual ~LookingForPartner();
 	Action* chooseNextAction();
 	string toString() {
-		return "Looking for patner";
+		return "Looking for partner";
 	}
 };
 

@@ -7,8 +7,8 @@
 
 #include "CarnivoreAction.h"
 
-CarnivoreAction::CarnivoreAction(Animal* animalPtr_) :
-		Action(animalPtr_) {
+CarnivoreAction::CarnivoreAction(Animal* animal_ptr) :
+		Action(animal_ptr) {
 }
 
 CarnivoreAction::~CarnivoreAction() {

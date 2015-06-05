@@ -14,13 +14,14 @@
 
 class Childhood: public State {
 private:
+	Animal* mother;
 	double dec_values[3];
 
 public:
-	Childhood(Animal* animalPtr_);
+	Childhood(Animal* animal_ptr, Animal* mother_ptr);
 	virtual ~Childhood();
 	string toString();
-	bool isThatMe(string stateName);
+	bool isThatMe(string state_name);
 };
 
 #endif /* CHILDHOOD_H_ */

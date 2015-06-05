@@ -10,6 +10,6 @@
 State::State(): animalPtr(nullptr) {
 }
 
-State::State(Animal* animalPtr_): animalPtr(animalPtr_) {
+State::State(Animal* animal_ptr): animalPtr(animal_ptr) {
 }
 

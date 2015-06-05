@@ -29,7 +29,7 @@ Carnivore::Carnivore(unsigned x, unsigned y) :
 Carnivore::Carnivore(unsigned x, unsigned y, const Attributes& attributes) :
 		Animal(x, y, attributes) {
 	locationData_.animalType_ = CARNIVORE_CHILD;
-	addState(StatePtr(new Childhood(this)));
+	//addState(StatePtr(new Childhood(this)));
 	locationData_.sightLen_ = actualAttributes_.sightLength_;
 	locationData_.lookingRad = actualAttributes_.sightAngle_;
 }
@@ -41,9 +41,6 @@ void Carnivore::updateStatus() {
 		looseState("Childhood");
 		currentAction = ActionPtr(new CarnivoreRandomWalking(this));
 	}
-
-	if(childrenList.size() == 0)
-		looseState("Mother");
 
 	currentAction->performAction();
 	Action* chosenAction = currentAction->chooseNextAction();

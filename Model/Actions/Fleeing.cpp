@@ -12,8 +12,8 @@
 #include "../ViewStructs.h"
 #include "HerbivoreRandomWalking.h"
 
-Fleeing::Fleeing(Animal* animalPtr_, Animal* hunter_) :
-		Action(animalPtr_), hunter(hunter_) {
+Fleeing::Fleeing(Animal* animal_ptr, Animal* hunter_) :
+		Action(animal_ptr), hunter(hunter_) {
 	animalPtr->setAcceleration(0.05);
 	this->animalPtr->setLookingAngle(
 			Model::countAngle(this->animalPtr->returnCoodtinates(),

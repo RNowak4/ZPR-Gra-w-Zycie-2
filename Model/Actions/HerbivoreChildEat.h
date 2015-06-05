@@ -12,7 +12,7 @@
 
 class HerbivoreChildEat: public ChildAction {
 public:
-	HerbivoreChildEat(Animal* animalPtr_, Animal* motherPtr_);
+	HerbivoreChildEat(Animal* animal_ptr, Animal* mother_ptr);
 	virtual ~HerbivoreChildEat();
 	void performAction();
 	Action* chooseNextAction();

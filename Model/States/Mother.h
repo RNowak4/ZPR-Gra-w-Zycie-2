@@ -15,25 +15,11 @@
 #include "State.h"
 
 class Mother: public State {
-private:
-	int currentChildNumber;
-
 public:
-	Mother(Animal* animalPtr_);
+	Mother(Animal* animal_ptr);
 	virtual ~Mother();
 	virtual string toString();
-	virtual bool isThatMe(string stateName);
-	int returnCurrentChildNumber() {
-		return currentChildNumber;
-	}
-
-	void increaseChildNumber() {
-		++currentChildNumber;
-	}
-
-	void decreaseChildNumber() {
-		--currentChildNumber;
-	}
+	virtual bool isThatMe(string state_name);
 };
 
 #endif /* MODEL_STATES_MOTHER_H_ */

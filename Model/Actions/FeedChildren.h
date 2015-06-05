@@ -19,7 +19,7 @@ private:
 	Animal* currentChild;
 
 public:
-	FeedChildren(Animal* animalPtr_);
+	FeedChildren(Animal* animal_ptr);
 	virtual ~FeedChildren();
 	void performAction();
 	Action* chooseNextAction();

@@ -12,7 +12,7 @@
 
 class HerbivoreAction: public Action {
 public:
-	HerbivoreAction(Animal* animalPtr_);
+	HerbivoreAction(Animal* animal_ptr);
 	virtual ~HerbivoreAction();
 	virtual void performAction() = 0;
 	virtual Action* chooseNextAction() = 0;

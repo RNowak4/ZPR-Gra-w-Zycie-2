@@ -15,8 +15,8 @@
 #include "Hunting.h"
 #include "LookingForPartner.h"
 
-CarnivoreRandomWalking::CarnivoreRandomWalking(Animal* animalPtr_) :
-		RandomWalking(animalPtr_) {
+CarnivoreRandomWalking::CarnivoreRandomWalking(Animal* animal_ptr) :
+		RandomWalking(animal_ptr) {
 }
 
 CarnivoreRandomWalking::~CarnivoreRandomWalking() {

@@ -11,8 +11,8 @@
 
 Model* Action::defaultModelPtr;
 
-Action::Action(Animal* animalPtr_) :
-		animalPtr(animalPtr_), modelPtr(defaultModelPtr) {
+Action::Action(Animal* animal_ptr) :
+		animalPtr(animal_ptr), modelPtr(defaultModelPtr) {
 	modelPtr->addAction(this);
 }
 

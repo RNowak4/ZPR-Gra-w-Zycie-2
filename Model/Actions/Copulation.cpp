@@ -12,13 +12,14 @@
 #include "../Animal.h"
 #include "../Attributes.h"
 #include "../Model.h"
+#include "../States/Childhood.h"
 #include "../States/Mother.h"
 #include "../ViewStructs.h"
 #include "CarnivoreRandomWalking.h"
 #include "HerbivoreRandomWalking.h"
 
-Copulation::Copulation(Animal* animalPtr_, Animal* animalToFollow) :
-		Action(animalPtr_), animalToFollowPtr(animalToFollow) {
+Copulation::Copulation(Animal* animal_ptr, Animal* animal_to_follow) :
+		Action(animal_ptr), animalToFollowPtr(animal_to_follow) {
 	this->animalPtr->setAcceleration(0.1);
 	this->animalPtr->stopTurning();
 	this->animalPtr->setLookingAngle(
@@ -46,6 +47,7 @@ Action* Copulation::chooseNextAction() {
 				locationData->coordinates_, locationData->sightLen_,
 				locationData->lookingAngle, locationData->lookingRad);
 		auto animalType = locationData->animalType_;
+		Animal* child;
 		Animal* mother;
 
 		unsigned distance = Model::countDistance(locationData->coordinates_,
@@ -59,7 +61,8 @@ Action* Copulation::chooseNextAction() {
 			}
 
 			if (animalType == CARNIVORE) {
-				modelPtr->createCarnivoreChild(locationData->coordinates_.x,
+				child = modelPtr->createCarnivoreChild(
+						locationData->coordinates_.x,
 						locationData->coordinates_.y,
 						animalPtr->getAttributes().inheritAttributes(
 								animalToFollowPtr->getAttributes()), mother);
@@ -67,7 +70,8 @@ Action* Copulation::chooseNextAction() {
 						ActionPtr(
 								new CarnivoreRandomWalking(animalToFollowPtr)));
 			} else {
-				modelPtr->createHerbivoreChild(locationData->coordinates_.x,
+				child = modelPtr->createHerbivoreChild(
+						locationData->coordinates_.x,
 						locationData->coordinates_.y,
 						animalPtr->getAttributes().inheritAttributes(
 								animalToFollowPtr->getAttributes()), mother);
@@ -77,6 +81,7 @@ Action* Copulation::chooseNextAction() {
 			}
 
 			mother->addState(StatePtr(new Mother(mother)));
+			child->addState(StatePtr(new Childhood(animalPtr, mother)));
 
 			animalToFollowPtr->returnTimeSiceCopulatio() =
 					animalPtr->returnTimeSiceCopulatio() = time(0);

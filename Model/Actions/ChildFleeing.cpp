@@ -12,9 +12,9 @@
 #include "../ViewStructs.h"
 #include "FollowMother.h"
 
-ChildFleeing::ChildFleeing(Animal* animalPtr_, Animal* motherPtr_,
+ChildFleeing::ChildFleeing(Animal* animal_ptr, Animal* mother_ptr,
 		Animal* hunter_) :
-		ChildAction(animalPtr_, motherPtr_), hunter(hunter_) {
+		ChildAction(animal_ptr, mother_ptr), hunter(hunter_) {
 	animalPtr->setAcceleration(0.05);
 	this->animalPtr->setLookingAngle(
 			Model::countAngle(this->animalPtr->returnCoodtinates(),

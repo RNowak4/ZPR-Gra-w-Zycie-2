@@ -14,8 +14,8 @@
 #include "../ViewStructs.h"
 #include "Chasing.h"
 
-Hunting::Hunting(Animal* animalPtr_) :
-		Action(animalPtr_) {
+Hunting::Hunting(Animal* animal_ptr) :
+		Action(animal_ptr) {
 	animalPtr->setLookingAngle(0);
 	animalPtr->setVelocity(
 			this->animalPtr->getAttributes().maximalSpeed_ * 0.75);

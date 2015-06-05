@@ -17,7 +17,7 @@ private:
 	static const unsigned decreaseValue = 150;
 
 public:
-	Eating(Animal* animalPtr);
+	Eating(Animal* animal_ptr);
 	~Eating();
 	void performAction();
 	Action* chooseNextAction();

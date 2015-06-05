@@ -21,7 +21,7 @@ private:
 	std::uniform_int_distribution<int> distribution2;
 
 public:
-	Hunting(Animal*);
+	Hunting(Animal* animal_ptr);
 	virtual ~Hunting();
 	void performAction();
 	Action* chooseNextAction();

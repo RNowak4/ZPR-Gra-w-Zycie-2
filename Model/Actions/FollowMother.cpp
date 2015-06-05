@@ -15,8 +15,8 @@
 #include "HerbivoreChildEat.h"
 #include "HerbivoreChildSleep.h"
 
-FollowMother::FollowMother(Animal* animalPtr_, Animal* motherPtr_) :
-		ChildAction(animalPtr_, motherPtr_) {
+FollowMother::FollowMother(Animal* animal_ptr, Animal* mother_ptr) :
+		ChildAction(animal_ptr, mother_ptr) {
 	this->animalPtr->setVelocity(
 			this->animalPtr->getAttributes().maximalSpeed_ / 2.0);
 	this->animalPtr->stopTurning();

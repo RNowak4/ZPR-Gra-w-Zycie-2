@@ -73,33 +73,36 @@ std::vector<const LocationData*> Model::getAnimalsLocationData() {
 }
 
 void Model::createCarnivore(unsigned x, unsigned y) {
-	Animal* carnivorePtr = new Carnivore(x, y);
-	animalList_.push_back(carnivorePtr);
-	carnivorePtr->setAction(
-			shared_ptr < Action > (new CarnivoreRandomWalking(carnivorePtr)));
+	Animal* carnivore_ptr = new Carnivore(x, y);
+	animalList_.push_back(carnivore_ptr);
+	carnivore_ptr->setAction(
+			shared_ptr < Action > (new CarnivoreRandomWalking(carnivore_ptr)));
 }
 
 void Model::createHerbivore(unsigned x, unsigned y) {
-	Animal* herbivorePtr = new Herbivore(x, y);
-	animalList_.push_back(herbivorePtr);
-	herbivorePtr->setAction(
-			shared_ptr < Action > (new HerbivoreRandomWalking(herbivorePtr)));
+	Animal* herbivore_ptr = new Herbivore(x, y);
+	animalList_.push_back(herbivore_ptr);
+	herbivore_ptr->setAction(
+			shared_ptr < Action > (new HerbivoreRandomWalking(herbivore_ptr)));
 }
 
-void Model::createCarnivoreChild(unsigned x, unsigned y,
+Animal* Model::createCarnivoreChild(unsigned x, unsigned y,
 		const Attributes& attributes, Animal* motherPtr) {
-	Animal* carnivorePtr = new Carnivore(x, y, attributes);
-	carnivorePtr ->setAction(
-			shared_ptr < Action > (new FollowMother(carnivorePtr , motherPtr)));
-	animalList_.push_back(carnivorePtr);
+	Animal* carnivore_ptr = new Carnivore(x, y, attributes);
+	carnivore_ptr ->setAction(
+			shared_ptr < Action > (new FollowMother(carnivore_ptr , motherPtr)));
+	animalList_.push_back(carnivore_ptr);
+	return carnivore_ptr;
 }
 
-void Model::createHerbivoreChild(unsigned x, unsigned y,
+Animal* Model::createHerbivoreChild(unsigned x, unsigned y,
 		const Attributes& attributes, Animal* motherPtr) {
-	Animal* herbivorePtr = new Herbivore(x, y, attributes);
-	herbivorePtr->setAction(
-			shared_ptr < Action > (new FollowMother(herbivorePtr, motherPtr)));
-	animalList_.push_back(herbivorePtr);
+	Animal* herbivore_ptr = new Herbivore(x, y, attributes);
+	herbivore_ptr->setAction(
+			shared_ptr < Action > (new FollowMother(herbivore_ptr, motherPtr)));
+	animalList_.push_back(herbivore_ptr);
+
+	return herbivore_ptr;
 }
 
 bool Model::registerAnimal(unsigned x, unsigned y) {
@@ -261,7 +264,7 @@ std::vector<Animal*> Model::getNearlyAnimals(Coordinates coordinates,
 }
 
 void Model::killAnimal(Animal* animalPtr) {
-	Animal* tmpPtr;
+	Animal* temp_ptr;
 
 	for (auto action : actionsList_) {
 		action->deleteAnimal(animalPtr);
@@ -273,21 +276,21 @@ void Model::killAnimal(Animal* animalPtr) {
 		}
 
 		if (*it == animalPtr) {
-			tmpPtr = *it;
+			temp_ptr = *it;
 			animalList_.erase(it);
-			delete tmpPtr;
+			delete temp_ptr;
 			break;
 		}
 	}
 }
 
-void Model::addAction(Action* actionPtr) {
-	actionsList_.push_back(actionPtr);
+void Model::addAction(Action* action_ptr) {
+	actionsList_.push_back(action_ptr);
 }
 
-void Model::deleteAction(Action* actionPtr) {
+void Model::deleteAction(Action* action_ptr) {
 	for (auto it = actionsList_.begin(); it != actionsList_.end(); ++it) {
-		if (*it == actionPtr) {
+		if (*it == action_ptr) {
 			actionsList_.erase(it);
 			break;
 		}
