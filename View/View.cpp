@@ -7,7 +7,6 @@
 #include <sstream>
 #include "View.h"
 #include  "../Model/Model.h"
-#include "../Model/Constants.h"
 #include "../Controller/Controller.h"
 #include "../Exception/GameOfLifeException.h"
 
