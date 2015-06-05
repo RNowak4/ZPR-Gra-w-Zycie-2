@@ -11,6 +11,8 @@ const double Constants::DEFAULT_MAXIMAL_VALUE = 10.0;
 
 const time_t Constants::DEFAULT_INTERVAL = 25;
 
+const double Constants::MAX_SIMULATION_SPEED = 5.0;
+
 const unsigned Constants::DEFAULT_COPULATION_RANGE = 5;
 
 const unsigned Constants::DEFAULT_ACTION_TIME_CHANGE = 1;

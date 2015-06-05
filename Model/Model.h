@@ -15,6 +15,7 @@
 #include "Actions/Action.h"
 #include "Animal.h"
 #include "AnimalData.h"
+#include "Constants.h"
 #include "Parameters.h"
 #include "ViewStructs.h"
 
@@ -208,6 +209,8 @@ public:
 	 */
 	void fasterSimulation() {
 		Parameters::simulationSpeed += 0.1;
+		if (Parameters::simulationSpeed > Constants::MAX_SIMULATION_SPEED)
+			Parameters::simulationSpeed = 5.0;
 	}
 
 private:

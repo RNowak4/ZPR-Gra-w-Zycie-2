@@ -35,6 +35,8 @@ public:
 
 	const static unsigned DEFAULT_COPULATION_RANGE;
 
+	const static double MAX_SIMULATION_SPEED;
+
 	const static unsigned DEFAULT_ACTION_TIME_CHANGE;
 
 	const static unsigned DEFAULT_HERBIVORE_SIGHT_LEN;
