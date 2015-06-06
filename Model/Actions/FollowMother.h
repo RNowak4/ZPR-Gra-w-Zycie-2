@@ -15,6 +15,10 @@
 Class that represents following mother action being performed by child animal.
 */
 class FollowMother: public ChildAction {
+private:
+	const static unsigned MIN_DIST = 60;
+	const static unsigned MAX_DIST = 100;
+
 public:
 	FollowMother(Animal*, Animal*);
 	virtual ~FollowMother();

@@ -38,9 +38,10 @@ void FollowMother::performAction() {
 		animalPtr->setLookingAngle(lookingAngle);
 
 		if (Model::countDistance(animalPtr->returnCoodtinates(),
-				motherPtr->returnCoodtinates()) < 80)
+				motherPtr->returnCoodtinates()) < MIN_DIST)
 			animalPtr->setVelocity(0.0);
-		else
+		else if (Model::countDistance(animalPtr->returnCoodtinates(),
+				motherPtr->returnCoodtinates()) > MAX_DIST)
 			animalPtr->setVelocity(
 					this->animalPtr->getAttributes().maximalSpeed_ / 2.0);
 	}
