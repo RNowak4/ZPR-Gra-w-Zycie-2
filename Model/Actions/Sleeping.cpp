@@ -31,7 +31,7 @@ Sleeping::~Sleeping() {
 }
 
 void Sleeping::performAction() {
-	animalPtr->returnSleepNeed() -= 0.2;
+	animalPtr->returnSleepNeed() -= 0.02;
 }
 
 Action* Sleeping::chooseNextAction() {

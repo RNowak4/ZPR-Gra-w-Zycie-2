@@ -31,7 +31,7 @@ CarnivoreSleeping::~CarnivoreSleeping() {
 }
 
 void CarnivoreSleeping::performAction() {
-	animalPtr->returnSleepNeed() -= 0.2;
+	animalPtr->returnSleepNeed() -= 0.02;
 }
 
 Action* CarnivoreSleeping::chooseNextAction() {

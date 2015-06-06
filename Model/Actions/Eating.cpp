@@ -31,7 +31,7 @@ Eating::~Eating() {
 }
 
 void Eating::performAction() {
-	animalPtr->returnEatNeed() -= 0.2;
+	animalPtr->returnEatNeed() -= 0.02;
 }
 
 Action* Eating::chooseNextAction() {
